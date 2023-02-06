@@ -144,9 +144,6 @@ A \textbf{\textit{splitting field}} of a polynomial \(p(x)\) is the smallest fie
 \begin{example}
 If we have a polynomial \(p(x) = x^4 - 12x^2 + 35\) the splitting field of \(p(x)\) is \(\mathbb{Q}[\sqrt{5},\sqrt{7}]\) as it contains all of the roots of \(p(x)\) and if it was any smaller it would not contain all of the roots or would not be a field.
 \end{example}
-\begin{definition}
-    The degree of the field extension, $deg(L:K)=[L:K]$ is the dimension of the vector space $L$ over $K$
-\end{definition}
 
 \begin{definition}
     If $L/K$ is a field extensions, we call any field $M$ with $K \subseteq M \subseteq L$ an \textbf{intermediate field.}
@@ -166,6 +163,9 @@ Taking the extension field \(K = \mathbb{Q}(\sqrt{2}, i)\), we prove that this c
 \end{example}
 
 \subsection{The Degree of a Field Extension}
+\begin{definition}
+    The degree of the field extension, $\deg(L:K)=[L:K]$ is the dimension of the vector space $L$ over $K$.
+\end{definition}
 \begin{theorem}[Tower Theorem] If M is an intermediate field of a finite field extension $L/K$ then:
 \begin{equation*}
     [L:K] = [L:M]\cdot[M:K]
