@@ -164,9 +164,13 @@ Taking the extension field \(K = \mathbb{Q}(\sqrt{2}, i)\), we prove that this c
 
 \subsection{The Degree of a Field Extension}
 \begin{definition}
-    The degree of the field extension, $\deg(L:K)=[L:K]$ is the dimension of the vector space $L$ over $K$.
+    The \textbf{degree} of the field extension, $\deg(L:K)=[L:K]$ is the dimension of the vector space $L$ over $K$.
 \end{definition}
-\begin{theorem}[Tower Theorem] If M is an intermediate field of a finite field extension $L/K$ then:
+\begin{definition}
+    A field extension is called \textbf{finite} if its degree is finite. 
+\end{definition}
+\begin{theorem}[Tower Theorem] \label{thm:tower-theorem}
+    If M is an intermediate field of a finite field extension $L/K$ then:
 \begin{equation*}
     [L:K] = [L:M]\cdot[M:K]
 \end{equation*}
@@ -193,19 +197,74 @@ Suppose that for some $c_{ij} \in K$: $\sum^m_{i=1} \sum^n_{j=1} c_{ij}\lambda_i
 
 \section{Galois Groups}
 \begin{definition}
-    Given a field F which is a field extension of K we have a collection of \(G\) \(K\)-automorphisms $\phi$ of $F$, such that $\phi(a) = a $ for any $ a \in K$, the collection \(G\) is called the \textbf{Galois group} of the field extension \(F\) over \(K\), usually written \(Gal(F/K)\). In the case that \(F\) is a splitting field of a polynomial \(p(x)\), \(G\) is called the Galois group of \(p(x)\), usually written \(Gal(p)\).
+    Given a field $F$ which is a field extension of $K$ we have a collection of \(G\) \(K\)-automorphisms $\phi$ of $F$, such that $\phi(a) = a $ for any $ a \in K$, the collection \(G\) is called the \textbf{Galois group} of the field extension \(F\) over \(K\), usually written \(\Gal(F/K)\). In the case that \(F\) is a splitting field of a polynomial \(f\) over $K$, \(G\) is called the Galois group of \(f\), usually written \(\Gal(f)\).
 \end{definition}
 
 This group becomes increasingly useful, especially when dealing with polynomials, as we will see with the following theorem.
 
-\begin{theorem} 
-Let $\phi \in Gal(L/K)$ where $L/K$ is a field extension. Then for $a \in L$, where $a$ is a root of a polynomial $f \in K[X]$, we have $\phi(a)$ is also a root of $f(X)$.
+\begin{theorem} \label{thm:galois-group-permutes-zeros}
+Let $\phi \in Gal(L/K)$ where $L/K$ is a field extension. Then for $a \in L$, where $a$ is a root of a polynomial $f$ over $K$, $\phi(a)$ is also a root of $f$.
 \end{theorem}
 
+\begin{proof}
+    
+\end{proof}
+
 \section{Galois Field Extensions}
+
 \begin{definition}
-A field extension is said to be a \textbf{Galois extension} if it is finite, normal and separable. For $L/K$ Galois, we have that $\Aut(L/K)$ is the \textbf{Galois group} and denoted by $\Gal(L/K).$
+    Let $\Aut(L)$ be the group of automorphisms of a field $L$ and let $G \subseteq \Aut(L)$. Then $$\Fix(G) = \{ \alpha \in L : \sigma(\alpha) = \alpha \quad \forall \sigma \in G \}. $$
 \end{definition}
+Thus $\Fix(G)$ is the subset of elements in $L$ which remain fixed for all automorphisms in $G$. 
+
+For a finite field extension $L/ K$, the Galois group $G = \Gal(L / K)$ is a subgroup of $\Aut(L)$ such that $$K \subseteq \Fix(G) \subseteq L. $$ We are mainly interested in the case where $K = \Fix(G)$.  
+
+\begin{example}
+    It is not always the case that $K = \Fix(G)$. For example, consider when $K = \Q$ and $L = \Q (\alpha)$ where $\alpha = \sqrt[3]{2}$. If $\sigma \in G$, then $\sigma(\alpha)$ is a zero of the polynomial $t^3 - 2$ by Theorem \ref{thm:galois-group-permutes-zeros}, but the two complex zeros are not contained in $L$. Thus $\sigma(\alpha) = \alpha$ and $G = \{ \Id \}$. We see that $\Fix(G) = L \neq K$. 
+\end{example}
+
+To ensure that $K = \Fix(G)$, certain requirements must be met by the finite field extension $L / K$. Specifically, it must be both normal and separable, as defined below.
+
+\begin{definition}
+    A finite field extension $L/K$ is \textbf{normal} if $L$ is the splitting field for some polynomial $f$ over $K$.
+\end{definition}
+
+
+\begin{definition}
+    Let $f$ be an irreducible polynomial over field $K$ with a splitting field contained in $L$. Then $f$ is separable over $K$ if $f$ takes the form 
+    $$
+        f(t) = k(t - \sigma_1) \dots (t - \sigma_n)
+    $$
+    where $\sigma_i \in L$ are distinct.
+\end{definition}
+
+\begin{theorem} \label{thm:separable-poly-in-C}
+    If $K$ is a subfield of $\C$, then every irreducible polynomial over $K$ is separable. 
+\end{theorem}
+
+\begin{proof}
+    \textbf{TODO}
+\end{proof}
+
+\begin{definition} \label{def:separable-extension}
+    A field extension $L / K$ is \textbf{separable} if for any $\alpha \in L$, the minimal polynomial of $\alpha$ over $K$ is separable over $K$. 
+\end{definition}
+
+\begin{theorem}
+    A field extension $L/K$ such that $K \subseteq L \subseteq \mathbb C$ is separable. 
+\end{theorem}
+
+\begin{proof}
+    This directly follows from Theorem \ref{thm:separable-poly-in-C} and Definition \ref{def:separable-extension}. 
+\end{proof}
+
+\begin{definition}
+A field extension is said to be a \textbf{Galois extension} if it is finite, normal and separable. 
+% For $L/K$ Galois, we have that $\Aut(L/K)$ is the \textbf{Galois group} and denoted by $\Gal(L/K).$
+\end{definition}
+
+
+
 
 \noindent We now look at a theorem which helps to characterise and identify fields, extensions and Galois groups.
 
@@ -214,16 +273,13 @@ A field extension is said to be a \textbf{Galois extension} if it is finite, nor
 \end{theorem}
 
 \begin{proof}
-    Define $F:= \Fix(G)$. Since $L/K$ is a finite Galois extensions and G is its Galois group, we have $L/F$ must also be normal and separable, and therefore is also a Galois extension, with $G \subseteq \Gal(L/F)$.
+    Define $F:= \Fix(G)$. Since $L/K$ is a finite Galois extensions and $G$ is its Galois group, we have $L/F$ must also be normal and separable, and therefore is also a Galois extension, with $G \subseteq \Gal(L/F)$.
 
 \noindent We can also see that $|\Gal(L/F)| = [L:F]$ which implies that $|G|\leq|\Gal(L/K)|=[L:F]$
-Then by the Tower Theorem we see that $|G|=[L:K]=[L:F][F:K]\geq [L:F]$.
+Then by the Theorem \ref{thm:tower-theorem} we see that $|G|=[L:K]=[L:F][F:K]\geq [L:F]$.
 
-Thus we see that $[L:F]\leq|G|\leq[L:F]$, therefore $|G|=[L:F]$ and therefore in the tower theorem, we see that $[F:K]$ must equal 1, and thus $F:=\Fix(G) = K$.
+Thus we see that $[L:F]\leq|G|\leq[L:F]$, therefore $|G|=[L:F]$ and therefore in Theorem \ref{thm:tower-theorem}, we see that $[F:K]$ must equal 1, and thus $F:=\Fix(G) = K$.
 \end{proof}
-
-\section{Galois Correspondence}
-\subsection{Fundamental Theorem of Galois Theory}
 
 \begin{definition}
     A \textbf{normal closure} of a field extension $L / K$ is an extension $N$ of $L$ such that 
@@ -233,21 +289,24 @@ Thus we see that $[L:F]\leq|G|\leq[L:F]$, therefore $|G|=[L:F]$ and therefore in
     \end{enumerate}
 \end{definition}
 
-\begin{theorem}
-    Let $G$ be a finite subgroup of the group of automorphisms of a field $K$, and let $K_0$ be the fixed field of $G$. Then $[K : K_0] = |G|$. 
-\end{theorem}
+% \begin{theorem}
+%     Let $G$ be a finite subgroup of the group of automorphisms of a field $L$, and let $K = \Fix(G)$. Then $[L : K] = |G|$. 
+% \end{theorem}
 
-\begin{proof}
+% \begin{proof}
     
-\end{proof}
+% \end{proof}
+
+\section{Galois Correspondence}
+\subsection{Fundamental Theorem of Galois Theory}
 
 Group theory tends to look at patterns and symmetries in mathematical objects, and Galois groups have an interesting symmetry. The following theorem describes how the structure of an extension of a field is the same as the subgroups of the Galois groups.
 
-\begin{theorem}[The Fundamental Theorem of Galois Theory] \label{thm:fundamental-theorem} Given a finite Galois extension $L/K$ and its Galois group $G = \Gal(L/K)$, there is a natural bijection between subgroups $H\leq G$ and the intermediate fields $M$ such that $K \subseteq M \subseteq L$:
+\begin{theorem}[The Fundamental Theorem of Galois Theory] \label{thm:fundamental-theorem} Given a Galois extension $L/K$ and its Galois group $G = \Gal(L/K)$, there is a natural bijection between subgroups $H\leq G$ and the intermediate fields $M$ such that $K \subseteq M \subseteq L$:
 
 \begin{itemize}
-    \item $\alpha:M \to \Gal(L/M) \subseteq G$
-    \item $\beta:H \to \Fix(H) \subseteq L$
+    \item $\alpha:M \mapsto \Gal(L/M) \subseteq G$
+    \item $\beta:H \mapsto \Fix(H) \subseteq L$
 \end{itemize}
 where $\alpha$ and $\beta$ are inverses of each other.
 \end{theorem}
@@ -261,6 +320,10 @@ where $\alpha$ and $\beta$ are inverses of each other.
 Hence we can see that the functions $\alpha$ and $\beta$ are inverse to each other.
 \end{proof}
 
+\begin{theorem} \label{thm:correspondence-quotient}
+    If $L / K$ is a Galois extension inside $\C$ and an intermediate field $M$ is a normal extension of $K$, then 
+    $$\Gal(M / K) \cong \Gal(L / K) / \Gal(L / M). $$
+\end{theorem}
 
 \section{Galois Groups and Polynomials}
 
@@ -426,7 +489,7 @@ Another important result from group theory is given below.
 The derivative of $t^n-1$ is $n t^{n-1}$, which is prime to $t^n-1$, so the polynomial $t^n-1$ has no multiple zeros in $L$ by \textbf{Theorem ??}. The group of its zeros under multiplication thus has order $n$ and is cyclic. Let $\omega$ be a generator of this group, and thus $\omega$ is a primitive $n$-th root of unity. Then $L=K(\omega)$. 
 \end{proof}
 
-Here is a speical case of how the Galois group of a polynomial \textbf{(undefined now)} can be considered as a permutation of its zeros.
+Here is a speical case of how the Galois group of a polynomial can be considered as a permutation of its zeros.
 
 
 \begin{theorem} \label{thm:radical-1}
@@ -513,13 +576,13 @@ Let $n \ge 1$ and $\alpha_1 \notin K$. Let $p = n_1$, which is prime, and then $
 \begin{itemize}
     \item Since $L=N\left(\alpha_2, \ldots, \alpha_n\right)$, $L / N$ is a normal radical extension. By induction $\Gal\left(L / N\right)$ is soluble. 
     \item Since $ \omega \in M$ and $\alpha_1^p \in M$, Theorem \ref{thm:radical-2} implies that $N$ is a splitting field for $t^p-\alpha_1^p$ over $M$. Thus $N / M$ is normal. By Theorem \ref{thm:radical-2}, $\Gal\left(N / M\right)$ is abelian and hence soluble. 
-    \item  $L/ K$ is finite and normal, and so is $L / M$. Apply \textcolor{red}{Galois Correspondence} to $L / M$ to deduce that
+    \item  $L/ K$ is finite and normal, and so is $L / M$. Apply Theorem \ref{thm:correspondence-quotient} to $L / M$ to deduce that
     $$
     \Gal\left( N / M \right) \cong \Gal(L / M) / \Gal\left(L / N\right).
     $$
     Hence by Theorem \ref{thm:soluble-main},  $ \Gal(L / M)$ is soluble.
     \item By Theorem \ref{thm:unity-1}, $M$ is the splitting field for $t^p-1$ over $K$. Then the extension $M / K$ is normal. By Theorem \ref{thm:radical-1}, $\Gal(M / K)$ is abelian and hence soluble.
-    \item  \textcolor{red}{Galois Correspondence} applied to $L / K$ yields
+    \item  Apply Theorem \ref{thm:correspondence-quotient} to $L / K$ to obtain
     $$
     \Gal(M / K) \cong \Gal(L / K) / \Gal(L / M). 
     $$
@@ -543,9 +606,9 @@ Let $L=K\left(\alpha_1, \ldots, \alpha_m\right)$ with $\alpha_i^{n_i} \in K\left
 \end{definition}
 
 
-\begin{definition}
-    Let $f$ be a polynomial over a subfield $K$ of $\mathbb{C}$, with splitting field $\Sigma$ over $K$. The \textbf{Galois group} of $f$ over $K$ is defined as $\Gal(\Sigma / K)$.
-\end{definition}
+% \begin{definition}
+%     Let $f$ be a polynomial over a subfield $K$ of $\mathbb{C}$, with splitting field $\Sigma$ over $K$. The \textbf{Galois group} of $f$ over $K$ is defined as $\Gal(\Sigma / K)$.
+% \end{definition}
 
 \begin{theorem} \label{thm:radical-galois-soluble}
     Let $f$ be a polynomial over a subfield $K$ of $\mathbb{C}$. If $f$ is soluble by radicals, then the Galois group of $f$ over $K$ is soluble.
@@ -559,7 +622,7 @@ $$
 K \subseteq K_0 \subseteq \Sigma \subseteq M \subseteq N.
 $$
 Since $M / K_0$ is radical, Theorem \ref{thm:radical-closure} implies that $N / K_0$ is a normal radical extension. By Theorem \ref{thm:radical-3}, $\Gal\left(N / K_0\right)$ is soluble.
-By \textbf{Theorem ??}, the extension $\Sigma / K_0$ is normal. By \textbf{Theorem ??}
+By \textbf{Theorem ??}, the extension $\Sigma / K_0$ is normal. By Theorem \ref{thm:correspondence-quotient}
 $$
 \Gal\left(\Sigma / K_0\right) \cong \Gal\left(N / K_0\right) / \Gal(N / \Sigma).
 $$
@@ -618,7 +681,7 @@ Now we are ready to establish a case where the Galois group of a polynomial over
 
     Complex conjugation restricted to $\Sigma$ is a $\mathbb Q$-automorphism of $\Sigma$. It fixes all $p - 2$ real zeros of $f$ and transposes the two non-real zeros. Therefore $G$ contains a transposition. 
 
-    Take any zero $\alpha$ of $f$. Since $f$ is irreducible, it is the minimal polynomial of $\alpha$. Then by the \textbf{Degree Theorem}, $$[\mathbb Q(\alpha) : \mathbb Q] = \partial f = p. $$ The \textbf{tower law} implies that $$[\Sigma : \mathbb Q] = [\Sigma : \mathbb Q(\alpha)] [ \mathbb Q(\alpha) : \mathbb Q]. $$ By \textbf{Galois Correspondence}, $|G| = [\Sigma : \mathbb Q]$, and thus $p$ divides $|G|$. Theorem \ref{thm:cauchy} gives the existence of an element of order $p$ in $G$, but the only elements of order $p$ in $S_p$ are $p$-cycles. Therefore $G$ contains a $p$-cycle.
+    Take any zero $\alpha$ of $f$. Since $f$ is irreducible, it is the minimal polynomial of $\alpha$. Then by the \textbf{Degree Theorem}, $$[\mathbb Q(\alpha) : \mathbb Q] = \partial f = p. $$ Theorem \ref{thm:tower-theorem} implies that $$[\Sigma : \mathbb Q] = [\Sigma : \mathbb Q(\alpha)] [ \mathbb Q(\alpha) : \mathbb Q]. $$ By \textbf{Galois Correspondence}, $|G| = [\Sigma : \mathbb Q]$, and thus $p$ divides $|G|$. Theorem \ref{thm:cauchy} gives the existence of an element of order $p$ in $G$, but the only elements of order $p$ in $S_p$ are $p$-cycles. Therefore $G$ contains a $p$-cycle.
 
     Hence by Theorem \ref{thm:symmetric-prime}, $ G = S_p$ and therefore $\Gal(\Sigma / \mathbb Q) \cong S_p$.
 \end{proof}
