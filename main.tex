@@ -40,10 +40,11 @@
 \newpage
 \section{Introduction}
 \textcolor{red}{Here we need to introduce the topics we talk about, the historical context behind Galois Theory and possibly the extensions we look at, as well as talking about the extensions}
-\textcolor{blue}{Galois Theory was an open question in mathematics until the start of the 1800s, and the theory originated and was developed due to the following question: ``Does there exist a general solution to a polynomial equation of order five?"  For equations of orders less than or equal to four, the Babylonians had already found a solution to this.}
+\textcolor{blue}{The basis behind Galois Theory was an open question in mathematics until the start of the 1800s, and the theory originated and was developed due to the following question: ``Does there exist a general solution to a polynomial equation of order five?"  For equations of orders less than or equal to four, the Babylonians had already found a solution to this.
+We first look at fields and extensions of fields in order to have a basis.}
 \section{Definitions We Will Need}
 \begin{itemize}
-    \item Field - Let K be a field. This means that K is a commutative ring with 1 st every element in K \ \{0\} has a multiplicative inverse.
+    \item Field - Let K be a field. This means that K is a commutative ring with 1 st every element in $K \backslash \{0\}$ has a multiplicative inverse.
     \item Tower of Fields
     \item Automorphism - A group automorphism is an isomorphism from a group to itself
     \item Monomorphism - A monomorphism is an injective homomorphism of a group $G \rightarrow{} H$
@@ -106,7 +107,7 @@ Let $\lambda = \{\lambda_1,...,\lambda_m\}$ be a basis for $L/M$, and let $\mu =
 
 \noindent Then we have that $x=\sum^m_{i=1}\frac{x_i}{b}\cdot b \cdot \lambda_i = \sum^m_{i=1}\sum^n_{j=1}d_i\cdot \mu_j \cdot \lambda_i$
 
-\noindent If we consider the set $\gamma=\{\lambda_i\mu_j : 1\leq i \leq m, 1\leq j \leq n\}$, and consider from what we have seen above that \textcolor{red}{Find the right words here}, we can see that $\gamma$ spans $[L:K]$.
+\noindent If we consider the set $\gamma=\{\lambda_i\mu_j : 1\leq i \leq m, 1\leq j \leq n\}$, and consider from what we have seen above that $\forall x \in L$ we can write $x$ \textcolor{red}{Find the right words here}, we can see that $\gamma$ spans $L/K$.
 
 Now it is required to show that $\gamma$ is linearly independent, in order to show that it is a basis for $L/K$.
 
@@ -181,6 +182,9 @@ Given a finite Galois extension $L/K$ and its Galois group $G = \Gal(L/K)$, ther
 Proof will go here
 \end{proof}
 \subsection{Abel-Ruffini Theorem}
+
+
+
 \section{Galois Groups and Polynomials}
 
 \subsection{Soluble and Simple Groups}
@@ -524,7 +528,7 @@ We now give a quintic polynomial not soluble by radicals.
     $f$ is irreducible by \textbf{Eisenstein's criterion} with $p = 2$. The degree of $f$ is $5$, which is prime. Calculus shows that $f$ has three real zeros. Thus the Galois group of $f$ is isomorphic to $S_5$ by Theorem \ref{thm:galois-iso-symmetric}. But $S_5$ is not soluble by Theorem \ref{thm:symmetric-not-soluble}. Thus by Theorem \ref{thm:radical-galois-soluble}, $f$ is not soluble by radicals.
 \end{proof}
 
-\section{History of Galios}
+\section{History of Galios Theory}
 
 Notes:
 One of the founders of modern algebra
