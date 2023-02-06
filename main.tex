@@ -27,6 +27,7 @@
 \newcommand{\Gal}{\operatorname{Gal}}
 \newcommand{\Aut}{\operatorname{Aut}}
 \newcommand{\Fix}{\operatorname{Fix}}
+\newcommand{\Id}{\operatorname{Id}}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\C}{\mathbb C}
@@ -59,99 +60,13 @@ We first look at fields and extensions of fields in order to have a basis.}
     \item normal and separable field extensions (Chapter 9 Stewart), including 9.9, 9.13 and 9.14
     \item Proposition 11.4 Stewart (Galois group as a permutation group of the zeros)
 \end{itemize}
-\section{Basics of Field Extensions}
-\begin{definition}
-Let \((G, *,\star )\) be a field. Let \(F\) be a subset of \(G\) such that \((F,*,\star)\) is a field. Then \((F, *,\star)\) is a \textbf{subfield}
- of \((G, *, \star)\).
-\end{definition}
-\begin{definition}
-A field \(F\) is called a \textbf{prime field} of \(K\) if it had no proper (strictly smaller) subfield.
-\end{definition}
-\begin{definition}
-A field \(K\) is said to be a \textbf{field extension} of \(F\), denoted \(K / F\), if \(F\) is a subfield of \(K\). \cite{Moy}
-\end{definition}
-\begin{example}
-The field \(\mathbb{Q}[\sqrt{2}]\) is a field extension of \(\mathbb{Q}\), as \(\mathbb{Q}[\sqrt{2}] = \{a + \sqrt{2}b : a,b \in \mathbb{Q}\}\) we can clearly see that when \(b = 0\) this gives us the rational numbers so \(\mathbb{Q}\) is a subfield of \(\mathbb{Q}[\sqrt{2}]\).
-\end{example}
-\begin{definition}
-For a real number \(\alpha\), if \(p(\alpha)=0\), for some polynomial \(p(x)\), \(\alpha\) is an \textbf{\textit{algebraic number}}.
-\end{definition}
-\begin{theorem}
-If \(\alpha\) is an algebraic number, then \(\mathbb{Q}[\alpha]\) is a field. Similarly, \(\mathbb{Q}[\alpha,\beta]\) is a field for algebraic numbers \(\alpha\) and \(\beta\).
-\end{theorem}
-\begin{proof}
-%proof of Qa as a field
-We know, from the definition, that \(\mathbb{Q}[\alpha,\beta] = \{a + b\alpha + c\beta + d\alpha\beta : a,b,c,d \in \mathbb{Q}\} = \{(x\alpha + y)(p\beta + q) : x,y,p,q \in \mathbb{Q} \text{ where } a = yq, b = xq, c = py \text{ and } d = xp \} = \mathbb{Q}[\alpha,\beta] = K[\beta]\) where \(K = \mathbb{Q}[\alpha]\) is a field, hence we know that \(\mathbb{Q}[\alpha,\beta]\) is a field.  
-\end{proof}
-\begin{definition}
-A \textbf{\textit{splitting field}} of a polynomial \(p(x)\) is the smallest field extension of \(\mathbb{Q}\) which contains all of the roots of \(p(x)\).
-\end{definition}
-\begin{example}
-If we have a polynomial \(p(x) = x^4 - 12x^2 + 35\) the splitting field of \(p(x)\) is \(\mathbb{Q}[\sqrt{5},\sqrt{7}]\) as it contains all of the roots of \(p(x)\) and if it was any smaller it would not contain all of the roots or would not be a field.
-\end{example}
-\begin{definition}
-    The degree of the field extension, $deg(L:K)=[L:K]$ is the dimension of the vector space $L$ over $K$
-\end{definition}
 
-\begin{definition}
-    If $L/K$ is a field extensions, we call any field $M$ with $K \subseteq M \subseteq L$ an \textbf{intermediate field.}
-\end{definition}
-\begin{theorem}
-(Tower Theorem): If M is an intermediate field of a finite field extension $L/K$ then:
-\begin{equation*}
-    [L:K] = [L:M]\cdot[M:K]
-\end{equation*}
-\end{theorem}
-\begin{proof}
-Since we have M is an intermediate field, $K \subseteq M \subseteq L$,
-
-Suppose that we have $[L:M]=m$ and $[M:K]=n$. Then since we have that the subfields are vector spaces, we can takes a basis for each of our field extensions $L/M$ and $M/K$.
-Let $\lambda = \{\lambda_1,...,\lambda_m\}$ be a basis for $L/M$, and let $\mu = \{\mu_1,...,\mu_n\}$ be a basis for $M/K$.
-
-\noindent Then we have that $\forall x \in L$, $x = \sum^m_{i=1}x_i\lambda_i$ for some $x_i \in M$, since $\lambda$ is a basis for $L/M$.
-
-\noindent Now let $b:=\sum^n_{j=1}\mu_j$ and $d_i:=\frac{x_i}{b}$
-
-\noindent Then we have that $x=\sum^m_{i=1}\frac{x_i}{b}\cdot b \cdot \lambda_i = \sum^m_{i=1}\sum^n_{j=1}d_i\cdot \mu_j \cdot \lambda_i$
-
-\noindent If we consider the set $\gamma=\{\lambda_i\mu_j : 1\leq i \leq m, 1\leq j \leq n\}$, and consider from what we have seen above that $\forall x \in L$ we can write $x$ as a linear combination of some elements of elements in $\gamma$. Therefore, we can see that $\gamma$ spans $L/K$.
-
-Now it is required to show that $\gamma$ is linearly independent, in order to show that it is a basis for $L/K$.
-
-Suppose that for some $c_{ij} \in K$: $\sum^m_{i=1} \sum^n_{j=1} c_{ij}\lambda_i\mu_j = 0 $. Then since $\lambda$ is a linearly independent set over $M$ we have that $\forall i \in \{1,...,m\}$:\hspace{0.2cm} $\sum^n_{j=1} c_{ij}\mu_j = 0 $. By seeing that $\mu$ is also a linearly independent set over $K$ we get that $\forall i \ in \{1,...,m\}$ and $\forall j \ in \{1,...,n\}$ we have $c_{ij} = 0$. Which then implies that $\gamma$ is linearly independent and we already know it spans $L/K$, thus it is a basis for $L/K$ and since $|\gamma|=mn$ this implies that $[L:K] = mn = [L:M]\cdot[M:K]$
-
-\end{proof}
-\subsection{Simple Field Extensions}
-\begin{definition}
-An extension field \(F\) of \(K\) is called simple if \(F = K(\alpha)\) for some \(\alpha \in F\).
-\end{definition}
-\begin{example}
-Clearly, \(K = \mathbb{Q}(\sqrt{2})\) is simple.
-\end{example}
-We can also look at some less obvious extension fields which are simple.
-\begin{example}
-Taking the extension field \(K = \mathbb{Q}(\sqrt{2}, i)\), we prove that this can be rewritten using only one element as \(K' = \mathbb{Q}(\sqrt{2} + i)\), and that \(K=K'\) making \(K\) a simple field extension. We know \(K'\) contains
-\[(\sqrt{2} + i)^2\]
-\end{example}
-\section{Introduction to Galois Theory}
-\subsection{Galois Groups}
-\begin{definition}
-    Given a field F which is a field extension of K we have a collection of \(G\) \(K\)-automorphisms $\phi$ of $F$, such that $\phi(a) = a $ for any $ a \in K$, the collection \(G\) is called the \textbf{Galois group} of the field extension \(F\) over \(K\), usually written \(Gal(F/K)\). In the case that \(F\) is a splitting field of a polynomial \(p(x)\), \(G\) is called the Galois group of \(p(x)\), usually written \(Gal(p)\).
-\end{definition}
-
-This group becomes increasingly useful, especially when dealing with polynomials, as we will see with the following theorem.
-
-\begin{theorem} 
-Let $\phi \in Gal(L/K)$ where $L/K$ is a field extension. Then for $a \in L$, where $a$ is a root of a polynomial $f \in K[X]$, we have $\phi(a)$ is also a root of $f(X)$.
-\end{theorem}
-
-\subsection{Basics of polynomials}
-
+\section{Basics of Polynomials}
 Polynomials will often be written in descending order $r_n t^n + r_{n-1} t^{n+1} + ... + r_1 t + r_0$ for $n$
 
 Two polynomials are defined to be equal if and only if all corresponding co-efficients are equal.
 
-If $r = \sum (r_i t^i)$ and $s = \sum (s_i t^i)$ then $r+s = \su$
+If $r = \sum (r_i t^i)$ and $s = \sum (s_i t^i)$ then $r+s = \sum$
 
 \begin{theorem}
     Eisenstein's Criterion - Let 
@@ -197,6 +112,96 @@ proof goes here
     proof goes here
 \end{proof}
 
+\section{Field Extensions}
+
+\subsection{Basics of Field Extensions}
+\begin{definition}
+Let \((G, *,\star )\) be a field. Let \(F\) be a subset of \(G\) such that \((F,*,\star)\) is a field. Then \((F, *,\star)\) is a \textbf{subfield}
+ of \((G, *, \star)\).
+\end{definition}
+\begin{definition}
+A field \(F\) is called a \textbf{prime field} of \(K\) if it had no proper (strictly smaller) subfield.
+\end{definition}
+\begin{definition}
+A field \(K\) is said to be a \textbf{field extension} of \(F\), denoted \(K / F\), if \(F\) is a subfield of \(K\). \cite{Moy}
+\end{definition}
+\begin{example}
+The field \(\mathbb{Q}[\sqrt{2}]\) is a field extension of \(\mathbb{Q}\), as \(\mathbb{Q}[\sqrt{2}] = \{a + \sqrt{2}b : a,b \in \mathbb{Q}\}\) we can clearly see that when \(b = 0\) this gives us the rational numbers so \(\mathbb{Q}\) is a subfield of \(\mathbb{Q}[\sqrt{2}]\).
+\end{example}
+\begin{definition}
+For a real number \(\alpha\), if \(p(\alpha)=0\), for some polynomial \(p(x)\), \(\alpha\) is an \textbf{\textit{algebraic number}}.
+\end{definition}
+\begin{theorem}
+If \(\alpha\) is an algebraic number, then \(\mathbb{Q}[\alpha]\) is a field. Similarly, \(\mathbb{Q}[\alpha,\beta]\) is a field for algebraic numbers \(\alpha\) and \(\beta\).
+\end{theorem}
+\begin{proof}
+%proof of Qa as a field
+We know, from the definition, that \(\mathbb{Q}[\alpha,\beta] = \{a + b\alpha + c\beta + d\alpha\beta : a,b,c,d \in \mathbb{Q}\} = \{(x\alpha + y)(p\beta + q) : x,y,p,q \in \mathbb{Q} \text{ where } a = yq, b = xq, c = py \text{ and } d = xp \} = \mathbb{Q}[\alpha,\beta] = K[\beta]\) where \(K = \mathbb{Q}[\alpha]\) is a field, hence we know that \(\mathbb{Q}[\alpha,\beta]\) is a field.  
+\end{proof}
+\begin{definition}
+A \textbf{\textit{splitting field}} of a polynomial \(p(x)\) is the smallest field extension of \(\mathbb{Q}\) which contains all of the roots of \(p(x)\).
+\end{definition}
+\begin{example}
+If we have a polynomial \(p(x) = x^4 - 12x^2 + 35\) the splitting field of \(p(x)\) is \(\mathbb{Q}[\sqrt{5},\sqrt{7}]\) as it contains all of the roots of \(p(x)\) and if it was any smaller it would not contain all of the roots or would not be a field.
+\end{example}
+\begin{definition}
+    The degree of the field extension, $deg(L:K)=[L:K]$ is the dimension of the vector space $L$ over $K$
+\end{definition}
+
+\begin{definition}
+    If $L/K$ is a field extensions, we call any field $M$ with $K \subseteq M \subseteq L$ an \textbf{intermediate field.}
+\end{definition}
+
+\subsection{Simple Field Extensions}
+\begin{definition}
+An extension field \(F\) of \(K\) is called simple if \(F = K(\alpha)\) for some \(\alpha \in F\).
+\end{definition}
+\begin{example}
+Clearly, \(K = \mathbb{Q}(\sqrt{2})\) is simple.
+\end{example}
+We can also look at some less obvious extension fields which are simple.
+\begin{example}
+Taking the extension field \(K = \mathbb{Q}(\sqrt{2}, i)\), we prove that this can be rewritten using only one element as \(K' = \mathbb{Q}(\sqrt{2} + i)\), and that \(K=K'\) making \(K\) a simple field extension. We know \(K'\) contains
+\[(\sqrt{2} + i)^2\]
+\end{example}
+
+\subsection{The Degree of a Field Extension}
+\begin{theorem}[Tower Theorem] If M is an intermediate field of a finite field extension $L/K$ then:
+\begin{equation*}
+    [L:K] = [L:M]\cdot[M:K]
+\end{equation*}
+\end{theorem}
+\begin{proof}
+Since we have M is an intermediate field, $K \subseteq M \subseteq L$,
+
+Suppose that we have $[L:M]=m$ and $[M:K]=n$. Then since we have that the subfields are vector spaces, we can takes a basis for each of our field extensions $L/M$ and $M/K$.
+Let $\lambda = \{\lambda_1,...,\lambda_m\}$ be a basis for $L/M$, and let $\mu = \{\mu_1,...,\mu_n\}$ be a basis for $M/K$.
+
+\noindent Then we have that $\forall x \in L$, $x = \sum^m_{i=1}x_i\lambda_i$ for some $x_i \in M$, since $\lambda$ is a basis for $L/M$.
+
+\noindent Now let $b:=\sum^n_{j=1}\mu_j$ and $d_i:=\frac{x_i}{b}$
+
+\noindent Then we have that $x=\sum^m_{i=1}\frac{x_i}{b}\cdot b \cdot \lambda_i = \sum^m_{i=1}\sum^n_{j=1}d_i\cdot \mu_j \cdot \lambda_i$
+
+\noindent If we consider the set $\gamma=\{\lambda_i\mu_j : 1\leq i \leq m, 1\leq j \leq n\}$, and consider from what we have seen above that $\forall x \in L$ we can write $x$ as a linear combination of some elements of elements in $\gamma$. Therefore, we can see that $\gamma$ spans $L/K$.
+
+Now it is required to show that $\gamma$ is linearly independent, in order to show that it is a basis for $L/K$.
+
+Suppose that for some $c_{ij} \in K$: $\sum^m_{i=1} \sum^n_{j=1} c_{ij}\lambda_i\mu_j = 0 $. Then since $\lambda$ is a linearly independent set over $M$ we have that $\forall i \in \{1,...,m\}$:\hspace{0.2cm} $\sum^n_{j=1} c_{ij}\mu_j = 0 $. By seeing that $\mu$ is also a linearly independent set over $K$ we get that $\forall i \ in \{1,...,m\}$ and $\forall j \ in \{1,...,n\}$ we have $c_{ij} = 0$. Which then implies that $\gamma$ is linearly independent and we already know it spans $L/K$, thus it is a basis for $L/K$ and since $|\gamma|=mn$ this implies that $[L:K] = mn = [L:M]\cdot[M:K]$
+
+\end{proof}
+
+\section{Galois Groups}
+\begin{definition}
+    Given a field F which is a field extension of K we have a collection of \(G\) \(K\)-automorphisms $\phi$ of $F$, such that $\phi(a) = a $ for any $ a \in K$, the collection \(G\) is called the \textbf{Galois group} of the field extension \(F\) over \(K\), usually written \(Gal(F/K)\). In the case that \(F\) is a splitting field of a polynomial \(p(x)\), \(G\) is called the Galois group of \(p(x)\), usually written \(Gal(p)\).
+\end{definition}
+
+This group becomes increasingly useful, especially when dealing with polynomials, as we will see with the following theorem.
+
+\begin{theorem} 
+Let $\phi \in Gal(L/K)$ where $L/K$ is a field extension. Then for $a \in L$, where $a$ is a root of a polynomial $f \in K[X]$, we have $\phi(a)$ is also a root of $f(X)$.
+\end{theorem}
+
 \section{Galois Field Extensions}
 \begin{definition}
 A field extension is said to be a \textbf{Galois extension} if it is finite, normal and separable. For $L/K$ Galois, we have that $\Aut(L/K)$ is the \textbf{Galois group} and denoted by $\Gal(L/K).$
@@ -205,19 +210,16 @@ A field extension is said to be a \textbf{Galois extension} if it is finite, nor
 \noindent We now look at a theorem which helps to characterise and identify fields, extensions and Galois groups.
 
 \begin{theorem} \label{thm:fixed}
-    Given a finite Galois extension $L/K$ and its Galois group $G=Gal(L/K)$, the following holds:
-    \begin{itemize}
-        \item $K = Fix(G)$
-    \end{itemize}
+    Given a finite Galois extension $L/K$ and its Galois group $G=\Gal(L/K)$, we have $K = \Fix(G)$.
 \end{theorem}
 
 \begin{proof}
-    Define $F:=Fix(G)$. Since $L/K$ is a finite Galois extensions and G is its Galois group, we have $L/F$ must also be normal and separable, and therefore is also a Galois extension, with $G \subseteq Gal(L/F)$.
+    Define $F:= \Fix(G)$. Since $L/K$ is a finite Galois extensions and G is its Galois group, we have $L/F$ must also be normal and separable, and therefore is also a Galois extension, with $G \subseteq \Gal(L/F)$.
 
-\noindent We can also see that $|Gal(L/F)| = [L:F]$ which implies that $|G|\leq|Gal(L/K)|=[L:F]$
-Then by the Tower Theorem we see that $|G|=[L:K]=[L:F][F:K]\geq [L:F]$
+\noindent We can also see that $|\Gal(L/F)| = [L:F]$ which implies that $|G|\leq|\Gal(L/K)|=[L:F]$
+Then by the Tower Theorem we see that $|G|=[L:K]=[L:F][F:K]\geq [L:F]$.
 
-Thus we see that $[L:F]\leq|G|\leq[L:F]$, therefore $|G|=[L:F]$ and therefore in the tower theorem, we see that $[F:K]$ must equal 1, and thus $F:=Fix(G) = K$
+Thus we see that $[L:F]\leq|G|\leq[L:F]$, therefore $|G|=[L:F]$ and therefore in the tower theorem, we see that $[F:K]$ must equal 1, and thus $F:=\Fix(G) = K$.
 \end{proof}
 
 \section{Galois Correspondence}
@@ -241,7 +243,7 @@ Thus we see that $[L:F]\leq|G|\leq[L:F]$, therefore $|G|=[L:F]$ and therefore in
 
 Group theory tends to look at patterns and symmetries in mathematical objects, and Galois groups have an interesting symmetry. The following theorem describes how the structure of an extension of a field is the same as the subgroups of the Galois groups.
 
-\begin{theorem} \label{thm:fundamental-theorem} [The Fundamental Theorem of Galois Theory] Given a finite Galois extension $L/K$ and its Galois group $G = \Gal(L/K)$, there is a natural bijection between subgroups $H\leq G$ and the intermediate fields $M$ \hspace{0.05cm} $(K \subseteq M \subseteq L)$,:
+\begin{theorem}[The Fundamental Theorem of Galois Theory] \label{thm:fundamental-theorem} Given a finite Galois extension $L/K$ and its Galois group $G = \Gal(L/K)$, there is a natural bijection between subgroups $H\leq G$ and the intermediate fields $M$ such that $K \subseteq M \subseteq L$:
 
 \begin{itemize}
     \item $\alpha:M \to \Gal(L/M) \subseteq G$
@@ -252,12 +254,16 @@ where $\alpha$ and $\beta$ are inverses of each other.
 \begin{proof}
 \begin{enumerate}[label=(\roman*)]
 
- \item ($\beta \circ \alpha = id$) Let $M$ be an intermediate field, and thus we can see that $L/M$ is a Galois Extension. Then if we consider the Galois group $\Gal(L/M)$, we can see that via Theorem \ref{thm:fixed}, $M = \Fix(\Gal(L/M))$. Thus, if we consider $\alpha(M) = \Gal(L/M)$. Then we look at $(\beta \circ \alpha)(M)$, which is equal to $\beta(\Gal(L/M)) = \Fix(\Gal(L/M))$, but again as see in Theorem \ref{thm:fixed}, we have $\Fix(\Gal(L/M)) = M$. Thus $(\beta \circ \alpha)(M) = M$ and hence we see that $(\beta \circ \alpha) = id$.
+ \item ($\beta \circ \alpha = \Id$) Let $M$ be an intermediate field, and thus we can see that $L/M$ is a Galois Extension. Then if we consider the Galois group $\Gal(L/M)$, we can see that via Theorem \ref{thm:fixed}, $M = \Fix(\Gal(L/M))$. Thus, if we consider $\alpha(M) = \Gal(L/M)$. Then we look at $(\beta \circ \alpha)(M)$, which is equal to $\beta(\Gal(L/M)) = \Fix(\Gal(L/M))$, but again as see in Theorem \ref{thm:fixed}, we have $\Fix(\Gal(L/M)) = M$. Thus $(\beta \circ \alpha)(M) = M$ and hence we see that $(\beta \circ \alpha) = \Id$.
 
- \item ($\alpha \circ \beta = id$) Now, let $H$ be a subgroup of $G$ and then set $M :=\Fix(H)$ in order that $L:M$ is a Galois extensions. This implies that $H$ is a subgroup of the Galois group $\Gal(L/M)$. From Theorem \ref{thm:fixed}, we have that $\Fix(\Gal(L/M))=M$, and we also have that $\Fix(H) = M$ so we can say that $\Fix(H)=\Fix(\Gal(L/M)) \implies H = \Gal(L/M) = \Gal(L/\Fix(H))$. Thus if we consider $(\alpha \circ \beta)(H) = \alpha(\Fix(H)) = \Gal(L/\Fix(H))$, and as we have just seen above $H = \Gal(L/\Fix(H))$, so we have $(\alpha \circ \beta)(H) = H$ and so $(\alpha \circ \beta)(H) = id$.
+ \item ($\alpha \circ \beta = \Id$) Now, let $H$ be a subgroup of $G$ and then set $M :=\Fix(H)$ in order that $L:M$ is a Galois extensions. This implies that $H$ is a subgroup of the Galois group $\Gal(L/M)$. From Theorem \ref{thm:fixed}, we have that $\Fix(\Gal(L/M))=M$, and we also have that $\Fix(H) = M$ so we can say that $\Fix(H)=\Fix(\Gal(L/M)) \implies H = \Gal(L/M) = \Gal(L/\Fix(H))$. Thus if we consider $(\alpha \circ \beta)(H) = \alpha(\Fix(H)) = \Gal(L/\Fix(H))$, and as we have just seen above $H = \Gal(L/\Fix(H))$, so we have $(\alpha \circ \beta)(H) = H$ and so $(\alpha \circ \beta) = \Id$.
 \end{enumerate}
 Hence we can see that the functions $\alpha$ and $\beta$ are inverse to each other.
 \end{proof}
+
+
+\section{Galois Groups and Polynomials}
+
 \subsection{Abel-Ruffini Theorem}
 
 Paolo Ruffini first looked at the theorem
@@ -283,8 +289,6 @@ The Abel-Ruffini theorem then follows easily from the above proof to show the pr
 proof will go here    
 \end{proof}
 
-
-\section{Galois Groups and Polynomials}
 
 \subsection{Soluble and Simple Groups}
 
@@ -477,7 +481,7 @@ The elements $\alpha_i$ form a radical sequence for $L / K$, and the radical deg
 \end{proof}
 
 \begin{example}
-    Consider $K  = \mathbb Q$ and $\alpha = \sqrt[20]{2}$, where $\alpha ^ {20} \in \mathbb Q$. Write $n = 20 =  2 \times 2 \times 5 $. Then we can take $\beta_1 = \sqrt 2, \beta_2 = \sqrt[4]{2}, \beta_3 = \sqrt[20]{2}$. Then $\mathbb Q(\sqrt[20]{2}) $ $= \mathbb Q(\sqrt{2}, \sqrt[4]{2}, \sqrt[20]{2})$ and 
+    Consider $K  = \mathbb Q$ and $\alpha = \sqrt[20]{2}$, where $\alpha ^ {20} \in \mathbb Q$. Write $n = 20 =  2 \times 2 \times 5 $. Then we can take the radical sequence as $\beta_1 = \sqrt 2, \beta_2 = \sqrt[4]{2}, \beta_3 = \sqrt[20]{2}$. Then $\mathbb Q(\sqrt[20]{2}) $ $= \mathbb Q(\sqrt{2}, \sqrt[4]{2}, \sqrt[20]{2})$ and 
     $$
     \beta_1 ^ 2 \in \mathbb Q, \quad \beta_2 ^ 2 \in \mathbb Q(\sqrt{2}), \quad \beta_3^5 \in \mathbb Q (\sqrt{2}, \sqrt[4]{2}),
     $$
