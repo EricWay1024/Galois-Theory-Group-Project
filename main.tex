@@ -39,147 +39,246 @@
 
 \newpage
 \section{Introduction}
-\textcolor{red}{Here we need to introduce the topics we talk about, the historical context behind Galois Theory and possibly the extensions we look at, as well as talking about the extensions}
-\textcolor{blue}{Galois Theory was an open question in mathematics until the start of the 1800s, and the theory originated and was developed due to the following question: ``Does there exist a general solution to a polynomial equation of order five?"  For equations of orders less than or equal to four, the Babylonians had already found a solution to this.}
+\textcolor{red}{Here we need to introduce the topics we talk about, the
+    historical context behind Galois Theory and possibly the extensions we look
+    at,
+    as well as talking about the extensions}
+\textcolor{blue}{Galois Theory was an open question in mathematics until the
+    start of the 1800s, and the theory originated and was developed due to the
+    following question: ``Does there exist a general solution to a polynomial
+    equation of order five?"  For equations of orders less than or equal to
+    four,
+    the Babylonians had already found a solution to this.}
 \section{Definitions We Will Need}
 \begin{itemize}
-    \item Field - Let K be a field. This means that K is a commutative ring with 1 st every element in K \ \{0\} has a multiplicative inverse.
+    \item Field - Let K be a field. This means that K is a commutative ring
+          with 1 st every element in K \ \{0\} has a multiplicative inverse.
     \item Tower of Fields
-    \item Automorphism - A group automorphism is an isomorphism from a group to itself
-    \item Monomorphism - A monomorphism is an injective homomorphism of a group $G \rightarrow{} H$
-    \item Galois Group - Let $L/K$, and $G$ be the set of automorphisms of $L/K$. then $G$ is a group of transformations $L$, called the Galois Group of $L/K$ denoted $Gal(L/K)$.
+    \item Automorphism - A group automorphism is an isomorphism from a group to
+          itself
+    \item Monomorphism - A monomorphism is an injective homomorphism of a group
+          $G \rightarrow{} H$
+    \item Galois Group - Let $L/K$, and $G$ be the set of automorphisms of
+          $L/K$. then $G$ is a group of transformations $L$, called the Galois
+          Group of
+          $L/K$ denoted $Gal(L/K)$.
     \item normal field extension
 \end{itemize}
 \section{Polynomials}
 \section{Basics of Field Extensions}
 \begin{definition}
-Let \((G, *,\star )\) be a field. Let \(F\) be a subset of \(G\) such that \((F,*,\star)\) is a field. Then \((F, *,\star)\) is a \textbf{subfield}
- of \((G, *, \star)\).
+    Let \((G, *,\star )\) be a field. Let \(F\) be a subset of \(G\) such that
+    \((F,*,\star)\) is a field. Then \((F, *,\star)\) is a \textbf{subfield}
+    of \((G, *, \star)\).
 \end{definition}
 \begin{definition}
-A field \(F\) is called a \textbf{prime field} of \(K\) if it had no proper (strictly smaller) subfield.
+    A field \(F\) is called a \textbf{prime field} of \(K\) if it had no proper
+    (strictly smaller) subfield.
 \end{definition}
 \begin{definition}
-A field \(K\) is said to be a \textbf{field extension} of \(F\), denoted \(K / F\), if \(F\) is a subfield of \(K\). \cite{Moy}
+    A field \(K\) is said to be a \textbf{field extension} of \(F\), denoted
+    \(K /
+    F\), if \(F\) is a subfield of \(K\). \cite{Moy}
 \end{definition}
 \begin{example}
-The field \(\mathbb{Q}[\sqrt{2}]\) is a field extension of \(\mathbb{Q}\), as \(\mathbb{Q}[\sqrt{2}] = \{a + \sqrt{2}b : a,b \in \mathbb{Q}\}\) we can clearly see that when \(b = 0\) this gives us the rational numbers so \(\mathbb{Q}\) is a subfield of \(\mathbb{Q}[\sqrt{2}]\).
+    The field \(\mathbb{Q}[\sqrt{2}]\) is a field extension of \(\mathbb{Q}\),
+    as
+    \(\mathbb{Q}[\sqrt{2}] = \{a + \sqrt{2}b : a,b \in \mathbb{Q}\}\) we can
+    clearly see that when \(b = 0\) this gives us the rational numbers so
+    \(\mathbb{Q}\) is a subfield of \(\mathbb{Q}[\sqrt{2}]\).
 \end{example}
 \begin{definition}
-For a real number \(\alpha\), if \(p(\alpha)=0\), for some polynomial \(p(x)\), \(\alpha\) is an \textbf{\textit{algebraic number}}.
+    For a real number \(\alpha\), if \(p(\alpha)=0\), for some polynomial
+    \(p(x)\),
+    \(\alpha\) is an \textbf{\textit{algebraic number}}.
 \end{definition}
 \begin{theorem}
-If \(\alpha\) is an algebraic number, then \(\mathbb{Q}[\alpha]\) is a field. Similarly, \(\mathbb{Q}[\alpha,\beta]\) is a field for algebraic numbers \(\alpha\) and \(\beta\).
+    If \(\alpha\) is an algebraic number, then \(\mathbb{Q}[\alpha]\) is a
+    field.
+    Similarly, \(\mathbb{Q}[\alpha,\beta]\) is a field for algebraic numbers
+    \(\alpha\) and \(\beta\).
 \end{theorem}
 \begin{proof}
-%proof of Qa as a field
-We know, from the definition, that \(\mathbb{Q}[\alpha,\beta] = \{a + b\alpha + c\beta + d\alpha\beta : a,b,c,d \in \mathbb{Q}\} = \{(x\alpha + y)(p\beta + q) : x,y,p,q \in \mathbb{Q} \text{ where } a = yq, b = xq, c = py \text{ and } d = xp \} = \mathbb{Q}[\alpha,\beta] = K[\beta]\) where \(K = \mathbb{Q}[\alpha]\) is a field, hence we know that \(\mathbb{Q}[\alpha,\beta]\) is a field.  
+    %proof of Qa as a field
+    We know, from the definition, that \(\mathbb{Q}[\alpha,\beta] = \{a +
+    b\alpha +
+    c\beta + d\alpha\beta : a,b,c,d \in \mathbb{Q}\} = \{(x\alpha + y)(p\beta +
+    q)
+    : x,y,p,q \in \mathbb{Q} \text{ where } a = yq, b = xq, c = py \text{ and }
+    d =
+    xp \} = \mathbb{Q}[\alpha,\beta] = K[\beta]\) where \(K =
+    \mathbb{Q}[\alpha]\)
+    is a field, hence we know that \(\mathbb{Q}[\alpha,\beta]\) is a field.
 \end{proof}
 \begin{definition}
-A \textbf{\textit{splitting field}} of a polynomial \(p(x)\) is the smallest field extension of \(\mathbb{Q}\) which contains all of the roots of \(p(x)\).
+    A \textbf{\textit{splitting field}} of a polynomial \(p(x)\) is the
+    smallest
+    field extension of \(\mathbb{Q}\) which contains all of the roots of
+    \(p(x)\).
 \end{definition}
 \begin{example}
-If we have a polynomial \(p(x) = x^4 - 12x^2 + 35\) the splitting field of \(p(x)\) is \(\mathbb{Q}[\sqrt{5},\sqrt{7}]\) as it contains all of the roots of \(p(x)\) and if it was any smaller it would not contain all of the roots or would not be a field.
+    If we have a polynomial \(p(x) = x^4 - 12x^2 + 35\) the splitting field of
+    \(p(x)\) is \(\mathbb{Q}[\sqrt{5},\sqrt{7}]\) as it contains all of the
+    roots
+    of \(p(x)\) and if it was any smaller it would not contain all of the roots
+    or
+    would not be a field.
 \end{example}
 \begin{definition}
-    The degree of the field extension, $deg(L:K)=[L:K]$ is the dimension of the vector space $L$ over $K$
+    The degree of the field extension, $deg(L:K)=[L:K]$ is the dimension of the
+    vector space $L$ over $K$
 \end{definition}
 
 \begin{definition}
-    If $L/K$ is a field extensions, we call any field $M$ with $K \subseteq M \subseteq L$ an \textbf{intermediate field.}
+    If $L/K$ is a field extensions, we call any field $M$ with $K \subseteq M
+        \subseteq L$ an \textbf{intermediate field.}
 \end{definition}
 \begin{theorem}
-(Tower Theorem): If M is an intermediate field of a finite field extension $L/K$ then:
-\begin{equation*}
-    [L:K] = [L:M]\cdot[M:K]
-\end{equation*}
+    (Tower Theorem): If M is an intermediate field of a finite field extension
+    $L/K$ then:
+    \begin{equation*}
+        [L:K] = [L:M]\cdot[M:K]
+    \end{equation*}
 \end{theorem}
 \begin{proof}
-Since we have M is an intermediate field, $K \subseteq M \subseteq L$,
+    Since we have M is an intermediate field, $K \subseteq M \subseteq L$,
 
-Suppose that we have $[L:M]=m$ and $[M:K]=n$. Then since we have that the subfields are vector spaces, we can takes a basis for each of our field extensions $L/M$ and $M/K$.
-Let $\lambda = \{\lambda_1,...,\lambda_m\}$ be a basis for $L/M$, and let $\mu = \{\mu_1,...,\mu_n\}$ be a basis for $M/K$.
+    Suppose that we have $[L:M]=m$ and $[M:K]=n$. Then since we have that the
+    subfields are vector spaces, we can takes a basis for each of our field
+    extensions $L/M$ and $M/K$.
+    Let $\lambda = \{\lambda_1,...,\lambda_m\}$ be a basis for $L/M$, and let
+    $\mu
+        = \{\mu_1,...,\mu_n\}$ be a basis for $M/K$.
 
-\noindent Then we have that $\forall x \in L$, $x = \sum^m_{i=1}x_i\lambda_i$ for some $x_i \in M$, since $\lambda$ is a basis for $L/M$.
+    \noindent Then we have that $\forall x \in L$, $x =
+        \sum^m_{i=1}x_i\lambda_i$
+    for some $x_i \in M$, since $\lambda$ is a basis for $L/M$.
 
-\noindent Now let $b:=\sum^n_{j=1}\mu_j$ and $d_i:=\frac{x_i}{b}$
+    \noindent Now let $b:=\sum^n_{j=1}\mu_j$ and $d_i:=\frac{x_i}{b}$
 
-\noindent Then we have that $x=\sum^m_{i=1}\frac{x_i}{b}\cdot b \cdot \lambda_i = \sum^m_{i=1}\sum^n_{j=1}d_i\cdot \mu_j \cdot \lambda_i$
+    \noindent Then we have that $x=\sum^m_{i=1}\frac{x_i}{b}\cdot b \cdot
+        \lambda_i
+        = \sum^m_{i=1}\sum^n_{j=1}d_i\cdot \mu_j \cdot \lambda_i$
 
-\noindent If we consider the set $\gamma=\{\lambda_i\mu_j : 1\leq i \leq m, 1\leq j \leq n\}$, and consider from what we have seen above that \textcolor{red}{Find the right words here}, we can see that $\gamma$ spans $[L:K]$.
+    \noindent If we consider the set $\gamma=\{\lambda_i\mu_j : 1\leq i \leq m,
+        1\leq j \leq n\}$, and consider from what we have seen above that
+    \textcolor{red}{Find the right words here}, we can see that $\gamma$ spans
+    $[L:K]$.
 
-Now it is required to show that $\gamma$ is linearly independent, in order to show that it is a basis for $L/K$.
+    Now it is required to show that $\gamma$ is linearly independent, in order
+    to
+    show that it is a basis for $L/K$.
 
-Suppose that for some $c_{ij} \in K$: $\sum^m_{i=1} \sum^n_{j=1} c_{ij}\lambda_i\mu_j = 0 $. Then since $\lambda$ is a linearly independent set over $M$ we have that $\forall i \in \{1,...,m\}$:\hspace{0.2cm} $\sum^n_{j=1} c_{ij}\mu_j = 0 $. By seeing that $\mu$ is also a linearly independent set over $K$ we get that $\forall i \ in \{1,...,m\}$ and $\forall j \ in \{1,...,n\}$ we have $c_{ij} = 0$. Which then implies that $\gamma$ is linearly independent and we already know it spans $L/K$, thus it is a basis for $L/K$ and since $|\gamma|=mn$ this implies that $[L:K] = mn = [L:M]\cdot[M:K]$
+    Suppose that for some $c_{ij} \in K$: $\sum^m_{i=1} \sum^n_{j=1}
+        c_{ij}\lambda_i\mu_j = 0 $. Then since $\lambda$ is a linearly
+    independent set
+    over $M$ we have that $\forall i \in \{1,...,m\}$:\hspace{0.2cm}
+    $\sum^n_{j=1}
+        c_{ij}\mu_j = 0 $. By seeing that $\mu$ is also a linearly independent
+    set over
+    $K$ we get that $\forall i \ in \{1,...,m\}$ and $\forall j \ in
+        \{1,...,n\}$
+    we have $c_{ij} = 0$. Which then implies that $\gamma$ is linearly
+    independent
+    and we already know it spans $L/K$, thus it is a basis for $L/K$ and since
+    $|\gamma|=mn$ this implies that $[L:K] = mn = [L:M]\cdot[M:K]$
 
 \end{proof}
 \section{Introduction to Galois Theory}
 \subsection{Galois Groups}
-\textbf{Definition:} Given a field extension, $L/K$, the Galois Group defined as $Gal(L/K)$ is the group of all $K$-automorphisms of $L$, such that $\phi(a) = a ; \hspace{0.2cm} \forall a \in K$.
+\textbf{Definition:} Given a field extension, $L/K$, the Galois Group defined
+as $Gal(L/K)$ is the group of all $K$-automorphisms of $L$, such that $\phi(a)
+    = a ; \hspace{0.2cm} \forall a \in K$.
 
-This group becomes increasingly useful, especially when dealing with polynomials, as we will see with the following theorem.
+This group becomes increasingly useful, especially when dealing with
+polynomials, as we will see with the following theorem.
 
 \begin{theorem}
-Let $\phi \in Gal(L/K)$ where $L:K$ is a field extension. The following all hold:
-\begin{itemize}
-    \item For $a \in L$, a root of a polynomial $f \in K[X]$, we have $\phi(a)$ is also a root of $f(X)$
-\end{itemize}
+    Let $\phi \in Gal(L/K)$ where $L:K$ is a field extension. The following all
+    hold:
+    \begin{itemize}
+        \item For $a \in L$, a root of a polynomial $f \in K[X]$, we have
+              $\phi(a)$
+              is also a root of $f(X)$
+    \end{itemize}
 \end{theorem}
 
 \section{Galois Field Extensions}
 \begin{definition}
-A field extension is said to be a \textbf{Galois extension} if it is finite, normal and separable. For $L/K$ Galois, we have that $Aut(L/K)$ is the \textbf{Galois group} and denoted by $Gal(L/K).$
+    A field extension is said to be a \textbf{Galois extension} if it is
+    finite,
+    normal and separable. For $L/K$ Galois, we have that $Aut(L/K)$ is the
+    \textbf{Galois group} and denoted by $Gal(L/K).$
 \end{definition}
 
-\noindent We now look at a theorem which helps to characterise and identify fields, extensions and Galois groups.
+\noindent We now look at a theorem which helps to characterise and identify
+fields, extensions and Galois groups.
 
 \begin{theorem}
-    Given a finite Galois extension $L/K$ and its Galois group $G=Gal(L/K)$, the following holds:
+    Given a finite Galois extension $L/K$ and its Galois group $G=Gal(L/K)$,
+    the following holds:
     \begin{itemize}
         \item $K = Fix(G)$
     \end{itemize}
 \end{theorem}
 
 \begin{proof}
-    Define $F:=Fix(G)$. Since $L/K$ is a finite Galois extensions and G is its Galois group, we have $L/F$ must also be normal and separable, and therefore is also a Galois extension, with $G \subseteq Gal(L/F)$.
+    Define $F:=Fix(G)$. Since $L/K$ is a finite Galois extensions and G is its
+    Galois group, we have $L/F$ must also be normal and separable, and
+    therefore is
+    also a Galois extension, with $G \subseteq Gal(L/F)$.
 
-\noindent We can also see that $|Gal(L/F)| = [L:F]$ which implies that $|G|\leq|Gal(L/K)|=[L:F]$
-Then by the Tower Theorem we see that $|G|=[L:K]=[L:F][F:K]\geq [L:F]$
+    \noindent We can also see that $|Gal(L/F)| = [L:F]$ which implies that
+    $|G|\leq|Gal(L/K)|=[L:F]$
+    Then by the Tower Theorem we see that $|G|=[L:K]=[L:F][F:K]\geq [L:F]$
 
-Thus we see that $[L:F]\leq|G|\leq[L:F]$, therefore $|G|=[L:F]$ and therefore in the tower theorem, we see that $[F:K]$ must equal 1, and thus $F:=Fix(G) = K$
+    Thus we see that $[L:F]\leq|G|\leq[L:F]$, therefore $|G|=[L:F]$ and
+    therefore
+    in the tower theorem, we see that $[F:K]$ must equal 1, and thus $F:=Fix(G)
+        =
+        K$
 \end{proof}
 
 \section{Galois Correspondence}
 \subsection{Fundamental Theorem of Galois Theory}
 
 \begin{definition}
-    A \textbf{normal closure} of a field extension $L / K$ is an extension $N$ of $L$ such that 
+    A \textbf{normal closure} of a field extension $L / K$ is an extension $N$
+    of $L$ such that
     \begin{enumerate}
         \item $N / K$ is normal;
-        \item If $L \subseteq M \subseteq N$ and $M / K$ is normal, then $M = N$.
+        \item If $L \subseteq M \subseteq N$ and $M / K$ is normal, then $M =
+                  N$.
     \end{enumerate}
 \end{definition}
 
 \begin{theorem}
-    Let $G$ be a finite subgroup of the group of automorphisms of a field $K$, and let $K_0$ be the fixed field of $G$. Then $[K : K_0] = |G|$. 
+    Let $G$ be a finite subgroup of the group of automorphisms of a field $K$,
+    and let $K_0$ be the fixed field of $G$. Then $[K : K_0] = |G|$.
 \end{theorem}
 
 \begin{proof}
-    
+
 \end{proof}
 
-Group theory tends to look at patterns and symmetries in mathematical objects, and Galois groups have an interesting symmetry. The following theorem describes how the structure of an extension of a field is the same as the subgroups of the Galois groups.
+Group theory tends to look at patterns and symmetries in mathematical objects,
+and Galois groups have an interesting symmetry. The following theorem describes
+how the structure of an extension of a field is the same as the subgroups of
+the Galois groups.
 
 \begin{theorem}
-Given a finite Galois extension $L/K$ and its Galois group $G = \Gal(L/K)$, there is a natural bijection between subgroups $H\leq G$ and the intermediate fields $M$ \hspace{0.1cm} $(K \subseteq M \subseteq L)$:
+    Given a finite Galois extension $L/K$ and its Galois group $G = \Gal(L/K)$,
+    there is a natural bijection between subgroups $H\leq G$ and the
+    intermediate
+    fields $M$ \hspace{0.1cm} $(K \subseteq M \subseteq L)$:
 
-\begin{itemize}
-    \item $\alpha:F \to \Gal(L/M) \subseteq G$
-    \item $\beta:H \to \Fix(H) \subseteq L$
-\end{itemize}
+    \begin{itemize}
+        \item $\alpha:F \to \Gal(L/M) \subseteq G$
+        \item $\beta:H \to \Fix(H) \subseteq L$
+    \end{itemize}
 \end{theorem}
 \begin{proof}
-Proof will go here
+    Proof will go here
 \end{proof}
 \subsection{Abel-Ruffini Theorem}
 \section{Galois Groups and Polynomials}
@@ -187,342 +286,602 @@ Proof will go here
 \subsection{Soluble and Simple Groups}
 
 \begin{definition} \label{def:soluble}
-    A group $G$ is soluble (or solvable) if it has a finite series of subgroups 
-    $$ \{ e \} = G_0 \triangleleft G_1 \triangleleft \dots \triangleleft G_n = G$$
-    such that the quotient $G_{i+1} / G_{i}$ is abelian for each $i = 0, 1, ...,  n - 1$.
+    A group $G$ is soluble (or solvable) if it has a finite series of subgroups
+
+    $$ \{ e \} = G_0 \triangleleft G_1 \triangleleft \dots \triangleleft G_n =
+        G$$
+    such that the quotient $G_{i+1} / G_{i}$ is abelian for each $i = 0, 1,
+        ...,  n - 1$.
 \end{definition}
 
 \begin{observation}
-    An abelian group is soluble. 
+    An abelian group is soluble.
 \end{observation}
 
-We now state two group isomorphism theorems without proving. 
+We now state two group isomorphism theorems without proving.
 
 \begin{theorem}[Second Isomorphism Theorem] \label{thm:second-iso}
-    Suppose $H \le G$ and $J \trianglelefteq G$. Then $HJ \le G$, $H \cap J \triangleleft H$ and $$
-    (HJ) / J \cong H / (H \cap J). 
+    Suppose $H \le G$ and $J \trianglelefteq G$. Then $HJ \le G$, $H \cap J
+        \triangleleft H$ and $$
+        (HJ) / J \cong H / (H \cap J).
     $$
 \end{theorem}
 \begin{theorem}[Third Isomorphism Theorem] \label{thm:third-iso}
-    Suppose $H, J \trianglelefteq G$ and $H \le J$. Then $J/H \trianglelefteq G/H$ and $$
-    (G/H)/(J/H) \cong G / J.    $$
+    Suppose $H, J \trianglelefteq G$ and $H \le J$. Then $J/H \trianglelefteq
+        G/H$ and $$
+        (G/H)/(J/H) \cong G / J.	$$
 \end{theorem}
 
 \begin{theorem} \label{thm:soluble-main}
     % If $N$ is a normal subgroup of $G$, then $G$ is soluble if and only if both $N$ and $G / N$ are soluble.
-    Let $G$ be a group, $H \le G$ and $N \trianglelefteq G$. Then 
+    Let $G$ be a group, $H \le G$ and $N \trianglelefteq G$. Then
     \begin{enumerate}
         \item If $G$ is soluble, then $H$ is soluble;
-        \item If $G$ is soluble, then $G / N$ is soluble; 
-        \item If $N$ and $G / N$ are soluble, then $G$ is soluble. 
+        \item If $G$ is soluble, then $G / N$ is soluble;
+        \item If $N$ and $G / N$ are soluble, then $G$ is soluble.
     \end{enumerate}
 \end{theorem}
 \begin{proof}
-\begin{enumerate}
-    \item If $G$ is soluble, then there exists a finite series of subgroups $G_i$ of $G$ for $i = 0, 1, \dots, n$ satisfying Definition \ref{def:soluble}. Let $H_i = G_i \cap H$. Then $H$ has a series of subgroups $H_i$ such that $\{ e \} = H_0 \triangleleft H_1 \triangleleft \dots \triangleleft H_n = H.$
-    For each $i = 0, 1, \dots, n - 1$, 
-    $$
-    \frac{H_{i+1}}{H_i} 
-        = \frac{G_{i+1} \cap H}{G_i \cap (G_{i+1} \cap H)}
-        \cong \frac{G_i(G_{i+1} \cap H)} {G_i}
-    $$
-    by Theorem \ref{thm:second-iso}, and ${G_i(G_{i+1} \cap H)}/{G_i}$ is a subgroup of the abelian group $G_{i+1} / G_{i}$. Hence $H_{i+1} / H_{i}$ is abelian and $H$ is soluble.
-    \item Take $G_i$ as before. Then $G / N$ has a series
-        $N/N = G_0 N / N \triangleleft G_1 N / N \triangleleft \dots \triangleleft G_n N / N  =  G / N. $
-        For each $i = 0, 1, \dots, n - 1$, 
-        $(G_{i+1} N / N) / (G_{i} N / N) \cong (G_{i+1} N) / (G_i N)$
-    by Theorem \ref{thm:third-iso}. Then 
-    $$
-    \frac{G_{i+1} N}{G_i N} =\frac{G_{i+1}\left(G_i N\right)}{G_i N} \cong \frac{G_{i+1}}{G_{i+1} \cap\left(G_i N\right)} \cong \frac{G_{i+1} / G_i}{\left(G_{i+1} \cap\left(G_i N\right)\right) / G_i},
-    $$
-    which is a quotient of the abelian group $G_{i+1} / G_i$, so is abelian. Hence $G / N$ is soluble.
-    \item There exist two series
-$$
-\begin{aligned}
-\{ e \} & =N_0 \triangleleft N_1 \triangleleft \ldots \triangleleft N_r=N, \\
-N / N & =G_0 / N \triangleleft G_1 / N \triangleleft \ldots \triangleleft G_s / N=G / N
-\end{aligned}
-$$
-with $N_{i+1} / N_{i}$ abelian for each $i = 0, 1, \dots, r-1$ and $(G_{i+1} / N)  / (G_{i} / N) \cong G_{i+1} / G_i $ abelian for each $i = 0,1, \dots, s-1$. Combining them gives the series of subgroups of $G$:
-$$
-\{ e \}=N_0 \triangleleft N_1 \triangleleft \ldots \triangleleft N_r=N=G_0 \triangleleft G_1 \triangleleft \ldots \triangleleft G_s=G .
-$$
-The quotients are either $N_{i+1} / N_i$  or $G_{i+1} / G_i$ and are all abelian. Therefore $G$ is soluble.
-\end{enumerate}
+    \begin{enumerate}
+        \item If $G$ is soluble, then there exists a finite series of subgroups
+              $G_i$ of $G$ for $i = 0, 1, \dots, n$ satisfying Definition
+              \ref{def:soluble}.
+              Let $H_i = G_i \cap H$. Then $H$ has a series of subgroups $H_i$
+              such that $\{
+                  e \} = H_0 \triangleleft H_1 \triangleleft \dots
+                  \triangleleft H_n = H.$
+              For each $i = 0, 1, \dots, n - 1$,
+              $$
+                  \frac{H_{i+1}}{H_i}
+                  = \frac{G_{i+1} \cap H}{G_i \cap (G_{i+1} \cap H)}
+                  \cong \frac{G_i(G_{i+1} \cap H)} {G_i}
+              $$
+              by Theorem \ref{thm:second-iso}, and ${G_i(G_{i+1} \cap
+                          H)}/{G_i}$ is a
+              subgroup of the abelian group $G_{i+1} / G_{i}$. Hence $H_{i+1} /
+                  H_{i}$ is
+              abelian and $H$ is soluble.
+        \item Take $G_i$ as before. Then $G / N$ has a series
+              $N/N = G_0 N / N \triangleleft G_1 N / N \triangleleft \dots
+                  \triangleleft G_n N / N  =  G / N. $
+              For each $i = 0, 1, \dots, n - 1$,
+              $(G_{i+1} N / N) / (G_{i} N / N) \cong (G_{i+1} N) / (G_i N)$
+              by Theorem \ref{thm:third-iso}. Then
+              $$
+                  \frac{G_{i+1} N}{G_i N} =\frac{G_{i+1}\left(G_i N\right)}{G_i
+                      N} \cong
+                  \frac{G_{i+1}}{G_{i+1} \cap\left(G_i N\right)} \cong
+                  \frac{G_{i+1} /
+                      G_i}{\left(G_{i+1} \cap\left(G_i N\right)\right) / G_i},
+              $$
+              which is a quotient of the abelian group $G_{i+1} / G_i$, so is
+              abelian.
+              Hence $G / N$ is soluble.
+        \item There exist two series
+              $$
+                  \begin{aligned}
+                      \{ e \} & =N_0 \triangleleft N_1 \triangleleft \ldots
+                      \triangleleft N_r=N,                                   \\
+                      N / N   & =G_0 / N \triangleleft G_1 / N \triangleleft
+                      \ldots \triangleleft G_s /
+                      N=G / N
+                  \end{aligned}
+              $$
+              with $N_{i+1} / N_{i}$ abelian for each $i = 0, 1, \dots, r-1$
+              and $(G_{i+1} /
+                  N)  / (G_{i} / N) \cong G_{i+1} / G_i $ abelian for each $i =
+                  0,1, \dots, s-1$.
+              Combining them gives the series of subgroups of $G$:
+              $$
+                  \{ e \}=N_0 \triangleleft N_1 \triangleleft \ldots
+                  \triangleleft N_r=N=G_0
+                  \triangleleft G_1 \triangleleft \ldots \triangleleft G_s=G .
+              $$
+              The quotients are either $N_{i+1} / N_i$	or $G_{i+1} / G_i$ and
+              are all
+              abelian. Therefore $G$ is soluble.
+    \end{enumerate}
 \end{proof}
 
 \begin{definition}
-    A group $G$ is \textbf{simple} if it is nontrivial and its only normal subgroups are $\{ e \}$ and $G$. 
+    A group $G$ is \textbf{simple} if it is nontrivial and its only normal
+    subgroups are $\{ e \}$ and $G$.
 \end{definition}
 
 \begin{theorem} \label{thm:soluble-and-simple}
-    A soluble group is simple if and only if it is a cyclic group of prime order.
+    A soluble group is simple if and only if it is a cyclic group of prime
+    order.
 \end{theorem}
 
 \begin{proof}
-    Let $G$ be a soluble group and suppose $G$ is simple. Consider the series of subgroups of $G$
-$$
-\{ e \}=G_0 \triangleleft G_1 \triangleleft \ldots \triangleleft G_n=G,
-$$
-with abelian quotients, and without loss of generality we assume $G_{i+1} \neq G_i$. Since $G$ is simple, $G_{n-1}$, which is a proper normal subgroup of $G_n = G$, must be $\{ e \}$. Solubility of $G$ gives that $G_n / G_{n -1 }$ is abelian, but $G_n / G_{n - 1} = G$, and thus $G$ is abelian. Thus for any element $g \in G$, the cyclic group $\langle g\rangle$ is a normal subgroup in $G$. Hence  $G = \langle g\rangle$ for any $g \neq e$. Hence $G$ is cyclic of prime order.
+    Let $G$ be a soluble group and suppose $G$ is simple. Consider the series
+    of subgroups of $G$
+    $$
+        \{ e \}=G_0 \triangleleft G_1 \triangleleft \ldots \triangleleft G_n=G,
+    $$
+    with abelian quotients, and without loss of generality we assume $G_{i+1}
+        \neq
+        G_i$. Since $G$ is simple, $G_{n-1}$, which is a proper normal subgroup
+    of $G_n
+        = G$, must be $\{ e \}$. Solubility of $G$ gives that $G_n / G_{n -1 }$
+    is
+    abelian, but $G_n / G_{n - 1} = G$, and thus $G$ is abelian. Thus for any
+    element $g \in G$, the cyclic group $\langle g\rangle$ is a normal subgroup
+    in
+    $G$. Hence	$G = \langle g\rangle$ for any $g \neq e$. Hence $G$ is cyclic
+    of
+    prime order.
 
-The converse is trivial.
+    The converse is trivial.
 \end{proof}
 
-
 \begin{theorem} \label{thm:simple-alternating}
-    The alternating group $A_n$ is simple when $n \ge 5$. 
+    The alternating group $A_n$ is simple when $n \ge 5$.
 \end{theorem}
 
 \begin{proof}
-    (Prove for the case $n=5$ ??) Due to the length and technical nature of the complete proof, only a concise summary is presented here. 
-    Suppose that $\{ e \} \neq N \triangleleft A_n$. We can prove that $N$ must contain a $3$-cycle using case-by-case analysis. Next, we can show that if $N$ contains a $3$-cycle, then it contains all $3$-cycles. Since $A_n$ is generated by the $3$-cycles when $n \ge 3$, this means $N = A_n$.
+    (Prove for the case $n=5$ ??) Due to the length and technical nature of the
+    complete proof, only a concise summary is presented here.
+    Suppose that $\{ e \} \neq N \triangleleft A_n$. We can prove that $N$ must
+    contain a $3$-cycle using case-by-case analysis. Next, we can show that if
+    $N$
+    contains a $3$-cycle, then it contains all $3$-cycles. Since $A_n$ is
+    generated
+    by the $3$-cycles when $n \ge 3$, this means $N = A_n$.
 \end{proof}
 
 \begin{theorem} \label{thm:symmetric-not-soluble}
-    The symmetric group $S_n$ is not soluble when $n \ge 5$. 
+    The symmetric group $S_n$ is not soluble when $n \ge 5$.
 \end{theorem}
 
 \begin{proof}
-    Suppose $S_n$ is soluble for $n \ge 5$. Then since $A_n \trianglelefteq S_n$, by Theorem \ref{thm:soluble-main}, $A_n$ is soluble. By Theorem \ref{thm:simple-alternating}, $A_n$ is also simple, so $A_n$ is cyclic of prime order by Theorem \ref{thm:soluble-and-simple}. But $|A_n| = n! / 2$ which obviously is not prime. Contradiction.
+    Suppose $S_n$ is soluble for $n \ge 5$. Then since $A_n \trianglelefteq
+        S_n$, by Theorem \ref{thm:soluble-main}, $A_n$ is soluble. By Theorem
+    \ref{thm:simple-alternating}, $A_n$ is also simple, so $A_n$ is cyclic of
+    prime
+    order by Theorem \ref{thm:soluble-and-simple}. But $|A_n| = n! / 2$ which
+    obviously is not prime. Contradiction.
 \end{proof}
 
 Another important result from group theory is given below.
 
 \begin{theorem}[Cauchy's Theorem] \label{thm:cauchy}
-    Let $p$ be a prime number. Let $G$ be a finite group such that $p$ divides the order of $G$. Then $G$ contains an element of order $p$. 
+    Let $p$ be a prime number. Let $G$ be a finite group such that $p$ divides
+    the order of $G$. Then $G$ contains an element of order $p$.
 \end{theorem}
 
 \subsection{Roots of Unity}
 \begin{definition}
-    Let $n$ be a positive integer. An $n$-th root of unity in $\mathbb C$ is a number $\omega$ satisfying $\omega ^ n = 1$. An $n$-th root of unity $\omega$ is primitive if for any $m = 1, 2, \dots, n - 1$, $\omega ^ m \neq 1$.
+    Let $n$ be a positive integer. An $n$-th root of unity in $\mathbb C$ is a
+    number $\omega$ satisfying $\omega ^ n = 1$. An $n$-th root of unity
+    $\omega$
+    is primitive if for any $m = 1, 2, \dots, n - 1$, $\omega ^ m \neq 1$.
 \end{definition}
 
 \begin{observation}
-    Let $n$ be a positive integer. All $n$-th roots of unity form a cyclic group under multiplication, and the group is generated by any primitive $n$-th root of unity.
+    Let $n$ be a positive integer. All $n$-th roots of unity form a cyclic
+    group under multiplication, and the group is generated by any primitive
+    $n$-th
+    root of unity.
 \end{observation}
 
 \begin{observation}
-    For a prime number $p$, let $\omega$ be a $p$-th root of unity and $\omega \neq 1$. Then $\omega$ is a primitive $p$-th root of unity and generates the multiplicative group of all $p$-th roots of unity.
+    For a prime number $p$, let $\omega$ be a $p$-th root of unity and $\omega
+        \neq 1$. Then $\omega$ is a primitive $p$-th root of unity and
+    generates the
+    multiplicative group of all $p$-th roots of unity.
 \end{observation}
 
 \begin{theorem} \label{thm:unity-1}
-    Let $n$ be a positive integer and let $\omega$ be a primitive $n$-th root of unity. Let $L$ be a subfield of $\mathbb C$. If $\omega \in L$, then the polynomial $t^n - 1$ splits in $L$.
+    Let $n$ be a positive integer and let $\omega$ be a primitive $n$-th root
+    of unity. Let $L$ be a subfield of $\mathbb C$. If $\omega \in L$, then the
+    polynomial $t^n - 1$ splits in $L$.
 \end{theorem}
 \begin{proof}
-    $\omega$ has order $n$ in the multiplicative group of $L$, so the elements $1, \omega, \omega^2, \ldots, \omega^{n-1}$ are distinct $n$-th roots of unity in $L$. Therefore $t^n-1$ splits in $L$.
+    $\omega$ has order $n$ in the multiplicative group of $L$, so the elements
+    $1, \omega, \omega^2, \ldots, \omega^{n-1}$ are distinct $n$-th roots of
+    unity
+    in $L$. Therefore $t^n-1$ splits in $L$.
 \end{proof}
 
 \begin{theorem} \label{thm:unity-2}
-    Let $n$ be a positive integer and let $\omega$ be a primitive $n$-th root of unity. If $L$ is the splitting field for $t^n - 1$ over a subfield $K$ of $\mathbb C$, then $L = K(\omega)$.
+    Let $n$ be a positive integer and let $\omega$ be a primitive $n$-th root
+    of unity. If $L$ is the splitting field for $t^n - 1$ over a subfield $K$
+    of
+    $\mathbb C$, then $L = K(\omega)$.
 \end{theorem}
 
 \begin{proof}
-The derivative of $t^n-1$ is $n t^{n-1}$, which is prime to $t^n-1$, so the polynomial $t^n-1$ \textcolor{red}{has no multiple zeros} in $L$. The group of its zeros under multiplication thus has order $n$ and is cyclic. Let $\omega$ be a generator of this group, and thus $\omega$ is a primitive $n$-th root of unity. Then $L=K(\omega)$. 
+    The derivative of $t^n-1$ is $n t^{n-1}$, which is prime to $t^n-1$, so the
+    polynomial $t^n-1$ \textcolor{red}{has no multiple zeros} in $L$. The group
+    of
+    its zeros under multiplication thus has order $n$ and is cyclic. Let
+    $\omega$
+    be a generator of this group, and thus $\omega$ is a primitive $n$-th root
+    of
+    unity. Then $L=K(\omega)$.
 \end{proof}
 
-
 \begin{theorem} \label{thm:radical-1}
-    Let $p$ be a prime and let $\omega$ be a primitive $p$-th root of unity. Let $K$ be a subfield of $\mathbb C$. Then $\Gal(K(\omega) / K)$ is abelian.
+    Let $p$ be a prime and let $\omega$ be a primitive $p$-th root of unity.
+    Let $K$ be a subfield of $\mathbb C$. Then $\Gal(K(\omega) / K)$ is
+    abelian.
 \end{theorem}
 \begin{proof}
-% The derivative of $t^p-1$ is $p t^{p-1}$, which is prime to $t^p-1$, so the polynomial $t^p-1$ \textcolor{red}{has no multiple zeros} in $L$. The group of its zeros under multiplication thus has order $p$ and is cyclic. Let $\varepsilon$ be a generator of this group. Then $L=K(\varepsilon)$. 
-Let $L = K(\omega)$.  Let $\alpha \in \Gal(L / K)$. Then $\alpha$ is uniquely determined by $\alpha(\omega)$ and $\alpha$ is a permutation of the multiplicative group generated by $\omega$. Thus $\alpha$ has the form
-$$
-\alpha_j: \omega \mapsto \omega^j,
-$$
-where $j=1,\dots,p-1$. Then $\alpha_i \alpha_j (\omega) = \alpha_j \alpha_i (\omega) = \omega^{i j}$, so $ \Gal(L / K)$ is abelian.
+    Let $L = K(\omega)$.  Let $\alpha \in \Gal(L / K)$. Then $\alpha$ is
+    uniquely
+    determined by $\alpha(\omega)$ and $\alpha$ is a permutation of the
+    multiplicative group generated by $\omega$. Thus $\alpha$ has the form
+    $$
+        \alpha_j: \omega \mapsto \omega^j,
+    $$
+    where $j=1,\dots,p-1$. Then $\alpha_i \alpha_j (\omega) = \alpha_j \alpha_i
+        (\omega) = \omega^{i j}$, so $ \Gal(L / K)$ is abelian.
 \end{proof}
 
 \begin{theorem} \label{thm:radical-2}
-    Let $K$ be a subfield of $\mathbb{C}$ which contains an $n$-th primitive root of unity. Let $\beta^n = c \in K $ where $n$ is a positive integer. Then $t^n - c$ splits in $K(\beta)$ and $\Gal(K(\beta) / K)$ is abelian.
+    Let $K$ be a subfield of $\mathbb{C}$ which contains an $n$-th primitive
+    root of unity. Let $\beta^n = c \in K $ where $n$ is a positive integer.
+    Then
+    $t^n - c$ splits in $K(\beta)$ and $\Gal(K(\beta) / K)$ is abelian.
 \end{theorem}
 
 \begin{proof}
-By Theorem \ref{thm:unity-1}, $K$ contains all $n$-th roots of unity. Let $L = K(\beta)$, and $\beta$ is a zero of $t^n-c$ in $L$. Any zero of $t^n-c$ in $L$ can be represented by $\omega \beta$, where $\omega$ is some $n$-th root of unity in $K$. Thus $t^n - c$ splits in $L$.  
+    By Theorem \ref{thm:unity-1}, $K$ contains all $n$-th roots of unity. Let
+    $L =
+        K(\beta)$, and $\beta$ is a zero of $t^n-c$ in $L$. Any zero of $t^n-c$
+    in $L$
+    can be represented by $\omega \beta$, where $\omega$ is some $n$-th root of
+    unity in $K$. Thus $t^n - c$ splits in $L$.
 
-Let $\phi \in \Gal(L / K)$, then $\phi$ is uniquely determined by $\phi(\beta)$ and $\phi$ is a permutation of the zeros of $t^n - c$. Let $\phi_1, \phi_2 \in \Gal(L / K)$, and let $\phi_1(\beta) = \omega_1\beta$, $\phi_2(\beta) = \omega_2\beta$, where $\omega_1, \omega_2$ are $n$-th roots of unity in $K$. Then
-$$
-\phi_1 \phi_2(\beta)=\omega_1 \omega_2 \beta=\omega_2 \omega_1  \beta=\phi_2 \phi_1(\beta).
-$$
-Thus $\Gal(L / K)$ is abelian.
+    Let $\phi \in \Gal(L / K)$, then $\phi$ is uniquely determined by
+    $\phi(\beta)$
+    and $\phi$ is a permutation of the zeros of $t^n - c$. Let $\phi_1, \phi_2
+        \in
+        \Gal(L / K)$, and let $\phi_1(\beta) = \omega_1\beta$, $\phi_2(\beta) =
+        \omega_2\beta$, where $\omega_1, \omega_2$ are $n$-th roots of unity in
+    $K$.
+    Then
+    $$
+        \phi_1 \phi_2(\beta)=\omega_1 \omega_2 \beta=\omega_2 \omega_1
+        \beta=\phi_2
+        \phi_1(\beta).
+    $$
+    Thus $\Gal(L / K)$ is abelian.
 \end{proof}
 
 \begin{theorem} \label{thm:unity-3}
-Let $K$ be a subfield of $\mathbb C$. Let $\alpha \notin K$ and $\alpha^p = c \in K$ where $p$ is a prime. Let $L / K$ be a normal extension such that $\alpha \in L$. Then $L$ contains a primitive $p$-th root of unity.
+    Let $K$ be a subfield of $\mathbb C$. Let $\alpha \notin K$ and $\alpha^p =
+        c
+        \in K$ where $p$ is a prime. Let $L / K$ be a normal extension such
+    that
+    $\alpha \in L$. Then $L$ contains a primitive $p$-th root of unity.
 \end{theorem}
 
 \begin{proof}
-Let $f$ be the minimal polynomial of $\alpha$ over $K$. Then $f$ splits in $L$ and has no repeated zeros. Since $\alpha \notin K$, we have $\partial f \ge 2$, and therefore there exists $\beta \in L$ such that $\beta$ is a zero of $f$ and $\beta \neq \alpha$. Since $\alpha ^ p - c = 0$, $f$ must divide $t ^ p - c$. Thus $\beta^p - c = 0$. Let $\omega=\alpha / \beta \in L $, then $\omega^p=1$ and $\omega \neq 1$.
+    Let $f$ be the minimal polynomial of $\alpha$ over $K$. Then $f$ splits in
+    $L$
+    and has no repeated zeros. Since $\alpha \notin K$, we have $\partial f \ge
+        2$,
+    and therefore there exists $\beta \in L$ such that $\beta$ is a zero of $f$
+    and
+    $\beta \neq \alpha$. Since $\alpha ^ p - c = 0$, $f$ must divide $t ^ p -
+        c$.
+    Thus $\beta^p - c = 0$. Let $\omega=\alpha / \beta \in L $, then
+    $\omega^p=1$
+    and $\omega \neq 1$.
 \end{proof}
-
 
 \subsection{Solubility by Radicals}
 \begin{definition} \label{def:radical-extension}
-    A field extension $L / K$ is \textbf{radical} if $L=K\left(\alpha_1, \ldots, \alpha_m\right)$, where for each $i=1, \ldots, m$ there exists $n_i$ such that
-$$
-\alpha_i^{n_i} \in K\left(\alpha_1, \ldots, \alpha_{i-1}\right).
-$$
-The elements $\alpha_i$ form a radical sequence for $L / K$, and the radical degree of $\alpha_i$ is $n_i$.
+    A field extension $L / K$ is \textbf{radical} if $L=K\left(\alpha_1,
+        \ldots, \alpha_m\right)$, where for each $i=1, \ldots, m$ there exists
+    $n_i$
+    such that
+    $$
+        \alpha_i^{n_i} \in K\left(\alpha_1, \ldots, \alpha_{i-1}\right).
+    $$
+    The elements $\alpha_i$ form a radical sequence for $L / K$, and the
+    radical
+    degree of $\alpha_i$ is $n_i$.
 \end{definition}
 
 \begin{theorem} \label{thm:radical-single-prime}
-    Let $K$ be a field. If $\alpha ^ n \in K$ for a positive integer $n$ and  $L = K (\alpha)$, then there exists a radical sequence $\beta_i$ for $L / K$ such that the radical degree for each $\beta_i$ is prime.
+    Let $K$ be a field. If $\alpha ^ n \in K$ for a positive integer $n$ and
+    $L = K (\alpha)$, then there exists a radical sequence $\beta_i$ for $L /
+        K$
+    such that the radical degree for each $\beta_i$ is prime.
 \end{theorem}
 
 \begin{proof}
-    Let $n = \prod_{k=1}^{s} p_{k}$ where $p_{k}$ are prime numbers (not necessarily distinctive). Let $\beta_{i} = \alpha^ {p_{i + 1} \dots  p_{s}}$ for $i = 0, \dots s$. Write $L = K(\beta_1,  \dots, \beta_s = \alpha)$, and then $\beta_0 = \alpha^n \in K$ and  $\beta_i ^ {p_i} = \beta_{i-1} \in K(\beta_1, \dots, \beta_{i - 1})$ for each $i  = 1, \dots, s$. 
+    Let $n = \prod_{k=1}^{s} p_{k}$ where $p_{k}$ are prime numbers (not
+    necessarily distinctive). Let $\beta_{i} = \alpha^ {p_{i + 1} \dots
+            p_{s}}$
+    for $i = 0, \dots s$. Write $L = K(\beta_1,  \dots, \beta_s = \alpha)$, and
+    then $\beta_0 = \alpha^n \in K$ and  $\beta_i ^ {p_i} = \beta_{i-1} \in
+        K(\beta_1, \dots, \beta_{i - 1})$ for each $i  = 1, \dots, s$.
 \end{proof}
 
 \begin{example}
-    Consider $K  = \mathbb Q$ and $\alpha = \sqrt[20]{2}$, where $\alpha ^ {20} \in \mathbb Q$. Write $n = 20 =  2 \times 2 \times 5 $. Then we can take $\beta_1 = \sqrt 2, \beta_2 = \sqrt[4]{2}, \beta_3 = \sqrt[20]{2}$. Then $\mathbb Q(\sqrt[20]{2}) $ $= \mathbb Q(\sqrt{2}, \sqrt[4]{2}, \sqrt[20]{2})$ and 
+    Consider $K  = \mathbb Q$ and $\alpha = \sqrt[20]{2}$, where $\alpha ^ {20}
+        \in \mathbb Q$. Write $n = 20 =  2 \times 2 \times 5 $. Then we can
+    take
+    $\beta_1 = \sqrt 2, \beta_2 = \sqrt[4]{2}, \beta_3 = \sqrt[20]{2}$. Then
+    $\mathbb Q(\sqrt[20]{2}) $ $= \mathbb Q(\sqrt{2}, \sqrt[4]{2},
+        \sqrt[20]{2})$
+    and
     $$
-    \beta_1 ^ 2 \in \mathbb Q, \quad \beta_2 ^ 2 \in \mathbb Q(\sqrt{2}), \quad \beta_3^5 \in \mathbb Q (\sqrt{2}, \sqrt[4]{2}),
+        \beta_1 ^ 2 \in \mathbb Q, \quad \beta_2 ^ 2 \in \mathbb Q(\sqrt{2}),
+        \quad
+        \beta_3^5 \in \mathbb Q (\sqrt{2}, \sqrt[4]{2}),
     $$
     where each of the radical degrees $2, 2, 5$ is prime.
 \end{example}
 
 \begin{theorem} \label{thm:radical-all-prime}
-    Let $L / K$ be a racial extension. Then there exists a radical sequence $\beta_j$ for $L / K$ where $j=1, \dots, r$ such that the radical degree of each $\beta_j$ is prime.
+    Let $L / K$ be a racial extension. Then there exists a radical sequence
+    $\beta_j$ for $L / K$ where $j=1, \dots, r$ such that the radical degree of
+    each $\beta_j$ is prime.
 \end{theorem}
 
 \begin{proof}
-    For each $\alpha_i$ in any given radical sequence for $L / K$, replace it with a series $\beta_{ij}$ by Theorem \ref{thm:radical-single-prime}. Then combine all $\beta_{ij}$ and relabel the subscripts to make $\beta_{j}$. 
+    For each $\alpha_i$ in any given radical sequence for $L / K$, replace it
+    with a series $\beta_{ij}$ by Theorem \ref{thm:radical-single-prime}. Then
+    combine all $\beta_{ij}$ and relabel the subscripts to make $\beta_{j}$.
 \end{proof}
 
 \begin{theorem} \label{thm:radical-closure}
-    If $L / K$ is a radical extension in $\mathbb{C}$ and $M$ is the normal closure of $L / K$, then $M / K$ is radical.
+    If $L / K$ is a radical extension in $\mathbb{C}$ and $M$ is the normal
+    closure of $L / K$, then $M / K$ is radical.
 \end{theorem}
 
 \begin{proof}
-\textbf{TODO paraphrase}
+    \textbf{TODO paraphrase}
 
-Let $L=K\left(\alpha_1, \ldots, \alpha_m\right)$ with $\alpha_i^{n_i} \in K\left(\alpha_1, \ldots, \alpha_{i-1}\right)$. Let $f_i$ be the minimal polynomial of $\alpha_i$ over $K$. Then $M \supseteq L$ is clearly the splitting field of $\prod_{i=1}^m f_i$. For every zero $\beta_{i j}$ of $f_i$ in $M$ there exists an isomorphism $\sigma : K\left(\alpha_i\right) \rightarrow K\left(\beta_{i j}\right)$ by \textbf{Corollary 5.13}. By \textbf{Proposition 11.4}, $\sigma$ extends to a $K$-automorphism $\tau: M \rightarrow M$. Since $\alpha_i$ is a member of a radical sequence for a subfield of $M$, so is $\beta_{i j}$. Combining the sequences yields a radical sequence for $M$.
+    Let $L=K\left(\alpha_1, \ldots, \alpha_m\right)$ with $\alpha_i^{n_i} \in
+        K\left(\alpha_1, \ldots, \alpha_{i-1}\right)$. Let $f_i$ be the minimal
+    polynomial of $\alpha_i$ over $K$. Then $M \supseteq L$ is clearly the
+    splitting field of $\prod_{i=1}^m f_i$. For every zero $\beta_{i j}$ of
+    $f_i$
+    in $M$ there exists an isomorphism $\sigma : K\left(\alpha_i\right)
+        \rightarrow
+        K\left(\beta_{i j}\right)$ by \textbf{Corollary 5.13}. By
+    \textbf{Proposition
+        11.4}, $\sigma$ extends to a $K$-automorphism $\tau: M \rightarrow M$.
+    Since
+    $\alpha_i$ is a member of a radical sequence for a subfield of $M$, so is
+    $\beta_{i j}$. Combining the sequences yields a radical sequence for $M$.
 \end{proof}
-
 
 \begin{theorem} \label{thm:radical-3}
-If $K$ is a subfield of $\mathbb{C}$ and $L / K$ is normal and radical, then $\Gal(L / K)$ is soluble.
+    If $K$ is a subfield of $\mathbb{C}$ and $L / K$ is normal and radical,
+    then
+    $\Gal(L / K)$ is soluble.
 \end{theorem}
 
 \begin{proof}
-Let $L=K\left(\alpha_1, \ldots, \alpha_n\right)$ with $\alpha_j^{n_j} \in K\left(\alpha_1, \ldots, \alpha_{j-1}\right)$. By Theorem \ref{thm:radical-all-prime}, we may assume that $n_j$ is prime for all $j$. We prove the result by induction on $n$. 
- % In particular there is a prime $p$ such that $\alpha_1^p \in K$.
+    Let $L=K\left(\alpha_1, \ldots, \alpha_n\right)$ with $\alpha_j^{n_j} \in
+        K\left(\alpha_1, \ldots, \alpha_{j-1}\right)$. By Theorem
+    \ref{thm:radical-all-prime}, we may assume that $n_j$ is prime for all $j$.
+    We
+    prove the result by induction on $n$.
+    % In particular there is a prime $p$ such that $\alpha_1^p \in K$.
 
-If $n = 0$, we have $L = K$, and the case is trivial.
+    If $n = 0$, we have $L = K$, and the case is trivial.
 
-If $n \ge 1$ and $\alpha_1 \in K$, then $L=K\left(\alpha_2, \ldots, \alpha_n\right)$ and $\Gal(L / K)$ is soluble by induction.
+    If $n \ge 1$ and $\alpha_1 \in K$, then $L=K\left(\alpha_2, \ldots,
+        \alpha_n\right)$ and $\Gal(L / K)$ is soluble by induction.
 
-Let $n \ge 1$ and $\alpha_1 \notin K$. Let $p = n_1$, which is prime, and then $\alpha_1^p \in K$.  Then $L$ contains a primitive $p$-th root of unity $\omega$ by Theorem \ref{thm:unity-3}. Let $M = K(\omega)$ and let $N = M(\alpha_1)$. Consider the chain of subfields $K \subseteq M \subseteq N \subseteq L$. We now prove the solubility of $\Gal(L/N), \Gal(N/M), \Gal(L/M), \Gal(M/K)$, and $\Gal(L/K)$ step by step:
+    Let $n \ge 1$ and $\alpha_1 \notin K$. Let $p = n_1$, which is prime, and
+    then
+    $\alpha_1^p \in K$.  Then $L$ contains a primitive $p$-th root of unity
+    $\omega$ by Theorem \ref{thm:unity-3}. Let $M = K(\omega)$ and let $N =
+        M(\alpha_1)$. Consider the chain of subfields $K \subseteq M \subseteq
+        N
+        \subseteq L$. We now prove the solubility of $\Gal(L/N), \Gal(N/M),
+        \Gal(L/M),
+        \Gal(M/K)$, and $\Gal(L/K)$ step by step:
 
-\begin{itemize}
-    \item Since $L=N\left(\alpha_2, \ldots, \alpha_n\right)$, $L / N$ is a normal radical extension. By induction $\Gal\left(L / N\right)$ is soluble. 
-    \item Since $ \omega \in M$ and $\alpha_1^p \in M$, Theorem \ref{thm:radical-2} implies that $N$ is a splitting field for $t^p-\alpha_1^p$ over $M$. Thus $N / M$ is normal. By Theorem \ref{thm:radical-2}, $\Gal\left(N / M\right)$ is abelian and hence soluble. 
-    \item  $L/ K$ is finite and normal, and so is $L / M$. Apply \textcolor{red}{Galois Correspondence} to $L / M$ to deduce that
-    $$
-    \Gal\left( N / M \right) \cong \Gal(L / M) / \Gal\left(L / N\right).
-    $$
-    Hence by Theorem \ref{thm:soluble-main},  $ \Gal(L / M)$ is soluble.
-    \item By Theorem \ref{thm:unity-1}, $M$ is the splitting field for $t^p-1$ over $K$. Then the extension $M / K$ is normal. By Theorem \ref{thm:radical-1}, $\Gal(M / K)$ is abelian and hence soluble.
-    \item  \textcolor{red}{Galois Correspondence} applied to $L / K$ yields
-    $$
-    \Gal(M / K) \cong \Gal(L / K) / \Gal(L / M). 
-    $$
-    Theorem \ref{thm:soluble-main} shows that $\Gal(L / K)$ is soluble, completing the induction step.
-\end{itemize}
+    \begin{itemize}
+        \item Since $L=N\left(\alpha_2, \ldots, \alpha_n\right)$, $L / N$ is a
+              normal radical extension. By induction $\Gal\left(L / N\right)$
+              is soluble.
+        \item Since $ \omega \in M$ and $\alpha_1^p \in M$, Theorem
+              \ref{thm:radical-2} implies that $N$ is a splitting field for
+              $t^p-\alpha_1^p$
+              over $M$. Thus $N / M$ is normal. By Theorem \ref{thm:radical-2},
+              $\Gal\left(N
+                  / M\right)$ is abelian and hence soluble.
+        \item  $L/ K$ is finite and normal, and so is $L / M$. Apply
+              \textcolor{red}{Galois Correspondence} to $L / M$ to deduce that
+              $$
+                  \Gal\left( N / M \right) \cong \Gal(L / M) / \Gal\left(L /
+                  N\right).
+              $$
+              Hence by Theorem \ref{thm:soluble-main},	$ \Gal(L / M)$ is
+              soluble.
+        \item By Theorem \ref{thm:unity-1}, $M$ is the splitting field for
+              $t^p-1$
+              over $K$. Then the extension $M / K$ is normal. By Theorem
+              \ref{thm:radical-1},
+              $\Gal(M / K)$ is abelian and hence soluble.
+        \item  \textcolor{red}{Galois Correspondence} applied to $L / K$ yields
+              $$
+                  \Gal(M / K) \cong \Gal(L / K) / \Gal(L / M).
+              $$
+              Theorem \ref{thm:soluble-main} shows that $\Gal(L / K)$ is
+              soluble,
+              completing the induction step.
+    \end{itemize}
 \end{proof}
 
 \begin{definition}
-    Let $f$ be a polynomial over a subfield $K$ of $\mathbb{C}$, with splitting field $\Sigma$ over $K$. Then $f$ is \textbf{soluble by radicals} if there exists a field $M \supseteq \Sigma$ such that $M / K$ is a radical extension.  
+    Let $f$ be a polynomial over a subfield $K$ of $\mathbb{C}$, with splitting
+    field $\Sigma$ over $K$. Then $f$ is \textbf{soluble by radicals} if there
+    exists a field $M \supseteq \Sigma$ such that $M / K$ is a radical
+    extension.
 \end{definition}
 
-
 \begin{definition}
-    Let $f$ be a polynomial over a subfield $K$ of $\mathbb{C}$, with splitting field $\Sigma$ over $K$. The \textbf{Galois group} of $f$ over $K$ is defined as $\Gal(\Sigma / K)$.
+    Let $f$ be a polynomial over a subfield $K$ of $\mathbb{C}$, with splitting
+    field $\Sigma$ over $K$. The \textbf{Galois group} of $f$ over $K$ is
+    defined
+    as $\Gal(\Sigma / K)$.
 \end{definition}
 
 \begin{theorem} \label{thm:radical-galois-soluble}
-    Let $f$ be a polynomial over a subfield $K$ of $\mathbb{C}$. If $f$ is soluble by radicals, then the Galois group of $f$ over $K$ is soluble.
+    Let $f$ be a polynomial over a subfield $K$ of $\mathbb{C}$. If $f$ is
+    soluble by radicals, then the Galois group of $f$ over $K$ is soluble.
 \end{theorem}
 
 \begin{proof}
-\textbf{TODO paraphrase}
+    \textbf{TODO paraphrase}
 
-Since $f$ is soluble by radicals, its splitting field $\Sigma$ over $K$ satisfies $K \subseteq \Sigma \subseteq M$ where $M / K$ is a radical extension. Let $K_0$ be the fixed field of $\Gal(\Sigma / K)$, and let $N / M$ be the normal closure of $M / K_0$. Then
-$$
-K \subseteq K_0 \subseteq \Sigma \subseteq M \subseteq N.
-$$
-Since $M / K_0$ is radical, Theorem \ref{thm:radical-closure} implies that $N / K_0$ is a normal radical extension. By Theorem \ref{thm:radical-3}, $\Gal\left(N / K_0\right)$ is soluble.
-By \textbf{Theorem ??}, the extension $\Sigma / K_0$ is normal. By \textbf{Theorem ??}
-$$
-\Gal\left(\Sigma / K_0\right) \cong \Gal\left(N / K_0\right) / \Gal(N / \Sigma).
-$$
-Theorem \ref{thm:soluble-main} implies that $\Gal\left(\Sigma / K_0\right)$ is soluble. But $\Gal(\Sigma / K)=\Gal\left(\Sigma / K_0\right)$, so $\Gal(\Sigma / K)$ is soluble.
+    Since $f$ is soluble by radicals, its splitting field $\Sigma$ over $K$
+    satisfies $K \subseteq \Sigma \subseteq M$ where $M / K$ is a radical
+    extension. Let $K_0$ be the fixed field of $\Gal(\Sigma / K)$, and let $N /
+        M$
+    be the normal closure of $M / K_0$. Then
+    $$
+        K \subseteq K_0 \subseteq \Sigma \subseteq M \subseteq N.
+    $$
+    Since $M / K_0$ is radical, Theorem \ref{thm:radical-closure} implies that
+    $N /
+        K_0$ is a normal radical extension. By Theorem \ref{thm:radical-3},
+    $\Gal\left(N / K_0\right)$ is soluble.
+    By \textbf{Theorem ??}, the extension $\Sigma / K_0$ is normal. By
+    \textbf{Theorem ??}
+    $$
+        \Gal\left(\Sigma / K_0\right) \cong \Gal\left(N / K_0\right) / \Gal(N /
+        \Sigma).
+    $$
+    Theorem \ref{thm:soluble-main} implies that $\Gal\left(\Sigma / K_0\right)$
+    is
+    soluble. But $\Gal(\Sigma / K)=\Gal\left(\Sigma / K_0\right)$, so
+    $\Gal(\Sigma
+        / K)$ is soluble.
 
 \end{proof}
 
 The converse also holds, but we do not prove it here.
 
 \subsection{An Insoluble Quintic}
-We first look at how symmetric groups can be generated by its elements. 
+We first look at how symmetric groups can be generated by its elements.
 
 \begin{theorem} \label{thm:symmetric-12-12n}
-    The transposition $(12)$ and $n$-cycle $(12 \dots n)$ together generate $S_n$. 
+    The transposition $(12)$ and $n$-cycle $(12 \dots n)$ together generate
+    $S_n$.
 \end{theorem}
 \begin{proof}
-    Consider the cyclic decomposition of each element in $S_n$, where each cyclic permutation can be written as 
+    Consider the cyclic decomposition of each element in $S_n$, where each
+    cyclic permutation can be written as
     $
-    (a_1a_2\dots a_k) = (a_1 a_k) \dots (a_1 a_3) (a_1 a_2). 
+        (a_1a_2\dots a_k) = (a_1 a_k) \dots (a_1 a_3) (a_1 a_2).
     $
-    Note that $(ab) = (1a)(1b)(1a)$, therefore $(12), (13), \ldots (1n)$ together generate $S_n$. Also note that  
+    Note that $(ab) = (1a)(1b)(1a)$, therefore $(12), (13), \ldots (1n)$
+    together generate $S_n$. Also note that
     $$(1k)=((k-1)k)\dots(34)(23)(12)(23)(34)\dots((k-1)k),$$
-    therefore $(12), (23), \dots, ((n-1)n)$ together generate $S_n$. Finally note that 
+    therefore $(12), (23), \dots, ((n-1)n)$ together generate $S_n$. Finally
+    note that
     $$
-    (k(k+1)) = (12\dots n)^{k-1} (12) (12\dots n)
+        (k(k+1)) = (12\dots n)^{k-1} (12) (12\dots n)
     $$
-    for $k = 2, 3, \dots n - 1$. Therefore $(12)$ and $(12 \dots n)$ together generate $S_n$. 
+    for $k = 2, 3, \dots n - 1$. Therefore $(12)$ and $(12 \dots n)$ together
+    generate $S_n$.
 \end{proof}
 
 \begin{theorem} \label{thm:symmetric-ab-12n}
-    For $1 \le a < b \le n$ such that $(b - a, n) = 1$, the transposition $(ab)$ and $n$-cycle $(12 \dots n)$ together generate $S_n$.
+    For $1 \le a < b \le n$ such that $(b - a, n) = 1$, the transposition
+    $(ab)$ and $n$-cycle $(12 \dots n)$ together generate $S_n$.
 \end{theorem}
 \begin{proof}
-   Let $\sigma=(12 \ldots n)$, so $\sigma^i(a) \equiv a+i \bmod n$. Therefore $\sigma^{b-a}(a) \equiv b \bmod n$, and since $1 \le b \le n$, we have $\sigma^{b-a}(a)=b$. Since $(b-a, n)=1,\langle\sigma\rangle=\left\langle\sigma^{b-a}\right\rangle$ and $\sigma^{b-a}$ is an $n$-cycle sending $a$ to $b$, so $\sigma^{b-a}$ is of the form $(a b \ldots)$. Then
-$
-\langle(a b), \sigma\rangle=\left\langle(a b), \sigma^{b-a}\right\rangle=\langle(a b),(a b \ldots)\rangle .
-$
-Relabel the numbers $1,2 \ldots, n$ so that $(a b)$ turns into $(12)$ and $(a b \ldots)$ into $(12 \ldots n)$. Therefore $\langle(a b), \sigma\rangle=S_n$ by Theorem \ref{thm:symmetric-12-12n}.
+    Let $\sigma=(12 \ldots n)$, so $\sigma^i(a) \equiv a+i \bmod n$. Therefore
+    $\sigma^{b-a}(a) \equiv b \bmod n$, and since $1 \le b \le n$, we have
+    $\sigma^{b-a}(a)=b$. Since $(b-a,
+        n)=1,\langle\sigma\rangle=\left\langle\sigma^{b-a}\right\rangle$ and
+    $\sigma^{b-a}$ is an $n$-cycle sending $a$ to $b$, so $\sigma^{b-a}$ is of
+    the
+    form $(a b \ldots)$. Then
+    $
+        \langle(a b), \sigma\rangle=\left\langle(a b),
+        \sigma^{b-a}\right\rangle=\langle(a b),(a b \ldots)\rangle .
+    $
+    Relabel the numbers $1,2 \ldots, n$ so that $(a b)$ turns into $(12)$ and
+    $(a b
+        \ldots)$ into $(12 \ldots n)$. Therefore $\langle(a b),
+        \sigma\rangle=S_n$ by
+    Theorem \ref{thm:symmetric-12-12n}.
 \end{proof}
 
 \begin{theorem} \label{thm:symmetric-prime}
-    For a prime number $p$, any transposition and $p$-cycle together generate $S_p$.
+    For a prime number $p$, any transposition and $p$-cycle together generate
+    $S_p$.
 \end{theorem}
 \begin{proof}
-    Relabel the numbers so that the $p$-cycle turns into $(12 \dots p)$. Suppose the transposition turns into $(ab)$, where $1 \le a < b \le n$. Since $p$ is prime and $1 \le b - a < p$, we have $(b - a, p) = 1$. The result thus follows from Theorem \ref{thm:symmetric-ab-12n}.
+    Relabel the numbers to turn the $p$-cycle into $(12 \dots p)$.
+    Suppose the transposition turns into $(ab)$, where $1 \le a < b \le n$.
+    Since
+    $p$ is prime and $1 \le b - a < p$, we have $(b - a, p) = 1$. The result
+    thus
+    follows from Theorem \ref{thm:symmetric-ab-12n}.
 \end{proof}
 
-Now we are ready to establish a case where the Galois group of a polynomial over $\mathbb Q$ is isomorphic to a symmetric group.
+Now we are ready to establish a case where the Galois group of a polynomial
+over $\mathbb Q$ is isomorphic to a symmetric group.
 
 \begin{theorem} \label{thm:galois-iso-symmetric}
-    Let $p$ be a prime number and $f$ be a irreducible polynomial of degree $p$ over $\mathbb Q$. If $f$ has exactly two non-real zeros in $\mathbb C$, then the Galois group of $f$ over $\mathbb Q$ is isomorphic to the symmetric group $S_p$.
+    Let $p$ be a prime number and $f$ be a irreducible polynomial of degree $p$
+    over $\mathbb Q$. If $f$ has exactly two non-real zeros in $\mathbb C$,
+    then
+    the Galois group of $f$ over $\mathbb Q$ is isomorphic to the symmetric
+    group
+    $S_p$.
 \end{theorem}
 
 \begin{proof}
-    \textcolor{red}{The Fundamental Theorem of Algebra} implies that there exists a splitting field $\Sigma $ of $f$ contained in $\mathbb C$. The Galois group $\Gal(\Sigma / \mathbb Q)$ of $f$ can be considered as a permutation group of the zeros of $f$ \textbf{(Group action??)}. By Theorem ??, $f$ has distinct zeros, so $\Gal(\Sigma / \mathbb Q)$ is isomorphic to a subgroup of $S_p$. We denote this subgroup of $S_p$ as $G$. 
+    \textcolor{red}{The Fundamental Theorem of Algebra} implies that there
+    exists a splitting field $\Sigma $ of $f$ contained in $\mathbb C$. The
+    Galois
+    group $\Gal(\Sigma / \mathbb Q)$ of $f$ can be considered as a permutation
+    group of the zeros of $f$ \textbf{(Group action??)}. By Theorem ??, $f$ has
+    distinct zeros, so $\Gal(\Sigma / \mathbb Q)$ is isomorphic to a subgroup
+    of
+    $S_p$. We denote this subgroup of $S_p$ as $G$.
 
-    Complex conjugation restricted to $\Sigma$ is a $\mathbb Q$-automorphism of $\Sigma$. It fixes all $p - 2$ real zeros of $f$ and transposes the two non-real zeros. Therefore $G$ contains a transposition. 
+    Complex conjugation restricted to $\Sigma$ is a $\mathbb Q$-automorphism of
+    $\Sigma$. It fixes all $p - 2$ real zeros of $f$ and transposes the two
+    non-real zeros. Therefore $G$ contains a transposition.
 
-    Take any zero $\alpha$ of $f$. Since $f$ is irreducible, it is the minimal polynomial of $\alpha$. Then by the \textbf{Degree Theorem}, $$[\mathbb Q(\alpha) : \mathbb Q] = \partial f = p. $$ The \textbf{tower law} implies that $$[\Sigma : \mathbb Q] = [\Sigma : \mathbb Q(\alpha)] [ \mathbb Q(\alpha) : \mathbb Q]. $$ By \textbf{Galois Correspondence}, $|G| = [\Sigma : \mathbb Q]$, and thus $p$ divides $|G|$. Theorem \ref{thm:cauchy} gives the existence of an element of order $p$ in $G$, but the only elements of order $p$ in $S_p$ are $p$-cycles. Therefore $G$ contains a $p$-cycle.
+    Take any zero $\alpha$ of $f$. Since $f$ is irreducible, it is the minimal
+    polynomial of $\alpha$. Then by the \textbf{Degree Theorem}, $$[\mathbb
+                Q(\alpha) : \mathbb Q] = \partial f = p. $$ The \textbf{tower
+        law} implies that
+    $$[\Sigma : \mathbb Q] = [\Sigma : \mathbb Q(\alpha)] [ \mathbb Q(\alpha) :
+        \mathbb Q]. $$ By \textbf{Galois Correspondence}, $|G| = [\Sigma :
+        \mathbb Q]$,
+    and thus $p$ divides $|G|$. Theorem \ref{thm:cauchy} gives the existence of
+    an
+    element of order $p$ in $G$, but the only elements of order $p$ in $S_p$
+    are
+    $p$-cycles. Therefore $G$ contains a $p$-cycle.
 
-    Hence by Theorem \ref{thm:symmetric-prime}, $ G = S_p$ and therefore $\Gal(\Sigma / \mathbb Q) \cong S_p$.
+    Hence by Theorem \ref{thm:symmetric-prime}, $ G = S_p$ and therefore
+    $\Gal(\Sigma / \mathbb Q) \cong S_p$.
 \end{proof}
 
 \begin{example}
-    The polynomial $x^5 + 10 x^4 - 2$ over $\mathbb Q$ is not soluble by radicals.
+    The polynomial $x^5 + 10 x^4 - 2$ over $\mathbb Q$ is not soluble by
+    radicals.
 \end{example}
 
 \begin{proof}
-    $f$ is irreducible by \textbf{Eisenstein's criterion} with $p = 2$. The degree of $f$ is $5$, which is prime. Calculus shows that $f$ has three real zeros. Thus the Galois group of $f$ is isomorphic to $S_5$ by Theorem \ref{thm:galois-iso-symmetric}. But $S_5$ is not soluble by Theorem \ref{thm:symmetric-not-soluble}. Thus by Theorem \ref{thm:radical-galois-soluble}, $f$ is not soluble by radicals.
+    $f$ is irreducible by \textbf{Eisenstein's criterion} with $p = 2$. The
+    degree of $f$ is $5$, which is prime. Calculus shows that $f$ has three
+    real
+    zeros. Thus the Galois group of $f$ is isomorphic to $S_5$ by Theorem
+    \ref{thm:galois-iso-symmetric}. But $S_5$ is not soluble by Theorem
+    \ref{thm:symmetric-not-soluble}. Thus by Theorem
+    \ref{thm:radical-galois-soluble}, $f$ is not soluble by radicals. Test
 \end{proof}
 
 \section{History of Galios}
