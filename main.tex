@@ -4,6 +4,7 @@
 \usepackage{amsthm}
 \usepackage{amsfonts}
 \usepackage{graphicx}
+\usepackage{enumitem}
 \usepackage{tikz}
 \usepackage{amssymb}
 \usepackage{nicematrix}
@@ -26,6 +27,10 @@
 \newcommand{\Gal}{\operatorname{Gal}}
 \newcommand{\Aut}{\operatorname{Aut}}
 \newcommand{\Fix}{\operatorname{Fix}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
 
 \title{\textbf{Galois Theory}}
 \author{Reece Wood, Adam Black, Yuhang Wei, Grace Anderson}
@@ -49,9 +54,11 @@ We first look at fields and extensions of fields in order to have a basis.}
     \item Automorphism - A group automorphism is an isomorphism from a group to itself
     \item Monomorphism - A monomorphism is an injective homomorphism of a group $G \rightarrow{} H$
     \item Galois Group - Let $L/K$, and $G$ be the set of automorphisms of $L/K$. then $G$ is a group of transformations $L$, called the Galois Group of $L/K$ denoted $Gal(L/K)$.
-    \item normal field extension
+    \item Polynomials, Chapter 3, including Eisenstein’s Criterion (p40 Stewart 5e)
+    \item Field extensions and simple extensions, Chapters 4 and 5, including Corollary 5.13 Stewart and ``degree theorem'' (if $f$ is the minimal polynomial of $\alpha$ over $K$ then the degree of $f$ equals $[K(\alpha) : K]$ ) (Lemma 5.14 Stewart)
+    \item normal and separable field extensions (Chapter 9 Stewart), including 9.9, 9.13 and 9.14
+    \item Proposition 11.4 Stewart (Galois group as a permutation group of the zeros)
 \end{itemize}
-\section{Polynomials}
 \section{Basics of Field Extensions}
 \begin{definition}
 Let \((G, *,\star )\) be a field. Let \(F\) be a subset of \(G\) such that \((F,*,\star)\) is a field. Then \((F, *,\star)\) is a \textbf{subfield}
@@ -107,24 +114,88 @@ Let $\lambda = \{\lambda_1,...,\lambda_m\}$ be a basis for $L/M$, and let $\mu =
 
 \noindent Then we have that $x=\sum^m_{i=1}\frac{x_i}{b}\cdot b \cdot \lambda_i = \sum^m_{i=1}\sum^n_{j=1}d_i\cdot \mu_j \cdot \lambda_i$
 
-\noindent If we consider the set $\gamma=\{\lambda_i\mu_j : 1\leq i \leq m, 1\leq j \leq n\}$, and consider from what we have seen above that $\forall x \in L$ we can write $x$ \textcolor{red}{Find the right words here}, we can see that $\gamma$ spans $L/K$.
+\noindent If we consider the set $\gamma=\{\lambda_i\mu_j : 1\leq i \leq m, 1\leq j \leq n\}$, and consider from what we have seen above that $\forall x \in L$ we can write $x$ as a linear combination of some elements of elements in $\gamma$. Therefore, we can see that $\gamma$ spans $L/K$.
 
 Now it is required to show that $\gamma$ is linearly independent, in order to show that it is a basis for $L/K$.
 
 Suppose that for some $c_{ij} \in K$: $\sum^m_{i=1} \sum^n_{j=1} c_{ij}\lambda_i\mu_j = 0 $. Then since $\lambda$ is a linearly independent set over $M$ we have that $\forall i \in \{1,...,m\}$:\hspace{0.2cm} $\sum^n_{j=1} c_{ij}\mu_j = 0 $. By seeing that $\mu$ is also a linearly independent set over $K$ we get that $\forall i \ in \{1,...,m\}$ and $\forall j \ in \{1,...,n\}$ we have $c_{ij} = 0$. Which then implies that $\gamma$ is linearly independent and we already know it spans $L/K$, thus it is a basis for $L/K$ and since $|\gamma|=mn$ this implies that $[L:K] = mn = [L:M]\cdot[M:K]$
 
 \end{proof}
+\subsection{Simple Field Extensions}
+\begin{definition}
+An extension field \(F\) of \(K\) is called simple if \(F = K(\alpha)\) for some \(\alpha \in F\).
+\end{definition}
+\begin{example}
+Clearly, \(K = \mathbb{Q}(\sqrt{2})\) is simple.
+\end{example}
+We can also look at some less obvious extension fields which are simple.
+\begin{example}
+Taking the extension field \(K = \mathbb{Q}(\sqrt{2}, i)\), we prove that this can be rewritten using only one element as \(K' = \mathbb{Q}(\sqrt{2} + i)\), and that \(K=K'\) making \(K\) a simple field extension. We know \(K'\) contains
+\[(\sqrt{2} + i)^2\]
+\end{example}
 \section{Introduction to Galois Theory}
 \subsection{Galois Groups}
 \begin{definition}
-    Given a field extension $L/K$, its Galois Group $\Gal(L/K)$ is the group of all $K$-automorphisms $\phi$ of $L$, such that $\phi(a) = a $ for any $ a \in K$.
+    Given a field F which is a field extension of K we have a collection of \(G\) \(K\)-automorphisms $\phi$ of $F$, such that $\phi(a) = a $ for any $ a \in K$, the collection \(G\) is called the \textbf{Galois group} of the field extension \(F\) over \(K\), usually written \(Gal(F/K)\). In the case that \(F\) is a splitting field of a polynomial \(p(x)\), \(G\) is called the Galois group of \(p(x)\), usually written \(Gal(p)\).
 \end{definition}
 
 This group becomes increasingly useful, especially when dealing with polynomials, as we will see with the following theorem.
 
-\begin{theorem}
-Let $\phi \in Gal(L/K)$ where $L/K$ is a field extension. Then for $a \in L$, a root of a polynomial $f \in K[X]$, we have $\phi(a)$ is also a root of $f(X)$.
+\begin{theorem} 
+Let $\phi \in Gal(L/K)$ where $L/K$ is a field extension. Then for $a \in L$, where $a$ is a root of a polynomial $f \in K[X]$, we have $\phi(a)$ is also a root of $f(X)$.
 \end{theorem}
+
+\subsection{Basics of polynomials}
+
+Polynomials will often be written in descending order $r_n t^n + r_{n-1} t^{n+1} + ... + r_1 t + r_0$ for $n$
+
+Two polynomials are defined to be equal if and only if all corresponding co-efficients are equal.
+
+If $r = \sum (r_i t^i)$ and $s = \sum (s_i t^i)$ then $r+s = \su$
+
+\begin{theorem}
+    Eisenstein's Criterion - Let 
+    
+    $f(x) = a_0 + a_1 t + ... + a_n t^n$
+    
+    be a polynomial over $\Z$. Suppose there is a prime q such that:
+    
+    (1) $q \nmid a_n$
+
+    (2) $q | a_i$ for $i = {0, 1,..., n-1}$
+
+    (3) $q^2 \nmid a_0$
+
+    Then $f$ is irreducible over $\Q$
+\end{theorem}
+
+\begin{proof}
+proof goes here
+\end{proof}
+
+\begin{example}
+    example goes here
+\end{example}
+
+\begin{theorem}
+    If $p$ is a prime then the polynomial
+
+    $f(t) = 1 + t + ... = t^{p-1}$
+
+    is irreducible over $\Q$
+\end{theorem}
+
+\begin{proof}
+    proof goes here
+\end{proof}
+
+\begin{theorem}
+    Gauss Lemma - Let f be a polynomial over $\Z$ that is irreducible over $\Z$. Then $f$, considered as a polynomial over $\Q$, is also irreducible over $\Q$.
+\end{theorem}
+
+\begin{proof}
+    proof goes here
+\end{proof}
 
 \section{Galois Field Extensions}
 \begin{definition}
@@ -133,7 +204,7 @@ A field extension is said to be a \textbf{Galois extension} if it is finite, nor
 
 \noindent We now look at a theorem which helps to characterise and identify fields, extensions and Galois groups.
 
-\begin{theorem}
+\begin{theorem} \label{thm:fixed}
     Given a finite Galois extension $L/K$ and its Galois group $G=Gal(L/K)$, the following holds:
     \begin{itemize}
         \item $K = Fix(G)$
@@ -170,19 +241,47 @@ Thus we see that $[L:F]\leq|G|\leq[L:F]$, therefore $|G|=[L:F]$ and therefore in
 
 Group theory tends to look at patterns and symmetries in mathematical objects, and Galois groups have an interesting symmetry. The following theorem describes how the structure of an extension of a field is the same as the subgroups of the Galois groups.
 
-\begin{theorem}
-Given a finite Galois extension $L/K$ and its Galois group $G = \Gal(L/K)$, there is a natural bijection between subgroups $H\leq G$ and the intermediate fields $M$ \hspace{0.1cm} $(K \subseteq M \subseteq L)$:
+\begin{theorem} \label{thm:fundamental-theorem} [The Fundamental Theorem of Galois Theory] Given a finite Galois extension $L/K$ and its Galois group $G = \Gal(L/K)$, there is a natural bijection between subgroups $H\leq G$ and the intermediate fields $M$ \hspace{0.05cm} $(K \subseteq M \subseteq L)$,:
 
 \begin{itemize}
-    \item $\alpha:F \to \Gal(L/M) \subseteq G$
+    \item $\alpha:M \to \Gal(L/M) \subseteq G$
     \item $\beta:H \to \Fix(H) \subseteq L$
 \end{itemize}
+where $\alpha$ and $\beta$ are inverses of each other.
 \end{theorem}
 \begin{proof}
-Proof will go here
+\begin{enumerate}[label=(\roman*)]
+
+ \item ($\beta \circ \alpha = id$) Let $M$ be an intermediate field, and thus we can see that $L/M$ is a Galois Extension. Then if we consider the Galois group $\Gal(L/M)$, we can see that via Theorem \ref{thm:fixed}, $M = \Fix(\Gal(L/M))$. Thus, if we consider $\alpha(M) = \Gal(L/M)$. Then we look at $(\beta \circ \alpha)(M)$, which is equal to $\beta(\Gal(L/M)) = \Fix(\Gal(L/M))$, but again as see in Theorem \ref{thm:fixed}, we have $\Fix(\Gal(L/M)) = M$. Thus $(\beta \circ \alpha)(M) = M$ and hence we see that $(\beta \circ \alpha) = id$.
+
+ \item ($\alpha \circ \beta = id$) Now, let $H$ be a subgroup of $G$ and then set $M :=\Fix(H)$ in order that $L:M$ is a Galois extensions. This implies that $H$ is a subgroup of the Galois group $\Gal(L/M)$. From Theorem \ref{thm:fixed}, we have that $\Fix(\Gal(L/M))=M$, and we also have that $\Fix(H) = M$ so we can say that $\Fix(H)=\Fix(\Gal(L/M)) \implies H = \Gal(L/M) = \Gal(L/\Fix(H))$. Thus if we consider $(\alpha \circ \beta)(H) = \alpha(\Fix(H)) = \Gal(L/\Fix(H))$, and as we have just seen above $H = \Gal(L/\Fix(H))$, so we have $(\alpha \circ \beta)(H) = H$ and so $(\alpha \circ \beta)(H) = id$.
+\end{enumerate}
+Hence we can see that the functions $\alpha$ and $\beta$ are inverse to each other.
 \end{proof}
 \subsection{Abel-Ruffini Theorem}
 
+Paolo Ruffini first looked at the theorem
+
+\begin{theorem}
+    The general polynomial of degree n is not solvable
+by radicals for $n \ge 5$
+\end{theorem}
+
+and came up with an incomplete proof in 1799. Neils Abel then completed his proof in 1824
+
+\begin{theorem}
+    A polynomial $f(x)$ is solvable by radicals if and only if its Galois Group is solvable
+\end{theorem}
+
+\begin{proof}
+    proof will go here
+\end{proof}
+
+The Abel-Ruffini theorem then follows easily from the above proof to show the proof below.
+
+\begin{proof}
+proof will go here    
+\end{proof}
 
 
 \section{Galois Groups and Polynomials}
@@ -528,7 +627,7 @@ We now give a quintic polynomial not soluble by radicals.
     $f$ is irreducible by \textbf{Eisenstein's criterion} with $p = 2$. The degree of $f$ is $5$, which is prime. Calculus shows that $f$ has three real zeros. Thus the Galois group of $f$ is isomorphic to $S_5$ by Theorem \ref{thm:galois-iso-symmetric}. But $S_5$ is not soluble by Theorem \ref{thm:symmetric-not-soluble}. Thus by Theorem \ref{thm:radical-galois-soluble}, $f$ is not soluble by radicals.
 \end{proof}
 
-\section{History of Galios Theory}
+\section{History of Galois Theory}
 
 Notes:
 One of the founders of modern algebra
