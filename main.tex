@@ -6,6 +6,8 @@
 \usepackage{graphicx}
 \usepackage{enumitem}
 \usepackage{tikz}
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows}
 \usepackage{amssymb}
 \usepackage{nicematrix}
 \usepackage{wrapfig}
@@ -326,31 +328,6 @@ Hence we can see that the functions $\alpha$ and $\beta$ are inverse to each oth
 \end{theorem}
 
 \section{Galois Groups and Polynomials}
-
-\subsection{Abel-Ruffini Theorem}
-
-Paolo Ruffini first looked at the theorem
-
-\begin{theorem}
-    The general polynomial of degree n is not solvable
-by radicals for $n \ge 5$
-\end{theorem}
-
-and came up with an incomplete proof in 1799. Neils Abel then completed his proof in 1824
-
-\begin{theorem}
-    A polynomial $f(x)$ is solvable by radicals if and only if its Galois Group is solvable
-\end{theorem}
-
-\begin{proof}
-    proof will go here
-\end{proof}
-
-The Abel-Ruffini theorem then follows easily from the above proof to show the proof below.
-
-\begin{proof}
-proof will go here    
-\end{proof}
 
 
 \subsection{Soluble and Simple Groups}
@@ -694,6 +671,44 @@ We now give a quintic polynomial not soluble by radicals.
 
 \begin{proof}
     $f$ is irreducible by \textbf{Eisenstein's criterion} with $p = 2$. The degree of $f$ is $5$, which is prime. Calculus shows that $f$ has three real zeros. Thus the Galois group of $f$ is isomorphic to $S_5$ by Theorem \ref{thm:galois-iso-symmetric}. But $S_5$ is not soluble by Theorem \ref{thm:symmetric-not-soluble}. Thus by Theorem \ref{thm:radical-galois-soluble}, $f$ is not soluble by radicals.
+\end{proof}
+
+\subsection{Abel-Ruffini Theorem}
+
+If we think of a general quadratic polynomial, i.e one of the form $aX^2+bX+c$, and try to find its roots, we know that there is a formula to find the roots of the general quadratic, which is $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$. A similar formula can be found to find the roots of a general cubic and quartic polynomial. However, there is no such general formula for polynomial of degree 5 an higher.
+
+The following theorem, the proof of which has been adapted from Mrinial \cite{Abel-Ruffini}, was posed and proved (incompletely) by Paolo Ruffini and completed by Niels Henrik Abel, shows that the general polynomial of order five and above is not solvable by radicals.
+
+First, we need to understand two theorems in order to be able to prove the Abel-Ruffini Theorem. The first is Hilbert's Theorem \textcolor{red}{May be Artin} which shows that general polynomials have a Galois Group that is isomorphic to $S_n$, the proof of which has been adapted from Lorenz \cite{Lorenz}.
+
+\begin{theorem}[Hilbets/Artin]
+   Theorem Goes Here
+\end{theorem}
+
+\begin{proof}
+    Proof Goes Here
+\end{proof}
+
+\begin{theorem}[Galois' Theorem]\label{thm:galois-theorem}
+     A polynomial $f(x)$ is solvable by radicals if and only if its Galois group is solvable
+\end{theorem}
+
+\begin{proof}
+    "$\implies $"Given a general polynomial of the form $f(x) = a_0X^n +a_1X^{n-1}+...+a_{n-1}X+a_n$, let us assume that it can be solved by radicals. Then we know that for each root of the polynomial, $x=\zeta_i$ where $0\leq i \leq n$, we have an extension $A_i/F$ which is cyclic by \textcolor{red}{Proposition}. If we then take the composition of all of those fields, we get another field $L$ which contains all the roots of $f(x)$ and is itself Galois. 
+    \textcolor{red}{Thus proves that if a polynomial can be solved by radicals, its Galois group is solvable}
+
+    "$\impliedby$" Instead, supposed the polynomial $f(x)$ has a Galois group, $G$, which is solvable. Then we can consider the following chain of subfields: $F=K_0\subset K_1 \subset ... \subset K_n = K$. Here we define $K_i = \Fix(G_i)$ where $G_i$ is a subgroup of $G$.
+    Since $G$ is solvable, and by the Galois Correspondence, we have that $K$ is cyclic which implies that $K_{i+1}/K_i$ is also cyclic.
+
+    Then if we attach the $k_i^{th}$ roots of unity, we can compose this with our field $F$ as well as to the chain of subfields above to give us another chain, which we will define as $F_1 = F_1K_0 \subset F_1K_1 \subset ... \subset F_1K_n = F_1K$. We therefore have a chain of extensions such that $k_i \in F_1$ $\forall i$ \hspace{0.1cm} $\in I$ where $I$ is the index for number of roots of unit. Since $K_{i+1}/K_i$ is cyclic, we also have that $F_1K_{i+1}/F_1K_i$ is cyclic. Thus, the extensions are simple radical extensions, which by \textcolor{red}{Theorem Here Lagrange} implies that $f(x)$ is solvable.
+\end{proof}
+
+\begin{theorem}[Abel-Ruffini Theorem]
+    The general polynomial of degree n is not solvable by radicals for $n \ge 5$
+\end{theorem}
+
+\begin{proof}\label{thm:abel-ruffini-thm}
+    By Hilbert's Theorem, we know that the general polynomial, written in the form $f(x)=a_0X^n - a_1X^{n-1} + ... + (-1)^na_n$ has Galois group $S_n$. Then by Theorem \ref{thm:symmetric-not-soluble} we can see that for $n \geq 5$, $S_n$ is not soluble, which by Theorem \ref{thm:galois-theorem} implies that the general polynomial of degree $n \geq 5$ is not solvable.
 \end{proof}
 
 \section{History of Galois Theory}
