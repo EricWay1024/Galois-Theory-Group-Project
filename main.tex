@@ -18,6 +18,7 @@
 \usepackage{placeins}
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}{Lemma}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
@@ -72,9 +73,10 @@ Polynomials will often be written in descending order $r_n t^n + r_{n-1} t^{n+1}
 Two polynomials are defined to be equal if and only if all corresponding co-efficients are equal.
 
 If $r = \sum (r_i t^i)$ and $s = \sum (s_i t^i)$ then $r+s = \sum$
-Definition of a polynomial.
 
-Degree of a polynomial.
+% Definition of a polynomial.
+
+% Degree of a polynomial.
 
 \subsection{Fundamental Theorem of Algebra} \label{thm:fundamental-algebra}
 This theorem from the module \textit{Complex Functions} is stated without proof. 
@@ -121,11 +123,26 @@ Theorem 3.14. Any non-zero polynomial over a subring $R$ of $\mathbb{C}$ is a pr
 \end{theorem}
 
 \begin{proof}
-proof goes here
+By Gauss's Lemma it is sufficient to show that $f$ is irreducible over $\Z$. Suppose for a contradiction that $f = gh$, where
+
+$g=b_0+b_1 t+ ... +b_r t^r$ and $h=c_0+c_1 t+ ... +c_s t^s$
+
+are polynomials of smaller degree over $\Z$. Then $r \ge 1, s \ge 1$ and $r+s = n$. Now $b_0 c_0 = a_0$ so by (2), $q | b_0$ or $q|c_0$. By (3), $q$ cannot divide both $b_0$ and $c_0$, so without
+loss of generality we can assume $q | b_0$ and $q \nmid c_0$. If all $b_j$ are divisible by $q$, then $a_n$ is divisible by $q$, contrary to (1). Let $b_j$ be the first coefficient of $g$ not divisible by $q$. Then
+
+$a_j = b_j c_0 + ...+ b_0 c_j$ where $j < n$
+
+ This implies that $q$ divides $c_0$, since $q$ divides $a_j, b_0,..., b_{j-1}$, but not $b_j$. This is a contradiction. Hence f is irreducible.
 \end{proof}
 
 \begin{example}
-    example goes here
+Consider
+
+$f(t) = \frac{2}{9} t^5 + \frac{5}{3} t^4 + t^3$ over $\Q$.
+
+This is irreducible over $\Q$ if and only if
+
+$9f(t) = 2t^5 + 15t^4 + 9t^3$ is irreducible over $\Q$. Eisenstein's criterion now applies with $q = 3$, showing that $f$ is irreducible.
 \end{example}
 
 \begin{theorem}
@@ -137,7 +154,14 @@ proof goes here
 \end{theorem}
 
 \begin{proof}
-    proof goes here
+First, $f(t) = \frac{t^p - 1}{t - 1}$. Put $t = 1 + u$ where $u$ is a new indeterminate. Then $f(t)$ is irreducible over $\Q$ if and only if $f(1+u)$ is irreducible. But
+
+$f(1+u) = \frac{(1+u)^p - 1}{u}$
+
+$f(1+u) = u^{p-1} + ph(u)$
+
+where $h$ is a polynomial in $u$ over $\Z$ with constant term 1, by the above theorem. By Eisenstein's Criterion, $f(1+u)$ is irreducible over $\Q$
+
 \end{proof}
 
 \begin{theorem}
@@ -763,14 +787,14 @@ If we think of a general quadratic polynomial, i.e one of the form $aX^2+bX+c$, 
 
 The following theorem, the proof of which has been adapted from Mrinial \cite{Abel-Ruffini}, was posed and proved (incompletely) by Paolo Ruffini and completed by Niels Henrik Abel, shows that the general polynomial of order five and above is not solvable by radicals.
 
-First, we need to understand two theorems in order to be able to prove the Abel-Ruffini Theorem. The first is Hilbert's Theorem \textcolor{red}{May be Artin} which shows that general polynomials have a Galois Group that is isomorphic to $S_n$, the proof of which has been adapted from Lorenz \cite{Lorenz}.
+First, we need to understand a lemma in order to be able to prove the Abel-Ruffini Theorem. The proof of this lemma is adapted from a lecture by DeVille \cite{galois-lecture-polynomials}
 
-\begin{theorem}[Hilbets/Artin]
-   Theorem Goes Here
-\end{theorem}
+\begin{lemma}\label{lemma:galois-symmetric}
+    For an irreducible polynomial $f(x) \in F[x]$ with Galois group $K/F$, then $Gal(K/F)$ is isomorphic to the symmetric group $S_n$.
+\end{lemma}
 
 \begin{proof}
-    Proof Goes Here
+    If we first assume that $f(x)$ is irreducible, then we have that any $\sigma \in \Gal(K/F)$ maps a root of $f(x)$ to a root of $f(x)$. Thus if we let $\{\alpha_1,\alpha_2,...,\alpha_n\}$ be the roots of the polynomial $f(x)$, we can see that any $\sigma$ just permutes $\alpha_i$ to $\alpha_j$. Thus we can say that $\sigma$ is just a permutation of the set $\{1,2,...,n\}$ and thus we have an injection from $\Gal(K/F) \to S_n$. Therefore we can say that the Galois group of a polynomial is isomorphic to $S_n$
 \end{proof}
 
 \begin{theorem}[Galois' Theorem]\label{thm:galois-theorem}
@@ -787,12 +811,12 @@ First, we need to understand two theorems in order to be able to prove the Abel-
     Then if we attach the $k_i^{th}$ roots of unity, we can compose this with our field $F$ as well as to the chain of subfields above to give us another chain, which we will define as $F_1 = F_1K_0 \subset F_1K_1 \subset ... \subset F_1K_n = F_1K$. We therefore have a chain of extensions such that $k_i \in F_1$ $\forall i$ \hspace{0.1cm} $\in I$ where $I$ is the index for number of roots of unit. Since $K_{i+1}/K_i$ is cyclic, we also have that $F_1K_{i+1}/F_1K_i$ is cyclic. Thus, the extensions are simple radical extensions, which by \textcolor{red}{Theorem Here Lagrange} implies that $f(x)$ is solvable.
 \end{proof}
 
-\begin{theorem}[Abel-Ruffini Theorem]
+\begin{theorem}[Abel-Ruffini Theorem]\label{thm:abel-ruffini-thm}
     The general polynomial of degree n is not solvable by radicals for $n \ge 5$
 \end{theorem}
 
-\begin{proof}\label{thm:abel-ruffini-thm}
-    By Hilbert's Theorem, we know that the general polynomial, written in the form $f(x)=a_0X^n - a_1X^{n-1} + ... + (-1)^na_n$ has Galois group $S_n$. Then by Theorem \ref{thm:symmetric-not-soluble} we can see that for $n \geq 5$, $S_n$ is not soluble, which by Theorem \ref{thm:galois-theorem} implies that the general polynomial of degree $n \geq 5$ is not solvable.
+\begin{proof}
+    By Lemma \ref{lemma:galois-symmetric}, we know that the general polynomial, written in the form $f(x)=a_0X^n - a_1X^{n-1} + ... + (-1)^na_n$ has Galois group isomorphic to $S_n$. Then by Theorem \ref{thm:symmetric-not-soluble} we can see that for $n \geq 5$, $S_n$ is not soluble, which by Theorem \ref{thm:galois-theorem} implies that the general polynomial of degree $n \geq 5$ is not solvable.
 \end{proof}
 
 \section{History of Galois Theory}
