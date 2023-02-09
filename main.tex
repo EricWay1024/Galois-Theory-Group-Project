@@ -33,6 +33,7 @@
 \newcommand{\Aut}{\operatorname{Aut}}
 \newcommand{\Fix}{\operatorname{Fix}}
 \newcommand{\Id}{\operatorname{Id}}
+\newcommand{\Orb}{\operatorname{Orb}}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\Q}{\mathbb Q}
 \newcommand{\C}{\mathbb C}
@@ -112,7 +113,7 @@ Theorem 3.14. Any non-zero polynomial over a subring $R$ of $\mathbb{C}$ is a pr
 \begin{theorem}
     Eisenstein's Criterion - Let 
     
-    $f(x) = a_0 + a_1 t + ... + a_n t^n$
+    $$f(x) = a_0 + a_1 t + ... + a_n t^n$$
     
     be a polynomial over $\Z$. Suppose there is a prime q such that:
     
@@ -344,7 +345,7 @@ The existence of $\overline K$ for any field $K$ can be proven but is omitted he
 \begin{example}
     Let $K = \Q(\sqrt[3]{2})$. Then $K / \Q$ is not normal. The polynomial $f(t) = t^3 - 2$ over $\Q$ is irreducible and has a zero $\sqrt[3]{2}$ in $K$, but $K \subseteq \R$ does not contain the two non-real zeros of $f$. Hence $f$ does not split in $K$.
 \end{example}
-\begin{theorem}
+\begin{theorem} \label{thm:normal-equiv-def}
     Let $L/K$ be an algebraic field extension. Then the following three statements are equivalent:
     \begin{enumerate}[label=(\roman*)]
         \item $L/K$ is normal;
@@ -417,30 +418,72 @@ The next theorem implies that we can take for granted the separability of irredu
 \end{proof}
 
 \section{Galois Groups}
+
 \begin{definition}
-    Given a field $F$ which is a field extension of $K$ we have a collection of \(G\) \(K\)-automorphisms $\phi$ of $F$, such that $\phi(a) = a $ for any $ a \in K$, the collection \(G\) is called the \textbf{Galois group} of the field extension \(F\) over \(K\), usually written \(\Gal(F/K)\). In the case that \(F\) is a splitting field of a polynomial \(f\) over $K$, \(G\) is called the Galois group of \(f\), usually written \(\Gal(f)\).
+	Let $L/K$ be a field extension. A $K$-automorphism $\phi$ of $L$ is an automorphism of $L$ such that $\phi(a) = a$ for all $a \in K$. 
+\end{definition}
+
+\begin{theorem}
+	Let $L/K$ be a field extension. Then all $K$-automorphisms of $L$ form a group under map composition.
+\end{theorem}
+
+\begin{proof}
+	\TODO
+\end{proof}
+\begin{definition}
+    Let $L/K$ be a field extension. The group of all $K$-automorphisms of $L$ under map composition is the \textit{Galois group} of $L$, written as \(\Gal(L/K)\).
+%    The  is called the \textbf{Galois group} of the field extension \(F\) over \(K\), usually written .
+\end{definition}
+
+\begin{definition}
+	Let $f$ be a polynomial over $K$ and let $L$ be a splitting field of $f$, then $\Gal(L/K)$ is the \textit{Galois group} of $f$, written as \(\Gal(f)\).
+	
+%		 In the case that \(F\) is a splitting field of a polynomial \(f\) over $K$, \(G\) is called the Galois group of \(f\),
 \end{definition}
 
 This group becomes increasingly useful, especially when dealing with polynomials, as we will see with the following theorem.
 
 \begin{theorem} \label{thm:galois-group-permutes-zeros}
-Let $\phi \in \Gal(L/K)$ where $L/K$ is a field extension. Then for $a \in L$, where $a$ is a root of a polynomial $f$ over $K$, $\phi(a)$ is also a root of $f$.
+Let $\phi \in \Gal(L/K)$ where $L/K$ is a field extension. Then let $f$ be a polynomial over $K$ with a zero $a \in L$, then $\phi(a)$ is also a zero of $f$.
 \end{theorem}
 
 \begin{proof}
-    \TODO
+    Since $a \in L$ in a zero of $f$ over $K$, $f(a) = 0$. Then $\phi(f(a)) = \phi(0) = 0$. $\phi$ fixes the coefficients of $f$ as they are in $K$ and $\phi\left(a^i\right) = \left(\phi(a) \right) ^i$ as $\phi$ is a homomorphism. Therefore $f(\phi(a)) = 0$. 
 \end{proof}
 
+\begin{corollary}
+	Let $L$ be a splitting field of a polynomial $f$ over $K$ and let $G = \Gal(f)$. Let $X$ be the set of zeros of $f$. Then $G$ acts on $X$, or equivalently, there is a homomorphism from $G$ to the permutation group of $X$.
+\end{corollary}
 
-\TODO $\Gal(L/K)$ acts on the zeros of $f$. It is thus isomorphic to a subgroup of $S_n$ (by the first isomorphism theorem). 
+\begin{proof}
+	\TODO
+\end{proof}
+
+\begin{corollary}
+	$\Gal(f)$ is isomorphic to a subgroup of $S_n$, where $n$ is the degree of $f$. 
+\end{corollary}
+
+\begin{proof}
+	\TODO First isomorphism theorem
+\end{proof}
+
+\begin{theorem}
+	A polynomial $f$ over $K$ is irreducible if and only if $\Gal(f)$ acts transitively on the set of zeros of $f$.
+\end{theorem}
+
+
+
+
+%A $K$-automorphism is totally determined by its permutation of
+
+
+%\TODO $\Gal(L/K)$ acts on the zeros of $f$. It is thus isomorphic to a subgroup of $S_n$ (by the first isomorphism theorem). 
 
 \begin{theorem} \label{thm:galois-group-order-upper-bound}
-    Let $L/K$ be a finite field extension and let $G = \Gal(L/K)$, then $|G| \le [M:K]$. 
+    Let $L/K$ be a finite field extension and let $G = \Gal(L/K)$, then $|G| \le [L:K]$. 
 \end{theorem}
 
 \begin{proof}
-    \TODO
-
     Consider a $K$-monomorphism $\phi_0 : K \to X$ where $X$ is a field. Since $L/K$ is finite, by Theorem \ref{thm:finite-equi-def}, we can write $L = K(\alpha_1, \ldots, \alpha_r)$ for $r$ finite and $\alpha_i$ algebraic over $K$. Denote $K_0 = K$ and
     $K_i = K(\alpha_1, \dots, \alpha_i)$ for $i = 1, \ldots, r$. In particular, $K_r = L$. 
 
@@ -463,7 +506,7 @@ Thus $\Fix(G)$ is the subset of elements in $L$ which remain fixed for all autom
 
 \section{Galois Extensions}
 
-We are now ready to present a speical kind of field extensions:
+We are now ready to present a special kind of field extensions:
 
 \begin{definition}
     A finite field extension is \textit{Galois} if it is both normal and separable. 
@@ -486,23 +529,43 @@ We are now ready to present a speical kind of field extensions:
 \begin{proof}
     We now prove the equivalence of the first four statements. The equivalence of the fifth and the others is established in the next section.
 
-    (i) $\Rightarrow$ (ii). \TODO
+    (i) $\Rightarrow$ (ii). Consider a $K$-monomorphism $\phi: K \to \overline{K}$. We now extend $\phi$ to $\phi':L \to \overline{K}$ in the same pattern as in the proof of Theorem \ref{thm:galois-group-order-upper-bound}. However, at each step, we claim that the number of ways to extend is equal to $[K_i : K_{i-1}]$. Indeed, $\alpha_i$ is separable and hence $f_i$ has exactly $[K_i : K_{i-1}]$ distinct zeros, and $\overline K$ contains all these zeros. Therefore, combining all the steps gives us in total $[L:K]$ ways to extend $\phi$ to $\phi'$. Also, since $L/K$ is normal, and by the proof of Theorem \ref{thm:normal-equiv-def}, each $K$-monomorphism $\phi': L \to \overline{K}$ maps $L$ to $L$, and thus each $\phi'$ corresponds to an element in $\Gal(L/K)$. Hence $[L:K] = \Gal(L/K)$. 
+    
+    (ii) $\Rightarrow$ (iii). Define $F:= \Fix(G)$. We have $K \subseteq F \subseteq G$. Then:
+    \begin{itemize}
+    	\item By assumption, we have $[L:K] = |G|$;
+    	\item     Each $K$-automorphism of $L$ in $G$ is also a $F$-automorphism of $L$ in $\Gal(L/F)$, and thus $G \subseteq \Gal(L / F)$ and $|G| \le |\Gal(L / F)|$;
+    	\item  By Theorem \ref{thm:galois-group-order-upper-bound}, $|\Gal(L/F)| \le [L:F]$;
+    	 
+    	\item     By Theorem \ref{thm:tower-theorem}, we see that $ [L:F] \le [L:F][F:K] = [L:K]$.
+    \end{itemize}
 
-    Define $F:= \Fix(G)$. Since $L/K$ is a finite Galois extensions and $G$ is its Galois group, we have $L/F$ must also be normal and separable, and therefore is also a Galois extension, with $G \subseteq \Gal(L/F)$.
+	Combining them gives $$
+	[L:K] = |G| \le |\Gal(L/F)| \le  [L:F] \le [L:K],
+$$    
+	and thus all the $\le$ signs must take equality.  
+	Thus $[L:K]=[L:F]$ and therefore by Theorem \ref{thm:tower-theorem}, we see that $[F:K]$ must equal $1$, and thus $F:=\Fix(G) = K$.
 
-\noindent We can also see that $|\Gal(L/F)| = [L:F]$ which implies that $|G|\leq|\Gal(L/K)|=[L:F]$
-Then by the Theorem \ref{thm:tower-theorem} we see that $|G|=[L:K]=[L:F][F:K]\geq [L:F]$.
+	(iii) $\Rightarrow$ (iv). Let $\alpha \in L$. Consider $\Orb_G(\alpha) \subseteq L$, the orbit of $\alpha$ under the $G$-action on $L$. Then since $G$ is finite, $\Orb_G(\alpha) = \{ \alpha_0 = \alpha, \alpha_1, \ldots, \alpha_n\}$. Consider the polynomial $f(t) = (t-\alpha_0) \ldots (t-\alpha_n)$ in $L$.  $f$ is separable in $L$, as $\alpha_i$ are distinct. Also, any $\sigma \in G$ acting on $\alpha_0, \dots, \alpha_n$ only permutes the elements, and thus $\sigma$ fixes $f$. Then the coefficients of $f$ must be in $\Fix(G)$, but $\Fix(G) = K$ by assumption. Hence $f$ is over $K$. Clearly, $L$ is a splitting field of $f$ over $K$. 
+	
+	(iv) $\Rightarrow$ (i) is trivial.
 
-Thus we see that $[L:F]\leq|G|\leq[L:F]$, therefore $|G|=[L:F]$ and therefore in Theorem \ref{thm:tower-theorem}, we see that $[F:K]$ must equal 1, and thus $F:=\Fix(G) = K$.
+%    Define $F:= \Fix(G)$. Since $L/K$ is a finite Galois extensions and $G$ is its Galois group, we have $L/F$ must also be normal and separable, and therefore is also a Galois extension, with $G \subseteq \Gal(L/F)$.
+
+%\noindent We can also see that $|\Gal(L/F)| = [L:F]$ which implies that $|G|\leq|\Gal(L/K)|=[L:F]$
+
+%we see that $[L:F]\leq|G|\leq[L:F]$,
+
+
 \end{proof}
 
-\begin{definition}
-    A \textbf{normal closure} of a field extension $L / K$ is an extension $N$ of $L$ such that 
-    \begin{enumerate}
-        \item $N / K$ is normal;
-        \item If $L \subseteq M \subseteq N$ and $M / K$ is normal, then $M = N$.
-    \end{enumerate}
-\end{definition}
+%\begin{definition}
+%    A \textbf{normal closure} of a field extension $L / K$ is an extension $N$ of $L$ such that 
+%    \begin{enumerate}
+%        \item $N / K$ is normal;
+%        \item If $L \subseteq M \subseteq N$ and $M / K$ is normal, then $M = N$.
+%    \end{enumerate}
+%\end{definition}
 
 % \begin{theorem}
 %     Let $G$ be a finite subgroup of the group of automorphisms of a field $L$, and let $K = \Fix(G)$. Then $[L : K] = |G|$. 
