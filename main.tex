@@ -17,7 +17,8 @@
 \usepackage{natbib}
 \usepackage{placeins}
 \newtheorem{theorem}{Theorem}
-\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{corollary}[theorem]{Corollary}
+% \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}{Lemma}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
@@ -37,6 +38,8 @@
 \newcommand{\C}{\mathbb C}
 \newcommand{\R}{\mathbb R}
 \newcommand{\N}{\mathbb N}
+
+\newcommand{\TODO}{\textbf{\textcolor{red}{TODO}}}
 
 \title{\textbf{Galois Theory}}
 \author{Reece Wood, Adam Black, Yuhang Wei, Grace Anderson}
@@ -268,28 +271,66 @@ Proposition 6.7. Let $K(\alpha) / K$ be a simple extension. If it is transcenden
     Let $M/K$ be a field extension and let $\alpha \in M$. Then $\alpha$ is algebraic over $K$ if and only if $\alpha$ is in a finite field extension of $K$. 
 \end{theorem}
 
+\begin{definition}
+    A field extension $L/K$ is algebraic if any $\alpha \in L$ is algebraic over $K$. 
+\end{definition}
+
+\begin{theorem} \label{thm:finite-equi-def}
+    A field extension $L/K$ is finite if and only if $L = K(\alpha_1, \dots, \alpha_r)$ for $r$ finite and $\alpha_i$ algebraic over $K$. 
+\end{theorem}
+
 % NB the definition of an algebraic extension is used in defining normal extensions
+
+
+
 
 
 \section{Normal and Separable Extensions}
 In our focus on field extensions, it is crucial to understand the properties of normality and separability as they are the key ingredients for Galois extensions which we will discuss later.
 \subsection{Splitting Fields}
 \begin{definition}
-    Let $K$ be a subfield of $\C$. A polynomial $f$ over $K$ \textit{splits} in $K$ if it can be expressed as $$
+    Let $K$ be a subfield of $\C$. A polynomial $f$ over $K$ \textit{splits} in $K$ if it factors into linear factors $$
     f(t) = k \prod _{i=1} ^n (t - \alpha_i),
     $$
     where $k, \alpha_1, \ldots, \alpha_n \in K$. 
 \end{definition}
-Theorem \ref{thm:fundamental-algebra} indicates that for $f$ splits over $K$ if and only if all of its zeros are contained in $K$. 
+Theorem \ref{thm:fundamental-algebra} indicates that $f$ splits over $K$ if and only if all of its zeros are contained in $K$. 
 
 \begin{definition}
-    A \textbf{\textit{splitting field}} of a polynomial \(p(x)\) is the smallest field extension of \(\mathbb{Q}\) which contains all of the roots of \(p(x)\).
-    \end{definition}
-    % didn't define "smallest" field extension
+    % A \textbf{\textit{splitting field}} of a polynomial $f$ over a subfield $K$ of $\C$ is a subfield $\Sigma$ of $\C$ such that 
+    % \begin{itemize}
+    %     \item $K \subseteq \Sigma$,
+    %     \item $f$ splits over $\Sigma$ and
+    %     \item for any $\Sigma'$ such that $K \subseteq \Sigma' \subseteq \Sigma$ and $f$ splits over $\Sigma'$, we have $\Sigma' = \Sigma$. 
+    % \end{itemize}
+    The splitting field $\Sigma$ of a polynomial $f$ over a subfield $K$ of $\C$ is the field generated $K$ and all zeros of $f$. Equivalently, it is the smallest field containing $K$ and all zeros of $f$. 
+\end{definition}
+
+
+
+
+
     \begin{example}
     If we have a polynomial \(p(x) = x^4 - 12x^2 + 35\) the splitting field of \(p(x)\) is \(\mathbb{Q}[\sqrt{5},\sqrt{7}]\) as it contains all of the roots of \(p(x)\) and if it was any smaller it would not contain all of the roots or would not be a field.
     \end{example}
 
+\TODO the existence and uniqueness (up to isomorphism) of splitting fields
+
+\subsection{Algebraic Closures}
+We might extend the definition of a splitting field for a set of polynomials over a field $K$. The definition would then be the smallest field containing $K$ and all zeros of every polynomial in the set. 
+\begin{definition}
+    The algebraic closure of a field $K$ is the splitting field of the set of all polynomials over $K$, denoted as $\overline K$. 
+\end{definition}
+
+\begin{definition}
+    A field $K$ is algebraically closed if every polynomial $f$ over $K$ has a root in $K$. 
+\end{definition}
+
+\begin{theorem}
+    For a field $K$, its smallest algebraically closed extension is the algebraic closure of $K$.
+\end{theorem}
+
+The existence of $\overline K$ for any field $K$ can be proven but is omitted here. 
 
 \subsection{Normal Extensions}
 
@@ -304,33 +345,67 @@ Theorem \ref{thm:fundamental-algebra} indicates that for $f$ splits over $K$ if 
     Let $K = \Q(\sqrt[3]{2})$. Then $K / \Q$ is not normal. The polynomial $f(t) = t^3 - 2$ over $\Q$ is irreducible and has a zero $\sqrt[3]{2}$ in $K$, but $K \subseteq \R$ does not contain the two non-real zeros of $f$. Hence $f$ does not split in $K$.
 \end{example}
 \begin{theorem}
-    A  field extension $L/K$ is normal and finite if and only if $L$ is the splitting field for some polynomial $f$ over $K$.
+    Let $L/K$ be an algebraic field extension. Then the following three statements are equivalent:
+    \begin{enumerate}[label=(\roman*)]
+        \item $L/K$ is normal;
+        \item $L$ is the splitting field for a set of polynomials over $K$;
+        \item If $L$ is extended to an algebraic closure of $K$ such that $K \subseteq L \subseteq \overline K$, then any $K$-automorphism of $\overline K$ maps $L$ to $L$. 
+    \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-    
+    We first prove (i) $\Rightarrow$ (ii). 
+    Suppose $L/K$ is normal. 
+    For each $\alpha \in L$, let $f_\alpha$ be its minimal polynomial over $K$. Each $f_\alpha$ is irreducible over $K$, so the normality of $L/K$ implies that $f_\alpha$ splits in $L$. Then clearly $L$ is the splitting field of $\{ f_\alpha \text{ over } K : \alpha \in L \}$. 
+
+    We then prove (ii) $\Rightarrow$ (iii). Let $\sigma$ be a $K$-automorphism of $\overline K$. Then $\sigma$ fixes all elements in $K$. Since $L$ is the splitting field for a set of polynomials in $K$, all polynomials in the set have coefficients in $K$ and thus are fixed under $\sigma$. Hence $L$ is fixed under $\sigma$. 
+
+    We finally prove (iii) $\Rightarrow$ (i). Let $f$ be an irreducible polynomial over $K$ with zero $\alpha \in L$. For any zero $\beta$ of $f$, $K(\alpha)/K$ and $K(\beta)/K$ are isomorphic extensions by \TODO. The isomorphism from $K(\alpha)$ to $K(\beta)$ can be extended to a $K$-automorphism $\sigma$ of $\overline K$ by \TODO, where $\sigma(\alpha) = \beta$. By assumption, $\sigma(L) = L$. With $\alpha \in L$ we deduce that $\beta \in L$. Hence $L/K$ is normal.
 \end{proof}
+
+\begin{corollary}
+    $L/K$ is normal and finite if and only if $L$ is the splitting field for a polynomial $f$ over $K$. 
+\end{corollary}
+
+\begin{proof}
+    If $L/K$ is normal and finite, the finiteness of $L/K$ implies that $L = K(\alpha_1, \dots, \alpha_r)$ for $r$ finite and $\alpha_i$ algebraic over $K$ by Theorem \ref{thm:finite-equi-def}. For each $\alpha_i$, take the minimal polynomial $f_i$ of $\alpha$ over $K$. Then similarly as above, take $f = f_1 \dots f_r$ and $L$ is the splitting field of $f$.
+
+    The converse is trivial.
+\end{proof}
+
 
 \subsection{Separable Extensions}
 
 \begin{definition}
-    Let $f$ be an irreducible polynomial over field $K$ with a splitting field contained in $L$. Then $f$ is separable over $K$ if $f$ takes the form 
+    Let $f$ be an irreducible polynomial over field $K$. Then $f$ is separable over $K$ if $f$ takes the form 
     $$
         f(t) = k(t - \sigma_1) \dots (t - \sigma_n)
     $$
-    where $\sigma_i \in L$ are distinct.
+    where $\sigma_i \in \overline K$ are distinct.
 \end{definition}
+
+The following theorem of a computational nature is useful to determine whether a polynomial is separable and is given without proof. 
+
+\begin{theorem} \label{thm:separable-derivative}
+    A polynomial $f$ over $K$ is separable if and only if it is coprime with $Df$ in $K[x]$, where $Df$ is its derivative. 
+\end{theorem}
+
+The next theorem implies that we can take for granted the separability of irreducible polynomials over subfields of $\C$. 
 
 \begin{theorem} \label{thm:separable-poly-in-C}
     If $K$ is a subfield of $\C$, then every irreducible polynomial over $K$ is separable. 
 \end{theorem}
 
 \begin{proof}
-    \textbf{TODO}
+    \TODO
 \end{proof}
 
+\begin{definition}
+    Let $L/K$ be a field extension. An element $\alpha \in L$ is \textit{separable} if the minimal polynomial of $\alpha$ over $K$ is separable over $K$.
+\end{definition}
+
 \begin{definition} \label{def:separable-extension}
-    A field extension $L / K$ is \textbf{separable} if for any $\alpha \in L$, the minimal polynomial of $\alpha$ over $K$ is separable over $K$. 
+    A field extension $L / K$ is \textit{separable} if every $\alpha \in L$ is separable.
 \end{definition}
 
 \begin{theorem}
@@ -349,40 +424,70 @@ Theorem \ref{thm:fundamental-algebra} indicates that for $f$ splits over $K$ if 
 This group becomes increasingly useful, especially when dealing with polynomials, as we will see with the following theorem.
 
 \begin{theorem} \label{thm:galois-group-permutes-zeros}
-Let $\phi \in Gal(L/K)$ where $L/K$ is a field extension. Then for $a \in L$, where $a$ is a root of a polynomial $f$ over $K$, $\phi(a)$ is also a root of $f$.
+Let $\phi \in \Gal(L/K)$ where $L/K$ is a field extension. Then for $a \in L$, where $a$ is a root of a polynomial $f$ over $K$, $\phi(a)$ is also a root of $f$.
 \end{theorem}
 
 \begin{proof}
-    
+    \TODO
 \end{proof}
 
-\section{Galois Extensions}
+
+\TODO $\Gal(L/K)$ acts on the zeros of $f$. It is thus isomorphic to a subgroup of $S_n$ (by the first isomorphism theorem). 
+
+\begin{theorem} \label{thm:galois-group-order-upper-bound}
+    Let $L/K$ be a finite field extension and let $G = \Gal(L/K)$, then $|G| \le [M:K]$. 
+\end{theorem}
+
+\begin{proof}
+    \TODO
+
+    Consider a $K$-monomorphism $\phi_0 : K \to X$ where $X$ is a field. Since $L/K$ is finite, by Theorem \ref{thm:finite-equi-def}, we can write $L = K(\alpha_1, \ldots, \alpha_r)$ for $r$ finite and $\alpha_i$ algebraic over $K$. Denote $K_0 = K$ and
+    $K_i = K(\alpha_1, \dots, \alpha_i)$ for $i = 1, \ldots, r$. In particular, $K_r = L$. 
+
+
+    For $i = 1, \ldots, r$, consider the extension $K_i / K_{i-1}$, 
+    where $\alpha_i$ is a zero of an irreducible polynomial $f_i$ of degree $\partial f_i = [K_i : K_{i-1}]$ by Theorem \TODO. We now extend $\phi_{i-1} : K_{i-1} \to X$ to $\phi_i: K_i \to X$, then $\phi_i$ must map $\alpha_i$ to a zero of $f_i$ in $X$ (\TODO clarify), and the number of zeros of $f_i$ in $X$ is at most $\partial f_i$. Hence there are at most $[K_i : K_{i-1}]$ ways to extend $\phi_{i-1}$ to $\phi_i$.
+
+    We now see that there are at most $$\prod_{i=1} ^r [K_i : K_{i-1}] = [K_r : K_0] = [L : K]$$ ways to extend $\phi_0$ to $\phi_r$ by Thorem \ref{thm:tower-theorem}. Since $\phi_r : L \to X$, if we let $X = L$, then $\phi_r \in \Gal(L/K)$. Thus each way of extending $\phi_0$ to $\phi_r$ corresponds to an element in $\Gal(L/K)$, and thus $\Gal(L/K) \le [L:K]$. (\TODO clarify)
+\end{proof}
+\cite{galois-theory-lectures}
 
 \begin{definition}
     Let $\Aut(L)$ be the group of automorphisms of a field $L$ and let $G \subseteq \Aut(L)$. Then $$\Fix(G) = \{ \alpha \in L : \sigma(\alpha) = \alpha \quad \forall \sigma \in G \}. $$
 \end{definition}
-Thus $\Fix(G)$ is the subset of elements in $L$ which remain fixed for all automorphisms in $G$. 
-
-For a finite field extension $L/ K$, the Galois group $G = \Gal(L / K)$ is a subgroup of $\Aut(L)$ such that $$K \subseteq \Fix(G) \subseteq L. $$ We are mainly interested in the case where $K = \Fix(G)$.  
+Thus $\Fix(G)$ is the subset of elements in $L$ which remain fixed for all automorphisms in $G$. In particular, for a finite field extension $L/ K$, the Galois group $G = \Gal(L / K)$ is a subgroup of $\Aut(L)$ such that $$K \subseteq \Fix(G) \subseteq L. $$ We are mainly interested in the case where $K = \Fix(G)$, the condition for which is fully developed in the next section. We now look at a counterexample. 
 
 \begin{example}
     It is not always the case that $K = \Fix(G)$. For example, consider when $K = \Q$ and $L = \Q (\alpha)$ where $\alpha = \sqrt[3]{2}$. If $\sigma \in G$, then $\sigma(\alpha)$ is a zero of the polynomial $t^3 - 2$ by Theorem \ref{thm:galois-group-permutes-zeros}, but the two complex zeros are not contained in $L$. Thus $\sigma(\alpha) = \alpha$ and $G = \{ \Id \}$. We see that $\Fix(G) = L \neq K$. 
 \end{example}
 
-To ensure that $K = \Fix(G)$, certain requirements must be met by the finite field extension $L / K$. Specifically, it must be both normal and separable. 
+\section{Galois Extensions}
+
+We are now ready to present a speical kind of field extensions:
 
 \begin{definition}
-A field extension is said to be a \textbf{Galois extension} if it is finite, normal and separable. 
-% For $L/K$ Galois, we have that $\Aut(L/K)$ is the \textbf{Galois group} and denoted by $\Gal(L/K).$
+    A finite field extension is \textit{Galois} if it is both normal and separable. 
+    % For $L/K$ Galois, we have that $\Aut(L/K)$ is the \textbf{Galois group} and denoted by $\Gal(L/K).$
 \end{definition}
 
-\noindent We now look at a theorem which helps to characterise and identify fields, extensions and Galois groups.
+% \noindent We now look at a theorem which helps to characterise and identify fields, extensions and Galois groups.
 
 \begin{theorem} \label{thm:fixed}
-    Given a finite Galois extension $L/K$ and its Galois group $G=\Gal(L/K)$, we have $K = \Fix(G)$.
+    Let $L/K$ be a finite field extension, and let $G = \Gal(L/K)$. Then the following five statements are equivalent:
+    \begin{enumerate}[label=(\roman*)]
+        \item $L/K$ is a Galois extension;
+        \item $[L:K] = |G|$;
+        \item $K = \Fix(G)$;
+        \item $L$ is a splitting field of a separable polynomial over $K$;
+        \item There is a bijection between the intermediate fields $M$ such that $K \subseteq M \subseteq L$ and the subgroups $H \le G$, where $M \mapsto \Gal (L/M)$ and $H \mapsto \Fix(H)$ are inverses of each other.
+    \end{enumerate}
+    % Given a finite Galois extension $L/K$ and its Galois group $G=\Gal(L/K)$, we have $K = \Fix(G)$.
 \end{theorem}
-
 \begin{proof}
+    We now prove the equivalence of the first four statements. The equivalence of the fifth and the others is established in the next section.
+
+    (i) $\Rightarrow$ (ii). \TODO
+
     Define $F:= \Fix(G)$. Since $L/K$ is a finite Galois extensions and $G$ is its Galois group, we have $L/F$ must also be normal and separable, and therefore is also a Galois extension, with $G \subseteq \Gal(L/F)$.
 
 \noindent We can also see that $|\Gal(L/F)| = [L:F]$ which implies that $|G|\leq|\Gal(L/K)|=[L:F]$
@@ -571,7 +676,7 @@ Another important result from group theory is given below.
 \end{theorem}
 
 \begin{proof}
-The derivative of $t^n-1$ is $n t^{n-1}$, which is prime to $t^n-1$, so the polynomial $t^n-1$ has no multiple zeros in $L$ by \textbf{Theorem ??}. The group of its zeros under multiplication thus has order $n$ and is cyclic. Let $\omega$ be a generator of this group, and thus $\omega$ is a primitive $n$-th root of unity. Then $L=K(\omega)$. 
+The derivative of $t^n-1$ is $n t^{n-1}$, which is prime to $t^n-1$, so the polynomial $t^n-1$ has no multiple zeros in $L$ by Theorem \ref{thm:separable-derivative}. The group of its zeros under multiplication thus has order $n$ and is cyclic. Let $\omega$ be a generator of this group, and thus $\omega$ is a primitive $n$-th root of unity. Then $L=K(\omega)$. 
 \end{proof}
 
 Here is a speical case of how the Galois group of a polynomial can be considered as a permutation of its zeros.
