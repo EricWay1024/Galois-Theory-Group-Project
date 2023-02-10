@@ -609,7 +609,6 @@ We are now ready to present a special kind of field extensions:
 
 \begin{definition}
     A finite field extension is \textit{Galois} if it is both normal and separable. 
-    % For $L/K$ Galois, we have that $\Aut(L/K)$ is the \textbf{Galois group} and denoted by $\Gal(L/K).$
 \end{definition}
 
 \subsection{Examples of Galois Extensions}
@@ -620,11 +619,18 @@ We are now ready to present a special kind of field extensions:
 
 \begin{theorem}
 	Let $M$ be a field and let $G \le \Aut(M)$. Then $M / \Fix(G)$ is a Galois extension.
-%	If $L/K$ is a Galois extension and $M$ is an intermediate field such that $K \subseteq M \subseteq L$, then $L/M$ is a Galois extension. 
 \end{theorem}
 
 \begin{proof}
 	\TODO
+\end{proof}
+
+\begin{theorem}
+    Let $G$ be a finite subgroup of the group of automorphisms of a field $L$, and let $K = \Fix(G)$. Then $[L : K] = |G|$. 
+\end{theorem}
+
+\begin{proof}
+    \TODO
 \end{proof}
 
 % \noindent We now look at a theorem which helps to characterise and identify fields, extensions and Galois groups.
@@ -673,6 +679,8 @@ Now we are ready to work on the second part using what we have already obtained:
 
 \begin{proof}[Proof, second part]
 	We first show (i) $\Rightarrow$ (v):
+
+    \TODO
 	
 %	Denote \begin{itemize}
 %		\item $\alpha:M \mapsto \Gal(L/M) \subseteq G$ and
@@ -681,12 +689,12 @@ Now we are ready to work on the second part using what we have already obtained:
 %	
 %	we now show 
 	
-	\begin{itemize}
+	% \begin{itemize}
 		
-		\item ($\beta \circ \alpha = \Id$) Let $M$ be an intermediate field, and thus $L/M$ is a Galois Extension. Then if we consider the Galois group $\Gal(L/M)$, we can see that via Theorem \ref{thm:fixed}, $M = \Fix(\Gal(L/M))$. Since $\alpha(M) = \Gal(L/M)$, we look at $(\beta \circ \alpha)(M)$, which is equal to $\beta(\Gal(L/M)) = \Fix(\Gal(L/M))$. Thus $(\beta \circ \alpha)(M) = M$ and hence we see that $\beta \circ \alpha = \Id$.
+	% 	\item ($\beta \circ \alpha = \Id$) Let $M$ be an intermediate field, and thus $L/M$ is a Galois Extension. Then if we consider the Galois group $\Gal(L/M)$, we can see that via Theorem \ref{thm:fixed}, $M = \Fix(\Gal(L/M))$. Since $\alpha(M) = \Gal(L/M)$, we look at $(\beta \circ \alpha)(M)$, which is equal to $\beta(\Gal(L/M)) = \Fix(\Gal(L/M))$. Thus $(\beta \circ \alpha)(M) = M$ and hence we see that $\beta \circ \alpha = \Id$.
 		
-		\item ($\alpha \circ \beta = \Id$) Now, let $H$ be a subgroup of $G$ and then set $M :=\Fix(H)$ in order that $L/M$ is a Galois extension. This implies that $H$ is a subgroup of the Galois group $\Gal(L/M)$. From Theorem \ref{thm:fixed}, we have that $\Fix(\Gal(L/M))=M$, and we also have that $\Fix(H) = M$ so we can say that $\Fix(H)=\Fix(\Gal(L/M)) \implies H = \Gal(L/M) = \Gal(L/\Fix(H))$. Thus if we consider $(\alpha \circ \beta)(H) = \alpha(\Fix(H)) = \Gal(L/\Fix(H))$, and as we have just seen above $H = \Gal(L/\Fix(H))$, so we have $(\alpha \circ \beta)(H) = H$ and so $\alpha \circ \beta = \Id$.
-	\end{itemize}
+	% 	\item ($\alpha \circ \beta = \Id$) Now, let $H$ be a subgroup of $G$ and then set $M :=\Fix(H)$ in order that $L/M$ is a Galois extension. This implies that $H$ is a subgroup of the Galois group $\Gal(L/M)$. From Theorem \ref{thm:fixed}, we have that $\Fix(\Gal(L/M))=M$, and we also have that $\Fix(H) = M$ so we can say that $\Fix(H)=\Fix(\Gal(L/M)) \implies H = \Gal(L/M) = \Gal(L/\Fix(H))$. Thus if we consider $(\alpha \circ \beta)(H) = \alpha(\Fix(H)) = \Gal(L/\Fix(H))$, and as we have just seen above $H = \Gal(L/\Fix(H))$, so we have $(\alpha \circ \beta)(H) = H$ and so $\alpha \circ \beta = \Id$.
+	% \end{itemize}
 
 \end{proof}
 
@@ -706,18 +714,8 @@ Now we are ready to work on the second part using what we have already obtained:
 %    \end{enumerate}
 %\end{definition}
 
-% \begin{theorem}
-%     Let $G$ be a finite subgroup of the group of automorphisms of a field $L$, and let $K = \Fix(G)$. Then $[L : K] = |G|$. 
-% \end{theorem}
 
-% \begin{proof}
-    
-% \end{proof}
-
-%\section{Galois Correspondence}
-%\subsection{Fundamental Theorem of Galois Theory}
-
-%Group theory tends to look at patterns and symmetries in mathematical objects, and Galois groups have an interesting symmetry. The following theorem describes how the structure of an extension of a field is the same as the subgroups of the Galois groups.
+Group theory tends to look at patterns and symmetries in mathematical objects, and Galois groups have an interesting symmetry. The following theorem describes how the structure of an extension of a field is the same as the subgroups of the Galois groups.
 
 \begin{theorem}[The Fundamental Theorem of Galois Theory] \label{thm:fundamental-theorem} Given a Galois extension $L/K$ and its Galois group $G = \Gal(L/K)$, there is a natural bijection between subgroups $H\leq G$ and the intermediate fields $M$ such that $K \subseteq M \subseteq L$:
 
