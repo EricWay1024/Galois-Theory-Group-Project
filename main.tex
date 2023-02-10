@@ -150,6 +150,18 @@ $9f(t) = 2t^5 + 15t^4 + 9t^3$ is irreducible over $\Q$. Eisenstein's criterion n
 \end{example}
 
 \begin{theorem}
+If $p$ is prime, the binomial coefficient $\binom{p}{r}$ is divisible by $p$ if $1 \le r \le p-1$
+\end{theorem}
+
+\begin{proof}
+The binomial coefficient is an integer and $\binom{p}{r} = \frac{p!}{r!(p-r)!}$
+
+The factor $p$in the numerator cannot cancel with any factor in the denominator unless $r=0$ or $r=p$.
+\end{proof}
+
+Then we have,
+
+\begin{theorem}
     If $p$ is a prime then the polynomial
 
     $f(t) = 1 + t + ... = t^{p-1}$
@@ -173,7 +185,15 @@ where $h$ is a polynomial in $u$ over $\Z$ with constant term 1, by the above th
 \end{theorem}
 
 \begin{proof}
-    proof goes here
+This lemma is useful because when we extend the subring of coefficients from $\Z$ to $\Q$ then there are new polynomials which may be factors of $f$. However, we now show that they are not. Starting with a contradiction, suppose that $f$ is irreducible over $\Z$ but reducible over $\Q$ so that $f = g h$ where $g$,$h$ are both polynomials over $\Q$, of a smaller degree. Multiplying through by the product of the denominators of the coefficients of $g$ and $h$ means we can rewrite this as $n f = g' h'$, where $n \in \Z$ and $g'$ and $h'$ are polynomials over $\Z$. We can now show that we can cancel out the prime factors of n one by one, without going outside $\Z[t]$
+
+Suppose that $p$ is a prime factor of $n$. We now claim that if $g' = g_0 + g_1 t +...+ g_r t^r$, $h' = h_0 + h_1 t +...+ h_s t^s$ then either $p$ divides all the coefficients of $g_i$, or else $p$ divides all the coefficients $h_j$.
+
+If not then there must be smallest values $i$, $j$ such that $p \nmid g_i$ and $p \nmid h_j$. However, $p$ divides the coefficient of $t^{i+j}$ in $g' h'$, which is 
+
+$h_0 g_{i+j} + h_1 g_{i+j-1} +...+ h_j g_i +...+ h_{i+j} g_0$
+
+and by the choice of $i$ and $j$, the prime $p$ divides every term of this expression except $h_j g_i$. $p$ divides the whole expression, so $p | h_j g_i$. However $p \nmid g_i$ and $p \nmid h_j$, a contradition.
 \end{proof}
 
 \section{Field Extensions}
@@ -1012,7 +1032,7 @@ First, we need to understand a lemma in order to be able to prove the Abel-Ruffi
 \end{theorem}
 
 \begin{proof}
-    "$\implies $"Given a general polynomial of the form $f(x) = a_0X^n +a_1X^{n-1}+...+a_{n-1}X+a_n$, let us assume that it can be solved by radicals. Then we know that for each root of the polynomial, $x=\zeta_i$ where $0\leq i \leq n$, we have an extension $A_i/F$ which is cyclic by \textcolor{red}{Proposition}. If we then take the composition of all of those fields, we get another field $L$ which contains all the roots of $f(x)$ and is itself Galois. 
+    "$\implies $"Given a general polynomial of the form $f(x) = a_0X^n - a_1X^{n-1}+...(-1)^na_n$, let us assume that it can be solved by radicals. Then we know that for each root of the polynomial, $x=\zeta_i$ where $0\leq i \leq n$, we have an extension $A_i/F$ which is cyclic by \textcolor{red}{Proposition}. If we then take the composition of all of those fields, we get another field $L$ which contains all the roots of $f(x)$ and is itself Galois. 
     \textcolor{red}{Thus proves that if a polynomial can be solved by radicals, its Galois group is solvable}
 
     "$\impliedby$" Instead, supposed the polynomial $f(x)$ has a Galois group, $G$, which is solvable. Then we can consider the following chain of subfields: $F=K_0\subset K_1 \subset ... \subset K_n = K$. Here we define $K_i = \Fix(G_i)$ where $G_i$ is a subgroup of $G$.
