@@ -106,9 +106,13 @@ $$
      A non-constant polynomial over a subring $R$ of $\mathbb{C}$ is \textit{reducible} if it is a product of two polynomials over $R$ of smaller degree. Otherwise it is \textit{irreducible}.
 \end{definition}
 
-Theorem 3.14. Any non-zero polynomial over a subring $R$ of $\mathbb{C}$ is a product of irreducible polynomials over $R$.
+\begin{theorem}
+    Any non-zero polynomial over a subring $R$ of $\mathbb{C}$ is a product of irreducible polynomials over $R$.
+\end{theorem}
 
-
+\begin{proof}
+    Let $g$ be any non-zero polynomial over $R$. We proceed by in introduction on the degree of $g$. If $\delta g = 0$ or 1 then $g$ is automatically irreducible. If $\delta g > 1$, then either $g$ is irreducible or $g = hk$ where $\delta h$, $\delta k < \delta g$. By induction, $h$ and $k$ are products of irreducible polynomials, where $g$ is such a product.
+\end{proof}
 
 \begin{theorem}
     Eisenstein's Criterion - Let 
@@ -669,7 +673,7 @@ We can now obtain a useful result.
 	By (iv) of Theorem \ref{thm:fixed}, $L$ is the splitting of some polynomial $f$ over $K$, but $f$ is also a polynomial over $M$. Hence $L/M$ is Galois.
 \end{proof}
 
-Note that in the above theorem, $L/K$ being a Galois extension does not imply that $M/K$ is Galois for an intermediate field $M$. This is in general false; consider for example $K = \Q, M = \Q(\sqrt[3]{2})$ and $L = \Q(\sqrt[3]{2}, \zeta)$, where $\zeta = e^{2\pi i / 3}$. Then $L/K$ and $L/M$ are Galois but $M/K$ is not. 
+Note that in the above theorem, $L/K$ being a Galois extension does not imply that $M/K$ is Galois. This is in general false; consider for example $K = \Q, M = \Q(\sqrt[3]{2})$ and $L = \Q(\sqrt[3]{2}, \zeta)$, where $\zeta = e^{2\pi i / 3}$. Then $L/K$ and $L/M$ are Galois but $M/K$ is not. 
 
 %\begin{definition}
 %    A \textbf{normal closure} of a field extension $L / K$ is an extension $N$ of $L$ such that 
@@ -979,7 +983,7 @@ Relabel the numbers $1,2 \ldots, n$ so that $(a b)$ turns into $(12)$ and $(a b 
     Relabel the numbers so that the $p$-cycle turns into $(12 \dots p)$. Suppose the transposition turns into $(ab)$, where $1 \le a < b \le n$. Since $p$ is prime and $1 \le b - a < p$, we have $(b - a, p) = 1$. The result thus follows from Theorem \ref{thm:symmetric-ab-12n}.
 \end{proof}
 
-Now we are ready to establish a case where the Galois group of a polynomial over $\mathbb Q$ is isomorphic to a symmetric group.
+Now we establish a case where the Galois group of a polynomial over $\mathbb Q$ is isomorphic to a symmetric group.
 
 \begin{theorem} \label{thm:galois-iso-symmetric}
     Let $p$ be a prime number and $f$ be a irreducible polynomial of degree $p$ over $\mathbb Q$. If $f$ has exactly two non-real zeros in $\mathbb C$, then the Galois group of $f$ over $\mathbb Q$ is isomorphic to the symmetric group $S_p$.
@@ -991,7 +995,7 @@ Now we are ready to establish a case where the Galois group of a polynomial over
 
     Complex conjugation restricted to $\Sigma$ is a $\mathbb Q$-automorphism of $\Sigma$. It fixes all $p - 2$ real zeros of $f$ and transposes the two non-real zeros. Therefore $G$ contains a transposition. 
 
-    Take any zero $\alpha$ of $f$. Since $f$ is irreducible, it is the minimal polynomial of $\alpha$. Then by the \textbf{Degree Theorem}, $$[\mathbb Q(\alpha) : \mathbb Q] = \partial f = p. $$ Theorem \ref{thm:tower-theorem} implies that $$[\Sigma : \mathbb Q] = [\Sigma : \mathbb Q(\alpha)] [ \mathbb Q(\alpha) : \mathbb Q]. $$ By \textbf{Galois Correspondence}, $|G| = [\Sigma : \mathbb Q]$, and thus $p$ divides $|G|$. Theorem \ref{thm:cauchy} gives the existence of an element of order $p$ in $G$, but the only elements of order $p$ in $S_p$ are $p$-cycles. Therefore $G$ contains a $p$-cycle.
+    Take any zero $\alpha$ of $f$. Since $f$ is irreducible, it is the minimal polynomial of $\alpha$. Then by the \textbf{Degree Theorem}, $$[\mathbb Q(\alpha) : \mathbb Q] = \partial f = p. $$ Theorem \ref{thm:tower-theorem} implies that $$[\Sigma : \mathbb Q] = [\Sigma : \mathbb Q(\alpha)] [ \mathbb Q(\alpha) : \mathbb Q]. $$ By Theorem \ref{thm:fixed}, $|G| = [\Sigma : \mathbb Q]$, and thus $p$ divides $|G|$. Theorem \ref{thm:cauchy} gives the existence of an element of order $p$ in $G$, but the only elements of order $p$ in $S_p$ are $p$-cycles. Therefore $G$ contains a $p$-cycle.
 
     Hence by Theorem \ref{thm:symmetric-prime}, $ G = S_p$ and therefore $\Gal(\Sigma / \mathbb Q) \cong S_p$.
 \end{proof}
