@@ -1,0 +1,157 @@
+\section{Galois Groups}
+\subsection{Galois Group Actions}
+
+\begin{definition}
+	Let $L/K$ be a field extension. A $K$-automorphism $\phi$ of $L$ is an automorphism of $L$ such that $\phi(a) = a$ for all $a \in K$. 
+\end{definition}
+
+\begin{definition}
+    Let $L/K$ be a field extension. Then all $K$-automorphisms of $L$ form a group under map composition, and this group is called the \textit{Galois group} of $L$, written as \(\Gal(L/K)\).
+%    The  is called the \textbf{Galois group} of the field extension \(F\) over \(K\), usually written .
+\end{definition}
+
+\begin{definition}
+	Let $f$ be a polynomial over $K$ and let $L$ be a splitting field of $f$, then $\Gal(L/K)$ is the \textit{Galois group} of $f$, written as \(\Gal(f)\).
+	
+%		 In the case that \(F\) is a splitting field of a polynomial \(f\) over $K$, \(G\) is called the Galois group of \(f\),
+\end{definition}
+
+This group becomes increasingly useful, especially when dealing with polynomials, as we will see with the following theorem.
+
+\begin{theorem} \label{thm:galois-group-permutes-zeros}
+Let $\phi \in \Gal(L/K)$ where $L/K$ is a field extension. Then let $f$ be a polynomial over $K$ with a zero $a \in L$, then $\phi(a)$ is also a zero of $f$.
+\end{theorem}
+
+\begin{proof}
+    Since $a \in L$ in a zero of $f$ over $K$, $f(a) = 0$. Then $\phi(f(a)) = \phi(0) = 0$. $\phi$ fixes the coefficients of $f$ as they are in $K$ and $\phi\left(a^i\right) = \left(\phi(a) \right) ^i$ as $\phi$ is a homomorphism. Therefore $f(\phi(a)) = 0$. 
+\end{proof}
+
+\begin{definition}
+	Given a set $X$, the \textit{permutation group} of $X$ is the group of $\{ (\phi : X \to X) : \phi \text{ is a bijection} \}$ under map composition (clearly this forms a group), denoted as $S_X$. 
+\end{definition}
+
+\begin{definition}
+	Given a group $G$ and a set $X$, we say $G$ \textit{acts} on $X$ if there is a homomorphism from $G$ to $S_X$.
+\end{definition}
+
+\begin{theorem} \label{thm:galois-group-acts-on-zeros}
+	Let $L$ be a splitting field of a polynomial $f$ over $K$ and let $G = \Gal(f)$. Let $X$ be the set of zeros of $f$. Then $G$ acts on $X$.
+\end{theorem}
+
+\begin{proof}
+	Take any $\sigma \in G$. Then clearly $\alpha \in X$ if and only if $\sigma(\alpha) \in X$. Restricting $\sigma$ on $X$ gives a bijection $\sigma | _X : X \to X$. 
+\end{proof}
+
+
+\begin{corollary} \label{thm:galois-group-isomorphic-symmetric-subgroup}
+	$\Gal(f)$ is isomorphic to a subgroup of $S_n$, where $n$ is the degree of $f$. 
+\end{corollary}
+
+\begin{proof}
+	Let $X$ be the set of zeros of $f$. Then $|X| \le n$ and $S_X$ is a subgroup of $S_n$. The homomorphism from $\Gal(f)$ to $S_X$ is also a homomorphism from $\Gal(f)$ to $S_n$. Further, the kernel of the homomorphism is trivial, as if $\sigma \in \Gal(f)$ fixes all elements in $X$, it is the identity map. Therefore, by Theorem \ref{thm:first-iso}, $\Gal(f)$ is isomorphic to its image in $S_n$, which is a subgroup of $S_n$. 
+\end{proof}
+
+%\begin{theorem}
+%	A polynomial $f$ over $K$ is irreducible if and only if $\Gal(f)$ acts transitively on the set of zeros of $f$.
+%\end{theorem}
+
+
+
+
+
+\subsection{Order of Galois Groups}
+%A $K$-automorphism is totally determined by its permutation of
+
+
+%\TODO $\Gal(L/K)$ acts on the zeros of $f$. It is thus isomorphic to a subgroup of $S_n$ (by the first isomorphism theorem). 
+
+\begin{theorem} \label{thm:galois-group-order-upper-bound}
+    Let $L/K$ be a finite field extension and let $G = \Gal(L/K)$, then $|G| \le [L:K]$. 
+\end{theorem}
+
+\begin{proof}
+    Consider a $K$-monomorphism $\phi_0 : K \to X$ where $K \subseteq X$. Since $L/K$ is finite, by Theorem \ref{thm:finite-equi-def}, we can write $L = K(\alpha_1, \ldots, \alpha_r)$ for $r$ finite and $\alpha_i$ algebraic over $K$. Denote $K_0 = K$ and
+    $K_i = K(\alpha_1, \dots, \alpha_i)$ for $i = 1, \ldots, r$. In particular, $K_r = L$. 
+
+
+    For $i = 1, \ldots, r$, consider the extension $K_i / K_{i-1}$, where $K_i = K_{i-1} (\alpha_i)$. Let $\alpha_i$ be a zero of an irreducible polynomial $f_i$ over $K$ of degree $\partial f_i = [K_i : K_{i-1}]$ by Theorem \TODO. $f_i$ is over $K$ and hence is fixed under $\phi_i$. We now extend $K$-monomorphism $\phi_{i-1} : K_{i-1} \to X$ to $K$-monomorphism $\phi_i: K_i \to X$, then $\phi_i$ must map $\alpha_i$ to a zero of $f_i$ in $X$, and the number of zeros of $f_i$ in $X$ is \textit{at most} $\partial f_i$. Hence there are at most $[K_i : K_{i-1}]$ ways to extend $\phi_{i-1}$ to $\phi_i$. We now see that there are at most $$\prod_{i=1} ^r [K_i : K_{i-1}] = [K_r : K_0] = [L : K]$$ ways to extend $\phi_0$ to $\phi_r$ by Thorem \ref{thm:tower-theorem}. Since $\phi_r : L \to X$, if we let $X = L$, then $\phi_r \in \Gal(L/K)$. Also, there is only one way to construct $\phi_0$, which is the identity map. Thus each way of extending $\phi_0$ to $\phi_r$ corresponds to an element in $\Gal(L/K)$, and thus $\Gal(L/K) \le [L:K]$. 
+\end{proof}
+\cite{galois-theory-lectures}
+
+
+\subsection{Fixed Fields}
+
+\begin{definition}
+    Let $\Aut(L)$ be the group of automorphisms of a field $L$ and let $G \leq \Aut(L)$. Then the fixed field of $G$ is the set $$\Fix(G) = \{ \alpha \in L : \sigma(\alpha) = \alpha \quad \forall \sigma \in G \}. $$ The fixed field is always a field.
+\end{definition}
+Thus $\Fix(G)$ is the subset of elements in $L$ which remain fixed for all automorphisms in $G$. In particular, for a finite field extension $L/ K$, the Galois group $G = \Gal(L / K)$ is a subgroup of $\Aut(L)$ such that $$K \subseteq \Fix(G) \subseteq L. $$ We are mainly interested in the case where $K = \Fix(G)$, the condition for which is fully developed in the next section. We now look at a counterexample. 
+
+\begin{example}
+    It is not always the case that $K = \Fix(G)$. For example, consider when $K = \Q$ and $L = \Q (\alpha)$ where $\alpha = \sqrt[3]{2}$. If $\sigma \in G$, then $\sigma(\alpha)$ is a zero of the polynomial $t^3 - 2$ by Theorem \ref{thm:galois-group-permutes-zeros}, but the two complex zeros are not contained in $L$. Thus $\sigma(\alpha) = \alpha$ and $G = \{ \Id \}$. We see that $\Fix(G) = L \neq K$. 
+\end{example}
+
+\subsection{Roots of Unity}
+We now take a detour and look at some special cases where the Galois group of a field extension is abelian. The results obtained here will be useful in Section \ref{sec:galois-groups-and-polynomials}. 
+
+\begin{definition}
+	Let $n$ be a positive integer. An $n$-th root of unity $\omega$ in $\mathbb C$ is such that $\omega ^ n = 1$. An $n$-th root of unity $\omega$ is primitive if for any $m = 1, 2, \dots, n - 1$, $\omega ^ m \neq 1$.
+\end{definition}
+
+\begin{observation}
+	Let $n$ be a positive integer. All $n$-th roots of unity form a cyclic group under multiplication, and the group is generated by any primitive $n$-th root of unity. For a prime number $p$, let $\omega$ be a $p$-th root of unity and $\omega \neq 1$. Then $\omega$ is a primitive $p$-th root of unity and generates the multiplicative group of all $p$-th roots of unity.
+\end{observation}
+
+\begin{theorem} \label{thm:unity-1}
+	Let $n$ be a positive integer and let $\omega$ be a primitive $n$-th root of unity. Let $L$ be a subfield of $\mathbb C$. If $\omega \in L$, then the polynomial $t^n - 1$ splits in $L$.
+\end{theorem}
+\begin{proof}
+	$\omega$ has order $n$ in the multiplicative group of $L$, so the elements $1, \omega, \omega^2, \ldots, \omega^{n-1}$ are distinct $n$-th roots of unity in $L$. Therefore $t^n-1$ splits in $L$.
+\end{proof}
+
+\begin{theorem} \label{thm:unity-2}
+	Let $n$ be a positive integer and let $\omega$ be a primitive $n$-th root of unity. If $L$ is the splitting field for $t^n - 1$ over a subfield $K$ of $\mathbb C$, then $L = K(\omega)$.
+\end{theorem}
+
+\begin{proof}
+	The derivative of $t^n-1$ is $n t^{n-1}$, which is prime to $t^n-1$, so the polynomial $t^n-1$ has no multiple zeros in $L$ by Theorem \ref{thm:separable-derivative}. The group of its zeros under multiplication thus has order $n$ and is cyclic. Let $\omega$ be a generator of this group, and thus $\omega$ is a primitive $n$-th root of unity. Then $L=K(\omega)$. 
+\end{proof}
+
+
+
+
+\begin{theorem} \label{thm:radical-1}
+	Let $p$ be a prime and let $\omega$ be a primitive $p$-th root of unity. Let $K$ be a subfield of $\mathbb C$. Then $\Gal(K(\omega) / K)$ is abelian.
+\end{theorem}
+\begin{proof}
+	Let $L = K(\omega)$.  Let $\alpha \in \Gal(L / K)$. Then $\alpha$ is uniquely determined by $\alpha(\omega)$ and $\alpha$ is a permutation of the multiplicative group generated by $\omega$. Thus $\alpha$ has the form
+	$$
+	\alpha_j: \omega \mapsto \omega^j,
+	$$
+	where $j=1,\dots,p-1$. Then $\alpha_i \alpha_j (\omega) = \alpha_j \alpha_i (\omega) = \omega^{i j}$, so $ \Gal(L / K)$ is abelian.
+	
+	\TODO probably rewrite using group actions
+\end{proof}
+
+\begin{theorem} \label{thm:radical-2}
+	Let $K$ be a subfield of $\mathbb{C}$ which contains an $n$-th primitive root of unity. Let $\beta^n = c \in K $ where $n$ is a positive integer. Then $t^n - c$ splits in $K(\beta)$ and $\Gal(K(\beta) / K)$ is abelian.
+\end{theorem}
+
+\begin{proof}
+	By Theorem \ref{thm:unity-1}, $K$ contains all $n$-th roots of unity. Let $L = K(\beta)$, and $\beta$ is a zero of $t^n-c$ in $L$. Any zero of $t^n-c$ in $L$ can be represented by $\omega \beta$, where $\omega$ is some $n$-th root of unity in $K$. Thus $t^n - c$ splits in $L$.  
+	
+	Let $\phi \in \Gal(L / K)$, then $\phi$ is uniquely determined by $\phi(\beta)$ and $\phi$ is a permutation of the zeros of $t^n - c$. Let $\phi_1, \phi_2 \in \Gal(L / K)$, and let $\phi_1(\beta) = \omega_1\beta$, $\phi_2(\beta) = \omega_2\beta$, where $\omega_1, \omega_2$ are $n$-th roots of unity in $K$. Then
+	$$
+	\phi_1 \phi_2(\beta)=\omega_1 \omega_2 \beta=\omega_2 \omega_1  \beta=\phi_2 \phi_1(\beta).
+	$$
+	Thus $\Gal(L / K)$ is abelian.
+	
+	\TODO probably rewrite using group actions
+\end{proof}
+
+\begin{theorem} \label{thm:unity-3}
+	Let $K$ be a subfield of $\mathbb C$. Let $\alpha \notin K$ and $\alpha^p = c \in K$ where $p$ is a prime. Let $L / K$ be a normal extension such that $\alpha \in L$. Then $L$ contains a primitive $p$-th root of unity.
+\end{theorem}
+
+\begin{proof}
+	Let $f$ be the minimal polynomial of $\alpha$ over $K$. Then $f$ splits in $L$ and has no repeated zeros. Since $\alpha \notin K$, we have $\partial f \ge 2$, and therefore there exists $\beta \in L$ such that $\beta$ is a zero of $f$ and $\beta \neq \alpha$. Since $\alpha ^ p - c = 0$, $f$ must divide $t ^ p - c$. Thus $\beta^p - c = 0$. Let $\omega=\alpha / \beta \in L $, then $\omega^p=1$ and $\omega \neq 1$.
+\end{proof}

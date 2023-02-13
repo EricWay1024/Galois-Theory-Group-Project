@@ -1,0 +1,116 @@
+\section{Field Extensions}
+
+\subsection{Basics of Field Extensions}
+In order to look at field extensions we must first define some useful terms.
+\begin{definition}
+Let \((G, *,\star )\) be a field. Let \(F\) be a subset of \(G\) such that \((F,*,\star)\) is a field. Then \((F, *,\star)\) is a \textit{subfield}
+ of \((G, *, \star)\).
+\end{definition}
+\begin{definition}
+A field \(F\) is called a \textit{prime field} of \(K\) if it had no proper (strictly smaller) subfield.
+\end{definition}
+\begin{definition}
+    A \textit{monomorphism} is an injective homomorphism.
+\end{definition}
+\begin{definition}
+A field \(K\) is said to be a \textit{field extension} of \(F\), denoted \(K / F\), if \(F\) is a subfield of \(K\). \cite{Moy} A field extension is a monomorphism \(\iota: F \to K\).
+\end{definition}
+\begin{example}
+The field \(\mathbb{Q}[\sqrt{2}]\) is a field extension of \(\mathbb{Q}\), as \(\mathbb{Q}[\sqrt{2}] = \{a + \sqrt{2}b : a,b \in \mathbb{Q}\}\) we can clearly see that when \(b = 0\) this gives us the rational numbers so \(\mathbb{Q}\) is a subfield of \(\mathbb{Q}[\sqrt{2}]\).
+\end{example}
+\begin{definition}
+Let \(K\) be a subfield of \(L\) if \(\alpha \in L\), and if \(p(\alpha)=0\), for some polynomial \(p(x)\) over \(K\), \(\alpha\) is an \textit{algebraic number}. Otherwise, \(\alpha\) is transcendental over \(K\).
+\end{definition}
+\begin{theorem}
+If \(\alpha\) is an algebraic number, then \(\mathbb{Q}[\alpha]\) is a field.
+\end{theorem}
+\begin{proof}
+We can write \(\mathbb{Q}[\alpha] = \{p + \alpha q : p,q \in \mathbb{Q}\}\). First, checking the axioms for addition: \\
+Let \((p + \alpha q)\),  \((s + \alpha t)\) \(\in \mathbb{Q}[\alpha]\), we have \((p + \alpha q) + (s +\alpha t) = (p + s) + \alpha(q + t)\), this satisfies additive closure as \((p+s)\), \((q+t)\) \(\in\mathbb{Q}\). We can clearly see that the addition is commutative and associative from the properties of addition on the rationals. We know that \(\mathbb{Q}[\alpha]\) will contain a zero element when \(p = q = 0\) and will contain an inverse \((p + \alpha q)^{-1} = -p - \alpha q\), as \(-p, -q\in \mathbb{Q}\) and \((p + \alpha q) + (-p - \alpha q) = 0\). \\
+We can now check the multiplicative axioms:\\
+For \((p + \alpha q) , (s + \alpha t ) \in \mathbb{Q}[\alpha]\) , \((p + \alpha q)(s + \alpha t) = ps + tq \alpha^2 + (pt + sq) \alpha = ps + (tq \alpha + pt + sq) \alpha\), we can see that \(tq \alpha + pt + sq \in\mathbb{Q}[\alpha]\) as \((pt + sq), tq \in \mathbb{Q}\),
+\end{proof}
+
+
+\begin{definition}
+    If $L/K$ is a field extensions, we call any field $M$ with $K \subseteq M \subseteq L$ an \textit{intermediate field.}
+\end{definition}
+
+
+\subsection{The Degree of a Field Extension}
+\begin{definition}
+    The \textit{degree} of the field extension, $\deg(L:K)=[L:K]$ is the dimension of the vector space $L$ over $K$.
+\end{definition}
+\begin{definition}
+    A field extension is called \textit{finite} if its degree is finite. 
+\end{definition}
+\begin{theorem}[Tower Theorem] \label{thm:tower-theorem}
+    If M is an intermediate field of a finite field extension $L/K$ then:
+\begin{equation*}
+    [L:K] = [L:M]\cdot[M:K]
+\end{equation*}
+\end{theorem}
+\begin{proof}
+$M$ is an intermediate field, so we have $K \subseteq M \subseteq L$. Suppose that $[L:M]=m$ and $[M:K]=n$. Then since the subfields are vector spaces, we can takes a basis for each of the field extensions $L/M$ and $M/K$.
+Let $\lambda = \{\lambda_1,...,\lambda_m\}$ be a basis for $L/M$, and let $\mu = \{\mu_1,...,\mu_n\}$ be a basis for $M/K$. Then we have that $\forall x \in L$, $x = \sum^m_{i=1}x_i\lambda_i$ for some $x_i \in M$, since $\lambda$ is a basis for $L/M$. Now let $b:=\sum^n_{j=1}\mu_j$ and $d_i:=\frac{x_i}{b}$. Then we have that $x=\sum^m_{i=1}\frac{x_i}{b}\cdot b \cdot \lambda_i = \sum^m_{i=1}\sum^n_{j=1}d_i\cdot \mu_j \cdot \lambda_i$. If we consider the set $\gamma=\{\lambda_i\mu_j : 1\leq i \leq m, 1\leq j \leq n\}$, and consider from what we have seen above, we can write any $x \in L$ as a linear combination of some elements of elements in $\gamma$. Therefore, $\gamma$ spans $L/K$.
+
+Now it is required to show that $\gamma$ is linearly independent, in order to show that it is a basis for $L/K$. Suppose that for some $c_{ij} \in K$ we have $\sum^m_{i=1} \sum^n_{j=1} c_{ij}\lambda_i\mu_j = 0 $. Then since $\lambda$ is a linearly independent set over $M$, for all $i \in \{1,...,m\}$ we have $\sum^n_{j=1} c_{ij}\mu_j = 0 $. By seeing that $\mu$ is also a linearly independent set over $K$ we get that $\forall i \in \{1,...,m\}$ and $\forall j \in \{1,...,n\}$ we have $c_{ij} = 0$. This then implies that $\gamma$ is linearly independent and we already know it spans $L/K$, thus it is a basis for $L/K$ and since $|\gamma|=mn$ this implies that $[L:K] = mn = [L:M]\cdot[M:K]$.
+
+\end{proof}
+
+\subsection{Simple Field Extensions}
+\begin{definition}
+An extension field \(F\) of \(K\) is called simple if \(F = K(\alpha)\) for some \(\alpha \in F\).
+\end{definition}
+\begin{example}
+Clearly, \(\mathbb{Q}(\sqrt{2}) / \Q\) is a simple field extension.
+\end{example}
+We can also look at some less obvious extension fields which are simple.
+\begin{example}
+Taking the extension field \(K = \mathbb{Q}(\sqrt{2}, i)\), we prove that this can be rewritten as a simple field extension \(K' = \mathbb{Q}(\sqrt{2} + i)\), by showing that \(K=K'\) making \(K\) a simple field extension. We know \(K'\) contains
+\[(\sqrt{2} + i)^2 = 1 + 2i\sqrt{2}\]
+\[(i + \sqrt{2})(1+2i\sqrt{2}) = 5i - \sqrt{2}\]
+\[(5i - \sqrt{2}) + (i + \sqrt{2}) = 6i\]
+so we know that \(K'\) contains \(i\). We can also see that \(K'\) contains \(\sqrt{2}\) as \((i+\sqrt{2})-i = \sqrt{2}\). Hence we can see that \(K = K'\), so \(\mathbb{Q}(\sqrt{2},i)\) is a simple field extension.
+\end{example}
+
+Definition 5.1. Let $K$ be a subfield of $\mathbb{C}$ and let $\alpha \in \mathbb{C}$. Then $\alpha$ is algebraic over $K$ if there exists a non-zero polynomial $p$ over $K$ such that $p(\alpha)=0$. Otherwise, $\alpha$ is transcendental over $K$.
+
+Definition 5.4. Let $L / K$ be a field extension, and suppose that $\alpha \in L$ is algebraic over $K$. Then the minimal polynomial of $\alpha$ over $K$ is the unique monic polynomial $m$ over $K$ of smallest degree such that $m(\alpha)=0$.
+
+We write
+$$
+K[t] /\langle m\rangle
+$$
+for the set of equivalence classes of $K[t]$ modulo $m$. 
+% Readers who know about ideals in rings will see at once that $K[t] /\langle m\rangle$ is a thin disguise for the quotient ring of $K[t]$ by the ideal generated by $m$, and the equivalence classes are cosets of that ideal, but at this stage of the book these concepts are more abstract than we really need.
+
+Theorem 5.10. Every nonzero element of $K[t] /\langle m\rangle$ has a multiplicative inverse in $K[t] /\langle m\rangle$ if and only if $m$ is irreducible in $K[t]$.
+
+Theorem 5.12. Let $K(\alpha) / K$ be a simple algebraic extension, and let the minimal polynomial of $\alpha$ over $K$ be $m$. Then $K(\alpha) / K$ is isomorphic to $K[t] /\langle m\rangle / K$. The isomorphism $K[t] /\langle m\rangle \rightarrow K(\alpha)$ can be chosen to map $t$ to $\alpha$ and to be the identity on $K$.
+
+% Proof. The isomorphism is defined by $[p(t)] \mapsto p(\alpha)$, where $[p(t)]$ is the equivalence class of $p(t)(\bmod m)$. This map is well-defined because $p(\alpha)=0$ if and only if $m \mid p$. It is clearly a field monomorphism. It maps $t$ to $\alpha$, and its restriction to $K$ is the identity.
+
+Corollary 5.13. Suppose $K(\alpha) / K$ and $K(\beta) / K$ are simple algebraic extensions such that $\alpha$ and $\beta$ have the same minimal polynomial $m$ over $K$. Then the two extensions are isomorphic, and the isomorphism of the large fields can be taken to map $\alpha$ to $\beta$ and to be the identity on $K$.
+
+Lemma 5.14. Let $K(\alpha) / K$ be a simple algebraic extension, let the minimal polynomial of $\alpha$ over $K$ be $m$, and let $\partial m=n$. Then $\left\{1, \alpha, \ldots, \alpha^{n-1}\right\}$ is a basis for $K(\alpha)$, considered as a vector space over $K$.
+
+Proposition 6.7. Let $K(\alpha) / K$ be a simple extension. If it is transcendental then $[K(\alpha): K]=\infty$. If it is algebraic then $[K(\alpha): K]=\partial m$, where $m$ is the minimal polynomial of $\alpha$ over $K$.
+
+% Proof. For the transcendental case it suffices to note that the elements $1, \alpha, \alpha^2, \ldots$ are linearly independent over $K$. For the algebraic case, we appeal to Lemma 5.14.
+
+\begin{theorem}
+    Let $M/K$ be a field extension and let $\alpha \in M$. Then $\alpha$ is algebraic over $K$ if and only if $\alpha$ is in a finite field extension of $K$. 
+\end{theorem}
+
+\begin{definition}
+    A field extension $L/K$ is algebraic if any $\alpha \in L$ is algebraic over $K$. 
+\end{definition}
+
+\begin{theorem} \label{thm:finite-equi-def}
+    A field extension $L/K$ is finite if and only if $L = K(\alpha_1, \dots, \alpha_r)$ for $r$ finite and $\alpha_i$ algebraic over $K$. 
+\end{theorem}
+
+% NB the definition of an algebraic extension is used in defining normal extensions
+
+

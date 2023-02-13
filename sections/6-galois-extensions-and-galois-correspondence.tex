@@ -1,0 +1,172 @@
+\section{Galois Extensions and Galois Correspondence}
+
+\subsection{Galois Extension}
+
+
+We are now ready to present a special kind of field extensions:
+
+\begin{definition}
+    A finite field extension is \textit{Galois} if it is both normal and separable. 
+\end{definition}
+
+
+\begin{theorem} \label{thm:fixed}
+	Let $L/K$ be a finite field extension, and let $G = \Gal(L/K)$. Then the following statements are equivalent:
+	\begin{enumerate}[label=(\roman*)]
+		\item $L/K$ is a Galois extension;
+		\item $[L:K] = |G|$;
+		\item $K = \Fix(G)$;
+		\item $L$ is a splitting field of a separable polynomial over $K$;
+		%        \item There is a natural bijection between the intermediate fields $M$ such that $K \subseteq M \subseteq L$ and the subgroups $H \le G$, where $\alpha$ and $\beta$ defined by $\alpha(M) =  \Gal (L/M)$ and $\beta(H) =  \Fix(H)$ are inverses of each other.
+	\end{enumerate}
+	% Given a finite Galois extension $L/K$ and its Galois group $G=\Gal(L/K)$, we have $K = \Fix(G)$.
+\end{theorem}
+
+%The proof has two parts: the first part establishes the equivalence of the first four statements and the second part works on the equivalence of the fifth and the rest. 
+
+%\begin{proof}[Proof, first part]
+\begin{proof}
+	
+	%	We now prove the equivalence of the first four statements. We will work on the fifth statement separately shortly afterwards.
+	
+	
+	(i) $\Rightarrow$ (ii). Consider a $K$-monomorphism $\phi: K \to \overline{K}$. We now extend $\phi$ to a $K$-monomorphism $\phi':L \to \overline{K}$ in the same pattern as in the proof of Theorem \ref{thm:galois-group-order-upper-bound}. However, at each step, we claim that the number of ways to extend is equal to $[K_i : K_{i-1}]$. Indeed, $\alpha_i$ is separable and hence $f_i$ has exactly $[K_i : K_{i-1}]$ distinct zeros, and $\overline K$ contains all these zeros. Therefore, combining all the steps gives us in total $[L:K]$ ways to extend $\phi$ to $\phi'$. Also, since $L/K$ is normal, by Theorem \ref{thm:normal-equiv-def}, each $K$-monomorphism $\phi': L \to \overline{K}$ is a $K$-automorphism of $L$, and thus each $\phi'$ corresponds to an element in $\Gal(L/K)$. Hence $[L:K] = \Gal(L/K)$. 
+	
+	(ii) $\Rightarrow$ (iii). Define $F:= \Fix(G)$. We have $K \subseteq F \subseteq G$. Then:
+	\begin{itemize}
+		\item By assumption, we have $[L:K] = |G|$;
+		\item     Each $K$-automorphism of $L$ in $G$ is also a $F$-automorphism of $L$ in $\Gal(L/F)$, and thus $G \subseteq \Gal(L / F)$ and $|G| \le |\Gal(L / F)|$;
+		\item  By Theorem \ref{thm:galois-group-order-upper-bound}, $|\Gal(L/F)| \le [L:F]$;
+		
+		\item     By Theorem \ref{thm:tower-theorem}, we see that $ [L:F] \le [L:F][F:K] = [L:K]$.
+	\end{itemize}
+	
+	Combining them gives $$
+	[L:K] = |G| \le |\Gal(L/F)| \le  [L:F] \le [L:K],
+	$$    
+	and thus all the $\le$ signs must take equality.  
+	Thus $[L:K]=[L:F]$ and therefore by Theorem \ref{thm:tower-theorem}, we see that $[F:K]$ must equal $1$, and thus $F:=\Fix(G) = K$.
+	
+	(iii) $\Rightarrow$ (iv). Let $\alpha \in L$. Consider $\Orb_G(\alpha) \subseteq L$, the orbit of $\alpha$ under the $G$-action on $L$. Then since $G$ is finite, $\Orb_G(\alpha) = \{ \alpha_1 = \alpha, \alpha_2, \ldots, \alpha_n\}$. Consider the polynomial $f(t) = (t-\alpha_1) \ldots (t-\alpha_n)$ over $L$.  $f$ is separable in $L$, as $\alpha_i$ are distinct. Also, any $\sigma \in G$ acting on $\alpha_1, \dots, \alpha_n$ only permutes the elements, and thus $\sigma$ fixes $f$. Then the coefficients of $f$ must be in $\Fix(G)$, but $\Fix(G) = K$ by assumption. Hence $f$ is over $K$. Clearly, $L$ is a splitting field of $f$ over $K$. 
+	
+	(iv) $\Rightarrow$ (i) is trivial.
+	
+\end{proof}
+
+We can now obtain a useful result.
+
+\begin{theorem} \label{thm:galois-intermediate}
+	If $L/K$ is a Galois extension, then for an intermediate field $M$ such that $K \subseteq M \subseteq L$, $L/M$ is also a Galois extension. 
+\end{theorem}
+\begin{proof}
+	By (iv) of Theorem \ref{thm:fixed}, $L$ is the splitting of some polynomial $f$ over $K$, but $f$ is also a polynomial over $M$. Hence $L/M$ is Galois.
+\end{proof}
+
+Note that in the above theorem, $L/K$ being a Galois extension does not imply that $M/K$ is Galois. This is in general false; consider for example $K = \Q, M = \Q(\sqrt[3]{2})$ and $L = \Q(\sqrt[3]{2}, \zeta)$, where $\zeta = e^{2\pi i / 3}$. Then $L/K$ and $L/M$ are Galois but $M/K$ is not. 
+
+\begin{definition}
+   A \textit{normal closure} of a field extension $L / K$ is an extension $N$ of $L$ such that 
+   \begin{enumerate}
+       \item $N / K$ is normal;
+       \item If $L \subseteq M \subseteq N$ and $M / K$ is normal, then $M = N$.
+   \end{enumerate}
+\end{definition}
+
+\begin{theorem}
+	Let $L$ be a field and let $G \le \Aut(L)$ be finite. Let $K = \Fix(G)$. Then $[L:K] =|G|$. 
+\end{theorem}
+
+\begin{proof}
+	\TODO(10.5)
+\end{proof}
+
+\begin{theorem} \label{thm:fix-extension-normal}
+	Let $L$ be a field and let $G \le \Aut(L)$. Let $K = \Fix(G)$. Then $L/K$ is a normal extension with $\Gal(L/K) = G$. 
+\end{theorem}
+
+\begin{proof}
+	\TODO(11.14)
+\end{proof}
+
+\subsection{Examples of Galois Extensions}
+
+\TODO
+
+\subsection{Fundamental Theorem of Galois Theory}
+
+%\begin{theorem}
+%	Let $M$ be a field and let $G \le \Aut(M)$. Then $M / \Fix(G)$ is a Galois extension.
+%\end{theorem}
+%
+%\begin{proof}
+%	\TODO
+%\end{proof}
+%
+%\begin{theorem}
+%    Let $G$ be a finite subgroup of the group of automorphisms of a field $L$, and let $K = \Fix(G)$. Then $[L : K] = |G|$. 
+%\end{theorem}
+%
+%\begin{proof}
+%    \TODO
+%\end{proof}
+
+% \noindent We now look at a theorem which helps to characterise and identify fields, extensions and Galois groups.
+
+
+
+Group theory tends to look at patterns and symmetries in mathematical objects, and Galois groups have an interesting symmetry. The following theorem describes how the structure of an extension of a field is the same as the subgroups of the Galois groups.
+
+To help us prove the fundamental theorem, we first need to show a relationship between a subgroup of a Galois group and its subgroups
+
+\begin{theorem}\label{thm:equal-subgroup-fixed-points}
+    Let $L/F$ be a finite Galois extension, with $G=\Gal(L/F)$, then if we have a subgroup $H\leq G$ with $\Fix(H)=F$ then $H=G$.
+\end{theorem}
+
+\begin{proof}
+    Suppose $H\leq G$ with $\Fix(H)=F$. Then, let $L = F(a)$, then $H \cdot a$ denotes the orbit under the group action of $H$ in $L$, and we can assume that $H \dot a = \{a_1,...,a_m\}.$ From this we can see that $|H \cdot a| = m$, and let $[L:F]=n$.
+    Then we know that the $m$ cannot be larger than the size of $H$, and since $H\leq G \implies |H|\leq|G|$, we get $|H \cdot a| = m \leq |H| \leq |G| = [L:F] = n$ 
+    
+    \textcolor{red}{Put a section in polynomials regarding symmetric polynomials and the elementary symmetric polynomials and minimal polynomials.} 
+    
+    \noindent
+    Then by evaluating the elementary symmetric polynomials at each of the elements in $H \cdot a$, we get that these are just the elements in $\Fix(H)=F$. Therefore, we see that the coefficients in the polynomial: $f(X) := (X-a_1)(X-a_2)...(X-a_m)$ lies in $F$, and we have $f(a)=0$. Then, our minimal polynomial $\mu_a(X)$ divides $f(X)$ and $\deg(f) \leq \deg(\mu_a(X) \implies m \leq n$. Hence we have $m \geq n$ and $n \geq m$, so therefore we have that $m=n$, which tells us $|H|=|G|$ and so $H=G.$
+\end{proof}
+
+\begin{theorem}[The Fundamental Theorem of Galois Theory] \label{thm:fundamental-theorem} Given a Galois extension $L/K$ and its Galois group $G = \Gal(L/K)$, there is a natural bijection between subgroups $H\leq G$ and the intermediate fields $M$ such that $K \subseteq M \subseteq L$. Define
+
+\begin{itemize}
+    \item $\alpha:M \mapsto \Gal(L/M) \leq G$ and
+    \item $\beta:H \mapsto \Fix(H) \subseteq L$,
+\end{itemize}
+then $\alpha$ and $\beta$ are inverses of each other.
+\end{theorem}
+\begin{proof}
+\begin{enumerate}[label=(\roman*)]
+
+ \item ($\beta \circ \alpha = \Id$) Let $M$ be an intermediate field, and by Theorem \ref{thm:galois-intermediate} we can see that $L/M$ is a Galois Extension. Then if we consider the Galois group $\Gal(L/M)$, we can see that via Theorem \ref{thm:fixed}, $M = \Fix(\Gal(L/M))$. Also, $\alpha(M) = \Gal(L/M)$. Then we look at $(\beta \circ \alpha)(M)$, which is equal to $\beta(\Gal(L/M)) = \Fix(\Gal(L/M))$, but again as see in Theorem \ref{thm:fixed}, we have $\Fix(\Gal(L/M)) = M$. Thus $(\beta \circ \alpha)(M) = M$ and hence we see that $\beta \circ \alpha = \Id$.
+
+ \item ($\alpha \circ \beta = \Id$) Now, let $H$ be a subgroup of $G$ and then set $M :=\Fix(H)$. Then $H$ is a subgroup of the Galois group $\Gal(L/M)$. Since $K \subseteq M \subseteq L$, by Theorem \ref{thm:galois-intermediate} we have that $L/M$ is a Galois extension. Thus, by Theorem \ref{thm:equal-subgroup-fixed-points}, since we have $H\leq \Gal(L/M)$ and we have $\Fix(H)=M$, then we can say that $H=\Gal(L/M)=\Gal(L/\Fix(H))$. Thus if we consider $(\alpha \circ \beta)(H) = \alpha(\Fix(H)) = \Gal(L/\Fix(H))= H $, we have $(\alpha \circ \beta)(H) = H$ and so $\alpha \circ \beta = \Id$.
+\end{enumerate}
+Hence we can see that the functions $\alpha$ and $\beta$ are inverse to each other.
+\end{proof}
+
+
+
+\begin{theorem} \label{thm:correspondence-quotient}
+    Let $L / K$ is a Galois extension and let $M$ be an intermediate field such that $M /K$ is a Galois extension, then 
+    $$\Gal(M / K) \cong \Gal(L / K) / \Gal(L / M). $$
+\end{theorem}
+
+\begin{proof}
+	% Theoerm 58, Rotman
+	Let $G = \Gal(L/K)$ and $G' = \Gal(M/K)$. Define a map $\psi: G \to G'$ as $\psi(\sigma) = \sigma | _M$ for $\sigma \in G$.
+	
+	We first show that indeed $\psi(\sigma) \in G'$ for all $\sigma \in G$. We only need to prove that $\sigma(M) = M$. $M/K$ is Galois, so by Theorem \ref{thm:fixed}, $M$ is a splitting field for a separable polynomial $f$ over $K$. Let $\alpha_1, \dots, \alpha_n$ be the distinct zeros of $f$, then $M = K(\alpha_1, \ldots, \alpha_n)$. But $\sigma$ permutes $\alpha_i$ by Theorem \ref{thm:galois-group-acts-on-zeros} and $\sigma(K) = K$. Therefore $\sigma(M) = \sigma(K(\alpha_i, \ldots, \alpha_n)) = K(\sigma(\alpha_1), \ldots, \sigma(\alpha_n)) = M. $
+	
+	
+	 $\psi$ is clearly a group homomorphism. It is onto due to the normality of $L/K$ and Theorem \ref{thm:monomorphism-extend-automorphism}: each $K$-automorphism $\tau$ of $M$ is also a $K$-monomorphism from $M$ to $L$ and thus there exists a $K$-automorphism $\sigma$ of $L$ such that $\sigma | _M = \tau$. Also, $\sigma \in \operatorname{Ker}(\psi)$ if and only if $\psi(\sigma) = \sigma |_M = \Id$, which is equivalent to $\sigma \in \Gal(L/M)$. Thus $\operatorname{Ker}(\psi) = \Gal(L/M)$. 
+	 
+	 Thus by Theorem \ref{thm:first-iso}, 
+	$$G / \operatorname{Ker}(\psi) \cong \operatorname{Im}(\psi) = G',$$
+	and the required result thus follows. 
+\end{proof}
