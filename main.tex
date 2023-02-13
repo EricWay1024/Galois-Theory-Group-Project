@@ -5,6 +5,7 @@
 \usepackage{amsfonts}
 \usepackage{graphicx}
 \usepackage{enumitem}
+\usepackage{hyperref}
 \usepackage{tikz}
 \usepackage{tikz}
 \usetikzlibrary{matrix,arrows}
@@ -19,7 +20,7 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}[theorem]{Corollary}
 % \newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{lemma}{Lemma}
+\newtheorem{lemma}[theorem]{Lemma}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
@@ -72,15 +73,42 @@ We first look at fields and extensions of fields in order to have a basis.}
 
 \section{Polynomials}
 \subsection{Basics of Polynomials}
+
+\begin{definition}
+    A polynomial over $\C$ in the indeterminate $t$ to be an expression 
+
+    $r_0 + r_1 t +...+ r_n t^n$
+
+    where $r_0,r_1,...,r_n \in \C$, $0 \le n \in \Z$ and $t$ is undefined.
+\end{definition}
+
+\begin{definition}
+    If $f$ is a polynomial over $\C$ and $f \neq 0$, then the degree of $f$ is the highest power of $t$ occurring in $f$ with a non-zero coefficient.
+\end{definition}
+
+\begin{theorem}
+    Two polynomials $f,g$ over $\C$ define the same function if and only if they are equal polynomials, so they have the same coefficients.
+\end{theorem}
+
+\begin{proof}
+    This is a basic proof to an obvious theorem. By taking the difference of the two polynomials, we must prove that if $f(t)$ is a polynomial over $\C$ and $f(t) = 0$ for all $t$, then the coefficients of $f$ are all 0. Let $P(n)$ be the statement: If a polynomial $f(t)$ over $\C$ has degree $n$, and $f(t) = 0$ for all $t \in \C$, then $f=0$. We prove $P(n)$ for all $n$ by induction on $n$. 
+    
+    Both $P(0)$ and $P(1)$ are obvious. Suppose that $P(n-1)$ is true. 
+
+    With $f(t) = a_n t^n +...+ a_0$. In particular, $f(0) = 0$, so $a_0 = 0$ and,
+
+    $f(t) = a_n t^n +...+ a_1 t= t(a_n t^{n-1} +...+ a_1) = tg(t)$
+
+    where $g(t) = a_n t^{n-1} +...+ a_1$ has degree $n-1$. Now $g(t)$ vanishes for all $t \in \C$ except $t=0$. However is $g(0) = a_1 \neq 0$ then $g(t) \neq 0$ for sufficiently small $t$. Therefore $g(t)$ vanishes for all $t \in \C$. By induction, $g=0$. Therefore $f=0$ so $P(n)$ is true and the induction is complete
+\end{proof}
+
 Polynomials will often be written in descending order $r_n t^n + r_{n-1} t^{n+1} + ... + r_1 t + r_0$ for $n$
 
 Two polynomials are defined to be equal if and only if all corresponding co-efficients are equal.
 
-If $r = \sum (r_i t^i)$ and $s = \sum (s_i t^i)$ then $r+s = \sum$
+If $r = \sum (r_i t^i)$ and $s = \sum (s_i t^i)$ then $r+s = \sum (r_i + s_i)t^i$
 
-% Definition of a polynomial.
-
-% Degree of a polynomial.
+and $rs = \sum (q_j t^j)$ where $q_j = \sum_{h+i=j} r_h s_i$
 
 \subsection{Fundamental Theorem of Algebra} 
 This theorem from the module \textit{Complex Functions} is stated without proof. 
@@ -90,12 +118,24 @@ This theorem from the module \textit{Complex Functions} is stated without proof.
 \end{theorem}
 
 Such a number $z$ is called a root of the equation $p(t)=0$, or a zero of the polynomial $p$. 
+
+\begin{example}
+    $i$ is a root of the polynomial equation $t^2+1=0$ and a zero of $t^2+1$. Polynomial equations may have more than one root; indeed, $t^2+1=0$ has at least one other root, $-i$.
+\end{example}
 % For example, $\mathrm{i}$ is a root of the equation $t^2+1=0$ and a zero of $t^2+1$. Polynomial equations may have more than one root; indeed, $t^2+1=0$ has at least one other root, $-i$.
 
 Proposition 2.7. Let $p(t) \in \mathbb{C}[t]$ with $\partial p=n \geq 1$. Then there exist $\alpha_1, \ldots, \alpha_n \in \mathbb{C}$, and $0 \neq k \in \mathbb{C}$, such that
 $$
 p(t)=k\left(t-\alpha_1\right) \ldots\left(t-\alpha_n\right).
 $$
+
+\begin{proof}
+    Use induction on $n$. When $n = 1$ then it is obvious that this proposition follows. If $n > 1$ then we know by the Fundamental Theorem of Algebra, that $p(t)$ has at least one zero $\alpha_n$. By the Remainder Theorem above, there exists $q(t) \in \C[t]$ such that,
+
+    $p(t) = (t-\alpha_n) q(t)$
+
+    Then $\partial$
+\end{proof}
 % Proof. Use induction on $n$. The case $n=1$ is obvious. If $n>1$ we know, by the Fundamental Theorem of Algebra, that $p(t)$ has at least one zero in $\mathbb{C}$ : call this zero $\alpha_n$. By the Remainder Theorem, there exists $q(t) \in \mathbb{C}[t]$ such that
 % $$
 % p(t)=\left(t-\alpha_n\right) q(t)
@@ -111,15 +151,39 @@ $$
 \end{theorem}
 
 \begin{proof}
-    Let $g$ be any non-zero polynomial over $R$. We proceed by in introduction on the degree of $g$. If $\delta g = 0$ or 1 then $g$ is automatically irreducible. If $\delta g > 1$, then either $g$ is irreducible or $g = hk$ where $\delta h$, $\delta k < \delta g$. By induction, $h$ and $k$ are products of irreducible polynomials, where $g$ is such a product.
+    Let $g$ be any non-zero polynomial over $R$. We proceed by in introduction on the degree of $g$. If $\partial g = 0$ or 1 then $g$ is automatically irreducible. If $\partial g > 1$, then either $g$ is irreducible or $g = hk$ where $\partial h$, $\partial k < \partial g$. By induction, $h$ and $k$ are products of irreducible polynomials, where $g$ is such a product. The theorem then follows by induction.
+\end{proof}
+
+\begin{example}
+    We can use the above theorem to prove irreducibilty for some cases, working very well for cubic polynomials over $\Z$. Let $R = \Z$ then the polynomial $f(t) = t^3 -5 t + 1$ is irreducible. If it was not irreducible then it must have a linear factor $t - \alpha$ over $\Z$ and then $\alpha \in \Z$ and $f(\alpha) = 0$. There also must exist $\beta, \lambda \in \Z$ such that,
+
+    $f(t) = (t-\alpha)(t^2 + \beta t + \lambda) = t^3 + (\beta - \alpha)t^2 + (\lambda - \alpha \beta)t - \alpha \lambda$
+
+    so $\alpha \lambda = -1$. Therefore, $\alpha = +/- 1$. But $f(1) = -3 \neq 0$ and $f(-1) = 5 \neq 0$. This shows that no factor exists.
+\end{example}
+
+\begin{theorem}
+    Gauss Lemma - Let f be a polynomial over $\Z$ that is irreducible over $\Z$. Then $f$, considered as a polynomial over $\Q$, is also irreducible over $\Q$.
+\end{theorem}
+
+\begin{proof}
+This lemma is useful because when we extend the subring of coefficients from $\Z$ to $\Q$ then there are new polynomials which may be factors of $f$. However, we now show that they are not. Starting with a contradiction, suppose that $f$ is irreducible over $\Z$ but reducible over $\Q$ so that $f = g h$ where $g$,$h$ are both polynomials over $\Q$, of a smaller degree. Multiplying through by the product of the denominators of the coefficients of $g$ and $h$ means we can rewrite this as $n f = g' h'$, where $n \in \Z$ and $g'$ and $h'$ are polynomials over $\Z$. We can now show that we can cancel out the prime factors of n one by one, without going outside $\Z[t]$
+
+Suppose that $p$ is a prime factor of $n$. We now claim that if $g' = g_0 + g_1 t +...+ g_r t^r$, $h' = h_0 + h_1 t +...+ h_s t^s$ then either $p$ divides all the coefficients of $g_i$, or else $p$ divides all the coefficients $h_j$.
+
+If not then there must be smallest values $i$, $j$ such that $p \nmid g_i$ and $p \nmid h_j$. However, $p$ divides the coefficient of $t^{i+j}$ in $g' h'$, which is 
+
+$h_0 g_{i+j} + h_1 g_{i+j-1} +...+ h_j g_i +...+ h_{i+j} g_0$
+
+and by the choice of $i$ and $j$, the prime $p$ divides every term of this expression except $h_j g_i$. $p$ divides the whole expression, so $p | h_j g_i$. However $p \nmid g_i$ and $p \nmid h_j$, a contradiction.
 \end{proof}
 
 \begin{theorem}
-    Eisenstein's Criterion - Let 
+    Eisenstein's Criterion - Let
     
     $$f(x) = a_0 + a_1 t + ... + a_n t^n$$
     
-    be a polynomial over $\Z$. Suppose there is a prime q such that:
+    be a polynomial over $\Z$. Suppose there is a prime $q$ such that:
     
     (1) $q \nmid a_n$
 
@@ -184,61 +248,51 @@ where $h$ is a polynomial in $u$ over $\Z$ with constant term 1, by the above th
 
 \end{proof}
 
-\begin{theorem}
-    Gauss Lemma - Let f be a polynomial over $\Z$ that is irreducible over $\Z$. Then $f$, considered as a polynomial over $\Q$, is also irreducible over $\Q$.
-\end{theorem}
-
-\begin{proof}
-This lemma is useful because when we extend the subring of coefficients from $\Z$ to $\Q$ then there are new polynomials which may be factors of $f$. However, we now show that they are not. Starting with a contradiction, suppose that $f$ is irreducible over $\Z$ but reducible over $\Q$ so that $f = g h$ where $g$,$h$ are both polynomials over $\Q$, of a smaller degree. Multiplying through by the product of the denominators of the coefficients of $g$ and $h$ means we can rewrite this as $n f = g' h'$, where $n \in \Z$ and $g'$ and $h'$ are polynomials over $\Z$. We can now show that we can cancel out the prime factors of n one by one, without going outside $\Z[t]$
-
-Suppose that $p$ is a prime factor of $n$. We now claim that if $g' = g_0 + g_1 t +...+ g_r t^r$, $h' = h_0 + h_1 t +...+ h_s t^s$ then either $p$ divides all the coefficients of $g_i$, or else $p$ divides all the coefficients $h_j$.
-
-If not then there must be smallest values $i$, $j$ such that $p \nmid g_i$ and $p \nmid h_j$. However, $p$ divides the coefficient of $t^{i+j}$ in $g' h'$, which is 
-
-$h_0 g_{i+j} + h_1 g_{i+j-1} +...+ h_j g_i +...+ h_{i+j} g_0$
-
-and by the choice of $i$ and $j$, the prime $p$ divides every term of this expression except $h_j g_i$. $p$ divides the whole expression, so $p | h_j g_i$. However $p \nmid g_i$ and $p \nmid h_j$, a contradition.
-\end{proof}
-
 \section{Field Extensions}
 
 \subsection{Basics of Field Extensions}
+In order to look at field extensions we must first define some useful terms.
 \begin{definition}
-Let \((G, *,\star )\) be a field. Let \(F\) be a subset of \(G\) such that \((F,*,\star)\) is a field. Then \((F, *,\star)\) is a \textbf{subfield}
+Let \((G, *,\star )\) be a field. Let \(F\) be a subset of \(G\) such that \((F,*,\star)\) is a field. Then \((F, *,\star)\) is a \textit{subfield}
  of \((G, *, \star)\).
 \end{definition}
 \begin{definition}
-A field \(F\) is called a \textbf{prime field} of \(K\) if it had no proper (strictly smaller) subfield.
+A field \(F\) is called a \textit{prime field} of \(K\) if it had no proper (strictly smaller) subfield.
 \end{definition}
 \begin{definition}
-A field \(K\) is said to be a \textbf{field extension} of \(F\), denoted \(K / F\), if \(F\) is a subfield of \(K\). \cite{Moy}
+    A \textit{monomorphism} is an injective homomorphism.
+\end{definition}
+\begin{definition}
+A field \(K\) is said to be a \textit{field extension} of \(F\), denoted \(K / F\), if \(F\) is a subfield of \(K\). \cite{Moy} A field extension is a monomorphism \(\iota: F \to K\).
 \end{definition}
 \begin{example}
 The field \(\mathbb{Q}[\sqrt{2}]\) is a field extension of \(\mathbb{Q}\), as \(\mathbb{Q}[\sqrt{2}] = \{a + \sqrt{2}b : a,b \in \mathbb{Q}\}\) we can clearly see that when \(b = 0\) this gives us the rational numbers so \(\mathbb{Q}\) is a subfield of \(\mathbb{Q}[\sqrt{2}]\).
 \end{example}
 \begin{definition}
-For a real number \(\alpha\), if \(p(\alpha)=0\), for some polynomial \(p(x)\), \(\alpha\) is an \textbf{\textit{algebraic number}}.
+Let \(K\) be a subfield of \(L\) if \(\alpha \in L\), and if \(p(\alpha)=0\), for some polynomial \(p(x)\) over \(K\), \(\alpha\) is an \textit{algebraic number}. Otherwise, \(\alpha\) is transcendental over \(K\).
 \end{definition}
 \begin{theorem}
-If \(\alpha\) is an algebraic number, then \(\mathbb{Q}[\alpha]\) is a field. Similarly, \(\mathbb{Q}[\alpha,\beta]\) is a field for algebraic numbers \(\alpha\) and \(\beta\).
+If \(\alpha\) is an algebraic number, then \(\mathbb{Q}[\alpha]\) is a field.
 \end{theorem}
 \begin{proof}
-%proof of Qa as a field
-We know, from the definition, that \(\mathbb{Q}[\alpha,\beta] = \{a + b\alpha + c\beta + d\alpha\beta : a,b,c,d \in \mathbb{Q}\} = \{(x\alpha + y)(p\beta + q) : x,y,p,q \in \mathbb{Q} \text{ where } a = yq, b = xq, c = py \text{ and } d = xp \} = \mathbb{Q}[\alpha,\beta] = K[\beta]\) where \(K = \mathbb{Q}[\alpha]\) is a field, hence we know that \(\mathbb{Q}[\alpha,\beta]\) is a field.  
+We can write \(\mathbb{Q}[\alpha] = \{p + \alpha q : p,q \in \mathbb{Q}\}\). First, checking the axioms for addition: \\
+Let \((p + \alpha q)\),  \((s + \alpha t)\) \(\in \mathbb{Q}[\alpha]\), we have \((p + \alpha q) + (s +\alpha t) = (p + s) + \alpha(q + t)\), this satisfies additive closure as \((p+s)\), \((q+t)\) \(\in\mathbb{Q}\). We can clearly see that the addition is commutative and associative from the properties of addition on the rationals. We know that \(\mathbb{Q}[\alpha]\) will contain a zero element when \(p = q = 0\) and will contain an inverse \((p + \alpha q)^{-1} = -p - \alpha q\), as \(-p, -q\in \mathbb{Q}\) and \((p + \alpha q) + (-p - \alpha q) = 0\). \\
+We can now check the multiplicative axioms:\\
+For \((p + \alpha q) , (s + \alpha t ) \in \mathbb{Q}[\alpha]\) , \((p + \alpha q)(s + \alpha t) = ps + tq \alpha^2 + (pt + sq) \alpha = ps + (tq \alpha + pt + sq) \alpha\), we can see that \(tq \alpha + pt + sq \in\mathbb{Q}[\alpha]\) as \((pt + sq), tq \in \mathbb{Q}\),
 \end{proof}
 
 
 \begin{definition}
-    If $L/K$ is a field extensions, we call any field $M$ with $K \subseteq M \subseteq L$ an \textbf{intermediate field.}
+    If $L/K$ is a field extensions, we call any field $M$ with $K \subseteq M \subseteq L$ an \textit{intermediate field.}
 \end{definition}
 
 
 \subsection{The Degree of a Field Extension}
 \begin{definition}
-    The \textbf{degree} of the field extension, $\deg(L:K)=[L:K]$ is the dimension of the vector space $L$ over $K$.
+    The \textit{degree} of the field extension, $\deg(L:K)=[L:K]$ is the dimension of the vector space $L$ over $K$.
 \end{definition}
 \begin{definition}
-    A field extension is called \textbf{finite} if its degree is finite. 
+    A field extension is called \textit{finite} if its degree is finite. 
 \end{definition}
 \begin{theorem}[Tower Theorem] \label{thm:tower-theorem}
     If M is an intermediate field of a finite field extension $L/K$ then:
@@ -259,12 +313,15 @@ Now it is required to show that $\gamma$ is linearly independent, in order to sh
 An extension field \(F\) of \(K\) is called simple if \(F = K(\alpha)\) for some \(\alpha \in F\).
 \end{definition}
 \begin{example}
-Clearly, \(\mathbb{Q}(\sqrt{2}) / \Q\) is simple.
+Clearly, \(\mathbb{Q}(\sqrt{2}) / \Q\) is a simple field extension.
 \end{example}
 We can also look at some less obvious extension fields which are simple.
 \begin{example}
-Taking the extension field \(K = \mathbb{Q}(\sqrt{2}, i)\), we prove that this can be rewritten using only one element as \(K' = \mathbb{Q}(\sqrt{2} + i)\), and that \(K=K'\) making \(K\) a simple field extension. We know \(K'\) contains
-\[(\sqrt{2} + i)^2\]
+Taking the extension field \(K = \mathbb{Q}(\sqrt{2}, i)\), we prove that this can be rewritten as a simple field extension \(K' = \mathbb{Q}(\sqrt{2} + i)\), by showing that \(K=K'\) making \(K\) a simple field extension. We know \(K'\) contains
+\[(\sqrt{2} + i)^2 = 1 + 2i\sqrt{2}\]
+\[(i + \sqrt{2})(1+2i\sqrt{2}) = 5i - \sqrt{2}\]
+\[(5i - \sqrt{2}) + (i + \sqrt{2}) = 6i\]
+so we know that \(K'\) contains \(i\). We can also see that \(K'\) contains \(\sqrt{2}\) as \((i+\sqrt{2})-i = \sqrt{2}\). Hence we can see that \(K = K'\), so \(\mathbb{Q}(\sqrt{2},i)\) is a simple field extension.
 \end{example}
 
 Definition 5.1. Let $K$ be a subfield of $\mathbb{C}$ and let $\alpha \in \mathbb{C}$. Then $\alpha$ is algebraic over $K$ if there exists a non-zero polynomial $p$ over $K$ such that $p(\alpha)=0$. Otherwise, $\alpha$ is transcendental over $K$.
@@ -374,7 +431,7 @@ We might extend the definition of a splitting field of \textit{a set of polynomi
 
 
 \begin{definition}
-    An algebraic field extension $L/ K$ is \textbf{normal} if every irreducible polynomial over $K$ which has a zero in $L$ splits in $L$. 
+    An algebraic field extension $L/ K$ is \textit{normal} if every irreducible polynomial over $K$ which has a zero in $L$ splits in $L$. 
 \end{definition}
 \begin{example}
 	For any field $K$, $\overline K / K$ is a normal extension, as every polynomial over $K$ splits in $\overline K$. 
@@ -415,8 +472,16 @@ Before we prove (iii) $\Rightarrow$ (i), we pulse and prove the following result
 	By (i) $\Rightarrow$ (ii) of Theorem \ref{thm:normal-equiv-def}, $L$ is the splitting field for a polynomial $f$ over $K$ and thus also over $M$. $\tau$ can be considered as an isomorphism from $M$ to $\tau(M)$ which fixes every element in $K$ and hence $f$. Then $L$ is both the splitting field for $f$ over $M$ and the splitting field for $f$ over $\tau(M)$. Then by Theorem \ref{thm:splitting-field-unique}, there exists an isomorphism $\sigma: L \to L$ such that $\sigma | _M = \tau$. Since $\sigma | _K = \tau |_K = \Id$, $\sigma$ is a $K$-automorphism of $L$. 
 \end{proof}
 
+\begin{theorem} \label{thm:automorphism-from-zeros}
+    Let $L/K$ be a field extension and let $\alpha, \beta \in L$ be zeros of an irreducible polynomial $f$ over $K$. Then there exists a $K$-automorphism $\sigma$ of $L$ such that $\sigma(\alpha) = \beta$. 
+\end{theorem}
+
+\begin{proof}
+     $K(\alpha)/K$ and $K(\beta)/K$ are isomorphic extensions by \TODO(Corollary 5.13). The isomorphism from $K(\alpha)$ to $K(\beta)$ is also a $K$-monomorphism from $K(\alpha)$ to $\overline K$ and thus can be extended to a $K$-automorphism $\sigma$ of $\overline K$ by Theorem \ref{thm:monomorphism-extend-automorphism}, where $\sigma(\alpha) = \beta$.
+\end{proof}
+
 \begin{proof}[Proof of Theorem \ref{thm:normal-equiv-def}, continued]
-	    (iii) $\Rightarrow$ (i). Let $f$ be an irreducible polynomial over $K$ with zero $\alpha \in L$. For any zero $\beta$ of $f$, $K(\alpha)/K$ and $K(\beta)/K$ are isomorphic extensions by \TODO(Corollary 5.13). The isomorphism from $K(\alpha)$ to $K(\beta)$ is also a $K$-monomorphism from $K(\alpha)$ to $\overline K$ and thus can be extended to a $K$-automorphism $\sigma$ of $\overline K$ by Theorem \ref{thm:monomorphism-extend-automorphism}, where $\sigma(\alpha) = \beta$. By assumption, $\sigma(L) = L$. With $\alpha \in L$ we deduce that $\beta \in L$. Hence $L/K$ is normal.
+	    (iii) $\Rightarrow$ (i). Let $f$ be an irreducible polynomial over $K$ with zero $\alpha \in L$. For any zero $\beta \in \overline K$ of $f$, there exists a $K$-automorphism $\sigma$ of $\overline K $ such that $\sigma(\alpha) = \beta$ by Theorem \ref{thm:automorphism-from-zeros}. By assumption, $\sigma(L) = L$. With $\alpha \in L$ we deduce that $\beta \in L$. Hence $L/K$ is normal.
 \end{proof}
 
 %\begin{corollary}
@@ -567,7 +632,7 @@ Thus $\Fix(G)$ is the subset of elements in $L$ which remain fixed for all autom
 \end{example}
 
 \subsection{Roots of Unity}
-We now take a detour and look at some special cases where the Galois group of a polynomial is abelian. The results obtained here will be useful in Section \ref{sec:galois-groups-and-polynomials}. 
+We now take a detour and look at some special cases where the Galois group of a field extension is abelian. The results obtained here will be useful in Section \ref{sec:galois-groups-and-polynomials}. 
 
 \begin{definition}
 	Let $n$ be a positive integer. An $n$-th root of unity $\omega$ in $\mathbb C$ is such that $\omega ^ n = 1$. An $n$-th root of unity $\omega$ is primitive if for any $m = 1, 2, \dots, n - 1$, $\omega ^ m \neq 1$.
@@ -698,13 +763,13 @@ We can now obtain a useful result.
 
 Note that in the above theorem, $L/K$ being a Galois extension does not imply that $M/K$ is Galois. This is in general false; consider for example $K = \Q, M = \Q(\sqrt[3]{2})$ and $L = \Q(\sqrt[3]{2}, \zeta)$, where $\zeta = e^{2\pi i / 3}$. Then $L/K$ and $L/M$ are Galois but $M/K$ is not. 
 
-%\begin{definition}
-%    A \textbf{normal closure} of a field extension $L / K$ is an extension $N$ of $L$ such that 
-%    \begin{enumerate}
-%        \item $N / K$ is normal;
-%        \item If $L \subseteq M \subseteq N$ and $M / K$ is normal, then $M = N$.
-%    \end{enumerate}
-%\end{definition}
+\begin{definition}
+   A \textit{normal closure} of a field extension $L / K$ is an extension $N$ of $L$ such that 
+   \begin{enumerate}
+       \item $N / K$ is normal;
+       \item If $L \subseteq M \subseteq N$ and $M / K$ is normal, then $M = N$.
+   \end{enumerate}
+\end{definition}
 
 \begin{theorem}
 	Let $L$ be a field and let $G \le \Aut(L)$ be finite. Let $K = \Fix(G)$. Then $[L:K] =|G|$. 
@@ -714,7 +779,7 @@ Note that in the above theorem, $L/K$ being a Galois extension does not imply th
 	\TODO(10.5)
 \end{proof}
 
-\begin{theorem}
+\begin{theorem} \label{thm:fix-extension-normal}
 	Let $L$ be a field and let $G \le \Aut(L)$. Let $K = \Fix(G)$. Then $L/K$ is a normal extension with $\Gal(L/K) = G$. 
 \end{theorem}
 
@@ -750,6 +815,22 @@ Note that in the above theorem, $L/K$ being a Galois extension does not imply th
 
 Group theory tends to look at patterns and symmetries in mathematical objects, and Galois groups have an interesting symmetry. The following theorem describes how the structure of an extension of a field is the same as the subgroups of the Galois groups.
 
+To help us prove the fundamental theorem, we first need to show a relationship between a subgroup of a Galois group and its subgroups
+
+\begin{theorem}\label{thm:equal-subgroup-fixed-points}
+    Let $L/F$ be a finite Galois extension, with $G=\Gal(L/F)$, then if we have a subgroup $H\leq G$ with $\Fix(H)=F$ then $H=G$.
+\end{theorem}
+
+\begin{proof}
+    Suppose $H\leq G$ with $\Fix(H)=F$. Then, let $L = F(a)$, then $H \cdot a$ denotes the orbit under the group action of $H$ in $L$, and we can assume that $H \dot a = \{a_1,...,a_m\}.$ From this we can see that $|H \cdot a| = m$, and let $[L:F]=n$.
+    Then we know that the $m$ cannot be larger than the size of $H$, and since $H\leq G \implies |H|\leq|G|$, we get $|H \cdot a| = m \leq |H| \leq |G| = [L:F] = n$ 
+    
+    \textcolor{red}{Put a section in polynomials regarding symmetric polynomials and the elementary symmetric polynomials and minimal polynomials.} 
+    
+    \noindent
+    Then by evaluating the elementary symmetric polynomials at each of the elements in $H \cdot a$, we get that these are just the elements in $\Fix(H)=F$. Therefore, we see that the coefficients in the polynomial: $f(X) := (X-a_1)(X-a_2)...(X-a_m)$ lies in $F$, and we have $f(a)=0$. Then, our minimal polynomial $\mu_a(X)$ divides $f(X)$ and $\deg(f) \leq \deg(\mu_a(X) \implies m \leq n$. Hence we have $m \geq n$ and $n \geq m$, so therefore we have that $m=n$, which tells us $|H|=|G|$ and so $H=G.$
+\end{proof}
+
 \begin{theorem}[The Fundamental Theorem of Galois Theory] \label{thm:fundamental-theorem} Given a Galois extension $L/K$ and its Galois group $G = \Gal(L/K)$, there is a natural bijection between subgroups $H\leq G$ and the intermediate fields $M$ such that $K \subseteq M \subseteq L$. Define
 
 \begin{itemize}
@@ -763,7 +844,7 @@ then $\alpha$ and $\beta$ are inverses of each other.
 
  \item ($\beta \circ \alpha = \Id$) Let $M$ be an intermediate field, and by Theorem \ref{thm:galois-intermediate} we can see that $L/M$ is a Galois Extension. Then if we consider the Galois group $\Gal(L/M)$, we can see that via Theorem \ref{thm:fixed}, $M = \Fix(\Gal(L/M))$. Also, $\alpha(M) = \Gal(L/M)$. Then we look at $(\beta \circ \alpha)(M)$, which is equal to $\beta(\Gal(L/M)) = \Fix(\Gal(L/M))$, but again as see in Theorem \ref{thm:fixed}, we have $\Fix(\Gal(L/M)) = M$. Thus $(\beta \circ \alpha)(M) = M$ and hence we see that $\beta \circ \alpha = \Id$.
 
- \item ($\alpha \circ \beta = \Id$) Now, let $H$ be a subgroup of $G$ and then set $M :=\Fix(H)$. Then $H$ is a subgroup of the Galois group $\Gal(L/M)$. Since $K \subseteq M \subseteq L$, by Theorem \ref{thm:galois-intermediate} we have that $L/M$ is a Galois extension. From Theorem \ref{thm:fixed}, we have that $\Fix(\Gal(L/M))=M$, and we also have that $\Fix(H) = M$ so we can say that $\Fix(H)=\Fix(\Gal(L/M)) \implies H = \Gal(L/M) = \Gal(L/\Fix(H))$. (\TODO why?) Thus if we consider $(\alpha \circ \beta)(H) = \alpha(\Fix(H)) = \Gal(L/\Fix(H))$, we have $(\alpha \circ \beta)(H) = H$ and so $\alpha \circ \beta = \Id$.
+ \item ($\alpha \circ \beta = \Id$) Now, let $H$ be a subgroup of $G$ and then set $M :=\Fix(H)$. Then $H$ is a subgroup of the Galois group $\Gal(L/M)$. Since $K \subseteq M \subseteq L$, by Theorem \ref{thm:galois-intermediate} we have that $L/M$ is a Galois extension. Thus, by Theorem \ref{thm:equal-subgroup-fixed-points}, since we have $H\leq \Gal(L/M)$ and we have $\Fix(H)=M$, then we can say that $H=\Gal(L/M)=\Gal(L/\Fix(H))$. Thus if we consider $(\alpha \circ \beta)(H) = \alpha(\Fix(H)) = \Gal(L/\Fix(H))= H $, we have $(\alpha \circ \beta)(H) = H$ and so $\alpha \circ \beta = \Id$.
 \end{enumerate}
 Hence we can see that the functions $\alpha$ and $\beta$ are inverse to each other.
 \end{proof}
@@ -849,7 +930,7 @@ The quotients are either $N_{i+1} / N_i$  or $G_{i+1} / G_i$ and are all abelian
 \end{proof}
 
 \begin{definition}
-    A group $G$ is \textbf{simple} if it is nontrivial and its only normal subgroups are $\{ e \}$ and $G$. 
+    A group $G$ is \textit{simple} if it is nontrivial and its only normal subgroups are $\{ e \}$ and $G$. 
 \end{definition}
 
 \begin{theorem} \label{thm:soluble-and-simple}
@@ -889,7 +970,7 @@ The converse is trivial.
 
 \subsection{Solubility by Radicals}
 \begin{definition} \label{def:radical-extension}
-    A field extension $L / K$ is \textbf{radical} if $L=K\left(\alpha_1, \ldots, \alpha_m\right)$, where for each $i=1, \ldots, m$ there exists $n_i$ such that
+    A field extension $L / K$ is \textit{radical} if $L=K\left(\alpha_1, \ldots, \alpha_m\right)$, where for each $i=1, \ldots, m$ there exists $n_i$ such that
 $$
 \alpha_i^{n_i} \in K\left(\alpha_1, \ldots, \alpha_{i-1}\right).
 $$
@@ -956,20 +1037,16 @@ Let $n \ge 1$ and $\alpha_1 \notin K$. Let $p = n_1$, which is prime, and then $
 \end{theorem}
 
 \begin{proof}
-\textbf{TODO paraphrase}
+\TODO paraphrase
 
-Let $L=K\left(\alpha_1, \ldots, \alpha_m\right)$ with $\alpha_i^{n_i} \in K\left(\alpha_1, \ldots, \alpha_{i-1}\right)$. Let $f_i$ be the minimal polynomial of $\alpha_i$ over $K$. Then $M \supseteq L$ is clearly the splitting field of $\prod_{i=1}^m f_i$. For every zero $\beta_{i j}$ of $f_i$ in $M$ there exists an isomorphism $\sigma : K\left(\alpha_i\right) \rightarrow K\left(\beta_{i j}\right)$ by \textbf{Corollary 5.13}. By \textbf{Proposition 11.4}, $\sigma$ extends to a $K$-automorphism $\tau: M \rightarrow M$. Since $\alpha_i$ is a member of a radical sequence for a subfield of $M$, so is $\beta_{i j}$. Combining the sequences yields a radical sequence for $M$.
+Let $L=K\left(\alpha_1, \ldots, \alpha_m\right)$ with $\alpha_i^{n_i} \in K\left(\alpha_1, \ldots, \alpha_{i-1}\right)$. Let $f_i$ be the minimal polynomial of $\alpha_i$ over $K$. Then $M \supseteq L$ is clearly the splitting field of $\prod_{i=1}^m f_i$. For every zero $\beta_{i j}$, by Theorem \ref{thm:automorphism-from-zeros}, there exists a $K$-automorphism $\tau$ of $M$ such that $\tau(\alpha_i) = \beta_{ij}$. Since $\alpha_i$ is a member of a radical sequence for a subfield of $M$, so is $\beta_{i j}$. Combining the sequences yields a radical sequence for $M$.
 \end{proof}
 
 
 \begin{definition}
-    Let $f$ be a polynomial over a subfield $K$ of $\mathbb{C}$, with splitting field $\Sigma$ over $K$. Then $f$ is \textbf{soluble by radicals} if there exists a field $M \supseteq \Sigma$ such that $M / K$ is a radical extension.  
+    Let $f$ be a polynomial over a subfield $K$ of $\mathbb{C}$, with splitting field $\Sigma$ over $K$. Then $f$ is \textit{soluble by radicals} if there exists a field $M \supseteq \Sigma$ such that $M / K$ is a radical extension.  
 \end{definition}
 
-
-% \begin{definition}
-%     Let $f$ be a polynomial over a subfield $K$ of $\mathbb{C}$, with splitting field $\Sigma$ over $K$. The \textbf{Galois group} of $f$ over $K$ is defined as $\Gal(\Sigma / K)$.
-% \end{definition}
 
 \begin{theorem} \label{thm:radical-galois-soluble}
     Let $f$ be a polynomial over a subfield $K$ of $\mathbb{C}$. If $f$ is soluble by radicals, then the Galois group of $f$ over $K$ is soluble.
@@ -983,7 +1060,7 @@ $$
 K \subseteq K_0 \subseteq \Sigma \subseteq M \subseteq N.
 $$
 Since $M / K_0$ is radical, Theorem \ref{thm:radical-closure} implies that $N / K_0$ is a normal radical extension. By Theorem \ref{thm:radical-3}, $\Gal\left(N / K_0\right)$ is soluble.
-By \textbf{Theorem ??}, the extension $\Sigma / K_0$ is normal. By Theorem \ref{thm:correspondence-quotient}
+By Theorem \ref{thm:fix-extension-normal}, the extension $\Sigma / K_0$ is normal. By Theorem \ref{thm:correspondence-quotient}
 $$
 \Gal\left(\Sigma / K_0\right) \cong \Gal\left(N / K_0\right) / \Gal(N / \Sigma).
 $$
@@ -1079,7 +1156,7 @@ First, we need to understand a lemma in order to be able to prove the Abel-Ruffi
 \end{theorem}
 
 \begin{proof}
-    "$\implies $"Given a general polynomial of the form $f(x) = a_0X^n - a_1X^{n-1}+...(-1)^na_n$, let us assume that it can be solved by radicals. Then we know that for each root of the polynomial, $x=\zeta_i$ where $0\leq i \leq n$, we have an extension $A_i/F$ which is cyclic by \textcolor{red}{Proposition}. If we then take the composition of all of those fields, we get another field $L$ which contains all the roots of $f(x)$ and is itself Galois. 
+    "$\implies $"Given a general polynomial of the form $f(x) = a_0X^n - a_1X^{n-1}+...(-1)^na_n$, let us assume that it can be solved by radicals. Then we know that for each root of the polynomial, $x=\zeta_i$ where $0\leq i \leq n$, we have an extension $A_i/F$ which is cyclic, since $\Gal(A_i/F)$ is cyclic. If we then take the composition of all of those fields, we get another field $L$ which contains all the roots of $f(x)$ and is itself Galois. 
     \textcolor{red}{Thus proves that if a polynomial can be solved by radicals, its Galois group is solvable}
 
     "$\impliedby$" Instead, supposed the polynomial $f(x)$ has a Galois group, $G$, which is solvable. Then we can consider the following chain of subfields: $F=K_0\subset K_1 \subset ... \subset K_n = K$. Here we define $K_i = \Fix(G_i)$ where $G_i$ is a subgroup of $G$.
