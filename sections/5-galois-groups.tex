@@ -1,17 +1,18 @@
 \section{Galois Groups}
 \subsection{Galois Group Actions}
 
-\begin{definition}
-	Let $L/K$ be a field extension. A $K$-automorphism $\phi$ of $L$ is an automorphism of $L$ such that $\phi(a) = a$ for all $a \in K$. 
-\end{definition}
+For a field extension $L/K$, we now focus on all $K$-automorphisms of $L$ (see Definition \ref{def:automorphism}), which form the Galois group of the extension:
+
 
 \begin{definition}
     Let $L/K$ be a field extension. Then all $K$-automorphisms of $L$ form a group under map composition, and this group is called the \textit{Galois group} of $L$, written as \(\Gal(L/K)\).
 %    The  is called the \textbf{Galois group} of the field extension \(F\) over \(K\), usually written .
 \end{definition}
 
+We also define the Galois group of a polynomial:
+
 \begin{definition}
-	Let $f$ be a polynomial over $K$ and let $L$ be a splitting field of $f$, then $\Gal(L/K)$ is the \textit{Galois group} of $f$, written as \(\Gal(f)\).
+	Let $f$ be a polynomial over $K$ and let $\Sigma$ be a splitting field of $f$, then $\Gal(\Sigma/K)$ is the \textit{Galois group} of $f$, written as \(\Gal(f)\).
 	
 %		 In the case that \(F\) is a splitting field of a polynomial \(f\) over $K$, \(G\) is called the Galois group of \(f\),
 \end{definition}
@@ -26,20 +27,14 @@ Let $\phi \in \Gal(L/K)$ where $L/K$ is a field extension. Then let $f$ be a pol
     Since $a \in L$ in a zero of $f$ over $K$, $f(a) = 0$. Then $\phi(f(a)) = \phi(0) = 0$. $\phi$ fixes the coefficients of $f$ as they are in $K$ and $\phi\left(a^i\right) = \left(\phi(a) \right) ^i$ as $\phi$ is a homomorphism. Therefore $f(\phi(a)) = 0$. 
 \end{proof}
 
-\begin{definition}
-	Given a set $X$, the \textit{permutation group} of $X$ is the group of $\{ (\phi : X \to X) : \phi \text{ is a bijection} \}$ under map composition (clearly this forms a group), denoted as $S_X$. 
-\end{definition}
-
-\begin{definition}
-	Given a group $G$ and a set $X$, we say $G$ \textit{acts} on $X$ if there is a homomorphism from $G$ to $S_X$.
-\end{definition}
+The Galois group of a polynomial naturally acts on its zeros.
 
 \begin{theorem} \label{thm:galois-group-acts-on-zeros}
-	Let $L$ be a splitting field of a polynomial $f$ over $K$ and let $G = \Gal(f)$. Let $X$ be the set of zeros of $f$. Then $G$ acts on $X$.
+	Let $L$ be a splitting field of a polynomial $f$ over $K$ and let $G = \Gal(f)$. Let $X$ be the set of zeros of $f$. Then $G$ acts on $X$ by restriction on $X$. 
 \end{theorem}
 
 \begin{proof}
-	Take any $\sigma \in G$. Then clearly $\alpha \in X$ if and only if $\sigma(\alpha) \in X$. Restricting $\sigma$ on $X$ gives a bijection $\sigma | _X : X \to X$. 
+	Take any $\sigma \in G$. Then clearly $\alpha \in X$ if and only if $\sigma(\alpha) \in X$. Restricting $\sigma$ on $X$ gives a bijection $\sigma | _X : X \to X$, which is a permutation of $X$ by Definition \ref{def:permutation}. Then $T_\sigma  = \sigma | _X$ forms a $G$-action on $X$ by Definition \ref{def:action}.  
 \end{proof}
 
 
