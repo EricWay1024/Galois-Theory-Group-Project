@@ -45,6 +45,8 @@ This theorem from the module \textit{Complex Functions} is stated without proof.
     If $p(z)$ is a non-constant polynomial over $\mathbb{C}$, then there exists $z_0 \in \mathbb{C}$ such that $p\left(z_0\right)=0$.
 \end{theorem}
 
+
+
 Such a number $z$ is called a root of the equation $p(t)=0$, or a zero of the polynomial $p$. 
 
 \begin{example}
@@ -52,10 +54,12 @@ Such a number $z$ is called a root of the equation $p(t)=0$, or a zero of the po
 \end{example}
 % For example, $\mathrm{i}$ is a root of the equation $t^2+1=0$ and a zero of $t^2+1$. Polynomial equations may have more than one root; indeed, $t^2+1=0$ has at least one other root, $-i$.
 
-Proposition 2.7. Let $p(t) \in \mathbb{C}[t]$ with $\partial p=n \geq 1$. Then there exist $\alpha_1, \ldots, \alpha_n \in \mathbb{C}$, and $0 \neq k \in \mathbb{C}$, such that
-$$
-p(t)=k\left(t-\alpha_1\right) \ldots\left(t-\alpha_n\right).
-$$
+\begin{proposition}
+    Let $p(t) \in \mathbb{C}[t]$ with $\partial p=n \geq 1$. Then there exist $\alpha_1, \ldots, \alpha_n \in \mathbb{C}$, and $0 \neq k \in \mathbb{C}$, such that
+    $$
+    p(t)=k\left(t-\alpha_1\right) \ldots\left(t-\alpha_n\right).
+    $$
+\end{proposition}
 
 \begin{proof}
     Use induction on $n$. When $n = 1$ then it is obvious that this proposition follows. If $n > 1$ then we know by the Fundamental Theorem of Algebra, that $p(t)$ has at least one zero $\alpha_n$. By the Remainder Theorem above, there exists $q(t) \in \C[t]$ such that,
@@ -63,6 +67,8 @@ $$
     $p(t) = (t-\alpha_n) q(t)$
 
     Then $\partial$
+    \newline
+    \textcolor{red}{TO DO:} Finish this proof
 \end{proof}
 % Proof. Use induction on $n$. The case $n=1$ is obvious. If $n>1$ we know, by the Fundamental Theorem of Algebra, that $p(t)$ has at least one zero in $\mathbb{C}$ : call this zero $\alpha_n$. By the Remainder Theorem, there exists $q(t) \in \mathbb{C}[t]$ such that
 % $$

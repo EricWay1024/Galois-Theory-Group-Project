@@ -17,7 +17,7 @@
 \usepackage{enumitem}
 \usepackage{natbib}
 \usepackage{placeins}
-\newtheorem{theorem}{Theorem}
+\newtheorem{theorem}{Theorem}[subsection]
 \newtheorem{corollary}[theorem]{Corollary}
 % \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -25,7 +25,9 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
 \usepackage[english]{babel}
-\newtheorem{observation}[theorem]{\textbf{Observation}}
+\newtheorem{observation}[theorem]
+{\textbf{Observation}}
+\newtheorem{proposition}[theorem]{\textbf{Proposition}}
 \bibliographystyle{unsrt}
 \usepackage[none]{hyphenat}
 \usepackage{fdsymbol}
