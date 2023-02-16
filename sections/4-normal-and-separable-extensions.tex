@@ -94,7 +94,7 @@ Isomorphic fields have isomorphic algebraic closures, in the following sense:
 	Let $\iota: K \to K'$ be a field isomorphism. Then there is an isomorphism $j: \overline K \to \overline {K'}$ such that $j |_K = \iota$. 
 \end{theorem}
 
-The proof is omitted.
+The detailed proof is omitted, but resembles that of Theorem \ref{thm:splitting-field-unique}.
 
 %\begin{definition}
 %    A field $K$ is algebraically closed if every polynomial $f$ over $K$ has a root in $K$. 
@@ -150,6 +150,10 @@ We now establish some equivalent statements as a finite extension being normal.
 	Let $K = \Q (\sqrt 2)$. Then $K$ is the splitting field for $f(t) = t^2 - 2$ over $\Q$, and thus $K/ \Q$ is normal. We also know that any $\Q$-monomorphism $\sigma: K \to \C$ is a $\Q$-automorphism of $K$. That is, $\sigma$ can only send $\sqrt 2$ to $\pm \sqrt 2$. 
 \end{example}
 
+\begin{example}
+	Let $K = \Q(\sqrt[3]{2})$. We have seen that $K / \Q$ is not normal. Indeed, define a $\Q$-monomorphism $\sigma : K \to \C$ by $\sigma(\sqrt[3]{2}) =  \sqrt[3]{2}\zeta $ where $\zeta = e^{2 \pi i / 3}$. Then $\sigma$ is not a $\Q$-automorphism of $K$. 
+\end{example}
+
 
 \subsection{Separable Extensions}
 
@@ -158,7 +162,7 @@ Galois did not specifically acknowledge the idea of separability, as he solely w
 \begin{definition}
     Let $f$ be an irreducible polynomial over field $K$. Then $f$ is \textit{separable} over $K$ if $f$ takes the form 
     $$
-        f(t) = k(t - \sigma_1) \dots (t - \sigma_n)
+        f(t) = k \prod_{i = 1} ^ n(t - \sigma_i)
     $$
     where $\sigma_i \in \overline K$ are distinct.
 \end{definition}
@@ -191,7 +195,7 @@ We now introduce the notion of separability of an extension in a recursive fashi
 
 We can also take for granted the separability of any field extension within $\C$:
 
-\begin{theorem}
+\begin{theorem} \label{thm:separable-extension-in-C}
     A field extension $L/K$ such that $K \subseteq L \subseteq \mathbb C$ is separable. 
 \end{theorem}
 
