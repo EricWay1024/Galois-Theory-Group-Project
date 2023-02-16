@@ -46,6 +46,19 @@ The Galois group of a polynomial naturally acts on its zeros.
 	Let $X$ be the set of zeros of $f$. Then $|X| \le n$ and $S_X$ is a subgroup of $S_n$. The homomorphism from $\Gal(f)$ to $S_X$ is also a homomorphism from $\Gal(f)$ to $S_n$. Further, the kernel of the homomorphism is trivial, as if $\sigma \in \Gal(f)$ fixes all elements in $X$, it is the identity map. Therefore, by Theorem \ref{thm:first-iso}, $\Gal(f)$ is isomorphic to its image in $S_n$, which is a subgroup of $S_n$. 
 \end{proof}
 
+Recall Definition \ref{def:transitive-action} for transitive group actions. The next theorem states that the irreducibility of a separable polynomial is equivalent to the transitivity of its Galois group action.
+
+\begin{theorem} \label{thm:galois-action-transitive-irreducible}
+	Let $f$ be a separable polynomial over field $K$. Let $X$ be the set of the zeros of $f$. Then $\Gal(f)$ acts transitively on $X$ if and only if $f$ is irreducible. 
+\end{theorem}
+
+\begin{proof}
+	Suppose $f$ is irreducible. Then for any zeros $\alpha, \beta$ of $f$, by Theorem \ref{thm:automorphism-from-zeros}, there exists $\sigma \in \Gal(f)$ such that $\sigma(\alpha) = \beta$. Thus $\Gal(f)$ acts transitively on $X$ by Definition \ref{def:transitive-action}. 
+	
+	Now suppose $f$ is reducible. Then $f$ is a product of distinct irreducible polynomials, since $f$ is separable. Let $\alpha_1$ and $\alpha_2$ be zeros of two different irreducible factors $p_1$ and $p_2$ of $f$, respectively. Then $p_i$ is the minimal polynomials of $\alpha_i$, for $i = 1, 2$. For any $\sigma \in \Gal(f)$, $\sigma(\alpha_1)$ has the same minimal polynomial as $\alpha_1$, which is $p_1$ and cannot be $p_2$. Thus $\sigma(\alpha_1) \neq \alpha_2$ and thus $\Gal(f)$ does not act transitively on $X$. 
+\end{proof}
+
+
 %\begin{theorem}
 %	A polynomial $f$ over $K$ is irreducible if and only if $\Gal(f)$ acts transitively on the set of zeros of $f$.
 %\end{theorem}
@@ -55,6 +68,7 @@ The Galois group of a polynomial naturally acts on its zeros.
 
 
 \subsection{Order of Galois Groups}
+We now give an upper bound for the order of the Galois group of a field extension. 
 %A $K$-automorphism is totally determined by its permutation of
 
 
@@ -84,6 +98,24 @@ Thus $\Fix(G)$ is the subset of elements in $L$ which remain fixed for all autom
 \begin{example}
     It is not always the case that $K = \Fix(G)$. For example, consider when $K = \Q$ and $L = \Q (\alpha)$ where $\alpha = \sqrt[3]{2}$. If $\sigma \in G$, then $\sigma(\alpha)$ is a zero of the polynomial $t^3 - 2$ by Theorem \ref{thm:galois-group-permutes-zeros}, but the two complex zeros are not contained in $L$. Thus $\sigma(\alpha) = \alpha$ and $G = \{ \Id \}$. We see that $\Fix(G) = L \neq K$. 
 \end{example}
+
+The next theorem shows that fix fields naturally lead to a normal field extension. 
+
+\begin{theorem} \label{thm:fix-extension-normal}
+	Let $L$ be a field and let $G \le \Aut(L)$ be finite. Let $K = \Fix(G)$. Then $L/K$ is a normal extension.
+\end{theorem}
+
+\begin{proof}
+	
+	Let $f$ be an irreducible polynomial over $K$ with a root $\alpha \in L$. Consider the finite non-empty set $S = \{\sigma(\alpha) : \sigma \in G\} \subseteq L$. Let $h(t) = \prod_{\beta \in S} (t - \beta)$. It is clear that $h$ splits in $L$.
+	
+	We claim that $h$ is a polynomial over $K$. To see this, note that each $\sigma \in G$ maps $S$ to itself, so $S$ is invariant under the action of $G$. Therefore, $h$ is fixed by $G$, and all of its coefficients are fixed by $G$, which implies that $h \in K[t]$.
+	
+	We also claim that $h$ is irreducible over $K$. Suppose that $h$ is reducible over $K$, then $\Gal(h)$ does not act transitively on $S$ by Theorem \ref{thm:galois-action-transitive-irreducible}. Let $\Sigma = K(\beta_1, \dots, \beta_n)$ be the splitting field of $h$ contained in $L$, where $\beta_i \in S$.  Any $\sigma \in G$ is a $K$-automorphism of $L$, and $\sigma(\gamma) \in \Sigma$ for any $\gamma \in \Sigma$. Thus $\sigma | _ \Sigma \in \Gal(h)$. 
+	Since each element in $G$ defines an element in $\Gal(h)$ and $G$ acts transitively on $S$ by construction, we have a contradiction. 
+	
+	Since $\alpha$ is a zero of $h$ and $h$ is irreducible over $K$, $h$ is the minimal polynomial of $\alpha$ over $K$. Thus $h = f$ and $f$ splits in $L$. Thus the extension $L/K$ is normal. 
+\end{proof}
 
 \subsection{Roots of Unity}
 We now take a detour and look at some special cases where the Galois group of a field extension is abelian. The results obtained here will be useful in Section \ref{sec:galois-groups-and-polynomials}. 
@@ -123,8 +155,7 @@ We now take a detour and look at some special cases where the Galois group of a 
 	\alpha_j: \omega \mapsto \omega^j,
 	$$
 	where $j=1,\dots,p-1$. Then $\alpha_i \alpha_j (\omega) = \alpha_j \alpha_i (\omega) = \omega^{i j}$, so $ \Gal(L / K)$ is abelian.
-	
-	\TODO probably rewrite using group actions
+
 \end{proof}
 
 \begin{theorem} \label{thm:radical-2}
@@ -139,8 +170,6 @@ We now take a detour and look at some special cases where the Galois group of a 
 	\phi_1 \phi_2(\beta)=\omega_1 \omega_2 \beta=\omega_2 \omega_1  \beta=\phi_2 \phi_1(\beta).
 	$$
 	Thus $\Gal(L / K)$ is abelian.
-	
-	\TODO probably rewrite using group actions
 \end{proof}
 
 \begin{theorem} \label{thm:unity-3}
