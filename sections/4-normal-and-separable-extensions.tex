@@ -1,6 +1,24 @@
 \section{Normal and Separable Extensions}
 
-Two important properties of field extensions, normality and separability, are the key ingredients for Galois extensions which we will discuss later. To pave the way for them, we need to first introduce splitting fields and algebraic closures, two closely related concepts. 
+Given a field $K$, we are now mostly interested in field extensions $L/K$ that arise from adjoining some zeros of a polynomial $f$ over $K$. As we have seen, such an extension algebraic and finite, but further questions could be asked. In particular, does $L$ contain \textit{all} zeros of $f$, instead of only a proper subset of them? If,  for any irreducible polynomial $f$ over $K$ that has at least one zero in $L$, the answer is ``yes'', then we say $L/K$ is a \textit{normal} extension. 
+
+A natural way to construct a normal extension would then be adjoining all zeros of some chosen polynomial $f$ over $K$. Indeed, as we shall see, this gives rise to the idea of splitting fields and being the splitting field of some $f$ is in fact an equivalent condition for an extension to be normal. 
+
+The property of normality is a key ingredient to Galois extensions, which will play a central role in the Fundamental Theorem of Galois Theory; another ingredient is that of separability, but since it is automatic within $\C$, we only briefly touch upon it. 
+
+In this section, we first introduce splitting fields, with a particular focus on how they can help construct field automorphisms. Then we move on to algebraic closures, which can be considered as the splitting field of \textit{all} polynomials over a field. We then present normality and separability of field extensions. 
+
+
+%Two important properties of field extensions, normality and separability, are the key ingredients for Galois extensions which we will discuss later. To pave the way for them, we need to first introduce splitting fields and algebraic closures, two closely related concepts. 
+
+\TODO maybe place the definitions somewhere else?
+\begin{definition} \label{def:automorphism}
+	Let $L/K$ be a field extension. A $K$-automorphism $\phi$ of $L$ is an automorphism of $L$ such that $\phi(a) = a$ for all $a \in K$. 
+\end{definition}
+
+\begin{definition}
+	Let $K \subseteq M \subseteq L$. A $K$-monomorphism $\phi : M \to L$ is a monomorphism from $M$ to $L$ such that $\phi(a) = a$ for all $a \in K$. 
+\end{definition}
 
 \subsection{Splitting Fields}
 \begin{definition}
@@ -41,16 +59,7 @@ The splitting fields of a polynomial over two isomorphic fields are isomorphic, 
 	We construct $j$ by induction on the degree of $f$. We write $$ f(t) = k (t - \alpha_1) \ldots (t - \alpha_n), $$ where $\alpha_i \in \Sigma$ and $k \in K$. Let $m_1$ be the minimal polynomial of $\alpha_1$ over $K$. $m_1$ is an irreducible factor of $f$ and hence $\iota(m_1)$ is an irreducible factor of $\iota(f)$. Thus $\iota(m_1)$ splits in $\Sigma'$. Let $\iota(m_1)(t) = (t - \beta_1) \ldots (t - \beta_n)$, where $\beta_i \in \Sigma'$ and $\iota(m_1)$ is the minimal polynomial of $\beta_i$ over $K'$. Then by Theorem \TODO, there is an isomorphism $j_1 : K(\alpha_1) \to K'(\beta_1)$ such that $j_1 | _K = \iota$ and $j_1(\alpha_1) = \beta_1$. Now $f / (t - \alpha_1)$ is a polynomial over $K(\alpha_1)$ with splitting field $\Sigma$, and $\Sigma'$ is the splitting field of $\iota(f / (t - \alpha_1))$ over $K'(\beta_1)$. By induction, there exists an isomorphism $j: \Sigma \to \Sigma'$ such that $j | _{K(\alpha_1)} = j_1$ and therefore $j | _K = \iota$. 
 \end{proof}
 
-\TODO maybe place the definitions somewhere else?
-\begin{definition} \label{def:automorphism}
-	Let $L/K$ be a field extension. A $K$-automorphism $\phi$ of $L$ is an automorphism of $L$ such that $\phi(a) = a$ for all $a \in K$. 
-\end{definition}
-
-\begin{definition}
-	Let $K \subseteq M \subseteq L$. A $K$-monomorphism $\phi : M \to L$ is a monomorphism from $M$ to $L$ such that $\phi(a) = a$ for all $a \in K$. 
-\end{definition}
-
-If $\Sigma$ is the splitting field of a polynomial over $K$, the next theorem enables us to ``extend" a $K$-monomorphism $M \to \Sigma$ to a $K$-automorphism of $\Sigma$, where $K \subseteq M \subseteq L$. 
+Theorem \ref{thm:splitting-field-unique} provides a convenient way to ``extend'' a field isomorphism using splitting fields. In other words, given a ``smaller'' isomorphism $\iota: K \to K'$, we end up with a ``larger'' one $j: \Sigma \to \Sigma'$, where $K \subseteq \Sigma$ and $K' \subseteq \Sigma'$, and further $j$ preserves $\iota$ on $K$. Notably, when $\Sigma  = \Sigma'$, $j$ is an automorphism of $\Sigma$. The next theorem captures the ideas and enables us to ``extend" a $K$-monomorphism $M \to \Sigma$ to a $K$-automorphism of $\Sigma$, where $K \subseteq M \subseteq \Sigma$. 
 
 \begin{theorem} \label{thm:monomorphism-extend-automorphism}
 	Let $f$ be a polynomial over $K$ with splitting field $\Sigma$. Let $M$ be an intermediate field such that $K \subseteq M \subseteq \Sigma$. Let $\tau$ be a $K$-monomorphism $M \to \Sigma$. Then there exists a $K$-automorphism $\sigma$ of $\Sigma$ such that $\sigma | _M = \tau$.  
@@ -72,6 +81,8 @@ When $f$ is irreducible, we can then construct an $K$-automorphism of $\Sigma$ t
 	$K(\alpha)/K$ and $K(\beta)/K$ are isomorphic extensions by \TODO(Corollary 5.13). The isomorphism from $K(\alpha)$ to $K(\beta)$ is also a $K$-monomorphism from $K(\alpha)$ to $\Sigma$ and thus can be extended to a $K$-automorphism $\sigma$ of $\Sigma$ by Theorem \ref{thm:monomorphism-extend-automorphism}, where $\sigma(\alpha) = \beta$.
 \end{proof}
 
+The above theorem indicates that any two zeros of an irreducible polynomial are ``indistinguishable'' in its splitting field.
+
 
 \subsection{Algebraic Closures}
 \begin{definition}
@@ -84,17 +95,22 @@ Clearly $\C$ is algebraically closed by Theorem \ref{thm:fundamental-algebra}. I
 	The smallest algebraically closed extension of a field $K$ is its \textit{algebraic closure}, denoted as $\overline K$.
 \end{definition}
 
-For example, $\C  = \overline \R$. 
+\begin{example}
+	$\C  = \overline \R$. That is, $\C$ is the smallest field that contains a zero of any non-constant polynomial over $\R$.
+\end{example}
+
 
 If we define the splitting field of \textit{a set of polynomials} over a field $K$ as the smallest field containing $K$ and all zeros of every polynomial in the set, then it can be shown that the algebraic closure of a field $K$ is the splitting field of the set of \textit{all} polynomials over $K$. In other words, any polynomial over $K$ splits in $\overline K$. In addition, any polynomial over $\overline K$ splits in $\overline K$.
 
-Isomorphic fields have isomorphic algebraic closures, in the following sense:
+Let us define $\mathbb A = \overline \Q$. Clearly $\mathbb A$ is a proper subset of $\C$, as it does not contain any transcendental numbers such as $\pi$ and $e$. A natural question to ask is whether any element in $\mathbb A$ is expressible by radicals, and clearly this is equivalent to whether any polynomial over $\Q$ is solvable by radicals. We discuss this topic in detail in Section \ref{sec:galois-groups-and-polynomials}. 
 
-\begin{theorem} 
-	Let $\iota: K \to K'$ be a field isomorphism. Then there is an isomorphism $j: \overline K \to \overline {K'}$ such that $j |_K = \iota$. 
-\end{theorem}
-
-The detailed proof is omitted, but resembles that of Theorem \ref{thm:splitting-field-unique}.
+%Isomorphic fields have isomorphic algebraic closures, in the following sense:
+%
+%\begin{theorem} 
+%	Let $\iota: K \to K'$ be a field isomorphism. Then there is an isomorphism $j: \overline K \to \overline {K'}$ such that $j |_K = \iota$. 
+%\end{theorem}
+%
+%The detailed proof is omitted, but resembles that of Theorem \ref{thm:splitting-field-unique}.
 
 %\begin{definition}
 %    A field $K$ is algebraically closed if every polynomial $f$ over $K$ has a root in $K$. 
@@ -141,10 +157,12 @@ We now establish some equivalent statements as a finite extension being normal.
 %	    For each $\alpha \in L$, let $f_\alpha$ be its minimal polynomial over $K$. Each $f_\alpha$ is irreducible over $K$, so the normality of $L/K$ implies that $f_\alpha$ splits in $L$. Then clearly $L$ is the splitting field of $\{ f_\alpha \text{ over } K : \alpha \in L \}$.    
     
 
-    (ii) $\Rightarrow$ (iii). Let $\sigma$ be a $K$-monomophism from $L$ to $\overline K$. $\sigma$ can be considered as an isomorphism from $L$ to $\sigma(L)$ which fixes all elements in $K$. Since $L$ is the splitting field for a polynomial $f$ over $K$, $f$ have coefficients in $K$ and thus is fixed under $\sigma$. Hence $\sigma(L) = L$ and $\sigma$ is a $K$-automorphism of $L$. 
+    (ii) $\Rightarrow$ (iii). Let $\sigma$ be a $K$-monomorphism from $L$ to $\overline K$. $\sigma$ can be considered as an isomorphism from $L$ to $\sigma(L)$ which fixes all elements in $K$. Since $L$ is the splitting field for a polynomial $f$ over $K$, $f$ have coefficients in $K$ and thus is fixed under $\sigma$. Hence $\sigma(L) = L$ and $\sigma$ is a $K$-automorphism of $L$. 
     
     (iii) $\Rightarrow$ (i). Let $f$ be an irreducible polynomial over $K$ with a zero $\alpha$ and let $L = K(\alpha)$. Let $\Sigma$ be the splitting field of $f$ over $K$. For any zero $\beta \in \Sigma$ of $f$, there exists a $K$-automorphism $\sigma$ of $\Sigma $ such that $\sigma(\alpha) = \beta$ by Theorem \ref{thm:automorphism-from-zeros}. Since $L \subseteq \Sigma \subseteq \overline K$, $\sigma | _ L$ is a $K$-monomorphism $L \to \Sigma$ or also $L \to \overline K$. By assumption, $\sigma|_L(L) = L$. With $\alpha \in L$ we deduce that $\beta \in L$. Hence $L/K$ is normal.
 \end{proof}
+
+As discussed earlier, the normality of a field extension is naturally linked to splitting fields, and (ii) in the above theorem formalizes this idea. (iii) mainly builds on the idea of Theorem \ref{thm:automorphism-from-zeros}, in that any pair of zeros of the irreducible $f$ correspond to a $K$-automorphism of the splitting field of $f$, which in this case is $L$. 
 
 \begin{example}
 	Let $K = \Q (\sqrt 2)$. Then $K$ is the splitting field for $f(t) = t^2 - 2$ over $\Q$, and thus $K/ \Q$ is normal. We also know that any $\Q$-monomorphism $\sigma: K \to \C$ is a $\Q$-automorphism of $K$. That is, $\sigma$ can only send $\sqrt 2$ to $\pm \sqrt 2$. 
@@ -157,7 +175,7 @@ We now establish some equivalent statements as a finite extension being normal.
 
 \subsection{Separable Extensions}
 
-Galois did not specifically acknowledge the idea of separability, as he solely worked with subfields of $\C$, where separability is inherently present, as we will discover. Let us first work on separable polynomials.
+Galois did not specifically acknowledge the idea of separability, as he solely worked with subfields of $\C$, where separability is inherently present, as we will discover. We shall introduce the separability of a field extension in a ``recursive'' manner: we will introduce separable polynomials over a field, separable elements in a field and separable field extensions one after another. 
 
 \begin{definition}
     Let $f$ be an irreducible polynomial over field $K$. Then $f$ is \textit{separable} over $K$ if $f$ takes the form 
@@ -183,7 +201,8 @@ The next theorem implies that we can take for granted the separability of irredu
     Let $f$ be an irreducible polynomial over $K$. Suppose that $f$ is not separable, then by Theorem \ref{thm:separable-derivative}, $f$ and $Df$ shares a common factor of degree $\ge 1$. Since $f$ is irreducible, this common factor must be $f$. Since $Df$ has a smaller degree than $f$, $Df$ must be $0$. This implies that $f$ is constant.
 \end{proof}
 
-We now introduce the notion of separability of an extension in a recursive fashion.
+We now give the two remaining definitions.
+
 
 \begin{definition}
     Let $L/K$ be a field extension. An element $\alpha \in L$ is \textit{separable} if the minimal polynomial of $\alpha$ over $K$ is separable over $K$.
@@ -193,7 +212,7 @@ We now introduce the notion of separability of an extension in a recursive fashi
     A field extension $L / K$ is \textit{separable} if every $\alpha \in L$ is separable.
 \end{definition}
 
-We can also take for granted the separability of any field extension within $\C$:
+It turns out that we can also take for granted the separability of any field extension within $\C$.
 
 \begin{theorem} \label{thm:separable-extension-in-C}
     A field extension $L/K$ such that $K \subseteq L \subseteq \mathbb C$ is separable. 
