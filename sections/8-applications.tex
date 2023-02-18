@@ -1,0 +1,96 @@
+\section{Applications} \label{sec:applications}
+
+\subsection{Constructions}
+When constructing shapes, the Greeks, specifically Plato, looked at 'perfect' geometric figures - those which can be constructed with only straight lines and a compass. This is to see if certain shapes and figures can be drawn without approximations. The following section is adapted from Stewart, Mathigon and...
+
+Euclid set out five main axioms to drawing these figures:
+
+\begin{enumerate}
+    \item You can draw a straight line segment between any two points.
+    \item You can extend any line segment infinitely.
+    \item Given a point and a distance $r$, you can construct a circle centered at that point, with radius $r$.
+    \item Any two right angles are congruent.
+    \item Given a line $L$ and a point $P$, one can construct a line through $P$ that is parallel to $L$. 
+\end{enumerate}
+
+Now we can begin a formal definition, so now we construct the plane $\R^2$ which is isomorphic to $\C$. 
+\begin{definition}
+Let points be denoted by $z_1,z_2 \in \C$ and we let $0\leq r \in \R$.
+    \begin{itemize}
+        \item $L(z_1,z_2)$ is the line joining $z_1$ to $z_2$ given that $z_1 \neq z_2$.
+        \item $C(z_1,r)$ is the circle around $z_1$ with radius $r$.
+    \end{itemize}
+    For the following we take $n \in \N$, and define $\mathcal{P}_n,\mathcal{L}_n,\mathcal{C}_n$ as the sets of n-constructable points, lines and circles respectively.
+    \begin{itemize}
+        \item $\mathcal{P}_0=\{0,1\}$
+        \item $\mathcal{L}_0=\varnothing$
+        \item $\mathcal{C}_0=\varnothing$
+        \item $\mathcal{P}_{n+1}=\{z\in \C $: $z$ lies on two distinct lines in $\mathcal{L}_{n+1}$ or it lies on one line in $\mathcal{L}_{n+1}$ and one circle in $\mathcal{C}_{n+1}$ or $z$ lies on two distinct circles in $\mathcal{C}_{n+1}$\}
+        \item $\mathcal{L}_{n+1}=\{L(z_1,z_2) : z_1,z_2\in \mathcal{P}_n\}$
+        \item $\mathcal{C}_{n+1}=\{C(z_1,|z_2-z_3|:z_1,z_2,z_3\in \mathcal{P}_n\}$
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    \textcolor{red}{To Do:} Definition 7.4
+\end{definition}
+
+\begin{theorem}
+    \textcolor{red}{To Do:} Theorem 7.5
+\end{theorem}
+
+\begin{proof}  
+    \textcolor{red}{To Do:} Prove
+\end{proof}
+
+\begin{definition}
+    \textcolor{red}{To Do:} Definition 7.6
+\end{definition}
+
+\begin{lemma}
+    \textcolor{red}{To Do:} Lemma 7.10
+\end{lemma}
+
+\begin{proof}  
+    \textcolor{red}{To Do:} Prove
+\end{proof}
+
+\begin{lemma}
+    \textcolor{red}{To Do:} Lemma 7.11
+\end{lemma}
+
+\begin{proof}  
+    \textcolor{red}{To Do:} Prove
+\end{proof}
+
+\subsection{Squaring the Circle and Other Impossibility Proofs.}
+
+There are many shapes and objects that are not possible to construct using just a ruler and compass. One of the most famous examples of this, is the construction of a square with the same area of a circle. In this section, we look at such impossible constructions, and show why this is impossible.
+
+\begin{theorem}
+    The regular heptagon cannot be constructed with ruler and compass.
+\end{theorem}
+
+\begin{proof}
+    \textcolor{red}{To Do:} Prove
+\end{proof}
+
+\begin{theorem}
+    The cube cannot be duplicated by ruler-and-compass construction.
+\end{theorem}
+
+\begin{proof}  
+    \textcolor{red}{To Do:} Prove
+\end{proof}
+
+The following theorem requires knowledge that $\pi$ is not algebraic over $\Q$. The proof of this comes from Lindemann and is included in the appendix \textcolor{red}{To Do: Reference}
+
+\begin{theorem}
+    The circle cannot be squared using a ruler-and-compass construction.
+\end{theorem}
+
+\begin{proof}  
+    \textcolor{red}{To Do:} Prove
+\end{proof}
+
+\subsection{p-adic Numbers}

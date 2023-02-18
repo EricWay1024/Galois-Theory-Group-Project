@@ -13,8 +13,12 @@ A field \(F\) is called a \textit{prime field} of \(K\) if it had no proper (str
     A \textit{monomorphism} is an injective homomorphism.
 \end{definition}
 \begin{definition}
+    A group \textit{automorphism} is an isomorphism from a group to itself
+\end{definition}
+\begin{definition}
 A field \(K\) is said to be a \textit{field extension} of \(F\), denoted \(K / F\), if \(F\) is a subfield of \(K\). \cite{Moy} A field extension is a monomorphism \(\iota: F \to K\).
 \end{definition}
+In other words, a field extension \(K\) of \(F\) will contain the field \(F\) and some more elements. We can start to see how this will be useful for finding roots of polynomials over a field as we can extend the field to include the roots.
 \begin{example}
 The field \(\mathbb{Q}[\sqrt{2}]\) is a field extension of \(\mathbb{Q}\), as \(\mathbb{Q}[\sqrt{2}] = \{a + \sqrt{2}b : a,b \in \mathbb{Q}\}\) we can clearly see that when \(b = 0\) this gives us the rational numbers so \(\mathbb{Q}\) is a subfield of \(\mathbb{Q}[\sqrt{2}]\).
 \end{example}
@@ -67,11 +71,11 @@ Clearly, \(\mathbb{Q}(\sqrt{2}) / \Q\) is a simple field extension.
 \end{example}
 We can also look at some less obvious extension fields which are simple.
 \begin{example}
-Taking the extension field \(K = \mathbb{Q}(\sqrt{2}, i)\), we prove that this can be rewritten as a simple field extension \(K' = \mathbb{Q}(\sqrt{2} + i)\), by showing that \(K=K'\) making \(K\) a simple field extension. We know \(K'\) contains
+Taking the extension field \(K = \mathbb{Q}[\sqrt{2}, i]\), we prove that this can be rewritten as a simple field extension \(K' = \mathbb{Q}[\sqrt{2} + i]\), by showing that \(K=K'\) making \(K\) a simple field extension. We know \(K'\) contains
 \[(\sqrt{2} + i)^2 = 1 + 2i\sqrt{2}\]
 \[(i + \sqrt{2})(1+2i\sqrt{2}) = 5i - \sqrt{2}\]
 \[(5i - \sqrt{2}) + (i + \sqrt{2}) = 6i\]
-so we know that \(K'\) contains \(i\). We can also see that \(K'\) contains \(\sqrt{2}\) as \((i+\sqrt{2})-i = \sqrt{2}\). Hence we can see that \(K = K'\), so \(\mathbb{Q}(\sqrt{2},i)\) is a simple field extension.
+so we know that \(K'\) contains \(i\). We can also see that \(K'\) contains \(\sqrt{2}\) as \((i+\sqrt{2})-i = \sqrt{2}\). Hence we can see that \(K = K'\), so \(\mathbb{Q}[\sqrt{2},i]\) is a simple field extension.
 \end{example}
 
 \begin{definition}
@@ -95,7 +99,8 @@ for the set of equivalence classes of $K[t]$ modulo $m$.
 \end{theorem}
 
 \begin{proof}
-    \textcolor{red}{TO DO:}Put the proof here
+    Assume that \(m\) is reducible in \(K[t]\), this means that there exists \(a,b \in K[t]\) such that \(m = ab\) where \(a,b < m\). Then we know that \([a]_m[b]_m = [ab]_m = [m]_m = [0]_m\). Suppose that \([a]_m\) has an inverse \([a]_m^{-1} \in K[t]\) such that \([a]_m[a]_m^{-1} = [1]\). Then \([0]_m = [a]_m^{-1}[0]_m = [a]_m^{-1}[a]_m[b]_m = [b]_m\), as we know that \([0]_m = [m]_m\), this implies that \(m\) divides \(b\), but we know that \(b < m\), so this is a contradiction, hence \(m\) is not reducible. \\
+    If \(m\) is irreducible, let \(a \in K[t]\) with \([a]_m \neq [0]_m\), this implies that \(gcd(a,m)=1\) and, by Bézout's Lemma, we know that there exists \(p,q \in K[t]\) such that \(ap + mq = 1\). Thus \([a]_m[p]_m + [m]_m[q]_m = [1]_m\) and we know that \([m]_m = [0]_m\), hence \([a]_m[p]_m = [1]_m\). Thus \([a]_m\) has an inverse \([p]_m\) when \(m\) is irreducible.
 \end{proof}
 
 \begin{theorem}
@@ -103,8 +108,7 @@ for the set of equivalence classes of $K[t]$ modulo $m$.
 \end{theorem}
 
 \begin{proof}
-\textcolor{red}{TO DO:}If this proof below is correct, just put it straight in the document.
-% Proof. The isomorphism is defined by $[p(t)] \mapsto p(\alpha)$, where $[p(t)]$ is the equivalence class of $p(t)(\bmod m)$. This map is well-defined because $p(\alpha)=0$ if and only if $m \mid p$. It is clearly a field monomorphism. It maps $t$ to $\alpha$, and its restriction to $K$ is the identity.
+The isomorphism is defined by $[p(t)] \mapsto p(\alpha)$, where $[p(t)]$ is the equivalence class of $p(t)(\bmod m)$. This map is well-defined because $p(\alpha)=0$ if and only if $m \mid p$. It is clearly a field monomorphism. It maps $t$ to $\alpha$, and its restriction to $K$ is the identity.
 \end{proof}
 
 \begin{corollary}
@@ -112,7 +116,7 @@ for the set of equivalence classes of $K[t]$ modulo $m$.
 \end{corollary}
 
 \begin{lemma}
-    Let $K(\alpha) / K$ be a simple algebraic extension, let the minimal polynomial of $\alpha$ over $K$ be $m$, and let $\partial m=n$. Then $\left\{1, \alpha, \ldots, \alpha^{n-1}\right\}$ is a basis for $K(\alpha)$, considered as a vector space over $K$.
+    Let $K(\alpha) / K$ be a simple algebraic extension, let the minimal polynomial of $\alpha$ over $K$ be $m$, and let $\partial m=n$. Then $\left\{1, \alpha, \ldots, \alpha^{n-1}\right\}$ is a basis for $K(\alpha)$, considered as a vector space over $K$. In particular, \([K(\alpha):K]=n\). \label{algebraic case}
 \end{lemma}
 
 \begin{proof}
@@ -124,8 +128,7 @@ for the set of equivalence classes of $K[t]$ modulo $m$.
 \end{theorem}
 
 \begin{proof}
-    \textcolor{red}{TO DO:}If this proof below is correct, just put it straight in the document.
-    % Proof. For the transcendental case it suffices to note that the elements $1, \alpha, \alpha^2, \ldots$ are linearly independent over $K$. For the algebraic case, we appeal to Lemma 5.14.
+For the transcendental case we know that the elements $1, \alpha, \alpha^2, \ldots$ are linearly independent over $K$. For the algebraic case, we see lemma \ref{algebraic case}.
 \end{proof}
 
 
@@ -138,7 +141,7 @@ for the set of equivalence classes of $K[t]$ modulo $m$.
 \end{proof}
 
 \begin{definition}
-    A field extension $L/K$ is algebraic if any $\alpha \in L$ is algebraic over $K$. 
+    A field extension $L/K$ is algebraic if every element $\alpha \in L$ is algebraic over $K$. 
 \end{definition}
 
 \begin{theorem} \label{thm:finite-equi-def}
