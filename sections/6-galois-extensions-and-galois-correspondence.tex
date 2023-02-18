@@ -70,6 +70,18 @@ Note that in the above corollary, $L/K$ being a Galois extension does not imply 
 
 \subsection{Examples of Galois Extensions}
 
+\begin{example}
+    $\Q(\sqrt[4]{2}, i)/\Q$ is a Galois Extension
+\end{example}
+\begin{proof}
+    $\sqrt[4]{2}$ is a root of $x^4-2 \in \Q(x)$
+
+    The roots of $x^4-2$ are $\pm \sqrt[4]{2}$ and $\pm \sqrt[4]{2} i$
+
+    Then $\Q(\pm \sqrt[4]{2}, \pm \sqrt[4]{2}i) = \Q(\sqrt[4]{2}, i)$ which is a splitting field over $\Q$ of $x^4-2$
+\end{proof}
+
+
 \TODO
 
 \subsection{Fundamental Theorem of Galois Theory}
@@ -96,21 +108,30 @@ Note that in the above corollary, $L/K$ being a Galois extension does not imply 
 
 Group theory tends to look at patterns and symmetries in mathematical objects, and Galois groups have an interesting symmetry. The following theorem describes how the structure of an extension of a field is the same as the subgroups of the Galois groups.
 
-To help us prove the fundamental theorem, we first need to show a relationship between a subgroup of a Galois group and its subgroups
+We first look at what a minimal polynomial is, in order to help us prove a theorem which will be useful in proving the fundamental theorem of Galois Theory.
+
+\begin{definition}[Minimal Polynomial]
+    Let $F[x]$ be a ring of polynomials, and $E/F$ a field extensions. Now consider an element $\xi \in E$, such that $f(\xi)=0$ for some non-zero $f(x)\in F[x]$ The \textbf{minimal polynomial} is the polynomial in $F[x]$ which has the least degree, whilst having $\xi$ as a root, which we call $\mu_\xi(x)$
+\end{definition}
+
+\begin{example}
+    Consider $\xi = \sqrt(2)$, $E=\R$, $F = \Q$ so $F[x]=\Q[x]$, then the minimal polynomial of $\xi$ is $\mu_\xi(x)=x^2-2$, since if it were of the form $ax+b$, this would require either $a \in \Q^c$ or $b \in \Q^c$, and thus $ax+b \notin \Q[x]$
+\end{example}
+
 
 \begin{theorem}\label{thm:equal-subgroup-fixed-points}
     Let $L/F$ be a finite Galois extension, with $G=\Gal(L/F)$, then if we have a subgroup $H\leq G$ with $\Fix(H)=F$ then $H=G$.
 \end{theorem}
 
 \begin{proof}
-    Suppose $H\leq G$ with $\Fix(H)=F$. Then, let $L = F(a)$, then $H \cdot a$ denotes the orbit under the group action of $H$ in $L$, and we can assume that $H \dot a = \{a_1,...,a_m\}.$ From this we can see that $|H \cdot a| = m$, and let $[L:F]=n$.
-    Then we know that the $m$ cannot be larger than the size of $H$, and since $H\leq G \implies |H|\leq|G|$, we get $|H \cdot a| = m \leq |H| \leq |G| = [L:F] = n$ 
+    Suppose $H\leq G$ with $\Fix(H)=F$. Then, let $L = F(a)$, then $H \cdot a$ denotes the orbit under the group action of $H$ in $L$, and we can assume that $H \cdot a = \{a_1,...,a_m\}.$ From this we can see that $|H \cdot a| = m$, and let $[L:F]=n$.
+    Then we know that the $m$ cannot be larger than the size of $H$, and since $H\leq G \implies |H|\leq|G|$, we get $|H \cdot a| = m \leq |H| \leq |G| = [L:F] = n$.
     
-    \textcolor{red}{Put a section in polynomials regarding symmetric polynomials and the elementary symmetric polynomials and minimal polynomials.} 
-    
-    \noindent
-    Then by evaluating the elementary symmetric polynomials at each of the elements in $H \cdot a$, we get that these are just the elements in $\Fix(H)=F$. Therefore, we see that the coefficients in the polynomial: $f(X) := (X-a_1)(X-a_2)...(X-a_m)$ lies in $F$, and we have $f(a)=0$. Then, our minimal polynomial $\mu_a(X)$ divides $f(X)$ and $\deg(f) \leq \deg(\mu_a(X) \implies m \leq n$. Hence we have $m \geq n$ and $n \geq m$, so therefore we have that $m=n$, which tells us $|H|=|G|$ and so $H=G.$
+   
+    \noindent On the other hand, by evaluating the elementary symmetric polynomials at each of the elements in $H \cdot a$, we get that, by the fact they are symmetric, these are just the elements in $\Fix(H)=F$. Therefore, we see that the coefficients in the polynomial: $f(X) := (X-a_1)(X-a_2)...(X-a_m)$ lies in $F$, and we have $f(a)=0$. Then, our minimal polynomial $\mu_a(X)$ divides $f(X)$ and $\deg(f) \geq \deg(\mu_a(X)) \implies m \geq n$. Hence we have $m \geq n$ and $n \geq m$, so therefore we have that $m=n$, which tells us $|H|=|G|$ and so $H=G.$
 \end{proof}
+
+
 
 \begin{theorem}[The Fundamental Theorem of Galois Theory] \label{thm:fundamental-theorem} Given a Galois extension $L/K$ and its Galois group $G = \Gal(L/K)$, there is a natural bijection between subgroups $H\leq G$ and the intermediate fields $M$ such that $K \subseteq M \subseteq L$. Define
 
