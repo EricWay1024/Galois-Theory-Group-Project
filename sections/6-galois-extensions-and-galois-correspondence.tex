@@ -103,14 +103,15 @@ To help us prove the fundamental theorem, we first need to show a relationship b
 \end{theorem}
 
 \begin{proof}
-    Suppose $H\leq G$ with $\Fix(H)=F$. Then, let $L = F(a)$, then $H \cdot a$ denotes the orbit under the group action of $H$ in $L$, and we can assume that $H \dot a = \{a_1,...,a_m\}.$ From this we can see that $|H \cdot a| = m$, and let $[L:F]=n$.
-    Then we know that the $m$ cannot be larger than the size of $H$, and since $H\leq G \implies |H|\leq|G|$, we get $|H \cdot a| = m \leq |H| \leq |G| = [L:F] = n$ 
+    Suppose $H\leq G$ with $\Fix(H)=F$. Then, let $L = F(a)$, then $H \cdot a$ denotes the orbit under the group action of $H$ in $L$, and we can assume that $H \cdot a = \{a_1,...,a_m\}.$ From this we can see that $|H \cdot a| = m$, and let $[L:F]=n$.
+    Then we know that the $m$ cannot be larger than the size of $H$, and since $H\leq G \implies |H|\leq|G|$, we get $|H \cdot a| = m \leq |H| \leq |G| = [L:F] = n$. 
     
     \textcolor{red}{Put a section in polynomials regarding symmetric polynomials and the elementary symmetric polynomials and minimal polynomials.} 
     
     \noindent
-    Then by evaluating the elementary symmetric polynomials at each of the elements in $H \cdot a$, we get that these are just the elements in $\Fix(H)=F$. Therefore, we see that the coefficients in the polynomial: $f(X) := (X-a_1)(X-a_2)...(X-a_m)$ lies in $F$, and we have $f(a)=0$. Then, our minimal polynomial $\mu_a(X)$ divides $f(X)$ and $\deg(f) \leq \deg(\mu_a(X) \implies m \leq n$. Hence we have $m \geq n$ and $n \geq m$, so therefore we have that $m=n$, which tells us $|H|=|G|$ and so $H=G.$
+    Then by evaluating the elementary symmetric polynomials at each of the elements in $H \cdot a$, we get that these are just the elements in $\Fix(H)=F$. Therefore, we see that the coefficients in the polynomial: $f(X) := (X-a_1)(X-a_2)...(X-a_m)$ lies in $F$, and we have $f(a)=0$. Then, our minimal polynomial $\mu_a(X)$ divides $f(X)$ and $\deg(f) \geq \deg(\mu_a(X)) \implies m \geq n$. Hence we have $m \geq n$ and $n \geq m$, so therefore we have that $m=n$, which tells us $|H|=|G|$ and so $H=G.$
 \end{proof}
+\TODO for a finite field extension $L/K$, we can always write $L = K(a)$ for some $a \in L$, where $a$ is the primitive element of the extension. 
 
 \begin{theorem}[The Fundamental Theorem of Galois Theory] \label{thm:fundamental-theorem} Given a Galois extension $L/K$ and its Galois group $G = \Gal(L/K)$, there is a natural bijection between subgroups $H\leq G$ and the intermediate fields $M$ such that $K \subseteq M \subseteq L$. Define
 

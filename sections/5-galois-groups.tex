@@ -20,17 +20,58 @@ We now define the Galois group of a field extension and a polynomial, respective
 %		 In the case that \(F\) is a splitting field of a polynomial \(f\) over $K$, \(G\) is called the Galois group of \(f\),
 \end{definition}
 
-This group becomes increasingly useful, especially when dealing with polynomials, as we will see with the following theorem.
+The next theorem shows that an element in the Galois group of a finitely generated field extension is completely determined by how it maps each element in the generating set. 
 
-\begin{theorem} \label{thm:galois-group-permutes-zeros}
-Let $\phi \in \Gal(L/K)$ where $L/K$ is a field extension. Then let $f$ be a polynomial over $K$ with a zero $a \in L$, then $\phi(a)$ is also a zero of $f$.
+\begin{theorem} \label{thm:galois-group-determined-by-generator}
+	Let $L/K$ be a field extension and $L = K(\alpha_1, \ldots, \alpha_n)$. Then if $\sigma, \tau \in \Gal(L/K)$ and $\sigma(\alpha_i) = \tau(\alpha_i)$ for all $i = 1, \dots, n$, then $\sigma = \tau$. 
 \end{theorem}
 
 \begin{proof}
-    Since $a \in L$ in a zero of $f$ over $K$, $f(a) = 0$. Then $\phi(f(a)) = \phi(0) = 0$. $\phi$ fixes the coefficients of $f$ as they are in $K$ and $\phi\left(a^i\right) = \left(\phi(a) \right) ^i$ as $\phi$ is a homomorphism. Therefore $f(\phi(a)) = 0$. 
+	Each element $a \in L$ can be represented as $ f(\alpha_1, \dots, \alpha_n) / g(\alpha_1, \dots, \alpha_n)$, where $f, g \in K[x_1, \ldots, x_n]$. Since $\sigma$ and $\tau$ preserve addition and multiplication, fix all elements in $K$, and act in the same way on $\alpha_i$, it is clear that
+	\begin{equation*}
+		\begin{split}
+		\sigma(a) 
+			&= \sigma(f(\alpha_1, \dots, \alpha_n) / g(\alpha_1, \dots, \alpha_n)) 
+			= f(\sigma(\alpha_1), \dots, \sigma(\alpha_n)) / g(\sigma(\alpha_1), \dots, \sigma(\alpha_n)) \\
+			&= f(\tau(\alpha_1), \dots, \tau(\alpha_n)) / g(\tau(\alpha_1), \dots, \tau(\alpha_n))  
+			=  \tau(f(\alpha_1, \dots, \alpha_n) / g(\alpha_1, \dots, \alpha_n)) \\
+			&= \tau(a).\\ 
+		\end{split}
+	\end{equation*}
+Thus $\sigma = \tau$.
 \end{proof}
 
-In general, a $K$-monomorphism always permutes the zeros of a polynomial $f$ over $K$. Further, the Galois group of a polynomial naturally acts on its zeros.
+
+
+
+
+%The Galois group becomes increasingly useful, especially when dealing with polynomials, as we will see with the following theorem.
+
+We now show that a $K$-monomorphism always maps a zero of a polynomial over $K$ to another, in a more general setting than Galois groups. 
+
+\begin{theorem} \label{thm:galois-group-permutes-zeros}
+Given fields $K \subseteq M \subseteq L$. Let $f$ be a polynomial over $K$ and let $\alpha \in M$ such that $f(\alpha) = 0$. Let $\sigma : M \to L$ be a $K$-monomorphism. Then $f(\sigma(\alpha)) = 0$. Further, $\sigma(\alpha)$ has the same minimal polynomial as $\alpha$ over $K$. 
+
+%Let $\phi \in \Gal(L/K)$ where $L/K$ is a field extension. Then let $f$ be a polynomial over $K$ with a zero $a \in L$, then $\phi(a)$ is also a zero of $f$.
+\end{theorem}
+
+\begin{proof}
+	Let $f(t) = a_0 + a_1 t + \dots a_n t^n$, where $a_i \in K$. Then $$f(\sigma(\alpha)) = \sum_{i=0}^n a_i \left( \sigma (\alpha) \right)^i
+	= \sum_{i=0}^n \sigma(a_i)  \sigma (\alpha ^ i) 
+	= \sigma(f(\alpha)) = \sigma(0) = 0. $$
+	In particular, if $f$ is the minimal polynomial of $\alpha$ over $K$, then $\sigma(\alpha)$ is another zero of the irreducible polynomial $f$, and hence $f$ is also the minimal polynomial of $\sigma(\alpha)$ over $K$. 
+\end{proof}
+
+
+
+For a polynomial $f$ over a field $K$, Theorem \ref{thm:galois-group-determined-by-generator} indicates that $\sigma \in \Gal(f)$ is completely determined by how it maps the zeros of $f$, and Theorem \ref{thm:galois-group-permutes-zeros} indicates $\sigma \in \Gal(f)$ always maps a zero of $f$ to another zero.
+
+\begin{example}
+	Let $\sigma \in \Gal(\C/\R)$. Since $\C= \R(i)$, by Theorem \ref{thm:galois-group-determined-by-generator}, $\sigma$ is determined by $\sigma(i)$. But $i$ has minimal polynomial $t^2 + 1$ over $\R$, and $\sigma(i)$ has the same minimal polynomial over $\R$ by Theorem \ref{thm:galois-group-permutes-zeros}. Hence $\sigma(i) = \pm i$. When $\sigma(i) = i$, we have $\sigma = \Id$; when $\sigma(i) = -i$, $\sigma$ is the complex conjugation. Thus $\Gal(\C / \R) = \{\Id, z \mapsto \bar z \} \cong \Z_2$. 
+\end{example}
+
+It is easy to see that the Galois group of a polynomial naturally leads to a group action on its zeros. 
+
 
 \begin{theorem} \label{thm:galois-group-acts-on-zeros}
 	Let $L$ be a splitting field of a polynomial $f$ over $K$ and let $G = \Gal(f)$. Let $X$ be the set of zeros of $f$. Then $G$ acts on $X$ by restriction on $X$. 
@@ -46,7 +87,7 @@ In general, a $K$-monomorphism always permutes the zeros of a polynomial $f$ ove
 \end{corollary}
 
 \begin{proof}
-	Let $X$ be the set of zeros of $f$. Then $|X| \le n$ and $S_X$ is a subgroup of $S_n$. The homomorphism from $\Gal(f)$ to $S_X$ is also a homomorphism from $\Gal(f)$ to $S_n$. Further, the kernel of the homomorphism is trivial, as if $\sigma \in \Gal(f)$ fixes all elements in $X$, it is the identity map. Therefore, by Theorem \ref{thm:first-iso}, $\Gal(f)$ is isomorphic to its image in $S_n$, which is a subgroup of $S_n$. 
+	Let $X$ be the set of zeros of $f$. Then $|X| \le n$ and $S_X$ is a subgroup of $S_n$. The homomorphism from $\Gal(f)$ to $S_X$ is also a homomorphism from $\Gal(f)$ to $S_n$. Further, the kernel of the homomorphism is trivial, as if $\sigma \in \Gal(f)$ fixes all elements in $X$, it is the identity map by Theorem \ref{thm:galois-group-determined-by-generator}. Therefore, by Theorem \ref{thm:first-iso}, $\Gal(f)$ is isomorphic to its image in $S_n$, which is a subgroup of $S_n$. 
 \end{proof}
 
 Recall Definition \ref{def:transitive-action} for transitive group actions. The next theorem states that the irreducibility of a separable polynomial is equivalent to the transitivity of its Galois group action.
@@ -58,11 +99,11 @@ Recall Definition \ref{def:transitive-action} for transitive group actions. The 
 \begin{proof}
 	Suppose $f$ is irreducible. Then for any zeros $\alpha, \beta$ of $f$, by Theorem \ref{thm:automorphism-from-zeros}, there exists $\sigma \in \Gal(f)$ such that $\sigma(\alpha) = \beta$. Thus $\Gal(f)$ acts transitively on $X$ by Definition \ref{def:transitive-action}. 
 	
-	Now suppose $f$ is reducible. Then $f$ is a product of distinct irreducible polynomials, since $f$ is separable. Let $\alpha_1$ and $\alpha_2$ be zeros of two different irreducible factors $p_1$ and $p_2$ of $f$, respectively. Then $p_i$ is the minimal polynomials of $\alpha_i$, for $i = 1, 2$. For any $\sigma \in \Gal(f)$, $\sigma(\alpha_1)$ has the same minimal polynomial as $\alpha_1$, which is $p_1$ and cannot be $p_2$. Thus $\sigma(\alpha_1) \neq \alpha_2$ and thus $\Gal(f)$ does not act transitively on $X$. 
+	Now suppose $f$ is reducible. Then $f$ is a product of distinct irreducible polynomials, since $f$ is separable. Let $\alpha_1$ and $\alpha_2$ be zeros of two different irreducible factors $p_1$ and $p_2$ of $f$, respectively. Then $p_i$ is the minimal polynomials of $\alpha_i$, for $i = 1, 2$. For any $\sigma \in \Gal(f)$, $\sigma(\alpha_1)$ has the same minimal polynomial as $\alpha_1$ by Theorem \ref{thm:galois-group-permutes-zeros}, which is $p_1$ and is not $p_2$. Thus $\sigma(\alpha_1) \neq \alpha_2$ and thus $\Gal(f)$ does not act transitively on $X$. 
 \end{proof}
 
 \begin{example}
-	\TODO
+	Let $f(t) = (t^2 + 1)(t^2 - 2)$ be a polynomial over $\Q$. The zeros of $f$ is $X = \{i, -i, \sqrt 2, -\sqrt 2\}$. We first solve $\Gal(f)$. Let $\sigma \in \Gal(f)$, then $\sigma$ is determined by how it maps each element in $X$. Also, since $\sigma(-\sqrt 2) = -\sigma(\sqrt 2)$ and $\sigma(-i) = -\sigma(i)$, $\sigma$ is completely determined by $\sigma(\sqrt 2)$ and $\sigma(i)$. Since $\sigma(\sqrt 2)$ has the same minimal polynomial over $\Q$ as $\sqrt 2$, we see that $\sigma(\sqrt 2) = \pm \sqrt 2$. Similarly, $\sigma(i) = \pm i$. Define $\phi, \psi \in \Gal(f)$ as  $\phi(p +  \sqrt 2 q + i r + \sqrt 2 i s) = p - \sqrt 2 q + ir - \sqrt 2 i s $ and $\psi(p +  \sqrt 2 q + i r + \sqrt 2 i s) = p + \sqrt 2 q - ir  - \sqrt 2 i s $, where $p,q,r,s \in \Q$, then $\Gal(f) = \{\Id, \phi, \psi, \phi \psi \} \cong \Z_2 \oplus \Z_2$. If we label $i, -i, \sqrt 2, -\sqrt 2$ as $1, 2, 3, 4$, then $\phi$ and $\psi$ correspond to transpositions $(34)$ and $(12)$, respectively, and $\Gal(f) \cong \{\Id, (34), (12), (12)(34)\} \le S_4$. Also, $\Gal(f)$ does not act transitively on $X$, as there is no $\sigma \in \Gal(f)$ such that $\sigma(\sqrt 2) = i$, and clearly $f$ is reducible over $\Q$.
 \end{example}
 
 
@@ -115,9 +156,9 @@ Before ending our discussion on fixed fields, we prove the next theorem to show 
 	
 	Let $f$ be an irreducible polynomial over $K$ with a root $\alpha \in L$. Consider the finite non-empty set $S = \Orb_G(\alpha) = \{ \alpha_1, \ldots, \alpha_n\} \subseteq L$. Let $h(t) = \prod_{i = 1} ^n (t - \alpha_i)$. It is clear that $h$ splits in $L$.
 	
-	We claim that $h$ is a polynomial over $K$. To see this, note that each $\sigma \in G$ maps $S$ to itself, so $S$ is invariant under the action of $G$. Therefore, $h$ is fixed by $G$, and all of its coefficients are fixed by $G$, which implies that $h \in K[t]$.
+	We claim that $h$ is a polynomial over $K$. To see this, note that each $\sigma \in G$ maps $S$ to itself. Therefore, $h$ is fixed by $G$, and all of its coefficients are in $\Fix(G) = K$.
 	
-	We also claim that $h$ is irreducible over $K$. Suppose that $h$ is reducible over $K$, then $\Gal(h)$ does not act transitively on $S$ by Theorem \ref{thm:galois-action-transitive-irreducible}. Let $\Sigma = K(\alpha_1, \dots, \alpha_n)$ be the splitting field of $h$ contained in $L$.  Any $\sigma \in G$ is a $K$-automorphism of $L$, and $\sigma(\gamma) \in \Sigma$ for any $\gamma \in \Sigma$. Thus $\sigma | _ \Sigma \in \Gal(h)$. 
+	We also claim that $h$ is irreducible over $K$. Suppose that $h$ is reducible over $K$, then $\Gal(h)$ does not act transitively on $S$ by Theorem \ref{thm:galois-action-transitive-irreducible}. Let $\Sigma = K(\alpha_1, \dots, \alpha_n)$ be the splitting field of $h$ contained in $L$.  Any $\sigma \in G$ is a $K$-automorphism of $L$ which permutes $\alpha_i$, and thus for any $\gamma \in \Sigma$, we have $\sigma(\gamma) \in \Sigma$ (using a similar argument as in the proof of Theorem \ref{thm:galois-group-determined-by-generator}). Thus $\sigma | _ \Sigma \in \Gal(h)$. 
 	Since each element in $G$ defines an element in $\Gal(h)$ and $G$ acts transitively on $S$ by construction, we have a contradiction. 
 	
 	Since $\alpha$ is a zero of $h$ and $h$ is irreducible over $K$, $h$ is the minimal polynomial of $\alpha$ over $K$. Thus $h = f$ and $f$ splits in $L$. Thus the extension $L/K$ is normal. 
