@@ -17,7 +17,7 @@ Now we can begin a formal definition, so now we construct the plane $\R^2$ which
 \begin{definition}
 Let points be denoted by $z_1,z_2 \in \C$ and we let $0\leq r \in \R$.
     \begin{itemize}
-        \item $L(z_1,z_2)$ is the line joining $z_1$ to $z_2$ given that $z_1 \neq z_2$.
+        \item $L(z_1,z_2)$ is the line joining $z_1$ to $z_2$ given that $z_1 \neq z_2$. (In this report, we extend the line infinitely in both directions.)
         \item $C(z_1,r)$ is the circle around $z_1$ with radius $r$.
     \end{itemize}
     For the following we take $n \in \N$, and define $\mathcal{P}_n,\mathcal{L}_n,\mathcal{C}_n$ as the sets of n-constructable points, lines and circles respectively.
@@ -31,36 +31,83 @@ Let points be denoted by $z_1,z_2 \in \C$ and we let $0\leq r \in \R$.
     \end{itemize}
 \end{definition}
 
-\begin{definition}
-    \textcolor{red}{To Do:} Definition 7.4
+\begin{definition}\label{def:constructable-point}
+    A point, $z \in \C$ is called constructable if there is a finite sequence of points:
+    $z_0=0,z_1=1,z_2,z_3,...,z_k=z$
+
+    Whereby $z_{j+1}$ lies in one of the following:
+    \begin{itemize}
+        \item On the intersection of two straight lines constructed between two sets of two points, i.e:
+        $z_{j+1}\in L(z_{j_1},z_{j_2})\cap L(z_{j_3},z_{j_4})$.
+        \item On the intersection of a circle and a line, i.e:
+        $z_{j+1}\in L(z_{j_1},z_{j_2})\cap C(z_{j_3},|z_{j_4}-z_{j_5})|$.
+        \item On the intersection of two circles, i.e:
+        $z_{j+1}\in C(z_{j_1},|z_{j_2}-z_{j_3})|\cap C(z_{j_4},|z_{j_5}-z_{j_6})|$. 
+    \end{itemize}
+    Where $j_i\in \N$.
 \end{definition}
 
 \begin{theorem}
-    \textcolor{red}{To Do:} Theorem 7.5
+    A point is called constructable if and only if $z\in \mathcal{P}_n$ for some $n\in \N$
 \end{theorem}
 
 \begin{proof}  
-    \textcolor{red}{To Do:} Prove
+    $"\implies"$ Let $z \in \C$ be a constructable point, then by definition \ref{def:constructable-point}, it is clear that $z=z_k\in \mathcal{P}_k$.
+    $"\impliedby"$ On the other hand, if $z \in \mathcal{P}_k$, then we can find a sequence $z_j \in \mathcal{P}_j$ for $0\leq j \leq k$ which satisfies definition \ref{def:constructable-point}.
 \end{proof}
 
-\begin{definition}
-    \textcolor{red}{To Do:} Definition 7.6
+We now define the 'Pythagorean Closure' which will help us create a link between construction and Galois Theory.
+
+\begin{definition}[Pythagorian Closure]
+    $\Q^{py}$ is called the 'Pythagorean closure' of $\Q$, which is the union of all subfields, denoted $K$ where:
+    $\Q = K_0 \subseteq K_1 \subseteq ... \subseteq K_n=K$ such that $[K_{j+1}:K_j]\leq 2$
 \end{definition}
 
-\begin{lemma}
-    \textcolor{red}{To Do:} Lemma 7.10
+Here we can see a tower of field extensions, which gives us a hint that we may be able to use Galois Theory to solve construction problems.
+
+The next lemma will help us to prove a theorem which will show the link between the two.
+
+\begin{lemma}\label{lemma:conjugate-in-Pn}
+    Let $z \in \mathcal{P}_n$, then its complex conjugate $\overline{z} \in \mathcal{P}_{n+1}$.
 \end{lemma}
 
 \begin{proof}  
-    \textcolor{red}{To Do:} Prove
+    A visual proof is included in the appendix.
+    
+    Let us show that we can construct the complex conjugate using the points $z\in \mathcal{P}_n$, 0 and 1.
+    We start with the trivial case where either $z=1$ or $\overline{z}=1$. Here the point has already been constructed, and since $\overline{z}=1\in \mathcal{P}_0$ this implies $\overline{z}=1\in \mathcal{P}_n$ by Lemma...\textcolor{red}{To Do:} This proof of this.
+\newline
+\noindent
+    Now, let us say $z\in \mathcal{P}_n$ with $z\neq1$. Then we consider the circle $C(z,|z-1|)$, and the line $L(0,1)$. We have two cases here, either the circle meets the line at exactly one point, $1$, or the circle meets the line in exactly two points, $1$ and $s$.
+
+    \textbf{Case One:} If $C(z,|z-1|)$ and $L(0,1)$ meet at exactly one point, then the line $L(1,z)$ must be perpendicular to $L(0,1)$. Then by drawing the circle $C(1,|z-1|)$, we see that it meets the line $L(1,z)$ at two points, one is $z$ and the other is $\overline{z}$.
+
+    \textbf{Case Two:} If $C(z,|z-1|)$ and $L(0,1)$ meet at two points, then one of them must be $1$ and we shall call the other $z_1\neq1$. Then construct two more circles $C_1=C(1,|z-1|)$ and $C_2=C(z_1,|z-1|)$. Then $C_1$ and $C_2$ have two points of intersection, one being $z$ and the other $\overline{z}$.
+
+    Thus we have all points lie in $\mathcal{P}_n$ and thus $\overline{z} \in \mathcal{P}_{n+1}$.
 \end{proof}
 
-\begin{lemma}
-    \textcolor{red}{To Do:} Lemma 7.11
-\end{lemma}
+Now we have the key results to help us prove the following theorem, where the proof here is adapated from Everitt \cite{constructions-and-galois}.
+
+\begin{theorem}
+    A point $z \in \C$ is constructable if and only if $z \in \Q^{py}$.
+\end{theorem}
+
+\begin{proof}
+    "$\implies$"By Definition \ref{def:constructable-point}, we have a condition for when $z$ is constructable. Now, let $K_j$ be the field $\Q(z_1,..,z_j)$, where the $z_i$ come from the sequence as defined in the definition. Thus we get a tower of extensions $\Q \subseteq K_1 \subseteq ... \subseteq K_n$.
+    As we showed above, if $z\in \mathcal{P}_n$, then so is $\overline{z}$. Thus if $z\in K_j$, then so is $\overline{z}$, and this means that $K_j$ is close under conjugation.
+
+    \textcolor{red}{To Do:} Finish
+\end{proof}
+
+\begin{theorem}\label{thm:power-of-two-construction}
+    If $z$ is constructable, then $[\Q(z):\Q]$ is a power of two.
+\end{theorem}
 
 \begin{proof}  
-    \textcolor{red}{To Do:} Prove
+    Consider we already have a set of constructable points $X_k = \{0,1,z_1,...,z_k\}$, and we have another point, $z_{k+1}$ which can be constructed through the intersections of lines and circles of these points. Then, algebraically, we have a linear or quadratic equation, where $z_{k+1}$ (\textcolor{red}{To Do:} show this).
+    Thus, the new point only extends the field by order one (if linear) or two (if quadratic), so $[\Q(z_{k+1}):\Q(X_k)] \in \{1,2\}$. Then, since $X_0=\{0,1\}$, we see... (\textcolor{red}{To Do:} finish).
+
 \end{proof}
 
 \subsection{Squaring the Circle and Other Impossibility Proofs.}
@@ -72,25 +119,36 @@ There are many shapes and objects that are not possible to construct using just 
 \end{theorem}
 
 \begin{proof}
-    \textcolor{red}{To Do:} Prove
+    If the regular heptagon were to be constructable, then this means the point $z=e^{2i\pi/7} \in \Q^{py}$. This one one of our complex roots of unity, and this means that $z^7+z^6+z^5+...+z=0$. Since $z$ it is a root of unity, $z^7=1 \implies z^7 - 1 = 0$. We can factorise this as $z^7-1=(z-1)(z^6+z^5+...+z+1)$. Then by Theorem \ref{thm:irreducible-prime-polynomial}, we know that since 7 is prime, $z^6+z^5+...+z+1$ is irreducible over $\Q$ and it has degree 6, which is not a power of two, so a heptagon is not constructable.
 \end{proof}
 
+We now look at a proof of a theorem which looks at doubling the volume of a cube using only a compass and a straight edge.
+
 \begin{theorem}
-    The cube cannot be duplicated by ruler-and-compass construction.
+    The cube cannot be doubled by ruler-and-compass construction.
 \end{theorem}
 
 \begin{proof}  
-    \textcolor{red}{To Do:} Prove
+    We can first see that to double the volume of a cube, we would need to increase the edge length by a scale factor of $\sqrt[3]{2}$. Thus we can formulate this problem to see if constructing $\sqrt[3]{2}$ is possible, that is to say $z = \sqrt[3]{2} \in \Q^{py}$.
+\noindent
+\newline
+    So let us assume towards a contradiction that $\sqrt[3]{2} \in \Q^{py}$ with $\mu$ being its minimal polynomial over $\Q$. Then, by theorem \ref{thm:power-of-two-construction}, we have that the degree of $\mu = 2^k$ for some $k\in \N \cup \{0\}$.
+\noindent
+\newline
+    Then clearly $z^3=2$, so $z^3-2=0$ we must have that $\mu$ divides $z^3-2$, which is irreducible over $\Q$, thus the field extension $\Q(\sqrt[3]{2}):\Q$ has order 3, which is not a power of two, which contradicts theorem \ref{thm:power-of-two-construction}, and thus $z = \sqrt[3]{2} \notin \Q^{py}$.
+
 \end{proof}
 
-The following theorem requires knowledge that $\pi$ is not algebraic over $\Q$. The proof of this comes from Lindemann and is included in the appendix \textcolor{red}{To Do: Reference}
+
+'Squaring the circle' is a problem posed by the Greeks which asked if it was possible to construct a square with the same area as a circle, using only a compass and a straight edge. The following theorem shows the solution to the posed problem.
 
 \begin{theorem}
     The circle cannot be squared using a ruler-and-compass construction.
 \end{theorem}
 
 \begin{proof}  
-    \textcolor{red}{To Do:} Prove
+    
+    It is sufficient to show that $\sqrt{\pi}\in \C$ is constructable from our initial set of points $\mathcal{P}_0$. From this we could construct $\pi$. Thus, we would have that $[\Q(\pi):\Q]$ is a power of 2, which would imply that $\pi$ is algebraic over $\Q$. However, as seen by Lindemann's proof (which we include in the Appendix), $\pi$ is not algebraic over $\Q$ and thus it is impossible to construct a square with the same area as a circle, using nothing but a compass and a straight edge.
 \end{proof}
 
 \subsection{p-adic Numbers}

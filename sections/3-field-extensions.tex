@@ -99,7 +99,7 @@ for the set of equivalence classes of $K[t]$ modulo $m$.
 \end{theorem}
 
 \begin{proof}
-    Assume that \(m\) is reducible in \(K[t]\), this means that there exists \(a,b \in K[t]\) such that \(m = ab\) where \(a,b < m\). Then we know that \([a]_m[b]_m = [ab]_m = [m]_m = [0]_m\). Suppose that \([a]_m\) has an inverse \([a]_m^{-1} \in K[t]\) such that \([a]_m[a]_m^{-1} = [1]\). Then \([0]_m = [a]_m^{-1}[0]_m = [a]_m^{-1}[a]_m[b]_m = [b]_m\), as we know that \([0]_m = [m]_m\), this implies that \(m\) divides \(b\), but we know that \(b < m\), so this is a contradiction, hence \(m\) is not reducible. \\
+    Assume that \(m\) is reducible in \(K[t]\), this means that there exists \(a,b \in K[t]\) such that \(m = ab\) where \(\partial a,\partial b < \partial m\). Then we know that \([a]_m[b]_m = [ab]_m = [m]_m = [0]_m\). Suppose that \([a]_m\) has an inverse \([a]_m^{-1} \in K[t]\) such that \([a]_m[a]_m^{-1} = [1]\). Then \([0]_m = [a]_m^{-1}[0]_m = [a]_m^{-1}[a]_m[b]_m = [b]_m\), as we know that \([0]_m = [m]_m\), this implies that \(m\) divides \(b\), but we know that \(b < m\), so this is a contradiction, hence \(m\) is not reducible. \\
     If \(m\) is irreducible, let \(a \in K[t]\) with \([a]_m \neq [0]_m\), this implies that \(gcd(a,m)=1\) and, by Bézout's Lemma, we know that there exists \(p,q \in K[t]\) such that \(ap + mq = 1\). Thus \([a]_m[p]_m + [m]_m[q]_m = [1]_m\) and we know that \([m]_m = [0]_m\), hence \([a]_m[p]_m = [1]_m\). Thus \([a]_m\) has an inverse \([p]_m\) when \(m\) is irreducible.
 \end{proof}
 

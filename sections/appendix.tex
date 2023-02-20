@@ -213,7 +213,55 @@ This is a restatement and proof of Theorem \ref{thm:symmetric-not-soluble}.
 	Suppose $S_n$ is soluble for $n \ge 5$. Then since $A_n \trianglelefteq S_n$, by Theorem \ref{thm:soluble-main}, $A_n$ is soluble. By Theorem \ref{thm:simple-alternating}, $A_n$ is also simple, so $A_n$ is cyclic of prime order by Theorem \ref{thm:soluble-and-simple}. But $|A_n| = n! / 2$ which obviously is not prime. Contradiction.
 \end{proof}
 
-\section{Proof Pi is not Algebraic in $\Q$}
+\section{Constructions}
+
+\FloatBarrier
+\begin{figure}[!hbt]
+\centering
+\begin{tikzpicture}
+\draw[line width = 0.7mm, darkgray] (0,0) -- (15,0);
+\fill[blue] (3,0) circle (0.15cm);
+\fill[blue] (6,0) circle (0.15cm);
+\fill[blue] (6,2) circle (0.15cm);
+\node[below left=10pt] at (3,0) {$0$};
+\node[below left=10pt] at (6,0) {$1$};
+\node[below left=10pt] at (6,2) {$z$};
+\draw[color=black, line width = 0.5mm] (6,2) circle [radius=2];
+\draw[line width = 0.7mm, red] (6,-3) -- (6,5);
+\draw[color=red, line width = 0.5mm] (6,0) circle [radius=2];
+\fill[red] (6,-2) circle (0.15cm);
+\node[below left=10pt] at (6,-2) {$\overline{z}$};
+\end{tikzpicture}
+\caption{- Example of case one of the proof of Lemma \ref{lemma:conjugate-in-Pn}}
+\label{fig:case-1-conjugate}
+\end{figure}
+\FloatBarrier
+
+
+
+\FloatBarrier
+\begin{figure}[!hbt]
+\centering
+\begin{tikzpicture}
+\draw[line width = 0.7mm, darkgray] (0,0) -- (15,0);
+\fill[blue] (3,0) circle (0.15cm);
+\fill[blue] (6,0) circle (0.15cm);
+\node[below left=10pt] at (3,0) {$0$};
+\node[below left=10pt] at (6,0) {$1$};
+\fill[blue] (8,2) circle (0.15cm);
+\node[below left=10pt] at (8,2) {$z$};
+\draw[color=black, line width = 0.5mm] (8,2) circle [radius=2.828427];
+\fill[purple] (10,0) circle (0.15cm);
+\node[below right=10pt, color = purple] at (10,0) {$z_1$};
+\draw[color=purple, line width = 0.5mm] (10,0) circle [radius=2.828427];
+\draw[color=purple, line width = 0.5mm] (6,0) circle [radius=2.828427];
+\fill[purple] (8,-2) circle (0.15cm);
+\node[below left=10pt] at (8,-2) {$\overline{z}$};
+\end{tikzpicture}
+\caption{- Example of case two of the proof of Lemma \ref{lemma:conjugate-in-Pn}}
+\label{fig:case-2-conjugate}
+\end{figure}
+\FloatBarrier
 
 \begin{theorem}
     $\pi$ is not rational.
