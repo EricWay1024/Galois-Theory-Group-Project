@@ -102,20 +102,20 @@ Recall Definition \ref{def:transitive-action} for transitive group actions. The 
 	Now suppose $f$ is reducible. Then $f$ is a product of distinct irreducible polynomials, since $f$ is separable. Let $\alpha_1$ and $\alpha_2$ be zeros of two different irreducible factors $p_1$ and $p_2$ of $f$, respectively. Then $p_i$ is the minimal polynomials of $\alpha_i$, for $i = 1, 2$. For any $\sigma \in \Gal(f)$, $\sigma(\alpha_1)$ has the same minimal polynomial as $\alpha_1$ by Theorem \ref{thm:galois-group-permutes-zeros}, which is $p_1$ and is not $p_2$. Thus $\sigma(\alpha_1) \neq \alpha_2$ and thus $\Gal(f)$ does not act transitively on $X$. 
 \end{proof}
 
-\begin{example}
-	Let $f(t) = (t^2 + 1)(t^2 - 2)$ be a polynomial over $\Q$. The zeros of $f$ is $X = \{i, -i, \sqrt 2, -\sqrt 2\}$. We first solve $\Gal(f)$. Let $\sigma \in \Gal(f)$, then $\sigma$ is determined by how it maps each element in $X$. Also, since $\sigma(-\sqrt 2) = -\sigma(\sqrt 2)$ and $\sigma(-i) = -\sigma(i)$, $\sigma$ is completely determined by $\sigma(\sqrt 2)$ and $\sigma(i)$. Since $\sigma(\sqrt 2)$ has the same minimal polynomial over $\Q$ as $\sqrt 2$, we see that $\sigma(\sqrt 2) = \pm \sqrt 2$. Similarly, $\sigma(i) = \pm i$. Define $\phi, \psi \in \Gal(f)$ as  $\phi(p +  \sqrt 2 q + i r + \sqrt 2 i s) = p - \sqrt 2 q + ir - \sqrt 2 i s $ and $\psi(p +  \sqrt 2 q + i r + \sqrt 2 i s) = p + \sqrt 2 q - ir  - \sqrt 2 i s $, where $p,q,r,s \in \Q$, then $\Gal(f) = \{\Id, \phi, \psi, \phi \psi \} \cong \Z_2 \oplus \Z_2$. If we label $i, -i, \sqrt 2, -\sqrt 2$ as $1, 2, 3, 4$, then $\phi$ and $\psi$ correspond to transpositions $(34)$ and $(12)$, respectively, and $\Gal(f) \cong \{\Id, (34), (12), (12)(34)\} \le S_4$. Also, $\Gal(f)$ does not act transitively on $X$, as there is no $\sigma \in \Gal(f)$ such that $\sigma(\sqrt 2) = i$, and clearly $f$ is reducible over $\Q$.
+\begin{example} \label{exm:galois-group}
+	Let $f(t) = (t^2 + 1)(t^2 - 2)$ be a polynomial over $\Q$. The set of zeros of $f$ is $X = \{i, -i, \sqrt 2, -\sqrt 2\}$. The splitting field is $\Sigma = \Q(\sqrt 2, i) = \{p+\sqrt 2 q + i r + \sqrt 2 i s : p, q, r, s \in \Q\}$ and $[\Sigma : \Q] = 4$. 
+	
+	Let us determine $\Gal(f)$. Let $\sigma \in \Gal(f)$, then $\sigma$ is completely determined by $\sigma(\sqrt 2)$ and $\sigma(i)$. Since $\sigma(\sqrt 2)$ has the same minimal polynomial over $\Q$ as $\sqrt 2$, which is $t^2 - 2$, we see that $\sigma(\sqrt 2) = \pm \sqrt 2$. Similarly, $\sigma(i) = \pm i$. Define $\phi, \psi \in \Gal(f)$ such that 
+	$$
+		\phi(\sqrt 2) = -\sqrt 2, \, \phi(i) = i; \quad
+		\psi(\sqrt 2) = \sqrt 2, \, \psi (i) = -i. 
+	$$
+	For example, we can explicitly write $\phi(p + \sqrt 2 q + i r + \sqrt 2 i s) = p - \sqrt 2 q + i r - \sqrt 2 i s$ where $p,q,r,s \in \Q$. Then $\phi ^ 2 = \psi ^ 2 = \Id$. Also, $\phi\psi  = \psi \phi \in \Gal(f)$ and $$\phi\psi(\sqrt 2) = -\sqrt 2, \, \phi\psi(i) = -i. $$
+%	as $\phi(p +  \sqrt 2 q + i r + \sqrt 2 i s) = p - \sqrt 2 q + ir - \sqrt 2 i s $ and $\psi(p +  \sqrt 2 q + i r + \sqrt 2 i s) = p + \sqrt 2 q - ir  - \sqrt 2 i s $, where $p,q,r,s \in \Q$, 
+	Then $\Gal(f) = \{\Id, \phi, \psi, \phi \psi \} \cong \Z_2 \times \Z_2$. If we label $i, -i, \sqrt 2, -\sqrt 2$ as $x_1, x_2, x_3, x_4$, then $\phi$ and $\psi$ correspond to transpositions $(34)$ and $(12)$, respectively, and $\Gal(f) \cong \{\Id, (34), (12), (12)(34)\} \le S_4$. Also, $\Gal(f)$ does not act transitively on $X$, as there is no $\sigma \in \Gal(f)$ such that $\sigma(\sqrt 2) = i$, and clearly $f$ is reducible over $\Q$.
 \end{example}
 
-
-%\begin{theorem}
-%	A polynomial $f$ over $K$ is irreducible if and only if $\Gal(f)$ acts transitively on the set of zeros of $f$.
-%\end{theorem}
-
 We now prove that the upper bound for the order of the Galois group of a finite field extension is the degree of the extension. 
-%A $K$-automorphism is totally determined by its permutation of
-
-
-%\TODO $\Gal(L/K)$ acts on the zeros of $f$. It is thus isomorphic to a subgroup of $S_n$ (by the first isomorphism theorem). 
 
 \begin{theorem} \label{thm:galois-group-order-upper-bound}
 	Let $L/K$ be a finite field extension and let $G = \Gal(L/K)$, then $|G| \le [L:K]$. 
@@ -156,9 +156,7 @@ Before ending our discussion on fixed fields, we prove the next theorem to show 
 	
 	Let $f$ be an irreducible polynomial over $K$ with a root $\alpha \in L$. Consider the finite non-empty set $S = \Orb_G(\alpha) = \{ \alpha_1, \ldots, \alpha_n\} \subseteq L$. Let $h(t) = \prod_{i = 1} ^n (t - \alpha_i)$. It is clear that $h$ splits in $L$.
 	
-	We claim that $h$ is a polynomial over $K$. To see this, note that each $\sigma \in G$ maps $S$ to itself. Therefore, $h$ is fixed by $G$, and all of its coefficients are in $\Fix(G) = K$.
-	
-	We also claim that $h$ is irreducible over $K$. Suppose that $h$ is reducible over $K$, then $\Gal(h)$ does not act transitively on $S$ by Theorem \ref{thm:galois-action-transitive-irreducible}. Let $\Sigma = K(\alpha_1, \dots, \alpha_n)$ be the splitting field of $h$ contained in $L$.  Any $\sigma \in G$ is a $K$-automorphism of $L$ which permutes $\alpha_i$, and thus for any $\gamma \in \Sigma$, we have $\sigma(\gamma) \in \Sigma$ (using a similar argument as in the proof of Theorem \ref{thm:galois-group-determined-by-generator}). Thus $\sigma | _ \Sigma \in \Gal(h)$. 
+	Note that each $\sigma \in G$ maps $S$ to itself. Therefore, $h$ is fixed by $G$, and all of its coefficients are in $\Fix(G) = K$. We then claim that $h$ is irreducible over $K$. Suppose that $h$ is reducible over $K$, then $\Gal(h)$ does not act transitively on $S$ by Theorem \ref{thm:galois-action-transitive-irreducible}. Let $\Sigma = K(\alpha_1, \dots, \alpha_n)$ be the splitting field of $h$ contained in $L$.  Any $\sigma \in G$ is a $K$-automorphism of $L$ which permutes $\alpha_i$, and thus for any $\gamma \in \Sigma$, we have $\sigma(\gamma) \in \Sigma$ (using a similar argument as in the proof of Theorem \ref{thm:galois-group-determined-by-generator}). Thus $\sigma | _ \Sigma \in \Gal(h)$. 
 	Since each element in $G$ defines an element in $\Gal(h)$ and $G$ acts transitively on $S$ by construction, we have a contradiction. 
 	
 	Since $\alpha$ is a zero of $h$ and $h$ is irreducible over $K$, $h$ is the minimal polynomial of $\alpha$ over $K$. Thus $h = f$ and $f$ splits in $L$. Thus the extension $L/K$ is normal. 

@@ -10,6 +10,11 @@
 \usepackage{tikz}
 \usepackage{tikz}
 \usetikzlibrary{matrix,arrows}
+\usetikzlibrary{positioning,arrows.meta,decorations.markings}
+\tikzset{>={Latex[width=2mm,length=2mm]}}
+\tikzset{->-/.style={decoration={
+			markings,
+			mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
 \usepackage{amssymb}
 \usepackage{nicematrix}
 \usepackage{wrapfig}
@@ -45,6 +50,7 @@
 \newcommand{\C}{\mathbb C}
 \newcommand{\R}{\mathbb R}
 \newcommand{\N}{\mathbb N}
+\newcommand{\sq}{\sqrt[3]{2}}
 
 \newcommand{\TODO}{\textbf{\textcolor{red}{TODO}}}
 

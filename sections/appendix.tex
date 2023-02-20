@@ -230,3 +230,90 @@ This is a restatement and proof of Theorem \ref{thm:symmetric-not-soluble}.
 
     $I_n = \frac{2n}{\alpha}\int_{-1}^{1}x\sin(\alpha x)(1-x^2)^{n-1}$
 \end{proof}
+
+
+\section{Diagrams}
+
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		\draw[->, densely dotted] (-2.5,0) -- (2.5,0) node[below] {$\Re z$};
+		\draw[->, densely dotted] (0,-2.5) -- (0,2.5) node[right] {$\Im z$};
+		%		\draw[densely dotted] (0, 0) circle (1); 
+		%		\draw[densely dotted] (0, 0) circle (1.26); 
+		
+		\fill (1.26, 0) circle (2pt) node[right] {$\sqrt[3]{2}$};
+		\fill (-0.63, 1.09) circle (2pt) node[above] {$\zeta \sqrt[3]{2}$};
+		\fill (-0.63, -1.09) circle (2pt) node[below] {$\zeta^2 \sqrt[3]{2}$};
+		%		\fill (1, 0) circle (1pt) node[left] {$1$};
+		%		\fill (-0.5, -0.866) circle (2pt) node[above] {$\zeta^ 2$};
+		%		\fill (-0.5, 0.866) circle (2pt) node[below] {$\zeta$};
+		\draw[->-=0.4, red] (1.26, 0) arc   (0:120:1.26)  node[midway] {$\tau$};
+		\draw[->-=0.4, red] (-0.63, 1.09) arc (120:240:1.26)  node[midway] {$\tau$};
+		\draw[->-=0.4, red] (-0.63, -1.09) arc (240:360:1.26) node[midway] {$\tau$};
+		\draw[->-=0.5, blue] (-0.63, -1.09) to [out=120,in=240] node[right] {$\rho$} (-0.63, 1.09); 
+		\draw[->-=0.5, blue] (-0.63, 1.09) to [out=300,in=60] node[right] {$\rho$} (-0.63, -1.09); 
+		
+		
+		
+		%		\draw[very thin,color=gray] (-3,-3) grid (3,3);
+	\end{tikzpicture}
+	\caption{Actions of $\tau$ and $\rho$ on the roots of $f(t) = t^3 - 2$.}
+	\label{fig:example-action}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+		
+		\node(A1) 										{\textcolor{blue}{$\Q(\zeta, \sqrt[3]{2})$}};
+		\node(B1) [below left=2cm and 2cm of A1]      	{\textcolor{red}{$\Q(\zeta)$}}; 
+		\node(B2) [below left=1cm and -0.7cm of A1]     {\textcolor{brown}{$\Q(\sqrt[3]{2})$}}; 
+		\node(B3) [right=0.7cm of B2]					{\textcolor{orange}{$\Q(\zeta \sqrt[3]{2} )$}}; 
+		\node(B4) [right=0.7cm of B3]					{\textcolor{purple}{$\Q(\zeta^2 \sqrt[3]{2} )$}}; 
+		\node(C1) [below=3cm of A1]						{$\Q$}; 
+		
+		\draw[thick](A1) -- node[left]{3} (B1); 
+		\draw[thick](A1) -- node[right]{2} (B2); 
+		\draw[thick](A1) -- node[right]{2} (B3); 
+		\draw[thick](A1) -- node[right]{2} (B4); 
+		
+		\draw[thick](C1) -- node[left]{2} (B1); 
+		\draw(C1) -- node[left]{3} (B2); 
+		\draw(C1) -- node[left]{3} (B3); 
+		\draw(C1) -- node[left]{3} (B4); 
+		
+	\end{tikzpicture}
+	\caption{Lattice diagram for intermediate fields of $\Q(\zeta, \sqrt[3]{2})$, where $\zeta = e^{2\pi i / 3}$. Each line from a lower field $K$ to an upper field $L$ indicates a field extension $L/K$. The number on each line indicates the degree of $L/K$, i.e. $[L:K]$. A thick line indicates that $L/K$ is a normal (and Galois) extension. }
+	\label{fig:example-intermidate-fields}
+\end{figure}
+
+\begin{figure} 
+	\centering
+	\begin{tikzpicture}
+		\node(A1) 										{\textcolor{blue}{$\langle e \rangle$}};
+		\node(B1) [above left=2cm and 2cm of A1]      	{\textcolor{red}{$\langle \tau \rangle$}}; 
+		\node(B2) [above left=1cm and -0.7cm of A1]     {\textcolor{brown}{$\langle \rho \rangle$}}; 
+		\node(B3) [right=0.7cm of B2]					{\textcolor{orange}{$\langle \tau \rho  \rangle$}}; 
+		\node(B4) [right=0.7cm of B3]					{\textcolor{purple}{$\langle \tau ^ 2 \rho  \rangle$}}; 
+		\node(C1) [above=3cm of A1]						{$D_3$}; 
+		
+		\draw[thick](A1) -- node[left]{3} (B1); 
+		\draw[thick](A1) -- node[right]{2} (B2); 
+		\draw[thick](A1) -- node[right]{2} (B3); 
+		\draw[thick](A1) -- node[right]{2} (B4); 
+		
+		\draw[thick](C1) -- node[left]{2} (B1); 
+		\draw(C1) -- node[left]{3} (B2); 
+		\draw(C1) -- node[left]{3} (B3); 
+		\draw(C1) -- node[left]{3} (B4); 
+	\end{tikzpicture}
+	\caption{Lattice diagram for subgroups of $D_3$. Each line from a lower group $H$ to an upper group $G$ indicates that $H$ is a subgroup of $G$. The number on each line indicates the index of $H$ in $G$, i.e. $[G:H]$. A thick line indicates that $H$ is a normal subgroup of $G$. }
+	 \label{fig:example-subgroups}
+\end{figure}
+
+
+		
+
+
