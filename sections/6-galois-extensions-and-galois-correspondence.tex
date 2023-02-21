@@ -1,6 +1,6 @@
 \section{Galois Extensions and Galois Correspondence}
 
-\subsection{Galois Extension}
+% \subsection{Galois Extension}
 
 
 We are now ready to present a special kind of field extension:
@@ -52,7 +52,7 @@ We now give some further properties for Galois extensions in general fields. The
 	If $L/K$ is a Galois extension, then for an intermediate field $M$ such that $K \subseteq M \subseteq L$, $L/M$ is also a Galois extension. 
 \end{corollary}
 \begin{proof}
-	By (iv) of Theorem \ref{thm:fixed}, $L$ is the splitting of some polynomial $f$ over $K$, but $f$ is also a polynomial over $M$. Hence $L/M$ is Galois.
+	By (iv) of Theorem \ref{thm:fixed}, $L$ is the splitting field of some polynomial $f$ over $K$, but $f$ is also a polynomial over $M$. Hence $L/M$ is Galois.
 \end{proof}
 
 \begin{example}
@@ -71,7 +71,7 @@ We now give some further properties for Galois extensions in general fields. The
 
 
 
-\subsection{Fundamental Theorem of Galois Theory}
+% \subsection{Fundamental Theorem of Galois Theory}
 
 %\begin{theorem}
 %	Let $M$ be a field and let $G \le \Aut(M)$. Then $M / \Fix(G)$ is a Galois extension.
@@ -92,20 +92,6 @@ We now give some further properties for Galois extensions in general fields. The
 % \noindent We now look at a theorem which helps to characterise and identify fields, extensions and Galois groups.
 
 
-
-Group theory tends to look at patterns and symmetries in mathematical objects, and Galois groups have an interesting symmetry. The following theorem describes how the structure of an extension of a field is the same as the subgroups of the Galois groups.
-
-We first look at what a minimal polynomial is, in order to help us prove a theorem which will be useful in proving the fundamental theorem of Galois Theory.
-
-\begin{definition}[Minimal Polynomial]
-    Let $F[x]$ be a ring of polynomials, and $E/F$ a field extensions. Now consider an element $\xi \in E$, such that $f(\xi)=0$ for some non-zero $f(x)\in F[x]$ The \textbf{minimal polynomial} is the polynomial in $F[x]$ which has the least degree, whilst having $\xi$ as a root, which we call $\mu_\xi(x)$
-\end{definition}
-
-\begin{example}
-    Consider $\xi = \sqrt(2)$, $E=\R$, $F = \Q$ so $F[x]=\Q[x]$, then the minimal polynomial of $\xi$ is $\mu_\xi(x)=x^2-2$, since if it were of the form $ax+b$, this would require either $a \in \Q^c$ or $b \in \Q^c$, and thus $ax+b \notin \Q[x]$
-\end{example}
-
-
 \begin{theorem}\label{thm:equal-subgroup-fixed-points}
     Let $L/F$ be a finite Galois extension, with $G=\Gal(L/F)$, then if we have a subgroup $H\leq G$ with $\Fix(H)=F$ then $H=G$.
 \end{theorem}
@@ -115,7 +101,7 @@ We first look at what a minimal polynomial is, in order to help us prove a theor
     Then we know that the $m$ cannot be larger than the size of $H$, and since $H\leq G \implies |H|\leq|G|$, we get $|H \cdot a| = m \leq |H| \leq |G| = [L:F] = n$.
     
    
-    \noindent On the other hand, by evaluating the elementary symmetric polynomials at each of the elements in $H \cdot a$, we get that, by the fact they are symmetric, these are just the elements in $\Fix(H)=F$. Therefore, we see that the coefficients in the polynomial: $f(X) := (X-a_1)(X-a_2)...(X-a_m)$ lies in $F$, and we have $f(a)=0$. Then, our minimal polynomial $\mu_a(X)$ divides $f(X)$ and $\deg(f) \geq \deg(\mu_a(X)) \implies m \geq n$. Hence we have $m \geq n$ and $n \geq m$, so therefore we have that $m=n$, which tells us $|H|=|G|$ and so $H=G.$
+    \noindent On the other hand, by evaluating the elementary symmetric polynomials at each of the elements in $H \cdot a$, we get that, by the fact they are symmetric, these are just the elements in $\Fix(H)=F$. Therefore, we see that the coefficients in the polynomial: $f(t) := (t-a_1)(t-a_2)...(t-a_m)$ lies in $F$, and we have $f(a)=0$. Then, our minimal polynomial $\mu_a(t)$ divides $f(t)$ and $\deg(f) \geq \deg(\mu_a(t)) \implies m \geq n$. Hence we have $m \geq n$ and $n \geq m$, so therefore we have that $m=n$, which tells us $|H|=|G|$ and so $H=G.$
 \end{proof}
 
 
@@ -156,7 +142,7 @@ Hence we can see that the functions $\alpha$ and $\beta$ are inverse to each oth
 \end{proof}
 
 
-\subsection{Examples of Galois Extensions}
+% \subsection{Examples of Galois Extensions}
 %\begin{example}
 %	Consider the separable polynomial $f(t) = t^4-2 $ over $\Q$.
 %	

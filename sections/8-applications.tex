@@ -22,20 +22,15 @@ Let points be denoted by $z_1,z_2 \in \C$ and we let $0\leq r \in \R$.
     \end{itemize}
     For the following we take $n \in \N$, and define $\mathcal{P}_n,\mathcal{L}_n,\mathcal{C}_n$ as the sets of n-constructable points, lines and circles respectively.
     \begin{itemize}
-        \item $\mathcal{P}_0=\{0,1\}$
-        \item $\mathcal{L}_0=\varnothing$
-        \item $\mathcal{C}_0=\varnothing$
-        \item $\mathcal{P}_{n+1}=\{z\in \C $: $z$ lies on two distinct lines in $\mathcal{L}_{n+1}$ or it lies on one line in $\mathcal{L}_{n+1}$ and one circle in $\mathcal{C}_{n+1}$ or $z$ lies on two distinct circles in $\mathcal{C}_{n+1}$\}
-        \item $\mathcal{L}_{n+1}=\{L(z_1,z_2) : z_1,z_2\in \mathcal{P}_n\}$
-        \item $\mathcal{C}_{n+1}=\{C(z_1,|z_2-z_3|:z_1,z_2,z_3\in \mathcal{P}_n\}$
+        \item $\mathcal{P}_0=\{0,1\}$; $\mathcal{P}_{n+1}=\{z\in \C $: $z$ lies on two distinct lines in $\mathcal{L}_{n+1}$ or it lies on one line in $\mathcal{L}_{n+1}$ and one circle in $\mathcal{C}_{n+1}$ or $z$ lies on two distinct circles in $\mathcal{C}_{n+1}$\}
+        \item $\mathcal{L}_0=\varnothing$ ; $\mathcal{L}_{n+1}=\{L(z_1,z_2) : z_1,z_2\in \mathcal{P}_n\}$
+        \item $\mathcal{C}_0=\varnothing$ ; $\mathcal{C}_{n+1}=\{C(z_1,|z_2-z_3|:z_1,z_2,z_3\in \mathcal{P}_n\}$
     \end{itemize}
 \end{definition}
 
 \begin{definition}\label{def:constructable-point}
     A point, $z \in \C$ is called constructable if there is a finite sequence of points:
-    $z_0=0,z_1=1,z_2,z_3,...,z_k=z$
-
-    Whereby $z_{j+1}$ lies in one of the following:
+    $z_0=0,z_1=1,z_2,z_3,...,z_k=z$, where $z_{j+1}$ lies in one of the following:
     \begin{itemize}
         \item On the intersection of two straight lines constructed between two sets of two points, i.e:
         $z_{j+1}\in L(z_{j_1},z_{j_2})\cap L(z_{j_3},z_{j_4})$.
@@ -47,35 +42,44 @@ Let points be denoted by $z_1,z_2 \in \C$ and we let $0\leq r \in \R$.
     Where $j_i\in \N$.
 \end{definition}
 
+\begin{lemma}\label{thm:point-subset}
+    $\forall n \in \N$ we have that:
+    $\mathcal{P}_n \subseteq \mathcal{P}_{n+1}$
+\end{lemma}
+
+\begin{proof}
+    The proof is trivial, clearly all the points which lie in  $\mathcal{P}_n$ have to lie in $\mathcal{P}_{n+1}$.
+\end{proof}
+
 \begin{theorem}
     A point is called constructable if and only if $z\in \mathcal{P}_n$ for some $n\in \N$
 \end{theorem}
 
 \begin{proof}  
-    $"\implies"$ Let $z \in \C$ be a constructable point, then by definition \ref{def:constructable-point}, it is clear that $z=z_k\in \mathcal{P}_k$.
-    $"\impliedby"$ On the other hand, if $z \in \mathcal{P}_k$, then we can find a sequence $z_j \in \mathcal{P}_j$ for $0\leq j \leq k$ which satisfies definition \ref{def:constructable-point}.
+    $"\implies"$ Let $z \in \C$ be a constructable point, then by Definition \ref{def:constructable-point}, it is clear that $z=z_k\in \mathcal{P}_k$.
+    $"\impliedby"$ On the other hand, if $z \in \mathcal{P}_k$, then we can find a sequence $z_j \in \mathcal{P}_j$ for $0\leq j \leq k$ which satisfies Definition \ref{def:constructable-point}.
 \end{proof}
 
 We now define the 'Pythagorean Closure' which will help us create a link between construction and Galois Theory.
 
 \begin{definition}[Pythagorian Closure]
-    $\Q^{py}$ is called the 'Pythagorean closure' of $\Q$, which is the union of all subfields, denoted $K$ where:
+    $\Q^{py}$ is called the 'Pythagorean Closure' of $\Q$, which is the union of all subfields, denoted $K$ where:
     $\Q = K_0 \subseteq K_1 \subseteq ... \subseteq K_n=K$ such that $[K_{j+1}:K_j]\leq 2$
 \end{definition}
 
-Here we can see a tower of field extensions, which gives us a hint that we may be able to use Galois Theory to solve construction problems.
+Here we can see a tower of field extensions, which gives us a hint that we may be able to use fields and extensions to solve construction problems.
 
-The next lemma will help us to prove a theorem which will show the link between the two.
+The next Lemma will help us to prove a Theorem which will show the link between the two.
 
 \begin{lemma}\label{lemma:conjugate-in-Pn}
     Let $z \in \mathcal{P}_n$, then its complex conjugate $\overline{z} \in \mathcal{P}_{n+1}$.
 \end{lemma}
 
 \begin{proof}  
-    A visual proof is included in the appendix.
+    A visual proof is also included in the appendix.
     
     Let us show that we can construct the complex conjugate using the points $z\in \mathcal{P}_n$, 0 and 1.
-    We start with the trivial case where either $z=1$ or $\overline{z}=1$. Here the point has already been constructed, and since $\overline{z}=1\in \mathcal{P}_0$ this implies $\overline{z}=1\in \mathcal{P}_n$ by Lemma...\textcolor{red}{To Do:} This proof of this.
+    We start with the trivial case where either $z=1$ or $\overline{z}=1$. Here the point has already been constructed, and since $\overline{z}=1\in \mathcal{P}_0$ this implies $\overline{z}=1\in \mathcal{P}_n$ by Lemma \ref{thm:point-subset}.
 \newline
 \noindent
     Now, let us say $z\in \mathcal{P}_n$ with $z\neq1$. Then we consider the circle $C(z,|z-1|)$, and the line $L(0,1)$. We have two cases here, either the circle meets the line at exactly one point, $1$, or the circle meets the line in exactly two points, $1$ and $s$.
@@ -105,8 +109,7 @@ Now we have the key results to help us prove the following theorem, where the pr
 \end{theorem}
 
 \begin{proof}  
-    Consider we already have a set of constructable points $X_k = \{0,1,z_1,...,z_k\}$, and we have another point, $z_{k+1}$ which can be constructed through the intersections of lines and circles of these points. Then, algebraically, we have a linear or quadratic equation, where $z_{k+1}$ (\textcolor{red}{To Do:} show this).
-    Thus, the new point only extends the field by order one (if linear) or two (if quadratic), so $[\Q(z_{k+1}):\Q(X_k)] \in \{1,2\}$. Then, since $X_0=\{0,1\}$, we see... (\textcolor{red}{To Do:} finish).
+    Consider we already have a set of constructable points $X_k = \{0,1,z_1,...,z_k\}$, and we have another point, $z_{k+1}$ which can be constructed through the intersections of lines and circles of these points. Then, algebraically, we have a linear or quadratic equation, where $z_{k+1}$ is a solution. This is due to the fact that a line has the equation $y=mz+c$ and a circle has equation $(x-a)^2+(y-b)^2=r^2$, where $z=x+iy$ and $r=x^2+y^2$. Thus, the new point extends the field by order one (if linear) or two (if quadratic), so $[\Q(z_{k+1}):\Q(X_k)] \in \{1,2\} \forall k \in \N$. Then, since $X_0=\{0,1\}$, it is clear that this will also have order 2, thus every $[\Q(z):\Q]$ is a power of 2.
 
 \end{proof}
 
@@ -150,5 +153,3 @@ We now look at a proof of a theorem which looks at doubling the volume of a cube
     
     It is sufficient to show that $\sqrt{\pi}\in \C$ is constructable from our initial set of points $\mathcal{P}_0$. From this we could construct $\pi$. Thus, we would have that $[\Q(\pi):\Q]$ is a power of 2, which would imply that $\pi$ is algebraic over $\Q$. However, as seen by Lindemann's proof (which we include in the Appendix), $\pi$ is not algebraic over $\Q$ and thus it is impossible to construct a square with the same area as a circle, using nothing but a compass and a straight edge.
 \end{proof}
-
-\subsection{p-adic Numbers}

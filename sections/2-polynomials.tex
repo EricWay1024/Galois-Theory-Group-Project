@@ -3,50 +3,34 @@
 \subsection{Basics of Polynomials}
 
 \begin{definition}
-    A polynomial over $\C$ in the indeterminate $t$ to be an expression 
-
-$$
-    r_0 + r_1 t +...+ r_n t^n
-$$
-
-    where $r_0,r_1,...,r_n \in \C$, $0 \le n \in \Z$ and $t$ is undefined.
+    If $f$ is a polynomial over $K$ and $f \neq 0$, then the degree of $f$ is the highest power of $t$ occurring in $f$ with a non-zero coefficient, denoted as $\partial f$. 
 \end{definition}
 
-\begin{definition}
-    If $f$ is a polynomial over $\C$ and $f \neq 0$, then the degree of $f$ is the highest power of $t$ occurring in $f$ with a non-zero coefficient.
-\end{definition}
+Polynomials with degree $n$ will often be written in descending order $r_n t^n + r_{n-1} t^{n+1} + ... + r_1 t + r_0$.
 
 \begin{theorem}
-    Two polynomials $f,g$ over $\C$ define the same function if and only if they are equal polynomials, so they have the same coefficients.
+    Two polynomials $f,g$ over $K$ define the same function if and only if they are equal polynomials, so they have the same coefficients.
 \end{theorem}
 
 \begin{proof}
-    This is a basic proof to an obvious theorem. By taking the difference of the two polynomials, we must prove that if $f(t)$ is a polynomial over $\C$ and $f(t) = 0$ for all $t$, then the coefficients of $f$ are all 0. Let $P(n)$ be the statement: If a polynomial $f(t)$ over $\C$ has degree $n$, and $f(t) = 0$ for all $t \in \C$, then $f=0$. We prove $P(n)$ for all $n$ by induction on $n$. 
+    This is a basic proof to an obvious theorem. By taking the difference of the two polynomials, we must prove that if $f(t)$ is a polynomial over $K$ and $f(t) = 0$ for all $t$, then the coefficients of $f$ are all 0. Let $P(n)$ be the statement: If a polynomial $f(t)$ over $K$ has degree $n$, and $f(t) = 0$ for all $t$, then $f=0$. We prove $P(n)$ for all $n$ by induction on $n$. 
     
-    Both $P(0)$ and $P(1)$ are obvious. Suppose that $P(n-1)$ is true. 
-
-    With $f(t) = a_n t^n +...+ a_0$. In particular, $f(0) = 0$, so $a_0 = 0$ and,
-
+    Both $P(0)$ and $P(1)$ are obvious. Suppose that $P(n-1)$ is true. With $f(t) = a_n t^n +...+ a_0$. In particular, $f(0) = 0$, so $a_0 = 0$ and,
     $$
-    f(t) = a_n t^n +...+ a_1 t= t(a_n t^{n-1} +...+ a_1) = tg(t)
+    f(t) = a_n t^n +...+ a_1 t= t(a_n t^{n-1} +...+ a_1) = tg(t),
     $$
-
-    where $g(t) = a_n t^{n-1} +...+ a_1$ has degree $n-1$. Now $g(t)$ vanishes for all $t \in \C$ except $t=0$. However is $g(0) = a_1 \neq 0$ then $g(t) \neq 0$ for sufficiently small $t$. Therefore $g(t)$ vanishes for all $t \in \C$. By induction, $g=0$. Therefore $f=0$ so $P(n)$ is true and the induction is complete
+    where $g(t) = a_n t^{n-1} +...+ a_1$ has degree $n-1$. Now $g(t)$ vanishes for all $t$ except $t=0$. However is $g(0) = a_1 \neq 0$ then $g(t) \neq 0$ for sufficiently small $t$. Therefore $g(t)$ vanishes for all $t$. By induction, $g=0$. Therefore $f=0$ so $P(n)$ is true and the induction is complete.
 \end{proof}
-
-Polynomials will often be written in descending order $r_n t^n + r_{n-1} t^{n+1} + ... + r_1 t + r_0$ for $n$
 
 Two polynomials are defined to be equal if and only if all corresponding co-efficients are equal.
 
-If $r = \sum (r_i t^i)$ and $s = \sum (s_i t^i)$ then $r+s = \sum (r_i + s_i)t^i$
+If $r = \sum (r_i t^i)$ and $s = \sum (s_i t^i)$ then $r+s = \sum (r_i + s_i)t^i$, and $rs = \sum (q_j t^j)$ where $q_j = \sum_{h+i=j} r_h s_i$.
 
-and $rs = \sum (q_j t^j)$ where $q_j = \sum_{h+i=j} r_h s_i$
-
-It is easy to check directly from the definitions above that the set of all polynomials over $\C$ in the $t$ obeys all the normal algebraic laws. We denoted the set by $\C[t]$and call it the ring of polynomials over $\C$ in the indeterminate $t$.
+It is easy to check directly from the definitions above that the set of all polynomials over $\C$ in the $t$ obeys all the normal algebraic laws. We denoted the set by $K[t]$ and call it the ring of polynomials over $K$ in the indeterminate $t$.
 
 \subsection{Fundamental Theorem of Algebra} 
 
-After discovering that equations can be solved over $\C$, the there is a question of why stop at $\C$. Why not try and find an equation with no solutions over $\C$? The answer is that no such polynomial equations exist as every polynomial over $\C$ has a solution over $\C$.
+After discovering that equations can be solved over $\C$, then there is a question of why stop at $\C$. Why not try and find an equation with no solutions over $\C$? The answer is that no such polynomial equations exist as every polynomial over $\C$ has a solution over $\C$.
 
 This theorem from the module \textit{Complex Functions} is stated without proof. 
 
@@ -54,7 +38,7 @@ This theorem from the module \textit{Complex Functions} is stated without proof.
     If $p(z)$ is a non-constant polynomial over $\mathbb{C}$, then there exists $z_0 \in \mathbb{C}$ such that $p\left(z_0\right)=0$.
 \end{theorem}
 
-Such a number $z$ is called a root of the equation $p(t)=0$, or a zero of the polynomial $p$. For example, $\mathrm{i}$ is a root of the equation $t^2+1=0$ and a zero of $t^2+1$. Polynomial equations may have more than one root; indeed, $t^2+1=0$ has at least one other root, $-i$ but others will have more roots. We do the proof above by starting out with a contradiction.
+This is a special case where it only works over $\C$. Such a number $z$ is called a root of the equation $p(t)=0$. For example, $\mathrm{i}$ is a root of the equation $t^2+1=0$ and a zero of $t^2+1$. Polynomial equations may have more than one root; indeed, $t^2+1=0$ has at least one other root, $-i$ but others will have more roots. We do the proof above by starting out with a contradiction.
 
 \begin{proposition}
     Let $p(t) \in \mathbb{C}[t]$ with $\partial p=n \geq 1$. Then there exist $\alpha_1, \ldots, \alpha_n \in \mathbb{C}$, and $0 \neq k \in \mathbb{C}$, such that
@@ -81,11 +65,11 @@ Such a number $z$ is called a root of the equation $p(t)=0$, or a zero of the po
 
 \subsection{Factorisation of Polynomials}
 \begin{definition}
-     A non-constant polynomial over a subring $R$ of $\mathbb{C}$ is \textit{reducible} if it is a product of two polynomials over $R$ of smaller degree. Otherwise it is \textit{irreducible}.
+     A non-constant polynomial over a subring $R$ of $K$ is \textit{reducible} if it is a product of two polynomials over $R$ of smaller degree. Otherwise it is \textit{irreducible}.
 \end{definition}
 
 \begin{theorem}
-    Any non-zero polynomial over a subring $R$ of $\mathbb{C}$ is a product of irreducible polynomials over $R$.
+    Any non-zero polynomial over a subring $R$ of $K$ is a product of irreducible polynomials over $R$.
 \end{theorem}
 
 \begin{proof}
@@ -99,15 +83,15 @@ Such a number $z$ is called a root of the equation $p(t)=0$, or a zero of the po
     f(t) = (t-\alpha)(t^2 + \beta t + \lambda) = t^3 + (\beta - \alpha)t^2 + (\lambda - \alpha \beta)t - \alpha \lambda
     $$
 
-    so $\alpha \lambda = -1$. Therefore, $\alpha = +/- 1$. But $f(1) = -3 \neq 0$ and $f(-1) = 5 \neq 0$. This shows that no factor exists.
+    so $\alpha \lambda = -1$. Therefore, $\alpha = \pm 1$. But $f(1) = -3 \neq 0$ and $f(-1) = 5 \neq 0$. This shows that no factor exists.
 \end{example}
 
-\begin{theorem}
-    Gauss Lemma - Let f be a polynomial over $\Z$ that is irreducible over $\Z$. Then $f$, considered as a polynomial over $\Q$, is also irreducible over $\Q$.
-\end{theorem}
+\begin{lemma}[Gauss' Lemma]
+     Let $f$ be a polynomial over $\Z$ that is irreducible over $\Z$. Then $f$, considered as a polynomial over $\Q$, is also irreducible over $\Q$.
+\end{lemma}
 
 \begin{proof}
-This lemma is useful because when we extend the subring of coefficients from $\Z$ to $\Q$ then there are new polynomials which may be factors of $f$. However, we now show that they are not. Starting with a contradiction, suppose that $f$ is irreducible over $\Z$ but reducible over $\Q$ so that $f = g h$ where $g$,$h$ are both polynomials over $\Q$, of a smaller degree. Multiplying through by the product of the denominators of the coefficients of $g$ and $h$ means we can rewrite this as $n f = g' h'$, where $n \in \Z$ and $g'$ and $h'$ are polynomials over $\Z$. We can now show that we can cancel out the prime factors of n one by one, without going outside $\Z[t]$
+This lemma is useful because when we extend the subring of coefficients from $\Z$ to $\Q$ then there are new polynomials which may be factors of $f$. However, we now show that they are not. Starting with a contradiction, suppose that $f$ is irreducible over $\Z$ but reducible over $\Q$ so that $f = g h$ where $g$,$h$ are both polynomials over $\Q$, of a smaller degree. Multiplying through by the product of the denominators of the coefficients of $g$ and $h$ means we can rewrite this as $n f = g' h'$, where $n \in \Z$ and $g'$ and $h'$ are polynomials over $\Z$. We can now show that we can cancel out the prime factors of n one by one, without going outside $\Z[t]$.
 
 Suppose that $p$ is a prime factor of $n$. We now claim that if $g' = g_0 + g_1 t +...+ g_r t^r$, $h' = h_0 + h_1 t +...+ h_s t^s$ then either $p$ divides all the coefficients of $g_i$, or $p$ divides all the coefficients $h_j$.
 
@@ -120,8 +104,8 @@ $$
 and by the choice of $i$ and $j$, the prime $p$ divides every term of this expression except $h_j g_i$. $p$ divides the whole expression, so $p | h_j g_i$. However $p \nmid g_i$ and $p \nmid h_j$, a contradiction.
 \end{proof}
 
-\begin{theorem}
-    Eisenstein's Criterion - Let
+\begin{theorem}[Eisenstein's Criterion] \label{thm:eisenstein}
+     Let
     
     $$f(x) = a_0 + a_1 t + ... + a_n t^n$$
     
@@ -137,7 +121,7 @@ and by the choice of $i$ and $j$, the prime $p$ divides every term of this expre
 \end{theorem}
 
 \begin{proof}
-By Gauss's Lemma it is sufficient to show that $f$ is irreducible over $\Z$. Suppose for a contradiction that $f = gh$, where
+By Gauss' Lemma it is sufficient to show that $f$ is irreducible over $\Z$. Suppose for a contradiction that $f = gh$, where
 
 $$
 g=b_0+b_1 t+ ... +b_r t^r,
@@ -158,43 +142,30 @@ where $j < n$.
 \end{proof}
 
 \begin{example}
-Consider
-
-$$
+Consider$
 f(t) = \frac{2}{9} t^5 + \frac{5}{3} t^4 + t^3 
-$$
-
-over $\Q$.
-
-This is irreducible over $\Q$ if and only if
-
-$$
+$ over $\Q$. This is irreducible over $\Q$ if and only if $
 9f(t) = 2t^5 + 15t^4 + 9t^3
-$$
-
+$
 is irreducible over $\Q$. Eisenstein's criterion now applies with $q = 3$, showing that $f$ is irreducible.
 \end{example}
 
 \begin{theorem}
-If $p$ is prime, the binomial coefficient $\binom{p}{r}$ is divisible by $p$ if $1 \le r \le p-1$
+If $p$ is prime, the binomial coefficient $\binom{p}{r}$ is divisible by $p$ if $1 \le r \le p-1$.
 \end{theorem}
 
 \begin{proof}
-The binomial coefficient is an integer and $\binom{p}{r} = \frac{p!}{r!(p-r)!}$
+The binomial coefficient is an integer and $\binom{p}{r} = \frac{p!}{r!(p-r)!}$.
 
 The factor $p$ in the numerator cannot cancel with any factor in the denominator unless $r=0$ or $r=p$.
 \end{proof}
 
-Then we have,
-
 \begin{theorem}\label{thm:irreducible-prime-polynomial}
     If $p$ is a prime then the polynomial
-
-    $$
+    $
     f(t) = 1 + t + ... + t^{p-1}
-    $$
-
-    is irreducible over $\Q$
+    $
+    is irreducible over $\Q$.
 \end{theorem}
 
 \begin{proof}
@@ -212,25 +183,25 @@ where $h$ is a polynomial in $u$ over $\Z$ with constant term 1, by the above th
 \end{proof}
 
 \begin{definition}
-    A \textbf{symmetric polynomial} is a polynomial where if the variables are interchanged, the polynomial remains the same.
+    A \textit{symmetric polynomial} is a polynomial where if the variables are interchanged, the polynomial remains the same.
 
-    Formally, for $f(x_1,x_2,...,x_n)$ and $\forall \sigma \in S_n$, we have $f(x_1,x_2,...,x_n = f(x_{\sigma(1)},x_{\sigma(2)},...,x_{\sigma(n)}$
+    Formally, for $f(t_1,t_2,...,t_n)$ and $\forall \sigma \in S_n$, we have $f(t_1,t_2,...,t_n) = f(t_{\sigma(1)},t_{\sigma(2)},...,t_{\sigma(n)})$
 \end{definition}
 
 \begin{example}
     Consider the polynomial 
-    $f(x,y)=x^2+y^2-4$, we can see that $f(y,x)=y^2+x^2-4$ and so $f(x,y)=f(y,x)$ and so $f(x,y)$ is a symmetric polynomial.
+    $f(t_1,t_2)=t_1^2+t_2^2-4$, we can see that $f(t_2,t_1)=t_2^2+t_1^2-4$ and so $f(t_1,t_2)=f(t_2,t_1)$ and so $f(t_1,t_2)$ is a symmetric polynomial.
 \end{example}
 
 \begin{definition}
-    The \textbf{elementary symmetric polynomials} are defined by 
+    The \textit{elementary symmetric polynomials} are defined by 
     \begin{align*}
-    e_k(x_1,x_2,...,x_n) = \sum_{1\leq j_1<j_2<...<j_k\leq n} X_{j_1}\cdot X_{j_2} \cdot ... \cdot X_{j_k}
+    e_k(t_1,t_2,...,t_n) = \sum_{1\leq j_1<j_2<...<j_k\leq n} t_{j_1}\cdot t_{j_2} \cdot ... \cdot t_{j_k}.
     \end{align*}
 \end{definition}
 
 \begin{example}
     For example, in the case where $n=4$, we can see the following are elementary symmetric polynomials:
-    \\For $k=1$: $e_1(x_1,x_2,x_3,x_4) = x_1 + x_2 + x_3 + x_4$
-    \\For $k=3$: $e_3(x_1,x_2,x_3,x_4) = x_1x_2x_3+x_1x_2x_4+x_1x_3x_4+x_2x_3x_4$
+    \\For $k=1$: $e_1(t_1,t_2,t_3,t_4) = t_1 + t_2 + t_3 + t_4$
+    \\For $k=3$: $e_3(t_1,t_2,t_3,t_4) = t_1t_2t_3+t_1t_2t_4+t_1t_3t_4+t_2t_3t_4$
 \end{example}

@@ -7,23 +7,26 @@ Let \((G, *,\star )\) be a field. Let \(F\) be a subset of \(G\) such that \((F,
  of \((G, *, \star)\).
 \end{definition}
 \begin{definition}
-A field \(F\) is called a \textit{prime field} of \(K\) if it had no proper (strictly smaller) subfield.
+A field \(F\) is called a \textit{prime field} of \(K\) if it has no proper (strictly smaller) subfield.
 \end{definition}
 \begin{definition}
     A \textit{monomorphism} is an injective homomorphism.
 \end{definition}
-\begin{definition}
-    A group \textit{automorphism} is an isomorphism from a group to itself
-\end{definition}
+%\begin{definition}
+    %A group \textit{automorphism} is an isomorphism from a group to itself
+%\end{definition}
+
 \begin{definition}
 A field \(K\) is said to be a \textit{field extension} of \(F\), denoted \(K / F\), if \(F\) is a subfield of \(K\). \cite{Moy} A field extension is a monomorphism \(\iota: F \to K\).
 \end{definition}
 In other words, a field extension \(K\) of \(F\) will contain the field \(F\) and some more elements. We can start to see how this will be useful for finding roots of polynomials over a field as we can extend the field to include the roots.
+
 \begin{example}
 The field \(\mathbb{Q}[\sqrt{2}]\) is a field extension of \(\mathbb{Q}\), as \(\mathbb{Q}[\sqrt{2}] = \{a + \sqrt{2}b : a,b \in \mathbb{Q}\}\) we can clearly see that when \(b = 0\) this gives us the rational numbers so \(\mathbb{Q}\) is a subfield of \(\mathbb{Q}[\sqrt{2}]\).
 \end{example}
+
 \begin{definition}
-Let \(K\) be a subfield of \(L\) if \(\alpha \in L\), and if \(p(\alpha)=0\), for some polynomial \(p(x)\) over \(K\), \(\alpha\) is an \textit{algebraic number}. Otherwise, \(\alpha\) is transcendental over \(K\).
+Let \(K\) be a subfield of \(L\) if \(\alpha \in L\), and if \(p(\alpha)=0\), for some polynomial \(p(x)\) over \(K\), \(\alpha\) is an \textit{algebraic number}. Otherwise, \(\alpha\) is \textit{transcendental} over \(K\).
 \end{definition}
 \begin{theorem}
 If \(\alpha\) is an algebraic number, then \(\mathbb{Q}[\alpha]\) is a field.
@@ -40,6 +43,15 @@ For \((p + \alpha q) , (s + \alpha t ) \in \mathbb{Q}[\alpha]\) , \((p + \alpha 
     If $L/K$ is a field extensions, we call any field $M$ with $K \subseteq M \subseteq L$ an \textit{intermediate field.}
 \end{definition}
 
+\begin{definition} \label{def:automorphism}
+	Let $L/K$ be a field extension. A $K$-automorphism $\phi$ of $L$ is an automorphism of $L$ such that $\phi(a) = a$ for all $a \in K$. 
+\end{definition}
+
+\begin{definition}
+	Let $K \subseteq M \subseteq L$. A $K$-monomorphism $\phi : M \to L$ is a monomorphism from $M$ to $L$ such that $\phi(a) = a$ for all $a \in K$. 
+\end{definition}
+
+
 
 \subsection{The Degree of a Field Extension}
 \begin{definition}
@@ -55,10 +67,10 @@ For \((p + \alpha q) , (s + \alpha t ) \in \mathbb{Q}[\alpha]\) , \((p + \alpha 
 \end{equation*}
 \end{theorem}
 \begin{proof}
-$M$ is an intermediate field, so we have $K \subseteq M \subseteq L$. Suppose that $[L:M]=m$ and $[M:K]=n$. Then since the subfields are vector spaces, we can takes a basis for each of the field extensions $L/M$ and $M/K$.
-Let $\lambda = \{\lambda_1,...,\lambda_m\}$ be a basis for $L/M$, and let $\mu = \{\mu_1,...,\mu_n\}$ be a basis for $M/K$. Then we have that $\forall x \in L$, $x = \sum^m_{i=1}x_i\lambda_i$ for some $x_i \in M$, since $\lambda$ is a basis for $L/M$. Now let $b:=\sum^n_{j=1}\mu_j$ and $d_i:=\frac{x_i}{b}$. Then we have that $x=\sum^m_{i=1}\frac{x_i}{b}\cdot b \cdot \lambda_i = \sum^m_{i=1}\sum^n_{j=1}d_i\cdot \mu_j \cdot \lambda_i$. If we consider the set $\gamma=\{\lambda_i\mu_j : 1\leq i \leq m, 1\leq j \leq n\}$, and consider from what we have seen above, we can write any $x \in L$ as a linear combination of some elements of elements in $\gamma$. Therefore, $\gamma$ spans $L/K$.
+$M$ is an intermediate field, so we have $K \subseteq M \subseteq L$. Suppose that $[L:M]=m$ and $[M:K]=n$. Then since the subfields are vector spaces (as fields are vector spaces), we can takes a basis for each of the field extensions $L/M$ and $M/K$.
+Let $\lambda = \{\lambda_1,...,\lambda_m\}$ be a basis for $L/M$, and let $\mu = \{\mu_1,...,\mu_n\}$ be a basis for $M/K$. Then we have that $\forall x \in L$, $x = \sum^m_{i=1}x_i\lambda_i$ for some $x_i \in M$, since $\lambda$ is a basis for $L/M$. Now let $b:=\sum^n_{j=1}\mu_j$ and $d_i:=\frac{x_i}{b}$. Then we have that $x=\sum^m_{i=1}\frac{x_i}{b}\cdot b \cdot \lambda_i = \sum^m_{i=1}\sum^n_{j=1}d_i\cdot \mu_j \cdot \lambda_i$. Now consider the set $\gamma=\{\lambda_i\mu_j : 1\leq i \leq m, 1\leq j \leq n\}$, and consider the result that we have seen above, we can write any $x \in L$ as a linear combination of elements in $\gamma$, therefore, $\gamma$ spans $L/K$.
 
-Now it is required to show that $\gamma$ is linearly independent, in order to show that it is a basis for $L/K$. Suppose that for some $c_{ij} \in K$ we have $\sum^m_{i=1} \sum^n_{j=1} c_{ij}\lambda_i\mu_j = 0 $. Then since $\lambda$ is a linearly independent set over $M$, for all $i \in \{1,...,m\}$ we have $\sum^n_{j=1} c_{ij}\mu_j = 0 $. By seeing that $\mu$ is also a linearly independent set over $K$ we get that $\forall i \in \{1,...,m\}$ and $\forall j \in \{1,...,n\}$ we have $c_{ij} = 0$. This then implies that $\gamma$ is linearly independent and we already know it spans $L/K$, thus it is a basis for $L/K$ and since $|\gamma|=mn$ this implies that $[L:K] = mn = [L:M]\cdot[M:K]$.
+Now we show that $\gamma$ is linearly independent, and hence confirm that it is a basis for $L/K$. Suppose that for some $c_{ij} \in K$ we have $\sum^m_{i=1} \sum^n_{j=1} c_{ij}\lambda_i\mu_j = 0 $. Then since $\lambda$ is a linearly independent set, as $\lambda$ is a basis, over $M$, for all $i \in \{1,...,m\}$ we have $\sum^n_{j=1} c_{ij}\mu_j = 0 $. By seeing that $\mu$ is also a linearly independent set over $K$ we get that $\forall i \in \{1,...,m\}$ and $\forall j \in \{1,...,n\}$ we have $c_{ij} = 0$. Therefore, $\gamma$ is linearly independent and we  know it spans $L/K$, thus it is a basis for $L/K$ and since $|\gamma|=mn$ this implies that $[L:K] = mn = [L:M]\cdot[M:K]$.
 
 \end{proof}
 
@@ -67,7 +79,7 @@ Now it is required to show that $\gamma$ is linearly independent, in order to sh
 An extension field \(F\) of \(K\) is called simple if \(F = K(\alpha)\) for some \(\alpha \in F\).
 \end{definition}
 \begin{example}
-Clearly, \(\mathbb{Q}(\sqrt{2}) / \Q\) is a simple field extension.
+Clearly, \(\mathbb{Q}[\sqrt{2}]\) is a simple field extension over \(\Q\).
 \end{example}
 We can also look at some less obvious extension fields which are simple.
 \begin{example}
@@ -83,7 +95,7 @@ so we know that \(K'\) contains \(i\). We can also see that \(K'\) contains \(\s
 \end{definition}
 
 \begin{definition}
-    Let $L / K$ be a field extension, and suppose that $\alpha \in L$ is algebraic over $K$. Then the minimal polynomial of $\alpha$ over $K$ is the unique monic polynomial $m$ over $K$ of smallest degree such that $m(\alpha)=0$.
+    Let $L / K$ be a field extension, and suppose that $\xi \in L$ is algebraic over $K$. Then the minimal polynomial of $\xi$ over $K$ is the unique monic polynomial $\mu$ over $K$ of smallest degree such that $\mu(\xi)=0$.
 
 
 We write
@@ -93,6 +105,12 @@ $$
 for the set of equivalence classes of $K[t]$ modulo $m$. 
 \end{definition}
 % Readers who know about ideals in rings will see at once that $K[t] /\langle m\rangle$ is a thin disguise for the quotient ring of $K[t]$ by the ideal generated by $m$, and the equivalence classes are cosets of that ideal, but at this stage of the book these concepts are more abstract than we really need.
+
+
+\begin{example}
+    Consider $\xi = \sqrt{2}$, $E=\R$, $F = \Q$ so $F[t]=\Q[t]$, then the minimal polynomial of $\xi$ is $\mu_\xi(t)=t^2-2$, since if it were of the form $at+b$, this would require either $a \in \Q^c$ or $b \in \Q^c$, and thus $at+b \notin \Q[t]$
+\end{example}
+
 
 \begin{theorem}
     Every nonzero element of $K[t] /\langle m\rangle$ has a multiplicative inverse in $K[t] /\langle m\rangle$ if and only if $m$ is irreducible in $K[t]$.
@@ -120,24 +138,15 @@ The isomorphism is defined by $[p(t)] \mapsto p(\alpha)$, where $[p(t)]$ is the 
 \end{lemma}
 
 \begin{proof}
-    \textcolor{red}{TO DO:}Put the proof here
-\end{proof}
+    We show that every polynomial \(a \in K[t]\) is congruent modulo \(m\) to a unique polynomial of degree less that the degree of \(m\). If we divide \(a\) by \(m\) with remainder we have \(a = qm + r\) with \(q,r \in K[t]\) and \(\partial r < \partial m\), this implies that \(a - r =qm\) and so we know that \(a \equiv r (\text{mod } m)\). Now we show uniqueness, suppose that there exists \(r \equiv s(\text{mod }m)\), where \(\partial r, \partial s < \partial m\). Then \((r - s)\) divides \(m\), but \((r-s)\) has a smaller degree than \(m\), so \(r-s=0\), which implies that \(r=s\). This tells us that $\left\{1, \alpha, \ldots, \alpha^{n-1}\right\}$ is a basis for \(K(\alpha)\) as \(n = \partial m\), so any higher powers would be congruent to these powers which are less than \(n\).
+    \end{proof}
 
-\begin{theorem}
-    Let $K(\alpha) / K$ be a simple extension. If it is transcendental then $[K(\alpha): K]=\infty$. If it is algebraic then $[K(\alpha): K]=\partial m$, where $m$ is the minimal polynomial of $\alpha$ over $K$.
+\begin{theorem} \label{thm:degree-theorem}
+    Let $K(\alpha) / K$ be a simple extension. If it is transcendental then $[K(\alpha): K]=\infty$. If it is algebraic then $[K(\alpha): K]=\partial m$, where $m$ is the minimal polynomial of $\alpha$ over $K$. \label{finite degree theorem}
 \end{theorem}
 
 \begin{proof}
 For the transcendental case we know that the elements $1, \alpha, \alpha^2, \ldots$ are linearly independent over $K$. For the algebraic case, we see lemma \ref{algebraic case}.
-\end{proof}
-
-
-\begin{theorem}
-    Let $M/K$ be a field extension and let $\alpha \in M$. Then $\alpha$ is algebraic over $K$ if and only if $\alpha$ is in a finite field extension of $K$. 
-\end{theorem}
-
-\begin{proof}
-    \textcolor{red}{TO DO:}Put the proof here
 \end{proof}
 
 \begin{definition}
@@ -149,7 +158,7 @@ For the transcendental case we know that the elements $1, \alpha, \alpha^2, \ldo
 \end{theorem}
 
 \begin{proof}
-    \textcolor{red}{TO DO:}Put the proof here
+    If \(\alpha_1, ... , \alpha_r \in K\) are algebraic we know that for any \(\alpha_s\) with \(1 \leq s \leq r\) \([K(\alpha_1,...,\alpha_s): K(\alpha_1,...,\alpha_{s-1}] = \partial m\), where \(m\) is the minimal polynomial of \(\alpha_s\) over \(K\) by theorem \ref{finite degree theorem}. Then, using theorem \ref{thm:tower-theorem}, we see that \([K(\alpha_1,...,\alpha_r) : K] = [K(\alpha_1,...,\alpha_r):K(\alpha_1,...,\alpha_{r-1}]...[K(\alpha_1):K]\) is finite. Conversely, let \(L/K\) be a finite extension. Then there exists a basis \(\{\alpha_1, ..., \alpha_r\}\) for \(L\) over \(K\). Let \(x\) be any element of \(L\) and let \(n = [L:K]\). The set \(\{1,x,...,x^n\}\) contains \(n+1\) elements, which must be linearly dependent over \(K\). Hence, \(k_0 + k_1 x + ... + k_n x^n = 0\) for \(k_0, k_1, ..., k_n \in K\), and \(x\) is algebraic over \(K\).
 \end{proof}
 
 % NB the definition of an algebraic extension is used in defining normal extensions

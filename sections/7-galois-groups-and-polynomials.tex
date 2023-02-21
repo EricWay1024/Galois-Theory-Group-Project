@@ -1,10 +1,10 @@
 \section{Galois Groups and Polynomials} \label{sec:galois-groups-and-polynomials}
 
 
-\subsection{Soluble and Simple Groups}
+\subsection{Solvable Groups}
 
 \begin{definition} \label{def:soluble}
-    A group $G$ is soluble (or solvable) if it has a finite series of subgroups 
+    A group $G$ is solvable if it has a finite series of subgroups 
     $$ \{ e \} = G_0 \triangleleft G_1 \triangleleft \dots \triangleleft G_n = G$$
     such that the quotient $G_{i+1} / G_{i}$ is abelian for each $i = 0, 1, ...,  n - 1$.
 \end{definition}
@@ -229,7 +229,7 @@ Now we establish a case where the Galois group of a polynomial over $\mathbb Q$ 
 
     Complex conjugation restricted to $\Sigma$ is a $\mathbb Q$-automorphism of $\Sigma$. It fixes all $p - 2$ real zeros of $f$ and transposes the two non-real zeros. Therefore $G$ contains a transposition. 
 
-    Take any zero $\alpha$ of $f$. Since $f$ is irreducible, it is the minimal polynomial of $\alpha$. Then by the \textbf{Degree Theorem}, $$[\mathbb Q(\alpha) : \mathbb Q] = \partial f = p. $$ Theorem \ref{thm:tower-theorem} implies that $$[\Sigma : \mathbb Q] = [\Sigma : \mathbb Q(\alpha)] [ \mathbb Q(\alpha) : \mathbb Q]. $$ By Theorem \ref{thm:fixed}, $|G| = [\Sigma : \mathbb Q]$, and thus $p$ divides $|G|$. Theorem \ref{thm:cauchy} gives the existence of an element of order $p$ in $G$, but the only elements of order $p$ in $S_p$ are $p$-cycles. Therefore $G$ contains a $p$-cycle.
+    Take any zero $\alpha$ of $f$. Since $f$ is irreducible, it is the minimal polynomial of $\alpha$. Then by Theorem \ref{thm:degree-theorem}, $$[\mathbb Q(\alpha) : \mathbb Q] = \partial f = p. $$ Theorem \ref{thm:tower-theorem} implies that $$[\Sigma : \mathbb Q] = [\Sigma : \mathbb Q(\alpha)] [ \mathbb Q(\alpha) : \mathbb Q]. $$ By Theorem \ref{thm:fixed}, $|G| = [\Sigma : \mathbb Q]$, and thus $p$ divides $|G|$. Theorem \ref{thm:cauchy} gives the existence of an element of order $p$ in $G$, but the only elements of order $p$ in $S_p$ are $p$-cycles. Therefore $G$ contains a $p$-cycle.
 
     Hence by Theorem \ref{thm:symmetric-prime}, $ G = S_p$ and therefore $\Gal(\Sigma / \mathbb Q) \cong S_p$.
 \end{proof}
@@ -241,14 +241,20 @@ We now give a quintic polynomial not soluble by radicals.
 \end{example}
 
 \begin{proof}
-    $f$ is irreducible by \textbf{Eisenstein's criterion} with $p = 2$. The degree of $f$ is $5$, which is prime. Calculus shows that $f$ has three real zeros. Thus the Galois group of $f$ is isomorphic to $S_5$ by Theorem \ref{thm:galois-iso-symmetric}. But $S_5$ is not soluble by Theorem \ref{thm:symmetric-not-soluble}. Thus by Theorem \ref{thm:radical-galois-soluble}, $f$ is not soluble by radicals.
+    $f$ is irreducible by Theorem \ref{thm:eisenstein} with $p = 2$. The degree of $f$ is $5$, which is prime. Calculus shows that $f$ has three real zeros. Thus the Galois group of $f$ is isomorphic to $S_5$ by Theorem \ref{thm:galois-iso-symmetric}. But $S_5$ is not soluble by Theorem \ref{thm:symmetric-not-soluble}. Thus by Theorem \ref{thm:radical-galois-soluble}, $f$ is not soluble by radicals.
 \end{proof}
 
 \subsection{Abel-Ruffini Theorem}
 
 If we think of a general quadratic polynomial, i.e one of the form $aX^2+bX+c$, and try to find its roots, we know that there is a formula to find the roots of the general quadratic, which is $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$. A similar formula can be found to find the roots of a general cubic and quartic polynomial. However, there is no such general formula for polynomial of degree 5 an higher.
 
-The Abel-Ruffini theorem, was posed and proved (incompletely) by Paolo Ruffini and completed by Niels Henrik Abel, shows that the general polynomial of order five and above is not solvable by radicals. For this section, we assume that all fields that we mention have characteristic 0.
+To begin we define the characterisitic of a field.
+
+\begin{definition}
+    The characteristic of a field $K$, denoted by Char$(K)$, is the smallest number $n \in \N$ such that $1+1+...+1 (n$ times)$=0$. If such an $n$ does not exist, we say that Char$(K)=0$
+\end{definition}
+
+The Abel-Ruffini theorem, posed and proved (incompletely) by Paolo Ruffini and completed by Niels Henrik Abel, shows that the general polynomial of order five and above is not solvable by radicals. For this section, we assume that all fields that we mention have characteristic 0.
 
 First, we need to understand a lemma in order to be able to prove the Abel-Ruffini Theorem. The proof of this lemma is adapted from a lecture by DeVille \cite{galois-lecture-polynomials} and the lecture notes by Hofscheier \cite{commutative-algebra-uon}
 
@@ -269,9 +275,10 @@ $P_n(x) := x^n-s_1x^{n-1}+...+(-1)^ns_n \in K[x]$
 
     This action fixes the base field $K$, which tells us $S_n \leq \Gal(L/K) \implies |\Gal(L/K)|\geq n!$.
 
-    Then, we know that $L$ is a splitting field of a polynomial $P_n$ over $K$, thus by Theorem \ref{thm:upper-bound-splitting-field}, $[L:K]\leq n!$. Then by Theorem \ref{thm:galois-group-order-upper-bound}, we see that $n!\leq |\Gal(L/K)|\leq [L:K]\leq n!$ and so $|\Gal(L/K)| = n! = [L:K]$ and so $Gal(L/K)=S_n$
+    Then, we know that $L$ is a splitting field of a polynomial $P_n$ over $K$, thus by Theorem \ref{thm:upper-bound-splitting-field}, $[L:K]\leq n!$. Then by Theorem \ref{thm:galois-group-order-upper-bound}, we see that $n!\leq |\Gal(L/K)|\leq [L:K]\leq n!$ and so $|\Gal(L/K)| = n! = [L:K]$. Then since we have that $|\Gal(L/K)| = n!$ and $S_n \leq \Gal(L/K)$ which implies that $\Gal(L/K) = S_n$
 
 \end{proof}
+    
 
 Next we need to show that a simple radical extension is solvable, in order to be able to fully prove Galois' Theorem.
 
@@ -319,5 +326,5 @@ Now, we propose a theorem, which is Galois' Theorem, in order to set up the main
 \end{theorem}
 
 \begin{proof}
-    By Lemma \ref{lemma:galois-symmetric}, we know that the general polynomial, written in the form $f(x)=a_0X^n - a_1X^{n-1} + ... + (-1)^na_n$ has Galois group isomorphic to $S_n$. Then by Theorem \ref{thm:symmetric-not-soluble} we can see that for $n \geq 5$, $S_n$ is not soluble, which by Theorem \ref{thm:galois-theorem} implies that the general polynomial of degree $n \geq 5$ is not solvable.
+    By Corollary \ref{thm:galois-group-isomorphic-symmetric-subgroup}, we know that the general polynomial, written in the form $f(t)=a_0t^n - a_1t^{n-1} + ... + (-1)^na_n$ has Galois group isomorphic to a subgroup of $S_n$. Then by Theorem \ref{thm:symmetric-not-soluble} we can see that for $n \geq 5$, $S_n$ is not solvable, which by Theorem \ref{thm:galois-theorem} implies that the general polynomial of degree $n \geq 5$ is not solvable.
 \end{proof}
