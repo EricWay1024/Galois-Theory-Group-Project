@@ -37,20 +37,21 @@ Of all the fields in which $f$ splits, we are particularly interested in the sma
 	If we have a polynomial \(p(x) = x^4 - 12x^2 + 35\) the splitting field of \(p(x)\) is \(\mathbb{Q}[\sqrt{5},\sqrt{7}]\) as it contains all of the roots of \(p(x)\) and if it was any smaller it would not contain all of the roots or would not be a field.
 \end{example}
 
-We see that $\Sigma$ is the smallest field containing $K$ and all zeros of $f$. The uniqueness of $\Sigma$ follows directly from its definition. Also, each $\alpha_i$ is algebraic over $K$ and their number is finite, so $\Sigma / K$ is finite by Theorem \ref{thm:finite-equi-def}. Further, w`e now prove an upper bound for degree of a splitting field.
+We see that $\Sigma$ is the smallest field containing $K$ and all zeros of $f$. The uniqueness of $\Sigma$ follows directly from its definition. Also, each $\alpha_i$ is algebraic over $K$ and their number is finite, so $\Sigma / K$ is finite by Theorem \ref{thm:finite-equi-def}. 
+%Further, we now prove an upper bound for degree of a splitting field.
 
 
-\begin{theorem}\label{thm:upper-bound-splitting-field}
-	For every $f \in K[t]$ of degree $n>0$, there exists a field extension $L/K$ such that $L$ is a splitting field of $f$ over $K$ with $[L:K]\leq n!$. 
-\end{theorem}
-
-\begin{proof}
-	We construct a proof by induction on the degree of $f$, $n$. 
-	For the case where $n = 1$, this is trivial, where $L=K$.
-	Now, for $n>1$, let $h$ be an irreducible polynomial over $K$ which divides $f$ and let $a_1$ be a root of $h$ such that $a_1$ lies in $L_1$, where $L_1/K$ is a field extension with $[L_1 : K] = \partial h \le n$. Then $a_1$ is also a root of $f$, and then we can say that $f=(t-a_1)f_1(t)$, where $f_1\in L_1[t]$, and since $f$ has degree $n$, $f_1$ has degree $n-1$. By our induction hypothesis there must be a field extension $L/L_1$ such that $[L:L_1]\leq(n-1)!$. Then $f$ must split into linear factors in $L$, and so if we define the roots of $f_1$ as $a_2,...,a_n\in L$, we see that $L=L_1(a_2,...,a_n)$ and $L_1=K(a_1) \implies L=K(a_1,a_2,...,a_n)$. Thus by Theorem \ref{thm:tower-theorem}, we get $[L:K]=[L:L_1][L_1:K]\leq (n-1)!\cdot n = n!$.
-
-%	 let $f=gh$, with $g,h \in K[t]$ where $h$ is irreducible. Then, there is an extension $L_1/K$, such that $[L_1:K]=\partial h \leq n$, with a root of $f$ in $L_1$. Let us define the root as $a_1$, 
-\end{proof}
+%\begin{theorem}\label{thm:upper-bound-splitting-field}
+%	For every $f \in K[t]$ of degree $n>0$, there exists a field extension $L/K$ such that $L$ is a splitting field of $f$ over $K$ with $[L:K]\leq n!$. 
+%\end{theorem}
+%
+%\begin{proof}
+%	We construct a proof by induction on the degree of $f$, $n$. 
+%	For the case where $n = 1$, this is trivial, where $L=K$.
+%	Now, for $n>1$, let $h$ be an irreducible polynomial over $K$ which divides $f$ and let $a_1$ be a root of $h$ such that $a_1$ lies in $L_1$, where $L_1/K$ is a field extension with $[L_1 : K] = \partial h \le n$. Then $a_1$ is also a root of $f$, and then we can say that $f=(t-a_1)f_1(t)$, where $f_1\in L_1[t]$, and since $f$ has degree $n$, $f_1$ has degree $n-1$. By our induction hypothesis there must be a field extension $L/L_1$ such that $[L:L_1]\leq(n-1)!$. Then $f$ must split into linear factors in $L$, and so if we define the roots of $f_1$ as $a_2,...,a_n\in L$, we see that $L=L_1(a_2,...,a_n)$ and $L_1=K(a_1) \implies L=K(a_1,a_2,...,a_n)$. Thus by Theorem \ref{thm:tower-theorem}, we get $[L:K]=[L:L_1][L_1:K]\leq (n-1)!\cdot n = n!$.
+%
+%%	 let $f=gh$, with $g,h \in K[t]$ where $h$ is irreducible. Then, there is an extension $L_1/K$, such that $[L_1:K]=\partial h \leq n$, with a root of $f$ in $L_1$. Let us define the root as $a_1$, 
+%\end{proof}
 
 The splitting fields of a polynomial over two isomorphic fields are isomorphic, in the following sense:
 
