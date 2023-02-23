@@ -3,30 +3,38 @@
 \subsection{Basics of Polynomials}
 
 \begin{definition}
-    If $f$ is a polynomial over $K$ and $f \neq 0$, then the degree of $f$ is the highest power of $t$ occurring in $f$ with a non-zero coefficient, denoted as $\partial f$. 
+    Let $K$ be a field and $t$ be an indeterminate. A \textit{polynomial} $f$ over $K$ (in the indeterminate $t$) is of the form $f(t) = r_n t^n + r_{n-1} t^{n+1} + ... + r_1 t + r_0$, where the \textit{coefficients} $r_i \in K$. 
 \end{definition}
 
-Polynomials with degree $n$ will often be written in descending order $r_n t^n + r_{n-1} t^{n+1} + ... + r_1 t + r_0$.
+It is easy to check directly from the definitions above that the set of all polynomials over a field $K$ obeys all the normal algebraic laws. We denoted the set by $K[t]$ and call it the ring of polynomials over $K$ (in the indeterminate $t$).
 
-\begin{theorem}
-    Two polynomials $f,g$ over $K$ define the same function if and only if they are equal polynomials, so they have the same coefficients.
-\end{theorem}
+\begin{definition}
+	If $f$ is a polynomial over $K$ and $f \neq 0$, then the \textit{degree} of $f$ is the highest power of $t$ occurring in $f$ with a non-zero coefficient, denoted as $\partial f$. 
+\end{definition}
 
-\begin{proof}
-    This is a basic proof to an obvious theorem. By taking the difference of the two polynomials, we must prove that if $f(t)$ is a polynomial over $K$ and $f(t) = 0$ for all $t$, then the coefficients of $f$ are all 0. Let $P(n)$ be the statement: If a polynomial $f(t)$ over $K$ has degree $n$, and $f(t) = 0$ for all $t$, then $f=0$. We prove $P(n)$ for all $n$ by induction on $n$. 
-    
-    Both $P(0)$ and $P(1)$ are obvious. Suppose that $P(n-1)$ is true. With $f(t) = a_n t^n +...+ a_0$. In particular, $f(0) = 0$, so $a_0 = 0$ and,
-    $$
-    f(t) = a_n t^n +...+ a_1 t= t(a_n t^{n-1} +...+ a_1) = tg(t),
-    $$
-    where $g(t) = a_n t^{n-1} +...+ a_1$ has degree $n-1$. Now $g(t)$ vanishes for all $t$ except $t=0$. However is $g(0) = a_1 \neq 0$ then $g(t) \neq 0$ for sufficiently small $t$. Therefore $g(t)$ vanishes for all $t$. By induction, $g=0$. Therefore $f=0$ so $P(n)$ is true and the induction is complete.
-\end{proof}
 
-Two polynomials are defined to be equal if and only if all corresponding co-efficients are equal.
 
-If $r = \sum (r_i t^i)$ and $s = \sum (s_i t^i)$ then $r+s = \sum (r_i + s_i)t^i$, and $rs = \sum (q_j t^j)$ where $q_j = \sum_{h+i=j} r_h s_i$.
+%Polynomials with degree $n$ will often be written in descending order $r_n t^n + r_{n-1} t^{n+1} + ... + r_1 t + r_0$.
 
-It is easy to check directly from the definitions above that the set of all polynomials over $\C$ in the $t$ obeys all the normal algebraic laws. We denoted the set by $K[t]$ and call it the ring of polynomials over $K$ in the indeterminate $t$.
+%\begin{theorem}
+%    Two polynomials $f,g$ over $K$ define the same function if and only if they are equal polynomials, so they have the same coefficients.
+%\end{theorem}
+%
+%\begin{proof}
+%    This is a basic proof to an obvious theorem. By taking the difference of the two polynomials, we must prove that if $f(t)$ is a polynomial over $K$ and $f(t) = 0$ for all $t$, then the coefficients of $f$ are all 0. Let $P(n)$ be the statement: If a polynomial $f(t)$ over $K$ has degree $n$, and $f(t) = 0$ for all $t$, then $f=0$. We prove $P(n)$ for all $n$ by induction on $n$. 
+%    
+%    Both $P(0)$ and $P(1)$ are obvious. Suppose that $P(n-1)$ is true. With $f(t) = a_n t^n +...+ a_0$. In particular, $f(0) = 0$, so $a_0 = 0$ and,
+%    $$
+%    f(t) = a_n t^n +...+ a_1 t= t(a_n t^{n-1} +...+ a_1) = tg(t),
+%    $$
+%    where $g(t) = a_n t^{n-1} +...+ a_1$ has degree $n-1$. Now $g(t)$ vanishes for all $t$ except $t=0$. However is $g(0) = a_1 \neq 0$ then $g(t) \neq 0$ for sufficiently small $t$. Therefore $g(t)$ vanishes for all $t$. By induction, $g=0$. Therefore $f=0$ so $P(n)$ is true and the induction is complete.
+%\end{proof}
+
+%Two polynomials are defined to be equal if and only if all corresponding co-efficients are equal.
+
+%If $r = \sum (r_i t^i)$ and $s = \sum (s_i t^i)$ then $r+s = \sum (r_i + s_i)t^i$, and $rs = \sum (q_j t^j)$ where $q_j = \sum_{h+i=j} r_h s_i$.
+
+
 
 \subsection{Fundamental Theorem of Algebra} 
 
@@ -42,9 +50,9 @@ This is a special case where it only works over $\C$. Such a number $z$ is calle
 
 \begin{proposition}
     Let $p(t) \in \mathbb{C}[t]$ with $\partial p=n \geq 1$. Then there exist $\alpha_1, \ldots, \alpha_n \in \mathbb{C}$, and $0 \neq k \in \mathbb{C}$, such that
-    $$
+    $
     p(t)=k\left(t-\alpha_1\right) \ldots\left(t-\alpha_n\right).
-    $$
+    $
 \end{proposition}
 
 \begin{proof}
@@ -78,11 +86,9 @@ This is a special case where it only works over $\C$. Such a number $z$ is calle
 
 \begin{example}
     We can use the above theorem to prove irreducibilty for some cases, working very well for cubic polynomials over $\Z$. Let $R = \Z$ then the polynomial $f(t) = t^3 -5 t + 1$ is irreducible. If it was not irreducible then it must have a linear factor $t - \alpha$ over $\Z$ and then $\alpha \in \Z$ and $f(\alpha) = 0$. There also must exist $\beta, \lambda \in \Z$ such that,
-
     $$
-    f(t) = (t-\alpha)(t^2 + \beta t + \lambda) = t^3 + (\beta - \alpha)t^2 + (\lambda - \alpha \beta)t - \alpha \lambda
+    f(t) = (t-\alpha)(t^2 + \beta t + \lambda) = t^3 + (\beta - \alpha)t^2 + (\lambda - \alpha \beta)t - \alpha \lambda,
     $$
-
     so $\alpha \lambda = -1$. Therefore, $\alpha = \pm 1$. But $f(1) = -3 \neq 0$ and $f(-1) = 5 \neq 0$. This shows that no factor exists.
 \end{example}
 
@@ -106,39 +112,25 @@ and by the choice of $i$ and $j$, the prime $p$ divides every term of this expre
 
 \begin{theorem}[Eisenstein's Criterion] \label{thm:eisenstein}
      Let
-    
-    $$f(x) = a_0 + a_1 t + ... + a_n t^n$$
-    
-    be a polynomial over $\Z$. Suppose there is a prime $q$ such that:
-
-    (1) $q \nmid a_n$
-
-    (2) $q | a_i$ for $i = {0, 1,..., n-1}$
-    
-    (3) $q^2 \nmid a_0$
-    
-    Then $f$ is irreducible over $\Q$
+    $f(t) = a_0 + a_1 t + ... + a_n t^n$
+    be a polynomial over $\Z$. Suppose there is a prime $q$ such that: (1) $q \nmid a_n$, (2) $q \mid a_i$ for $i = {0, 1,..., n-1}$, and (3) $q^2 \nmid a_0$. Then $f$ is irreducible over $\Q$. 
 \end{theorem}
 
 \begin{proof}
 By Gauss' Lemma it is sufficient to show that $f$ is irreducible over $\Z$. Suppose for a contradiction that $f = gh$, where
-
-$$
-g=b_0+b_1 t+ ... +b_r t^r,
-$$
-$$
-h=c_0+c_1 t+ ... +c_s t^s
-$$
-
+$
+g(t)=b_0+b_1 t+ ... +b_r t^r,
+$
+and
+$
+h(t)=c_0+c_1 t+ ... +c_s t^s
+$
 are polynomials of smaller degree over $\Z$. Then $r \ge 1, s \ge 1$ and $r+s = n$. Now $b_0 c_0 = a_0$ so by (2), $q | b_0$ or $q|c_0$. By (3), $q$ cannot divide both $b_0$ and $c_0$, so without
 loss of generality we can assume $q | b_0$ and $q \nmid c_0$. If all $b_j$ are divisible by $q$, then $a_n$ is divisible by $q$, contrary to (1). Let $b_j$ be the first coefficient of $g$ not divisible by $q$. Then
-
-$$
+$
 a_j = b_j c_0 + ...+ b_0 c_j
-$$
-where $j < n$.
-
- This implies that $q$ divides $c_0$, since $q$ divides $a_j, b_0,..., b_{j-1}$, but not $b_j$. This is a contradiction. Hence f is irreducible.
+$
+where $j < n$. This implies that $q$ divides $c_0$, since $q$ divides $a_j, b_0,..., b_{j-1}$, but not $b_j$. This is a contradiction. Hence f is irreducible.
 \end{proof}
 
 \begin{example}
@@ -155,9 +147,7 @@ If $p$ is prime, the binomial coefficient $\binom{p}{r}$ is divisible by $p$ if 
 \end{theorem}
 
 \begin{proof}
-The binomial coefficient is an integer and $\binom{p}{r} = \frac{p!}{r!(p-r)!}$.
-
-The factor $p$ in the numerator cannot cancel with any factor in the denominator unless $r=0$ or $r=p$.
+The binomial coefficient is an integer and $\binom{p}{r} = \frac{p!}{r!(p-r)!}$. The factor $p$ in the numerator cannot cancel with any factor in the denominator unless $r=0$ or $r=p$.
 \end{proof}
 
 \begin{theorem}\label{thm:irreducible-prime-polynomial}
@@ -170,21 +160,14 @@ The factor $p$ in the numerator cannot cancel with any factor in the denominator
 
 \begin{proof}
 First, $f(t) = \frac{t^p - 1}{t - 1}$. Put $t = 1 + u$ where $u$ is a new indeterminate. Then $f(t)$ is irreducible over $\Q$ if and only if $f(1+u)$ is irreducible. But
-
 $$
-f(1+u) = \frac{(1+u)^p - 1}{u}
+f(1+u) = \frac{(1+u)^p - 1}{u}  = u^{p-1} + ph(u),
 $$
-
-$$
-f(1+u) = u^{p-1} + ph(u)
-$$
-
 where $h$ is a polynomial in $u$ over $\Z$ with constant term 1, by the above theorem. By Eisenstein's Criterion, $f(1+u)$ is irreducible over $\Q$.
 \end{proof}
 
 \begin{definition}
     A \textit{symmetric polynomial} is a polynomial where if the variables are interchanged, the polynomial remains the same.
-
     Formally, for $f(t_1,t_2,...,t_n)$ and $\forall \sigma \in S_n$, we have $f(t_1,t_2,...,t_n) = f(t_{\sigma(1)},t_{\sigma(2)},...,t_{\sigma(n)})$
 \end{definition}
 

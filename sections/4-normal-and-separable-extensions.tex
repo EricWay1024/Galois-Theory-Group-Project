@@ -31,7 +31,7 @@ Of all the fields in which $f$ splits, we are particularly interested in the sma
     %     \item $f$ splits over $\Sigma$ and
     %     \item for any $\Sigma'$ such that $K \subseteq \Sigma' \subseteq \Sigma$ and $f$ splits over $\Sigma'$, we have $\Sigma' = \Sigma$. 
     % \end{itemize}
-    The splitting field $\Sigma$ of a polynomial $f$ over a field $K$ is defined by $$\Sigma = K(\alpha_1, \ldots, \alpha_n), $$ where $\alpha_i$ are zeros of $f$. 
+    The splitting field $\Sigma$ of a polynomial $f$ over a field $K$ is defined by $\Sigma = K(\alpha_1, \ldots, \alpha_n), $ where $\alpha_i$ are zeros of $f$. 
 \end{definition}
 \begin{example}
 	If we have a polynomial \(p(x) = x^4 - 12x^2 + 35\) the splitting field of \(p(x)\) is \(\mathbb{Q}[\sqrt{5},\sqrt{7}]\) as it contains all of the roots of \(p(x)\) and if it was any smaller it would not contain all of the roots or would not be a field.
@@ -59,10 +59,10 @@ The splitting fields of a polynomial over two isomorphic fields are isomorphic, 
 \begin{theorem} \label{thm:splitting-field-unique}
 	Let $\iota: K \to K'$ be a field isomorphism. Let $f$ be a polynomial over $K$ with the splitting field $\Sigma$, and then let $\Sigma'$ be the splitting field of $\iota(f)$ over $K'$. Then there is an isomorphism $j : \Sigma \to \Sigma'$ such that $j | _K = \iota$. 
 \end{theorem}
-\TODO add theorem 5.16 of Stewart to simple field extensions
+%\TODO add theorem 5.16 of Stewart to simple field extensions
 
 \begin{proof}
-	We construct $j$ by induction on the degree of $f$. We write $$ f(t) = k (t - \alpha_1) \ldots (t - \alpha_n), $$ where $\alpha_i \in \Sigma$ and $k \in K$. Let $m_1$ be the minimal polynomial of $\alpha_1$ over $K$. $m_1$ is an irreducible factor of $f$ and hence $\iota(m_1)$ is an irreducible factor of $\iota(f)$. Thus $\iota(m_1)$ splits in $\Sigma'$. Let $\iota(m_1)(t) = (t - \beta_1) \ldots (t - \beta_n)$, where $\beta_i \in \Sigma'$ and $\iota(m_1)$ is the minimal polynomial of $\beta_i$ over $K'$. Then by Theorem \TODO, there is an isomorphism $j_1 : K(\alpha_1) \to K'(\beta_1)$ such that $j_1 | _K = \iota$ and $j_1(\alpha_1) = \beta_1$. Now $f / (t - \alpha_1)$ is a polynomial over $K(\alpha_1)$ with splitting field $\Sigma$, and $\Sigma'$ is the splitting field of $\iota(f / (t - \alpha_1))$ over $K'(\beta_1)$. By induction, there exists an isomorphism $j: \Sigma \to \Sigma'$ such that $j | _{K(\alpha_1)} = j_1$ and therefore $j | _K = \iota$. 
+	We construct $j$ by induction on the degree of $f$. We write $ f(t) = k (t - \alpha_1) \ldots (t - \alpha_n), $ where $\alpha_i \in \Sigma$ and $k \in K$. Let $m_1$ be the minimal polynomial of $\alpha_1$ over $K$. $m_1$ is an irreducible factor of $f$ and hence $\iota(m_1)$ is an irreducible factor of $\iota(f)$. Thus $\iota(m_1)$ splits in $\Sigma'$. Let $\iota(m_1)(t) = (t - \beta_1) \ldots (t - \beta_n)$, where $\beta_i \in \Sigma'$ and $\iota(m_1)$ is the minimal polynomial of $\beta_i$ over $K'$. Then by Theorem \ref{thm:minimal-polynomial-roots-isomorphic}, there is an isomorphism $j_1 : K(\alpha_1) \to K'(\beta_1)$ such that $j_1 | _K = \iota$ and $j_1(\alpha_1) = \beta_1$. Now $f / (t - \alpha_1)$ is a polynomial over $K(\alpha_1)$ with splitting field $\Sigma$, and $\Sigma'$ is the splitting field of $\iota(f / (t - \alpha_1))$ over $K'(\beta_1)$. By induction, there exists an isomorphism $j: \Sigma \to \Sigma'$ such that $j | _{K(\alpha_1)} = j_1$ and therefore $j | _K = \iota$. 
 \end{proof}
 
 \begin{theorem}
@@ -88,10 +88,8 @@ When $f$ is irreducible, we can then construct an $K$-automorphism of $\Sigma$ t
 \end{theorem}
 
 \begin{proof}
-	$K(\alpha)/K$ and $K(\beta)/K$ are isomorphic extensions by \TODO(Corollary 5.13). The isomorphism from $K(\alpha)$ to $K(\beta)$ is also a $K$-monomorphism from $K(\alpha)$ to $\Sigma$ and thus can be extended to a $K$-automorphism $\sigma$ of $\Sigma$ by Theorem \ref{thm:monomorphism-extend-automorphism}, where $\sigma(\alpha) = \beta$.
+	$K(\alpha)/K$ and $K(\beta)/K$ are isomorphic extensions by Corollary \ref{thm:minimal-polynomial-roots-isomorphic}. The isomorphism from $K(\alpha)$ to $K(\beta)$ is also a $K$-monomorphism from $K(\alpha)$ to $\Sigma$ and thus can be extended to a $K$-automorphism $\sigma$ of $\Sigma$ by Theorem \ref{thm:monomorphism-extend-automorphism}, where $\sigma(\alpha) = \beta$.
 \end{proof}
-
-The above theorem indicates that any two zeros of an irreducible polynomial are ``indistinguishable'' in its splitting field. (\TODO move to 5.13)
 
 
 \begin{definition}
@@ -220,7 +218,7 @@ We now give the two remaining definitions.
     A field extension $L / K$ is \textit{separable} if every $\alpha \in L$ is separable.
 \end{definition}
 
-It turns out that we can also take for granted the separability of any field extension within $\C$.
+We can also take for granted the separability of any field extension within $\C$.
 
 \begin{theorem} \label{thm:separable-extension-in-C}
     A field extension $L/K$ such that $K \subseteq L \subseteq \mathbb C$ is always separable. 
