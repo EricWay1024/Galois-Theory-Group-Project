@@ -3,21 +3,21 @@
 \subsection{Basics of Field Extensions}
 In order to look at field extensions we must first define some useful terms.
 \begin{definition}
-Let \((G, *,\star )\) be a field. Let \(F\) be a subset of \(G\) such that \((F,*,\star)\) is a field. Then \((F, *,\star)\) is a \textit{subfield}
- of \((G, *, \star)\).
-\end{definition}
-\begin{definition}
+Let $G$ be a field. Let \(F\) be a subset of \(G\) such that $F$ is a field. Then $F$ is a \textit{subfield}
+ of $G$.
 A field \(F\) is called a \textit{prime field} of \(K\) if it has no proper (strictly smaller) subfield.
 \end{definition}
-\begin{definition}
-    A \textit{monomorphism} is an injective homomorphism.
-\end{definition}
+
+	A \textit{field homomorphism}\footnote{We might drop the word ``field'' if a homomorphism is clearly applied between fields. } from a field $F$ to a field $K$ is a function $\phi: F \to K$ such that $\phi(a + b) = \phi(a) + \phi(b)$, $\phi(a\cdot b) = \phi(a) \cdot \phi(b)$, $\phi(1) = 1$, and $\phi(0) = 0$ for any $a, b \in F$. 
+    A \textit{monomorphism} is an injective homomorphism. It can be shown that a field homomorphism is always injective, and hence a field homomorphism is always a field monomorphism. 
+	When a field homomorphism is both injective and surjective, it is a \textit{field isomorphism}. A field isomorphism from a field $F$ to itself is called a \textit{field automorphism} of $F$. All field automorphisms of a field $F$ form a group $\Aut(F)$, the automorphism group of $F$, under composition. 
+
 %\begin{definition}
     %A group \textit{automorphism} is an isomorphism from a group to itself
 %\end{definition}
 
 \begin{definition}
-A field \(K\) is said to be a \textit{field extension} of \(F\), denoted \(K / F\), if \(F\) is a subfield of \(K\). \cite{Moy} A field extension is a monomorphism \(\iota: F \to K\).
+A field \(K\) is said to be a \textit{field extension} of \(F\), denoted \(K / F\), if \(F\) is a subfield of \(K\). \cite{Moy} A field extension is a monomorphism \(\iota: F \to K\). If $L/K$ is a field extensions, we call any field $M$ with $K \subseteq M \subseteq L$ an \textit{intermediate field.}
 \end{definition}
 In other words, a field extension \(K\) of \(F\) will contain the field \(F\) and some more elements. We can start to see how this will be useful for finding roots of polynomials over a field as we can extend the field to include the roots.
 
@@ -25,9 +25,13 @@ In other words, a field extension \(K\) of \(F\) will contain the field \(F\) an
 The field \(\mathbb{Q}[\sqrt{2}]\) is a field extension of \(\mathbb{Q}\), as \(\mathbb{Q}[\sqrt{2}] = \{a + \sqrt{2}b : a,b \in \mathbb{Q}\}\) we can clearly see that when \(b = 0\) this gives us the rational numbers so \(\mathbb{Q}\) is a subfield of \(\mathbb{Q}[\sqrt{2}]\).
 \end{example}
 
-\begin{definition}
-	Given a polynomial $f$ over a field $K$ and let $L/K$ be a field extension. Let $\alpha \in L$, then $\alpha$ is a \textit{root} of $f$ if $f(\alpha)  = 0$.  
+
+\begin{definition} \label{def:automorphism}
+		Let $K \subseteq M \subseteq L$ be fields. A $K$-automorphism $\phi$ of $L$ is an automorphism of $L$ such that $\phi(a) = a$ for all $a \in K$. 
+ A $K$-monomorphism $\phi : M \to L$ is a monomorphism from $M$ to $L$ such that $\phi(a) = a$ for all $a \in K$. 
 \end{definition}
+
+
 
 \begin{definition}
 Let \(K\) be a subfield of \(L\) if \(\alpha \in L\), and if \(p(\alpha)=0\), for some polynomial \(p(x)\) over \(K\), \(\alpha\) is an \textit{algebraic number}. Otherwise, \(\alpha\) is \textit{transcendental} over \(K\).
@@ -43,17 +47,9 @@ For \((p + \alpha q) , (s + \alpha t ) \in \mathbb{Q}[\alpha]\) , \((p + \alpha 
 \end{proof}
 
 
-\begin{definition}
-    If $L/K$ is a field extensions, we call any field $M$ with $K \subseteq M \subseteq L$ an \textit{intermediate field.}
-\end{definition}
 
-\begin{definition} \label{def:automorphism}
-	Let $L/K$ be a field extension. A $K$-automorphism $\phi$ of $L$ is an automorphism of $L$ such that $\phi(a) = a$ for all $a \in K$. 
-\end{definition}
 
-\begin{definition}
-	Let $K \subseteq M \subseteq L$. A $K$-monomorphism $\phi : M \to L$ is a monomorphism from $M$ to $L$ such that $\phi(a) = a$ for all $a \in K$. 
-\end{definition}
+
 
 
 
