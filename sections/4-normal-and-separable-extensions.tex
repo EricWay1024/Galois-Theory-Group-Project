@@ -1,6 +1,6 @@
 \section{Normal and Separable Extensions}
 
-Given a field $K$, we are now mostly interested in field extensions $L/K$ that arise from adjoining some zeros of a polynomial $f$ over $K$. As we have seen, such an extension algebraic and finite, but further questions could be asked. In particular, does $L$ contain \textit{all} zeros of $f$, instead of only a proper subset of them? If,  for any irreducible polynomial $f$ over $K$ that has at least one zero in $L$, the answer is ``yes'', then we say $L/K$ is a \textit{normal} extension. 
+Given a field $K$, we are now mostly interested in field extensions $L/K$ that arise from adjoining some zeros of a polynomial $f$ over $K$. As we have seen, such an extension is algebraic and finite, but further questions could be asked. In particular, does $L$ contain \textit{all} zeros of $f$, instead of only a proper subset of them? If,  for any irreducible polynomial $f$ over $K$ that has at least one zero in $L$, the answer is ``yes'', then we say $L/K$ is a \textit{normal} extension. 
 
 A natural way to construct a normal extension would then be adjoining all zeros of some chosen polynomial $f$ over $K$. Indeed, as we shall see, this gives rise to the idea of splitting fields and being the splitting field of some $f$ is in fact an equivalent condition for an extension to be normal. 
 
@@ -66,7 +66,7 @@ The splitting fields of a polynomial over two isomorphic fields are isomorphic, 
 \end{proof}
 
 \begin{theorem}
-    Suppose that $K$ and $L$ are subfields of $\C$ and $\iota ; K \to L$ is an isomorphism. Let $K(\alpha),L(\beta)$ be simple algebraic extensions of $K$ and $L$, such that $\alpha$ has minimal polynomial $m_{\alpha}(t)$ over $K$. $\beta$ has minimal polynomial $m_{\beta}(t)$ over $L$. Suppose that $m_{\beta}(t) = \iota(m_{\alpha}(t))$. Then there exists an isomorphism $j : K(\alpha) \to L(\beta)$ such that $j|_{K} = \iota$ and $j(\alpha) = \beta$
+    Suppose that $K$ and $L$ are subfields of $\C$ and $\iota : K \to L$ is an isomorphism. Let $K(\alpha),L(\beta)$ be simple algebraic extensions of $K$ and $L$, such that $\alpha$ has minimal polynomial $m_{\alpha}(t)$ over $K$. $\beta$ has minimal polynomial $m_{\beta}(t)$ over $L$. Suppose that $m_{\beta}(t) = \iota(m_{\alpha}(t))$. Then there exists an isomorphism $j : K(\alpha) \to L(\beta)$ such that $j|_{K} = \iota$ and $j(\alpha) = \beta$
 \end{theorem}
 
 Theorem \ref{thm:splitting-field-unique} provides a convenient way to ``extend'' a field isomorphism using splitting fields. In other words, given a ``smaller'' isomorphism $\iota: K \to K'$, we end up with a ``larger'' one $j: \Sigma \to \Sigma'$, where $K \subseteq \Sigma$ and $K' \subseteq \Sigma'$, and further $j$ preserves $\iota$ on $K$. Notably, when $\Sigma  = \Sigma'$, $j$ is an automorphism of $\Sigma$. The next theorem captures the ideas and enables us to ``extend" a $K$-monomorphism $M \to \Sigma$ to a $K$-automorphism of $\Sigma$, where $K \subseteq M \subseteq \Sigma$. 
@@ -78,7 +78,7 @@ Theorem \ref{thm:splitting-field-unique} provides a convenient way to ``extend''
 
 \begin{proof}
 %	By (i) $\Rightarrow$ (ii) of Theorem \ref{thm:normal-equiv-def}, 
-	$\Sigma$ is the splitting field for $f$ over $K$ and thus also over $M$. $\tau$ can be considered as an isomorphism from $M$ to $\tau(M)$ which fixes every element in $K$ and hence $f$. Then $\Sigma$ is both the splitting field for $f$ over $M$ and the splitting field for $f$ over $\tau(M)$. Then by Theorem \ref{thm:splitting-field-unique}, there exists an isomorphism $\sigma: \Sigma \to \Sigma$ such that $\sigma | _M = \tau$. Since $\sigma | _K = \tau |_K = \Id$, $\sigma$ is a $K$-automorphism of $\Sigma$. 
+	We know that $\Sigma$ is the splitting field for $f$ over $K$ and thus over $M$. We consider $\tau$ as an isomorphism from $M$ to $\tau(M)$ which fixes every element in $K$ and hence $f$. Then $\Sigma$ is both the splitting field for $f$ over $M$ and the splitting field for $f$ over $\tau(M)$. Then by Theorem \ref{thm:splitting-field-unique}, there exists an isomorphism $\sigma: \Sigma \to \Sigma$ such that $\sigma | _M = \tau$. Since $\sigma | _K = \tau |_K = \Id$, $\sigma$ is a $K$-automorphism of $\Sigma$. 
 \end{proof}
 
 When $f$ is irreducible, we can then construct an $K$-automorphism of $\Sigma$ that sends a certain zero of $f$ to another.
@@ -185,16 +185,16 @@ Galois did not specifically acknowledge the idea of separability, as he solely w
 
 \begin{definition}
     Let $f$ be an irreducible polynomial over field $K$. Then $f$ is \textit{separable} over $K$ if $f$ takes the form 
-    $$
+    $
         f(t) = k \prod_{i = 1} ^ n(t - \sigma_i)
-    $$
-    where $\sigma_i \in \overline K$ are distinct.
+    $
+    where $\sigma_i \in \overline K$ are distinct and $k \in K$.
 \end{definition}
 
 The following theorem of a computational nature is useful to determine whether a polynomial is separable and is given without proof. 
 
 \begin{theorem} \label{thm:separable-derivative}
-    A polynomial $f$ over a subfield $K$ of $\C$ is separable if and only if it is coprime with $Df$ over $K$, where $Df$ is its derivative. 
+    A polynomial $f$ over a subfield $K$ of  $\C$ is separable if and only if it is coprime with $Df$ over $K$, where $Df$ is its derivative. 
 \end{theorem}
 
 The next theorem implies that we can take for granted the separability of irreducible polynomials over subfields of $\C$. 

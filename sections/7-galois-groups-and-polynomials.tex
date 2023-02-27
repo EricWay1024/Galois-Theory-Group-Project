@@ -11,27 +11,27 @@ In this section, we first briefly introduce the concept of solvable groups from 
 \end{definition}
 
 \begin{observation}
-    An abelian group is soluble. 
+    An abelian group is solvable. 
 \end{observation}
 
-The main properties of soluble groups are as follows. 
+The main properties of solvable groups are as follows. 
 
 \begin{theorem} \label{thm:soluble-main}
     Let $G$ be a group, $H \le G$ and $N \trianglelefteq G$. Then 
     \begin{enumerate}[label=(\roman*)]
-        \item If $G$ is soluble, then $H$ is soluble;
-        \item If $G$ is soluble, then $G / N$ is soluble; 
-        \item If $N$ and $G / N$ are soluble, then $G$ is soluble. 
+        \item If $G$ is solvable, then $H$ is solvable;
+        \item If $G$ is solvable, then $G / N$ is solvable; 
+        \item If $N$ and $G / N$ are solvable, then $G$ is solvable. 
     \end{enumerate}
 \end{theorem}
 \begin{proof}
 	See Theorem \ref{thm:soluble-main-appendix}.
 \end{proof}
 
-A particular result about soluble groups is that symmetric groups are in general not soluble.
+A particular result about solvable groups is that symmetric groups are in general not solvable.
 
 \begin{theorem} \label{thm:symmetric-not-soluble}
-	The symmetric group $S_n$ is not soluble when $n \ge 5$. 
+	The symmetric group $S_n$ is not solvable when $n \ge 5$. 
 \end{theorem}
 \begin{proof}
 	See Theorem \ref{thm:symmetric-not-soluble-appendix}. 
@@ -69,7 +69,7 @@ A particular result about soluble groups is that symmetric groups are in general
 %\end{example}
 
 \begin{corollary} \label{thm:radical-all-prime}
-	Let $L / K$ be a racial extension. Then there exists a radical sequence $\beta_j$ for $L / K$ where $j=1, \dots, r$ such that the radical degree of each $\beta_j$ is prime.
+	Let $L / K$ be a radical extension. Then there exists a radical sequence $\beta_j$ for $L / K$ where $j=1, \dots, r$ such that the radical degree of each $\beta_j$ is prime.
 \end{corollary}
 
 %\begin{proof}
@@ -188,11 +188,11 @@ Now we demonstrate an example where the Galois group of a polynomial over $\math
 \end{proof}
 
 \begin{example}
-	The polynomial $x^5 + 10 x^4 - 2$ over $\mathbb Q$ is not soluble by radicals.
+	The polynomial $x^5 + 10 x^4 - 2$ over $\mathbb Q$ is not solvable by radicals.
 \end{example}
 
 \begin{proof}
-	$f$ is irreducible by Theorem \ref{thm:eisenstein} with $p = 2$. The degree of $f$ is $5$, which is prime. Calculus shows that $f$ has three real zeros. Thus the Galois group of $f$ is isomorphic to $S_5$ by Theorem \ref{thm:galois-iso-symmetric}. But $S_5$ is not soluble by Theorem \ref{thm:symmetric-not-soluble}. Thus by Theorem \ref{thm:galois-theorem}, $f$ is not soluble by radicals.
+	$f$ is irreducible by Theorem \ref{thm:eisenstein} with $p = 2$. The degree of $f$ is $5$, which is prime. Calculus shows that $f$ has three real zeros. Thus the Galois group of $f$ is isomorphic to $S_5$ by Theorem \ref{thm:galois-iso-symmetric}. But $S_5$ is not solvable by Theorem \ref{thm:symmetric-not-soluble}. Thus by Theorem \ref{thm:galois-theorem}, $f$ is not solvable by radicals.
 \end{proof}
 
 \subsection{The Abel-Ruffini Theorem}
