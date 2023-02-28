@@ -1,17 +1,19 @@
 \newpage
 
 \section{Polynomials}
+In this section we first give some basic definitions involving polynomials. Then we look at theorems that deal with the irreducibility of polynomials over $\Z$ and $\Q$ before briefly recalling the Fundamental Theorem of Algebra for polynomials over $\C$. 
 \subsection{Basics of Polynomials}
 
 \begin{definition}
     Let $R$ be an integral domain and $t$ be an indeterminate. A \textit{polynomial} $f$ over $R$ (in the indeterminate $t$) is of the form $f(t) = r_n t^n + r_{n-1} t^{n-1} + ... + r_1 t + r_0$, where the \textit{coefficients} $r_i \in R$. 
 \end{definition}
 
-We will be mainly working with polynomials over a field (recall that any field is an integral domain) but also polynomials over $\Z$. It is easy to check directly from the definitions above that the set of all polynomials over a field $R$ obeys all the normal algebraic laws. We denoted the set by $R[t]$ and call it the ring of polynomials over $R$ (in the indeterminate $t$).
+We will be mainly working with polynomials over a field (recall that any field is an integral domain) but also polynomials over $\Z$. It is easy to check directly from the definitions above that the set of all polynomials over an integral $R$ obeys all the normal algebraic laws (including addition, multiplication, and division with remainder). We denoted the set by $R[t]$ and call it the ring of polynomials over $R$ (in the indeterminate $t$). 
 
 
 \begin{definition}
-	If $f \in R[t]$ and $f \neq 0$, then the \textit{degree} of $f$ is the highest power of $t$ occurring in $f$ with a non-zero coefficient, denoted as $\partial f$. If $f$ has degree $n$, then $a_n$ is the leading coefficient of $f$; if $a_n = 1$, we say that $f$ is monic. When $f = 0$, we define $\partial f = - \infty$, where $-\infty < n, (-\infty) + (- \infty) = -\infty, -\infty + n = \infty$ for all $n \in \Z$. 
+	If $f \in R[t]$ and $f \neq 0$, then the \textit{degree} of $f$ is the highest power of $t$ occurring in $f$ with a non-zero coefficient, denoted as $\partial f$. If $f$ has degree $n$, then $a_n$ is the leading coefficient of $f$; if $a_n = 1$, we say that $f$ is monic. A polynomial with degree $0, 1, 2, 3, 4, 5$ is called constant, linear, quadratic, cubic, quartic, and quintic respectively.
+%	When $f = 0$, we define $\partial f = - \infty$, where $-\infty < n, (-\infty) + (- \infty) = -\infty, -\infty + n = \infty$ for all $n \in \Z$. 
 \end{definition}
 
 
@@ -38,7 +40,7 @@ We will be mainly working with polynomials over a field (recall that any field i
 
 
 \begin{definition}
-     A non-constant polynomial over an integral domain $R$ is \textit{reducible} if it is a product of two polynomials over $R$ of smaller degree. Otherwise it is \textit{irreducible}.
+     A non-constant polynomial $f$ over an integral domain $R$ is \textit{reducible} if it is a product of two polynomials $g$ and $h$ over $R$ of smaller degree, in which case $g$ and $h$ are \textit{factors} of $f$. Otherwise $f$ is \textit{irreducible}. 
 \end{definition}
 
 \begin{theorem}
@@ -50,29 +52,14 @@ We will be mainly working with polynomials over a field (recall that any field i
 \end{proof}
 
 \begin{example}
-    We can use the above theorem to prove irreducibilty for some cases, working very well for cubic polynomials over $\Z$. Let $K = \Z$ then the polynomial $f(t) = t^3 -5 t + 1$ is irreducible. If it was not irreducible then it must have a linear factor $t - \alpha$ over $\Z$ and then $\alpha \in \Z$ and $f(\alpha) = 0$. There also must exist $\beta, \lambda \in \Z$ such that,
+    We can use the above theorem to prove irreducibilty for some cases, working very well for cubic polynomials over $\Z$. Consider polynomial $f(t) = t^3 -5 t + 1$ over $\Z$. If it was not irreducible then it must have a linear factor $t - \alpha$ over $\Z$ and then $\alpha \in \Z$ and $f(\alpha) = 0$. There also must exist $\beta, \lambda \in \Z$ such that,
     $$
     f(t) = (t-\alpha)(t^2 + \beta t + \lambda) = t^3 + (\beta - \alpha)t^2 + (\lambda - \alpha \beta)t - \alpha \lambda,
     $$
-    so $\alpha \lambda = -1$. Therefore, $\alpha = \pm 1$. But $f(1) = -3 \neq 0$ and $f(-1) = 5 \neq 0$. This shows that no factor exists.
+    so $\alpha \lambda = -1$. Therefore, $\alpha = \pm 1$. But $f(1) = -3 \neq 0$ and $f(-1) = 5 \neq 0$. This shows that no linear factor over $\Z$ of $f$ exists and hence $f$ is irreducible over $\Z$.
 \end{example}
 
-Let $m$ be an irreducible polynomial over a field $K$. We write
-$
-K[t] /\langle m\rangle
-$
-for the set of equivalence classes of $K[t]$ modulo $m$. 
-The following theorem indicates that $K[t] / \langle m \rangle$ is a field. It contains all constant polynomials over $K$, and hence contains $K$.
 
-
-\begin{theorem}
-    Every nonzero element of $K[t] /\langle m\rangle$ has a multiplicative inverse in $K[t] /\langle m\rangle$ if and only if $m$ is irreducible in $K[t]$.
-\end{theorem}
-
-\begin{proof}
-    Assume that \(m\) is reducible in \(K[t]\), this means that there exists \(a,b \in K[t]\) such that \(m = ab\) where \(\partial a,\partial b < \partial m\). Then we know that \([a]_m[b]_m = [ab]_m = [m]_m = [0]_m\). Suppose that \([a]_m\) has an inverse \([a]_m^{-1} \in K[t]\) such that \([a]_m[a]_m^{-1} = [1]\). Then \([0]_m = [a]_m^{-1}[0]_m = [a]_m^{-1}[a]_m[b]_m = [b]_m\), as we know that \([0]_m = [m]_m\), this implies that \(m\) divides \(b\), but we know that \(b < m\), so this is a contradiction, hence \(m\) is not reducible. \\
-    If \(m\) is irreducible, let \(a \in K[t]\) with \([a]_m \neq [0]_m\), this implies that \(gcd(a,m)=1\) and, by Bézout's Lemma, we know that there exists \(p,q \in K[t]\) such that \(ap + mq = 1\). Thus \([a]_m[p]_m + [m]_m[q]_m = [1]_m\) and we know that \([m]_m = [0]_m\), hence \([a]_m[p]_m = [1]_m\). Thus \([a]_m\) has an inverse \([p]_m\) when \(m\) is irreducible.
-\end{proof}
 
 
 We also define a polynomial $f$ over an integral domain $R$ in $n$ indeterminates $t_1, t_2, \dots, t_n$ as the form 
@@ -84,7 +71,7 @@ where $\alpha_i$ are non-negative integers and only finitely many $r_{\alpha_1, 
 \begin{definition}
 	Let $R$ be an integral domain and let $f(t_1, \dots, t_n) \in R[t_1, \dots, t_n]$. We say that $f$ is
     a \textit{symmetric polynomial} is a polynomial if $f$ remains the same when the indeterminates are interchanged,
-    Formally, for any $\sigma \in S_n$, we have $f(t_1,t_2,...,t_n) = f(t_{\sigma(1)},t_{\sigma(2)},...,t_{\sigma(n)})$
+    Formally, for any $\sigma \in S_n$, we have $f(t_1,t_2,...,t_n) = f(t_{\sigma(1)},t_{\sigma(2)},...,t_{\sigma(n)})$.
 \end{definition}
 
 \begin{example}
@@ -104,7 +91,7 @@ where $\alpha_i$ are non-negative integers and only finitely many $r_{\alpha_1, 
 \end{example}
 
 
-\subsection{Polynomials over $\Q$ and $\C$} 
+\subsection{Polynomials over $\Z$, $\Q$ and $\C$} 
 
 
 \begin{lemma}[Gauss' Lemma]
@@ -115,13 +102,10 @@ where $\alpha_i$ are non-negative integers and only finitely many $r_{\alpha_1, 
 This lemma is useful because when we extend the subring of coefficients from $\Z$ to $\Q$ then there are new polynomials which may be factors of $f$. However, we now show that they are not. Starting with a contradiction, suppose that $f$ is irreducible over $\Z$ but reducible over $\Q$ so that $f = g h$ where $g$,$h$ are both polynomials over $\Q$, of a smaller degree. Multiplying through by the product of the denominators of the coefficients of $g$ and $h$ means we can rewrite this as $n f = g' h'$, where $n \in \Z$ and $g'$ and $h'$ are polynomials over $\Z$. We can now show that we can cancel out the prime factors of n one by one, without going outside $\Z[t]$.
 
 Suppose that $p$ is a prime factor of $n$. We now claim that if $g' = g_0 + g_1 t +...+ g_r t^r$, $h' = h_0 + h_1 t +...+ h_s t^s$ then either $p$ divides all the coefficients of $g_i$, or $p$ divides all the coefficients $h_j$.
-
 If not then there must be smallest values $i$, $j$ such that $p \nmid g_i$ and $p \nmid h_j$. However, $p$ divides the coefficient of $t^{i+j}$ in $g' h'$, which is, 
-
 $$
 h_0 g_{i+j} + h_1 g_{i+j-1} +...+ h_j g_i +...+ h_{i+j} g_0
 $$
-
 and by the choice of $i$ and $j$, the prime $p$ divides every term of this expression except $h_j g_i$. $p$ divides the whole expression, so $p | h_j g_i$. However $p \nmid g_i$ and $p \nmid h_j$, a contradiction.
 \end{proof}
 
@@ -195,7 +179,7 @@ This theorem from the module \textit{Complex Functions} is stated without proof.
 	If $p(z)$ is a non-constant polynomial over $\mathbb{C}$, then there exists $z_0 \in \mathbb{C}$ such that $p\left(z_0\right)=0$.
 \end{theorem}
 
-This is a special case where it only works over $\C$. Such a number $z$ is called a root of the equation $p(t)=0$. For example, $\mathrm{i}$ is a root of the equation $t^2+1=0$ and a zero of $t^2+1$. Polynomial equations may have more than one root; indeed, $t^2+1=0$ has at least one other root, $-i$ but others will have more roots. We do the proof above by starting out with a contradiction.
+This is a special case where it only works over $\C$. Such a number $z$ is called a root of the equation $p(t)=0$. For example, $i$ is a root of the equation $t^2+1=0$ and a zero of $t^2+1$. Polynomial equations may have more than one root; indeed, $t^2+1=0$ has at least one other root, $-i$ but others will have more roots. We do the proof above by starting out with a contradiction.
 
 \begin{proposition}
 	Let $p(t) \in \mathbb{C}[t]$ with $\partial p=n \geq 1$. Then there exist $\alpha_1, \ldots, \alpha_n \in \mathbb{C}$, and $0 \neq k \in \mathbb{C}$, such that
@@ -206,16 +190,8 @@ This is a special case where it only works over $\C$. Such a number $z$ is calle
 
 \begin{proof}
 	Use induction on $n$. When $n = 1$ then it is obvious that this proposition follows. If $n > 1$ then we know by the Fundamental Theorem of Algebra, that $p(t)$ has at least one zero $\alpha_n$. By the Remainder Theorem above, there exists $q(t) \in \C[t]$ such that,
-	
-	\begin{equation} \label{eq:2001}
-		p(t) = (t-\alpha_n) q(t)
-	\end{equation}
-	
+		$p(t) = (t-\alpha_n) q(t)$. 
 	Then $\partial q = n - 1$, so by induction,
-	
-	\begin{equation} \label{eq:2002}
-		q(t) = k(t-\alpha_a)...(t-\alpha_{n-1})
-	\end{equation}     
-	
-	For suitable complex numbers $k,\alpha_1,...,\alpha_{n-1}$. Substitute \ref{eq:2002} into \ref{eq:2001} and the induction step is complete
+		$q(t) = k(t-\alpha_a)...(t-\alpha_{n-1})$. 
+	For suitable complex numbers $k,\alpha_1,...,\alpha_{n-1}$. Substitute $q(t)$ into $p(t)$ and the induction step is complete.
 \end{proof}

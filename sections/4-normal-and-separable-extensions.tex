@@ -21,7 +21,6 @@ In this section, we first introduce splitting fields, with a particular focus on
     where $k, \alpha_1, \ldots, \alpha_n \in K$. 
 \end{definition}
 If $K$ is a subfield of $\C$, Theorem \ref{thm:fundamental-algebra} indicates that $f$ splits over $K$ if and only if all of its zeros are contained in $K$. 
-
 Of all the fields in which $f$ splits, we are particularly interested in the smallest:
 
 \begin{definition}
@@ -189,6 +188,8 @@ Galois did not specifically acknowledge the idea of separability, as he solely w
         f(t) = k \prod_{i = 1} ^ n(t - \sigma_i)
     $
     where $\sigma_i \in \overline K$ are distinct and $k \in K$.
+    Let $L/K$ be a field extension. An element $\alpha \in L$ is \textit{separable} if the minimal polynomial of $\alpha$ over $K$ is separable over $K$.
+    A field extension $L / K$ is \textit{separable} if every $\alpha \in L$ is separable.
 \end{definition}
 
 The following theorem of a computational nature is useful to determine whether a polynomial is separable and is given without proof. 
@@ -197,7 +198,8 @@ The following theorem of a computational nature is useful to determine whether a
     A polynomial $f$ over a subfield $K$ of  $\C$ is separable if and only if it is coprime with $Df$ over $K$, where $Df$ is its derivative. 
 \end{theorem}
 
-The next theorem implies that we can take for granted the separability of irreducible polynomials over subfields of $\C$. 
+The next theorem implies that we can take for granted the separability of irreducible polynomials over subfields of $\C$, as well as the separability of any field extension within $\C$.
+
 
 \begin{theorem} \label{thm:separable-poly-in-C}
     If $K$ is a subfield of $\C$, then every irreducible polynomial over $K$ is separable. 
@@ -207,23 +209,9 @@ The next theorem implies that we can take for granted the separability of irredu
     Let $f$ be an irreducible polynomial over $K$. Suppose that $f$ is not separable, then by Theorem \ref{thm:separable-derivative}, $f$ and $Df$ shares a common factor of degree $\ge 1$. Since $f$ is irreducible, this common factor must be $f$. Since $Df$ has a smaller degree than $f$, $Df$ must be $0$. This implies that $f$ is constant.
 \end{proof}
 
-We now give the two remaining definitions.
 
-
-\begin{definition}
-    Let $L/K$ be a field extension. An element $\alpha \in L$ is \textit{separable} if the minimal polynomial of $\alpha$ over $K$ is separable over $K$.
-\end{definition}
-
-\begin{definition} \label{def:separable-extension}
-    A field extension $L / K$ is \textit{separable} if every $\alpha \in L$ is separable.
-\end{definition}
-
-We can also take for granted the separability of any field extension within $\C$.
-
-\begin{theorem} \label{thm:separable-extension-in-C}
+\begin{corollary} \label{thm:separable-extension-in-C}
     A field extension $L/K$ such that $K \subseteq L \subseteq \mathbb C$ is always separable. 
-\end{theorem}
+\end{corollary}
 
-\begin{proof}
-    This directly follows from Theorem \ref{thm:separable-poly-in-C} and Definition \ref{def:separable-extension}. 
-\end{proof}
+
