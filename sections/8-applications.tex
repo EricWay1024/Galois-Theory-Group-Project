@@ -1,8 +1,6 @@
-\section{Constructions} \label{sec:applications}
+\section{Ruler-and-Compass Constructions} \label{sec:applications}
 
-When constructing shapes, the Greeks, specifically Plato, looked at 'perfect' geometric figures - those which can be constructed with only straight lines and a compass. This is to see if certain shapes and figures can be drawn without approximations. The following section is adapted from Stewart, Mathigon and...
-
-Euclid set out five main axioms to drawing these figures:
+The following section is adapted from \cite{Stewart, shape-constructions}. When constructing shapes, the Greeks, specifically Plato, looked at ``perfect'' geometric figures - those which can be constructed with only straight lines and a compass. This is to see if certain shapes and figures can be drawn without approximations. Euclid set out five main axioms to drawing these figures:
 
 \begin{enumerate}
     \item You can draw a straight line segment between any two points.
@@ -55,11 +53,11 @@ Let points be denoted by $z_1,z_2 \in \C$ and we let $0\leq r \in \R$.
 \end{theorem}
 
 \begin{proof}  
-    $"\implies"$ Let $z \in \C$ be a constructable point, then by Definition \ref{def:constructable-point}, it is clear that $z=z_k\in \mathcal{P}_k$.
-    $"\impliedby"$ On the other hand, if $z \in \mathcal{P}_k$, then we can find a sequence $z_j \in \mathcal{P}_j$ for $0\leq j \leq k$ which satisfies Definition \ref{def:constructable-point}.
+    $``\implies"$ Let $z \in \C$ be a constructable point, then by Definition \ref{def:constructable-point}, it is clear that $z=z_k\in \mathcal{P}_k$.
+    $``\impliedby"$ On the other hand, if $z \in \mathcal{P}_k$, then we can find a sequence $z_j \in \mathcal{P}_j$ for $0\leq j \leq k$ which satisfies Definition \ref{def:constructable-point}.
 \end{proof}
 
-We now define the 'Pythagorean Closure' which will help us create a link between construction and Galois Theory.
+We now define the ``Pythagorean Closure'' which will help us create a link between construction and Galois Theory.
 
 \begin{definition}[Pythagorian Closure]
     $\Q^{py}$ is called the 'Pythagorean Closure' of $\Q$, which is the union of all subfields, denoted $K$ where:
@@ -100,14 +98,14 @@ The next Lemma will help us to prove a Theorem which will show the link between 
 \end{proof}
 
 
-Now we have the key results to help us prove the following theorem, where the proof here is adapated from Everitt \cite{constructions-and-galois}.
+Now we have the key results to help us prove the following theorem, where the proof here is adapted from \cite{constructions-and-galois}.
 
 \begin{theorem}
     A point $z \in \C$ is constructable if and only if $z \in \Q^{py}$.
 \end{theorem}
 
 \begin{proof}
-    "$\implies$" Let $P(n)$ be the statement $\mathcal{P}_n \subseteq \Q^{py}$.
+    ``$\implies$'' Let $P(n)$ be the statement $\mathcal{P}_n \subseteq \Q^{py}$.
 
     $P(0):$ We have that $\mathcal{P}_0 = \{0,1\}$, which clearly $\{0,1\}\subseteq\Q^{py}$, so $P(0)$ holds true.
 
@@ -115,13 +113,13 @@ Now we have the key results to help us prove the following theorem, where the pr
     \begin{itemize}
         \item \textbf{Case One:} Intersection of lines. If we have $z$ is the intersection of lines from points $z_1, z_2, z_3, z_4 \in \mathcal{P}_{k+1}$, then we can form 2 simultaneous equations:
         $z = az_1+(1-a)z_2$ and $z = bz_3+(1-b)z_4$. By algebraic manipulation (shown in the appendix) we can find formulae for $a$ and $b$ in terms of the points $z_1,z_2,z_3$ and $z_4$, so we know that $a,b \in \Q^{py}$, and since $z_1,z_2,z_3,z_4\in \Q^{py}$ by our assumption, we have that $z\in \Q^{py}$ also, and hence in this case $\mathcal{P}_n \subseteq \Q^{py}$.
-        \item \textbf{Case Two:} Intersection of a line and circle. Here we look at $z \in L(z_1,z_2)\cap C(z_3,|z_4-z_5|$ where $z_i \in \mathcal{P}_k$ for $1\leq i \leq 5$. Then, again we get two simulatenous equations:
+        \item \textbf{Case Two:} Intersection of a line and circle. Here we look at $z \in L(z_1,z_2)\cap C(z_3,|z_4-z_5|$ where $z_i \in \mathcal{P}_k$ for $1\leq i \leq 5$. Then, again we get two simultaneous equations:
         $z=az_1+(1-az_2)$ and $z=z_3+|z_4-z_5|e^{i\theta}$ where $a$ and $\theta$ are to be found and $a,\theta \in \R$. Again, through manipulation, we can find that $a$ can be found through a quadratic equation with coefficients in $\Q^{py}$ and so $a \in \Q^{py}$ which implies that $z\in \Q^{py}$.
         \item \textbf{Case Three:} Intersection of circles. So we say that $z \in C(z_1,|z_2-z_3|) \cap C(z_4,|z_5-z_6|)$ where $z_i \in \mathcal{P}_n$ for $i = 1,2,...,6$. In this case we again have 2 simultaneous equations: $z=z_1+|z_2-z_3|e^{i\theta}$ and $z=z_4+|z_5-z_6|e^{i\phi}$, for $\theta,\phi \in \R$. Here we can take conjugates and show that $(z-z_1)(\overline{z}-\overline{z_1})=|z_2-z_3|^2$. From this we can solve for $z$ and $\overline{z}$ and thus see that $z \in \Q^{py}$.
     \end{itemize}
 Therefore, $P(k+1)$ holds, and thus $\mathcal{P}_n \subseteq \Q^{py}$
 
-"$\impliedby$" Now we show that for any $z \in Q^{py}, \exists n \in \N$ such that $z \in \mathcal{P}_n$
+``$\impliedby$'' Now we show that for any $z \in Q^{py}, \exists n \in \N$ such that $z \in \mathcal{P}_n$
 
 So let $z \in \Q^{py}$, and by the definition of $\Q^{py}$ we see that there must be a sequence of points, \textcolor{blue}{show this:} $\{0,1,z_1,z_2,...,z_k=z\}$ such that $z_{i+1} \in \Q(0,1,...,z_i,\alpha)$ for $\alpha^2 \in \Q(0,1,...,z_i)$. Then we have that $z_i$ is constructable, thus $z_{i+1}$ must also be constructable. So all points in this sequence are constructable, thus $z$ is constructable and thus for $z \in \Q^{py}$ we have that $z \in \mathcal{P}_n$ for some $n \in \N$.
 
@@ -131,7 +129,7 @@ Thus we have shown that $z$ is construcable if and only if $z\in \Q^{py}.$
 
 
 
-\subsection{Squaring the Circle and Other Impossibility Proofs.}
+\subsection{Squaring the Circle and Other Impossibility Proofs}
 
 There are many shapes and objects that are not possible to construct using just a ruler and compass. One of the most famous examples of this, is the construction of a square with the same area of a circle. In this section, we look at such impossible constructions, and show why this is impossible.
 
@@ -157,7 +155,6 @@ We now look at a proof of a theorem which looks at doubling the volume of a cube
 \noindent
 \newline
     Then clearly $z^3=2$, so $z^3-2=0$ we must have that $\mu$ divides $z^3-2$, which is irreducible over $\Q$, thus the field extension $\Q(\sqrt[3]{2}):\Q$ has order 3, which is not a power of two, which contradicts Theorem \ref{thm:power-of-two-construction}, and thus $z = \sqrt[3]{2} \notin \Q^{py}$.
-
 \end{proof}
 
 

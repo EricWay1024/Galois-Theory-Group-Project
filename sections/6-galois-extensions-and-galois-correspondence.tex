@@ -10,8 +10,7 @@ We are now ready to present a special kind of field extension:
 \end{definition}
 
 By Theorem \ref{thm:separable-extension-in-C}, for a finite field extension in $\C$, being ``Galois'' is a synonym of being ``normal'', as its separability is automatic. 
-
-We now give some further properties for Galois extensions in general fields. The statements in the following theorem should not seem surprising, as we have mentioned (ii) and (iii) in the previous section and (iv) is apparently based on the definitions of normal and separable extensions. 
+We now give some further properties for Galois extensions in general fields. The statements in the following theorem (which formalizes ideas in \cite{galois-theory-lectures}) should not seem surprising, as we have mentioned (ii) and (iii) in the previous section and (iv) is apparently based on the definitions of normal and separable extensions. 
 
 
 \begin{theorem} \label{thm:fixed}
@@ -97,11 +96,11 @@ We now give some further properties for Galois extensions in general fields. The
 \end{theorem}
 
 \begin{proof}
-    Suppose $H\leq G$ with $\Fix(H)=F$. Then, let $L = F(a)$, then $H \cdot a$ denotes the orbit under the group action of $H$ in $L$, and we can assume that $H \cdot a = \{a_1,...,a_m\}.$ From this we can see that $|H \cdot a| = m$, and let $[L:F]=n$.
-    Then we know that the $m$ cannot be larger than the size of $H$, and since $H\leq G \implies |H|\leq|G|$, we get $|H \cdot a| = m \leq |H| \leq |G| = [L:F] = n$.
+    Suppose $H\leq G$ with $\Fix(H)=F$. Then, let $L = F(a)$, then $\Orb_H(a)$ denotes the orbit under the group action of $H$ in $L$, and we can assume that $\Orb_H(a) = \{a_1,...,a_m\}.$ From this we can see that $|\Orb_H(a)| = m$, and let $[L:F]=n$.
+    Then we know that the $m$ cannot be larger than the size of $H$, and since $H\leq G \implies |H|\leq|G|$, we get $|\Orb_H(a)| = m \leq |H| \leq |G| = [L:F] = n$.
     
    
-    \noindent On the other hand, by evaluating the elementary symmetric polynomials at each of the elements in $H \cdot a$, we get that, by the fact they are symmetric, these are just the elements in $\Fix(H)=F$. Therefore, we see that the coefficients in the polynomial: $f(t) := (t-a_1)(t-a_2)...(t-a_m)$ lies in $F$, and we have $f(a)=0$. Then, our minimal polynomial $\mu_a(t)$ divides $f(t)$ and $\deg(f) \geq \deg(\mu_a(t)) \implies m \geq n$. Hence we have $m \geq n$ and $n \geq m$, so therefore we have that $m=n$, which tells us $|H|=|G|$ and so $H=G.$
+    On the other hand, by evaluating the elementary symmetric polynomials at each of the elements in $\Orb_H(a)$, we get that, by the fact they are symmetric, these are just the elements in $\Fix(H)=F$. Therefore, we see that the coefficients in the polynomial: $f(t) := (t-a_1)(t-a_2)...(t-a_m)$ lies in $F$, and we have $f(a)=0$. Then, our minimal polynomial $\mu_a(t)$ divides $f(t)$ and $\partial f \geq \partial \mu_a(t) \implies m \geq n$. Hence we have $m \geq n$ and $n \geq m$, so therefore we have that $m=n$, which tells us $|H|=|G|$ and so $H=G.$
 \end{proof}
 
 
@@ -125,7 +124,7 @@ Hence we can see that the functions $\alpha$ and $\beta$ are inverse to each oth
 \end{proof}
 
 
-
+The proof of the next theorem combines ideas from \cite{Stewart, rotman_galois_1998}. 
 \begin{theorem} \label{thm:correspondence-quotient}
     Let $L / K$ be a Galois extension and let $M$ be an intermediate field such that $M /K$ is a Galois extension, then 
     $$\Gal(M / K) \cong \Gal(L / K) / \Gal(L / M). $$
@@ -166,7 +165,7 @@ Hence we can see that the functions $\alpha$ and $\beta$ are inverse to each oth
 	$$
 	then it can be verified that $\tau, \rho$ correspond to $t, r \in D_3$ respectively. How $\tau$ and $\rho$ acts on the elements of $X$ can be seen in Figure \ref{fig:example-action}.
 	
-	We now illustrate the correspondence between the intermediate fields of $\Sigma / \Q$ and the subgroups of $G$. For example, we have $$\Gal(\Sigma / \Q(\zeta)) = \langle \tau \rangle \cong \Z_3 \text{ and } \Fix(\langle \tau \rangle) = \Q(\zeta). $$ The full picture can be seen in Figures \ref{fig:example-intermidate-fields} and \ref{fig:example-subgroups}, where corresponding intermediate fields of $\Sigma / \Q$ and subgroups of $G$ are drawn in the same color. 
+	We now illustrate the correspondence between the intermediate fields of $\Sigma / \Q$ and the subgroups of $G$. For example, we have $$\Gal(\Sigma / \Q(\zeta)) = \langle \tau \rangle \cong \Z_3 \text{ and } \Fix(\langle \tau \rangle) = \Q(\zeta). $$ The full picture can be seen in Figures \ref{fig:example-intermidate-fields} and \ref{fig:example-subgroups}, where corresponding intermediate fields of $\Sigma / \Q$ and subgroups of $G$ are drawn in the same color. This example and its figures are adapted from \cite{visual-algebra}. 
 	
 \end{example}
 

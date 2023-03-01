@@ -1,4 +1,4 @@
-\newpage
+
 
 \section{Polynomials}
 In this section we first give some basic definitions involving polynomials. Then we look at theorems that deal with the irreducibility of polynomials over $\Z$ and $\Q$ before briefly recalling the Fundamental Theorem of Algebra for polynomials over $\C$. 
@@ -10,9 +10,18 @@ In this section we first give some basic definitions involving polynomials. Then
 
 We will be mainly working with polynomials over a field (recall that any field is an integral domain) but also polynomials over $\Z$. It is easy to check directly from the definitions above that the set of all polynomials over an integral $R$ obeys all the normal algebraic laws (including addition, multiplication, and division with remainder). We denoted the set by $R[t]$ and call it the ring of polynomials over $R$ (in the indeterminate $t$). 
 
+\begin{definition}
+	Let $R$ be an integral domain. Let $\alpha \in R$ and $f \in R[t]$. If $f(\alpha) = 0$, we say that $\alpha$ is a \textit{root} or a \textit{zero} of $f$. 
+\end{definition}
+
+\begin{theorem}[The Remainder Theorem] \label{thm:remainder}
+	Let $f$ be a non-zero polynomial over an integral domain $R$ and let $\beta \in R$. Then $f \equiv f(\beta) \mod (t - \beta)$. 
+	In particular, $\beta$ is a root of $f$ if and only if $(t - \beta) \mid f$. 
+\end{theorem}
+
 
 \begin{definition}
-	If $f \in R[t]$ and $f \neq 0$, then the \textit{degree} of $f$ is the highest power of $t$ occurring in $f$ with a non-zero coefficient, denoted as $\partial f$. If $f$ has degree $n$, then $a_n$ is the leading coefficient of $f$; if $a_n = 1$, we say that $f$ is monic. A polynomial with degree $0, 1, 2, 3, 4, 5$ is called constant, linear, quadratic, cubic, quartic, and quintic respectively.
+	Let $R$ be an integral domain. If $f \in R[t]$ and $f \neq 0$, then the \textit{degree} of $f$ is the highest power of $t$ occurring in $f$ with a non-zero coefficient, denoted as $\partial f$. If $f$ has degree $n$, then $a_n$ is the leading coefficient of $f$; if $a_n = 1$, we say that $f$ is monic. A polynomial with degree $0, 1, 2, 3, 4, 5$ is called constant, linear, quadratic, cubic, quartic, and quintic respectively.
 %	When $f = 0$, we define $\partial f = - \infty$, where $-\infty < n, (-\infty) + (- \infty) = -\infty, -\infty + n = \infty$ for all $n \in \Z$. 
 \end{definition}
 
@@ -62,7 +71,7 @@ We will be mainly working with polynomials over a field (recall that any field i
 
 
 
-We also define a polynomial $f$ over an integral domain $R$ in $n$ indeterminates $t_1, t_2, \dots, t_n$ as the form 
+In an analogous way, we also define a polynomial $f$ over an integral domain $R$ in $n$ indeterminates $t_1, t_2, \dots, t_n$ as the form 
 $$
 f(t_1, \dots, t_n) = \sum _{ r_{\alpha_1, \dots, \alpha_n} \in R}  r_{\alpha_1, \dots, \alpha_n} t_1^{\alpha_1} \dots t_n ^{\alpha_n},
 $$
@@ -70,8 +79,8 @@ where $\alpha_i$ are non-negative integers and only finitely many $r_{\alpha_1, 
 
 \begin{definition}
 	Let $R$ be an integral domain and let $f(t_1, \dots, t_n) \in R[t_1, \dots, t_n]$. We say that $f$ is
-    a \textit{symmetric polynomial} is a polynomial if $f$ remains the same when the indeterminates are interchanged,
-    Formally, for any $\sigma \in S_n$, we have $f(t_1,t_2,...,t_n) = f(t_{\sigma(1)},t_{\sigma(2)},...,t_{\sigma(n)})$.
+    a \textit{symmetric polynomial} if $f$ remains the same when the indeterminates are interchanged. 
+    Formally, for any $\sigma \in S_n$ (see Definition \ref{def:permutation}), we have $f(t_1,t_2,...,t_n) = f(t_{\sigma(1)},t_{\sigma(2)},...,t_{\sigma(n)})$.
 \end{definition}
 
 \begin{example}
@@ -92,17 +101,17 @@ where $\alpha_i$ are non-negative integers and only finitely many $r_{\alpha_1, 
 
 
 \subsection{Polynomials over $\Z$, $\Q$ and $\C$} 
-
+We now give some theorems related to the irreducibility of polynomials over $\Z$ and $\Q$.
 
 \begin{lemma}[Gauss' Lemma]
      Let $f$ be a polynomial over $\Z$ that is irreducible over $\Z$. Then $f$, considered as a polynomial over $\Q$, is also irreducible over $\Q$.
 \end{lemma}
 
 \begin{proof}
-This lemma is useful because when we extend the subring of coefficients from $\Z$ to $\Q$ then there are new polynomials which may be factors of $f$. However, we now show that they are not. Starting with a contradiction, suppose that $f$ is irreducible over $\Z$ but reducible over $\Q$ so that $f = g h$ where $g$,$h$ are both polynomials over $\Q$, of a smaller degree. Multiplying through by the product of the denominators of the coefficients of $g$ and $h$ means we can rewrite this as $n f = g' h'$, where $n \in \Z$ and $g'$ and $h'$ are polynomials over $\Z$. We can now show that we can cancel out the prime factors of n one by one, without going outside $\Z[t]$.
+This lemma is useful because when we extend the subring of coefficients from $\Z$ to $\Q$ then there are new polynomials which may be factors of $f$. However, we now show that they are not. Starting with a contradiction, suppose that $f$ is irreducible over $\Z$ but reducible over $\Q$ so that $f = g h$ where $g$,$h$ are both polynomials over $\Q$, of a smaller degree. Multiplying through by the product of the denominators of the coefficients of $g$ and $h$ means we can rewrite this as $n f = g' h'$, where $n \in \Z$ and $g'$ and $h'$ are polynomials over $\Z$. We can now show that we can cancel out the prime factors of $n$ one by one, without going outside $\Z[t]$.
 
 Suppose that $p$ is a prime factor of $n$. We now claim that if $g' = g_0 + g_1 t +...+ g_r t^r$, $h' = h_0 + h_1 t +...+ h_s t^s$ then either $p$ divides all the coefficients of $g_i$, or $p$ divides all the coefficients $h_j$.
-If not then there must be smallest values $i$, $j$ such that $p \nmid g_i$ and $p \nmid h_j$. However, $p$ divides the coefficient of $t^{i+j}$ in $g' h'$, which is, 
+If not then there must be smallest values $i$, $j$ such that $p \nmid g_i$ and $p \nmid h_j$. However, $p$ divides the coefficient of $t^{i+j}$ in $g' h'$, which is
 $$
 h_0 g_{i+j} + h_1 g_{i+j-1} +...+ h_j g_i +...+ h_{i+j} g_0
 $$
@@ -112,13 +121,11 @@ and by the choice of $i$ and $j$, the prime $p$ divides every term of this expre
 \begin{theorem}[Eisenstein's Criterion] \label{thm:eisenstein}
      Let
     $f(t) = a_0 + a_1 t + ... + a_n t^n$
-    be a polynomial over $\Z$. Suppose there is a prime $q$ such that: 
-    
+    be a polynomial over $\Z$. Suppose there is a prime $q$ such that
     (1) $q \nmid a_n$, 
-    
     (2) $q \mid a_i$ for $i = {0, 1,..., n-1}$, and 
-    
-    (3) $q^2 \nmid a_0$. Then $f$ is irreducible over $\Q$. 
+    (3) $q^2 \nmid a_0$. 
+    Then $f$ is irreducible over $\Q$. 
 \end{theorem}
 
 \begin{proof}
@@ -135,7 +142,7 @@ loss of generality we can assume $q | b_0$ and $q \nmid c_0$. If all $b_j$ are d
 $
 a_j = b_j c_0 + ...+ b_0 c_j
 $
-where $j < n$. This implies that $q$ divides $c_0$, since $q$ divides $a_j, b_0,..., b_{j-1}$, but not $b_j$. This is a contradiction. Hence f is irreducible.
+where $j < n$. This implies that $q$ divides $c_0$, since $q$ divides $a_j, b_0,..., b_{j-1}$, but not $b_j$. This is a contradiction. Hence $f$ is irreducible.
 \end{proof}
 
 \begin{example}
@@ -171,9 +178,10 @@ $$
 where $h$ is a polynomial in $u$ over $\Z$ with constant term 1, by the above theorem. By Eisenstein's Criterion, $f(1+u)$ is irreducible over $\Q$.
 \end{proof}
 
-After discovering that equations can be solved over $\C$, then there is a question of why stop at $\C$. Why not try and find an equation with no solutions over $\C$? The answer is that no such polynomial equations exist as every polynomial over $\C$ has a solution over $\C$.
+%After discovering that equations can be solved over $\C$, then there is a question of why stop at $\C$. Why not try and find an equation with no solutions over $\C$? The answer is that no such polynomial equations exist as 
 
-This theorem from the module \textit{Complex Functions} is stated without proof. 
+The next theorem, taken from \cite{complex-functions-uon} without proof, states that every polynomial over $\C$ has a root over $\C$. We can further show that any polynomial over $\C$ can be written as a product of linear factors over $\C$. 
+
 
 \begin{theorem}[Fundamental Theorem of Algebra] \label{thm:fundamental-algebra}
 	If $p(z)$ is a non-constant polynomial over $\mathbb{C}$, then there exists $z_0 \in \mathbb{C}$ such that $p\left(z_0\right)=0$.
@@ -189,7 +197,7 @@ This is a special case where it only works over $\C$. Such a number $z$ is calle
 \end{proposition}
 
 \begin{proof}
-	Use induction on $n$. When $n = 1$ then it is obvious that this proposition follows. If $n > 1$ then we know by the Fundamental Theorem of Algebra, that $p(t)$ has at least one zero $\alpha_n$. By the Remainder Theorem above, there exists $q(t) \in \C[t]$ such that,
+	Use induction on $n$. When $n = 1$ then it is obvious that this proposition follows. If $n > 1$ then we know by Theorem \ref{thm:fundamental-algebra}, that $p(t)$ has at least one zero $\alpha_n$. By Theorem \ref{thm:remainder}, there exists $q(t) \in \C[t]$ such that,
 		$p(t) = (t-\alpha_n) q(t)$. 
 	Then $\partial q = n - 1$, so by induction,
 		$q(t) = k(t-\alpha_a)...(t-\alpha_{n-1})$. 
