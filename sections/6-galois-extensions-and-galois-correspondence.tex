@@ -1,6 +1,6 @@
-\section{Galois Extensions and Galois Correspondence}
+%\section{Galois Extensions and Galois Correspondence}
 
-% \subsection{Galois Extension}
+ \subsection{Galois Extensions and Galois Correspondence}
 
 
 We are now ready to present a special kind of field extension:
@@ -33,11 +33,11 @@ We now give some further properties for Galois extensions in general fields. The
 	%	We now prove the equivalence of the first four statements. We will work on the fifth statement separately shortly afterwards.
 	
 	
-	(i) $\Rightarrow$ (ii). Consider a $K$-monomorphism $\phi: K \to \overline{K}$. We now extend $\phi$ to a $K$-monomorphism $\phi':L \to \overline{K}$ in the same pattern as in the proof of Theorem \ref{thm:galois-group-order-upper-bound}. However, at each step, we claim that the number of ways to extend is equal to $[K_i : K_{i-1}]$. Indeed, $\alpha_i$ is separable and hence $f_i$ has exactly $[K_i : K_{i-1}]$ distinct zeros, and $\overline K$ contains all these zeros. Therefore, combining all the steps gives us in total $[L:K]$ ways to extend $\phi$ to $\phi'$. Also, since $L/K$ is normal, by Theorem \ref{thm:normal-equiv-def}, each $K$-monomorphism $\phi': L \to \overline{K}$ is a $K$-automorphism of $L$, and thus each $\phi'$ corresponds to an element in $\Gal(L/K)$. Hence $[L:K] = \Gal(L/K)$. 
+	(i) $\Rightarrow$ (ii). Consider a $K$-monomorphism $\phi: K \to \overline{K}$. We now extend $\phi$ to a $K$-monomorphism $\phi':L \to \overline{K}$ in the same pattern as in the proof of Theorem \ref{thm:galois-group-order-upper-bound}. However, at each step, we claim that the number of ways to extend is equal to $[K_i : K_{i-1}]$. Indeed, $\alpha_i$ is separable and hence $f_i$ has exactly $[K_i : K_{i-1}]$ distinct roots, and $\overline K$ contains all these roots. Therefore, combining all the steps gives us in total $[L:K]$ ways to extend $\phi$ to $\phi'$. Also, since $L/K$ is normal, by Theorem \ref{thm:normal-equiv-def}, each $K$-monomorphism $\phi': L \to \overline{K}$ is a $K$-automorphism of $L$, and thus each $\phi'$ corresponds to an element in $\Gal(L/K)$. Hence $[L:K] = \Gal(L/K)$. 
 	
-	(ii) $\Rightarrow$ (iii). Define $F:= \Fix(G)$. We have $K \subseteq F \subseteq G$. Then by assumption, we have $[L:K] = |G|$; each $K$-automorphism of $L$ in $G$ is also a $F$-automorphism of $L$ in $\Gal(L/F)$, and thus $G \subseteq \Gal(L / F)$ and $|G| \le |\Gal(L / F)|$; by Theorem \ref{thm:galois-group-order-upper-bound}, $|\Gal(L/F)| \le [L:F]$; by Theorem \ref{thm:tower-theorem}, we see that $ [L:F] \le [L:F][F:K] = [L:K]$. Combining them gives $$
+	(ii) $\Rightarrow$ (iii). Define $F:= \Fix(G)$. We have $K \subseteq F \subseteq G$. Then by assumption, we have $[L:K] = |G|$; each $K$-automorphism of $L$ in $G$ is also a $F$-automorphism of $L$ in $\Gal(L/F)$, and thus $G \subseteq \Gal(L / F)$ and $|G| \le |\Gal(L / F)|$; by Theorem \ref{thm:galois-group-order-upper-bound}, $|\Gal(L/F)| \le [L:F]$; by Theorem \ref{thm:tower-theorem}, we see that $ [L:F] \le [L:F][F:K] = [L:K]$. Combining them gives $
 	[L:K] = |G| \le |\Gal(L/F)| \le  [L:F] \le [L:K],
-	$$    
+	$
 	and thus all the $\le$ signs must take equality.  
 	Thus $[L:K]=[L:F]$ and therefore by Theorem \ref{thm:tower-theorem}, we see that $[F:K]$ must equal $1$, and thus $F:=\Fix(G) = K$.
 	
@@ -57,6 +57,8 @@ We now give some further properties for Galois extensions in general fields. The
 \begin{example}
 	Note that in the above corollary, $L/K$ being a Galois extension does not imply that $M/K$ is Galois. This is in general false; consider for example $K = \Q, M = \Q(\sqrt[3]{2})$ and $L = \Q(\sqrt[3]{2}, \zeta)$, where $\zeta = e^{2\pi i / 3}$. Then $L/K$ and $L/M$ are Galois but $M/K$ is not. 
 \end{example}
+
+The most important property of Galois extensions is that of Galois correspondence, which we now establish. The following is needed for the main theorem. 
 
 
 %\begin{theorem}
@@ -103,36 +105,31 @@ We now give some further properties for Galois extensions in general fields. The
     On the other hand, by evaluating the elementary symmetric polynomials at each of the elements in $\Orb_H(a)$, we get that, by the fact they are symmetric, these are just the elements in $\Fix(H)=F$. Therefore, we see that the coefficients in the polynomial: $f(t) := (t-a_1)(t-a_2)...(t-a_m)$ lies in $F$, and we have $f(a)=0$. Then, our minimal polynomial $\mu_a(t)$ divides $f(t)$ and $\partial f \geq \partial \mu_a(t) \implies m \geq n$. Hence we have $m \geq n$ and $n \geq m$, so therefore we have that $m=n$, which tells us $|H|=|G|$ and so $H=G.$
 \end{proof}
 
-
+We are now ready to present the core result.
 
 \begin{theorem}[The Fundamental Theorem of Galois Theory] \label{thm:fundamental-theorem} Given a Galois extension $L/K$ and its Galois group $G = \Gal(L/K)$, there is a natural bijection between subgroups $H\leq G$ and the intermediate fields $M$ such that $K \subseteq M \subseteq L$. Define
-
-\begin{itemize}
-    \item $\alpha:M \mapsto \Gal(L/M) \leq G$ and
-    \item $\beta:H \mapsto \Fix(H) \subseteq L$,
-\end{itemize}
+ $\alpha:M \mapsto \Gal(L/M) \leq G$ and
+ $\beta:H \mapsto \Fix(H) \subseteq L$,
 then $\alpha$ and $\beta$ are inverses of each other.
 \end{theorem}
 \begin{proof}
-\begin{enumerate}[label=(\roman*)]
 
- \item ($\beta \circ \alpha = \Id$) Let $M$ be an intermediate field, and by Theorem \ref{thm:galois-intermediate} we can see that $L/M$ is a Galois Extension. Then if we consider the Galois group $\Gal(L/M)$, we can see that via Theorem \ref{thm:fixed}, $M = \Fix(\Gal(L/M))$. Also, $\alpha(M) = \Gal(L/M)$. Then we look at $(\beta \circ \alpha)(M)$, which is equal to $\beta(\Gal(L/M)) = \Fix(\Gal(L/M))$, but again as see in Theorem \ref{thm:fixed}, we have $\Fix(\Gal(L/M)) = M$. Thus $(\beta \circ \alpha)(M) = M$ and hence we see that $\beta \circ \alpha = \Id$.
+($\beta \circ \alpha = \Id$). Let $M$ be an intermediate field, and by Theorem \ref{thm:galois-intermediate} we can see that $L/M$ is a Galois Extension. Then if we consider the Galois group $\Gal(L/M)$, we can see that via Theorem \ref{thm:fixed}, $M = \Fix(\Gal(L/M))$. Also, $\alpha(M) = \Gal(L/M)$. Then we look at $(\beta \circ \alpha)(M)$, which is equal to $\beta(\Gal(L/M)) = \Fix(\Gal(L/M))$, but again as see in Theorem \ref{thm:fixed}, we have $\Fix(\Gal(L/M)) = M$. Thus $(\beta \circ \alpha)(M) = M$ and hence we see that $\beta \circ \alpha = \Id$.
 
- \item ($\alpha \circ \beta = \Id$) Now, let $H$ be a subgroup of $G$ and then set $M :=\Fix(H)$. Then $H$ is a subgroup of the Galois group $\Gal(L/M)$. Since $K \subseteq M \subseteq L$, by Theorem \ref{thm:galois-intermediate} we have that $L/M$ is a Galois extension. Thus, by Theorem \ref{thm:equal-subgroup-fixed-points}, since we have $H\leq \Gal(L/M)$ and we have $\Fix(H)=M$, then we can say that $H=\Gal(L/M)=\Gal(L/\Fix(H))$. Thus if we consider $(\alpha \circ \beta)(H) = \alpha(\Fix(H)) = \Gal(L/\Fix(H))= H $, we have $(\alpha \circ \beta)(H) = H$ and so $\alpha \circ \beta = \Id$.
-\end{enumerate}
+($\alpha \circ \beta = \Id$). Now, let $H$ be a subgroup of $G$ and then set $M :=\Fix(H)$. Then $H$ is a subgroup of the Galois group $\Gal(L/M)$. Since $K \subseteq M \subseteq L$, by Theorem \ref{thm:galois-intermediate} we have that $L/M$ is a Galois extension. Thus, by Theorem \ref{thm:equal-subgroup-fixed-points}, since we have $H\leq \Gal(L/M)$ and we have $\Fix(H)=M$, then we can say that $H=\Gal(L/M)=\Gal(L/\Fix(H))$. Thus if we consider $(\alpha \circ \beta)(H) = \alpha(\Fix(H)) = \Gal(L/\Fix(H))= H $, we have $(\alpha \circ \beta)(H) = H$ and so $\alpha \circ \beta = \Id$.
+
 Hence we can see that the functions $\alpha$ and $\beta$ are inverse to each other.
 \end{proof}
 
-
-The proof of the next theorem combines ideas from \cite{Stewart, rotman_galois_1998}. 
+The next theorem is another important property of Galois extensions. Its proof combines ideas from \cite{Stewart, rotman_galois_1998}. 
 \begin{theorem} \label{thm:correspondence-quotient}
     Let $L / K$ be a Galois extension and let $M$ be an intermediate field such that $M /K$ is a Galois extension, then 
-    $$\Gal(M / K) \cong \Gal(L / K) / \Gal(L / M). $$
+    $\Gal(M / K) \cong \Gal(L / K) / \Gal(L / M). $
 \end{theorem}
 
 \begin{proof}
 	% Theoerm 58, Rotman
-	Let $G = \Gal(L/K)$ and $G' = \Gal(M/K)$. Define a map $\psi: G \to G'$ as $\psi(\sigma) = \sigma | _M$ for $\sigma \in G$. We first show that indeed $\psi(\sigma) \in G'$ for all $\sigma \in G$. We only need to prove that $\sigma(M) = M$. $M/K$ is Galois, so by Theorem \ref{thm:fixed}, $M$ is a splitting field for a separable polynomial $f$ over $K$. Let $\alpha_1, \dots, \alpha_n$ be the distinct zeros of $f$, then $M = K(\alpha_1, \ldots, \alpha_n)$. But $\sigma$ permutes $\alpha_i$ by Theorem \ref{thm:galois-group-acts-on-zeros} and $\sigma(K) = K$. Therefore $\sigma(M) = \sigma(K(\alpha_i, \ldots, \alpha_n)) = K(\sigma(\alpha_1), \ldots, \sigma(\alpha_n)) = M. $
+	Let $G = \Gal(L/K)$ and $G' = \Gal(M/K)$. Define a map $\psi: G \to G'$ as $\psi(\sigma) = \sigma | _M$ for $\sigma \in G$. We first show that indeed $\psi(\sigma) \in G'$ for all $\sigma \in G$. We only need to prove that $\sigma(M) = M$. $M/K$ is Galois, so by Theorem \ref{thm:fixed}, $M$ is a splitting field for a separable polynomial $f$ over $K$. Let $\alpha_1, \dots, \alpha_n$ be the distinct roots of $f$, then $M = K(\alpha_1, \ldots, \alpha_n)$. But $\sigma$ permutes $\alpha_i$ by Theorem \ref{thm:galois-group-acts-on-zeros} and $\sigma(K) = K$. Therefore $\sigma(M) = \sigma(K(\alpha_i, \ldots, \alpha_n)) = K(\sigma(\alpha_1), \ldots, \sigma(\alpha_n)) = M. $
 	
 	
 	 $\psi$ is clearly a group homomorphism. It is onto due to the normality of $L/K$ and Theorem \ref{thm:monomorphism-extend-automorphism}: each $K$-automorphism $\tau$ of $M$ is also a $K$-monomorphism from $M$ to $L$ and thus there exists a $K$-automorphism $\sigma$ of $L$ such that $\sigma | _M = \tau$. Also, $\sigma \in \operatorname{Ker}(\psi)$ if and only if $\psi(\sigma) = \sigma |_M = \Id$, which is equivalent to $\sigma \in \Gal(L/M)$. Thus $\operatorname{Ker}(\psi) = \Gal(L/M)$. Thus by Theorem \ref{thm:first-iso}, 
@@ -155,17 +152,17 @@ The proof of the next theorem combines ideas from \cite{Stewart, rotman_galois_1
 
 \begin{example}
 	
-	Let $f(t) = t^3 - 2$ be a separable polynomial over $\Q$ with the set of zeros $X = \{ \sq, \zeta \sq, \zeta^2 \sq \}$, where $\zeta = e^{2\pi i / 3}$. 
+	Let $f(t) = t^3 - 2$ be a separable polynomial over $\Q$ with the set of roots $X = \{ \sq, \zeta \sq, \zeta^2 \sq \}$, where $\zeta = e^{2\pi i / 3}$. 
 	
 	The splitting field is $\Sigma = \Q(\sq, \zeta)$. The minimal polynomial of $\sq$ over $\Q$ is $f$ with degree $3$, and the minimal polynomial of $\zeta$ over $\Q(\sq)$ is $t^2 + t + 1$ with degree $2$. Thus $[\Sigma : \Q] = [\Sigma : \Q(\sq)] [\Q(\sq) : \Q] = 2 \times 3 = 6$. 
 	
 	$\Sigma / \Q$ is a Galois extension, thus $|G| = [\Sigma : \Q] = 6$, where $G = \Gal(\Sigma / \Q)$. We know that $G \le S_3$, but $|S_3| = 6$, and thus $G \cong S_3 \cong D_3 = \langle t, r : t^3 = 1, r^2 = 1, tr = rt^{-1} \rangle$. Define $\tau, \rho \in G$ such that 
-	$$
-		\tau(\sq) = \zeta \sq, \, \tau(\zeta) = \zeta; \quad \rho(\sq) = \sq, \,  \rho(\zeta) = \zeta ^ 2,
-	$$
+	$
+		\tau(\sq) = \zeta \sq, \, \tau(\zeta) = \zeta; \, \rho(\sq) = \sq, \,  \rho(\zeta) = \zeta ^ 2,
+	$
 	then it can be verified that $\tau, \rho$ correspond to $t, r \in D_3$ respectively. How $\tau$ and $\rho$ acts on the elements of $X$ can be seen in Figure \ref{fig:example-action}.
 	
-	We now illustrate the correspondence between the intermediate fields of $\Sigma / \Q$ and the subgroups of $G$. For example, we have $$\Gal(\Sigma / \Q(\zeta)) = \langle \tau \rangle \cong \Z_3 \text{ and } \Fix(\langle \tau \rangle) = \Q(\zeta). $$ The full picture can be seen in Figures \ref{fig:example-intermidate-fields} and \ref{fig:example-subgroups}, where corresponding intermediate fields of $\Sigma / \Q$ and subgroups of $G$ are drawn in the same color. This example and its figures are adapted from \cite{visual-algebra}. 
+	We now illustrate the correspondence between the intermediate fields of $\Sigma / \Q$ and the subgroups of $G$. For example, we have $\Gal(\Sigma / \Q(\zeta)) = \langle \tau \rangle \cong \Z_3 \text{ and } \Fix(\langle \tau \rangle) = \Q(\zeta). $ The full picture can be seen in Figures \ref{fig:example-intermidate-fields} and \ref{fig:example-subgroups}, where corresponding intermediate fields of $\Sigma / \Q$ and subgroups of $G$ are drawn in the same color. This example and its figures are adapted from \cite{visual-algebra}. 
 	
 \end{example}
 

@@ -1,7 +1,7 @@
 
 
 \section{Polynomials}
-In this section we first give some basic definitions involving polynomials. Then we look at theorems that deal with the irreducibility of polynomials over $\Z$ and $\Q$ before briefly recalling the Fundamental Theorem of Algebra for polynomials over $\C$. 
+In this section we first give some basic definitions involving polynomials. Then we look at theorems that deal with the irreducibility of polynomials over $\Z$ and $\Q$ before briefly recalling the Fundamental Theorem of Algebra for polynomials over $\C$. This section is based on \cite{Stewart}. 
 \subsection{Basics of Polynomials}
 
 \begin{definition}
@@ -184,22 +184,22 @@ The next theorem, taken from \cite{complex-functions-uon} without proof, states 
 
 
 \begin{theorem}[Fundamental Theorem of Algebra] \label{thm:fundamental-algebra}
-	If $p(z)$ is a non-constant polynomial over $\mathbb{C}$, then there exists $z_0 \in \mathbb{C}$ such that $p\left(z_0\right)=0$.
+	If $f(t)$ is a non-constant polynomial over $\mathbb{C}$, then there exists $z_0 \in \mathbb{C}$ such that $f\left(z_0\right)=0$.
 \end{theorem}
 
-This is a special case where it only works over $\C$. Such a number $z$ is called a root of the equation $p(t)=0$. For example, $i$ is a root of the equation $t^2+1=0$ and a zero of $t^2+1$. Polynomial equations may have more than one root; indeed, $t^2+1=0$ has at least one other root, $-i$ but others will have more roots. We do the proof above by starting out with a contradiction.
+This is a special case where it only works over $\C$. Such a number $z_0$ is called a root of  $f(t)$. For example, $i$ is a root of the polynomial $t^2+1$. Polynomials may have more than one root; indeed, $t^2+1$ has at least one other root, $-i$ but others will have more roots. We do the following proof by starting out with a contradiction.
 
-\begin{proposition}
-	Let $p(t) \in \mathbb{C}[t]$ with $\partial p=n \geq 1$. Then there exist $\alpha_1, \ldots, \alpha_n \in \mathbb{C}$, and $0 \neq k \in \mathbb{C}$, such that
+\begin{theorem} \label{thm:fundamental-algebra-2}
+	Let $f(t) \in \mathbb{C}[t]$ with $\partial f=n \geq 1$. Then there exist $\alpha_1, \ldots, \alpha_n \in \mathbb{C}$, and $0 \neq k \in \mathbb{C}$, such that
 	$
-	p(t)=k\left(t-\alpha_1\right) \ldots\left(t-\alpha_n\right).
+	f(t)=k\left(t-\alpha_1\right) \ldots\left(t-\alpha_n\right).
 	$
-\end{proposition}
+\end{theorem}
 
 \begin{proof}
-	Use induction on $n$. When $n = 1$ then it is obvious that this proposition follows. If $n > 1$ then we know by Theorem \ref{thm:fundamental-algebra}, that $p(t)$ has at least one zero $\alpha_n$. By Theorem \ref{thm:remainder}, there exists $q(t) \in \C[t]$ such that,
-		$p(t) = (t-\alpha_n) q(t)$. 
+	Use induction on $n$. When $n = 1$ then it is obvious that this proposition follows. If $n > 1$ then we know by Theorem \ref{thm:fundamental-algebra}, that $f(t)$ has at least one root $\alpha_n$. By Theorem \ref{thm:remainder}, there exists $q(t) \in \C[t]$ such that,
+		$f(t) = (t-\alpha_n) q(t)$. 
 	Then $\partial q = n - 1$, so by induction,
 		$q(t) = k(t-\alpha_a)...(t-\alpha_{n-1})$. 
-	For suitable complex numbers $k,\alpha_1,...,\alpha_{n-1}$. Substitute $q(t)$ into $p(t)$ and the induction step is complete.
+	For suitable complex numbers $k,\alpha_1,...,\alpha_{n-1}$. Substitute $q(t)$ into $f(t)$ and the induction step is complete.
 \end{proof}

@@ -1,7 +1,7 @@
 \section{Field Extensions}
-
+We assume that all fields in this report has characteristic $0$.  This section is based on \cite{Stewart, Moy, morandi_field_1996}. 
 \subsection{Basics of Field Extensions}
-In order to look at field extensions we must first define some useful terms. We assume that all fields in this report has characteristic $0$. 
+In order to look at field extensions we must first define some useful terms. 
 \begin{definition}
 Let $G$ be a field. Let \(F\) be a subset of \(G\) such that $F$ is a field. Then $F$ is a \textit{subfield}
  of $G$.
@@ -9,8 +9,8 @@ A field \(F\) is called a \textit{prime field} of \(K\) if it has no proper (str
 \end{definition}
 \begin{definition}
 	A \textit{field homomorphism} (or homomorphism if it is clear from the context) from a field $F$ to a field $K$ is a function $\phi: F \to K$ such that $\phi(a + b) = \phi(a) + \phi(b)$, $\phi(a\cdot b) = \phi(a) \cdot \phi(b)$, $\phi(1) = 1$, and $\phi(0) = 0$ for any $a, b \in F$. 
-    A \textit{monomorphism} is an injective homomorphism. It can be shown that a field homomorphism is always injective, and hence a field homomorphism is always a field monomorphism. 
-	When a field homomorphism is both injective and surjective, it is a \textit{field isomorphism}. An isomorphism from a field $F$ to itself is called an \textit{automorphism} of $F$. All automorphisms of a field $F$ form a group $\Aut(F)$, the automorphism group of $F$, under composition. 
+    A \textit{monomorphism} is an injective homomorphism. It can be shown that a field homomorphism is always injective, and hence a field homomorphism is always a field monomorphism  \cite{morandi_field_1996}.
+	When a field homomorphism is both injective and surjective, it is a \textit{field isomorphism}. An isomorphism from a field $F$ to itself is called an \textit{automorphism} of $F$. All automorphisms of a field $F$ form a group $\Aut(F)$, the automorphism group of $F$, under composition \cite{Stewart}. 
 \end{definition}
 
 \begin{definition} \label{def:automorphism}
@@ -22,12 +22,12 @@ A field \(F\) is called a \textit{prime field} of \(K\) if it has no proper (str
 %\end{definition}
 
 \begin{definition}
-A field \(K\) is said to be a \textit{field extension} of \(F\), denoted \(K / F\), if \(F\) is a subfield of \(K\). \cite{Moy} A field extension is a monomorphism \(\iota: F \to K\). If $L/K$ is a field extension, we call any field $M$ with $K \subseteq M \subseteq L$ an \textit{intermediate field.}
+A field \(K\) is said to be a \textit{field extension} of \(F\), denoted \(K / F\), if \(F\) is a subfield of \(K\).  A field extension is a monomorphism \(\iota: F \to K\). If $L/K$ is a field extension, we call any field $M$ with $K \subseteq M \subseteq L$ an \textit{intermediate field.}
 \end{definition}
 In other words, a field extension \(K\) of \(F\) will contain the field \(F\) and some more elements. We can start to see how this will be useful for finding roots of polynomials over a field as we can extend the field to include the roots.
 
 \begin{definition}
-    Let $K$ be a field. Then $K(\alpha_1, \dots, \alpha_n)$ is defined as the smallest field containing $K$ and $\alpha_1, \dots, \alpha_n$ and is said to be obtained from $K$ \textit{adjoining} $\alpha_1, \dots, \alpha_n$. 
+    Let $K$ be a field. Then $K(\alpha_1, \dots, \alpha_n)$ is defined as the smallest field containing $K$ and $\alpha_1, \dots, \alpha_n$ and is said to be obtained from $K$ \textit{adjoining} $\alpha_1, \dots, \alpha_n$. The extension $K(\alpha_1, \dots, \alpha_n) / K$ is called a \textit{finitely generated extension}, and the set $\{\alpha_1, \dots, \alpha_n\}$ is called the \textit{generating set}. 
 \end{definition}
 
 \begin{example}
@@ -101,7 +101,7 @@ The following theorem further indicates that $K[t] / \langle m \rangle$ is a fie
 
 
 \begin{theorem} \label{thm:irreducible-mod-field}
-	Every nonzero element of $K[t] /\langle m\rangle$ has a multiplicative inverse in $K[t] /\langle m\rangle$ if and only if $m$ is irreducible in $K[t]$.
+	Every non-zero element of $K[t] /\langle m\rangle$ has a multiplicative inverse in $K[t] /\langle m\rangle$ if and only if $m$ is irreducible in $K[t]$.
 \end{theorem}
 
 \begin{proof}
@@ -124,7 +124,7 @@ The isomorphism is defined by $[p(t)] \mapsto p(\alpha)$, where $[p(t)]$ is the 
 \end{corollary}
 
 \begin{corollary} \label{thm:minimal-polynomial-roots-isomorphic}
-    Suppose $K(\alpha) / K$ and $K(\beta) / K$ are simple algebraic extensions such that $\alpha$ and $\beta$ have the same minimal polynomial $m$ over $K$. Then the two extensions are isomorphic, and the isomorphism of the large fields can be taken to map $\alpha$ to $\beta$ and to be the identity on $K$.
+    Suppose $K(\alpha) / K$ and $K(\beta) / K$ are simple algebraic extensions such that $\alpha$ and $\beta$ have the same minimal polynomial $m$ over $K$. Then $K(\alpha)$ and $K(\beta)$ are isomorphic, and the isomorphism can be taken to map $\alpha$ to $\beta$ and to be the identity on $K$.
 \end{corollary}
 
 

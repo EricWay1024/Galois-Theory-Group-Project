@@ -1,9 +1,9 @@
-\section{Galois Groups and Fixed Fields}
-Given a field $L$, we now look at subgroups of the automorphism group $\Aut(L)$ and the elements in $L$ such a subgroup fixes. We investigate the matter with two approaches: on the one hand, we might choose a subfield $K$ of $L$ and define $G$ to be the group of all $K$-automorphisms of $L$, so that $G$ is guaranteed to fix any element in $K$, and we say $G$ is the \textit{Galois group} of the field extension $L/K$; on the other, we might choose any $G$, and define $K$ to be all elements fixed by $G$, in which case $K$ is always a field and is called the \textit{fixed field} of $G$. As we shall demonstrate, the two approaches are not equivalent in general, and the condition for their equivalence (the field extension $L/K$ being ``Galois'') is established in the next section. 
+\section{Galois Groups and Galois Extensions}
+Given a field $L$, we now look at subgroups of the automorphism group $\Aut(L)$ and the elements in $L$ such a subgroup fixes. We investigate the matter with two approaches. On the one hand, we might choose a subfield $K$ of $L$ and define $G$ to be the group of all $K$-automorphisms of $L$, so that $G$ is guaranteed to fix any element in $K$, and we say $G$ is the \textit{Galois group} of the field extension $L/K$, denoted as $G = \Gal(L/K)$. We also define the Galois group of a polynomial $f$ over $K$ with splitting field $\Sigma$ as the Galois group of $\Sigma / K$. This group acts on the roots of $f$ in a natural way, as we shall see. On the other, we might choose any $G$, and define $K$ to be all elements fixed by $G$, denoted as $K = \Fix(G)$, in which case $K$ is always a field and is called the \textit{fixed field} of $G$. In general, the two approaches are not inverses of each other, i.e. $\Fix(\Gal(L/K)) \neq K$. In fact, the condition for the Galois correspondence $\Fix(\Gal(L/K)) = K$ is when $L/K$ is a finite ``Galois'' extension (defined as both normal and separable), as we shall prove. 
 
-We also define the Galois group of a polynomial $f$ over $K$ with splitting field $\Sigma$ as the Galois group of $\Sigma / K$. This group acts on the zeros of $f$ in a natural way, as we shall see. 
 
-\subsection{Galois Groups}
+
+\subsection{Galois Groups and Fixed Fields}
 
 %For a field extension $L/K$, we now focus on all $K$-automorphisms of $L$ (see Definition \ref{def:automorphism}), which form the Galois group of the extension:
 
@@ -42,7 +42,7 @@ Thus $\sigma = \tau$.
 
 %The Galois group becomes increasingly useful, especially when dealing with polynomials, as we will see with the following theorem.
 
-We now show that a $K$-monomorphism always maps a zero of a polynomial over $K$ to another, in a more general setting than Galois groups \cite{morandi_field_1996}. 
+We now show that a $K$-monomorphism always maps a root of a polynomial over $K$ to another, in a more general setting than that of a Galois group which consists of $K$-automorphisms of a larger field $L$ \cite{morandi_field_1996}. 
 
 \begin{theorem} \label{thm:galois-group-permutes-zeros}
 Given fields $K \subseteq M \subseteq L$. Let $f$ be a polynomial over $K$ and let $\alpha \in M$ such that $f(\alpha) = 0$. Let $\sigma : M \to L$ be a $K$-monomorphism. Then $f(\sigma(\alpha)) = 0$. Further, $\sigma(\alpha)$ has the same minimal polynomial as $\alpha$ over $K$. 
@@ -54,22 +54,22 @@ Given fields $K \subseteq M \subseteq L$. Let $f$ be a polynomial over $K$ and l
 	Let $f(t) = a_0 + a_1 t + \dots a_n t^n$, where $a_i \in K$. Then $$f(\sigma(\alpha)) = \sum_{i=0}^n a_i \left( \sigma (\alpha) \right)^i
 	= \sum_{i=0}^n \sigma(a_i)  \sigma (\alpha ^ i) 
 	= \sigma(f(\alpha)) = \sigma(0) = 0. $$
-	In particular, if $f$ is the minimal polynomial of $\alpha$ over $K$, then $\sigma(\alpha)$ is another zero of the irreducible polynomial $f$, and hence $f$ is also the minimal polynomial of $\sigma(\alpha)$ over $K$. 
+	In particular, if $f$ is the minimal polynomial of $\alpha$ over $K$, then $\sigma(\alpha)$ is another root of the irreducible polynomial $f$, and hence $f$ is also the minimal polynomial of $\sigma(\alpha)$ over $K$. 
 \end{proof}
 
 
 
-For a polynomial $f$ over a field $K$, Theorem \ref{thm:galois-group-determined-by-generator} indicates that $\sigma \in \Gal(f)$ is completely determined by how it maps the zeros of $f$, and Theorem \ref{thm:galois-group-permutes-zeros} indicates $\sigma \in \Gal(f)$ always maps a zero of $f$ to another zero.
+For a polynomial $f$ over a field $K$, Theorem \ref{thm:galois-group-determined-by-generator} indicates that $\sigma \in \Gal(f)$ is completely determined by how it maps the roots of $f$, and Theorem \ref{thm:galois-group-permutes-zeros} indicates $\sigma \in \Gal(f)$ always maps a root of $f$ to another root.
 
 \begin{example}
 	Let $\sigma \in \Gal(\C/\R)$. Since $\C= \R(i)$, by Theorem \ref{thm:galois-group-determined-by-generator}, $\sigma$ is determined by $\sigma(i)$. But $i$ has minimal polynomial $t^2 + 1$ over $\R$, and $\sigma(i)$ has the same minimal polynomial over $\R$ by Theorem \ref{thm:galois-group-permutes-zeros}. Hence $\sigma(i) = \pm i$. When $\sigma(i) = i$, we have $\sigma = \Id$; when $\sigma(i) = -i$, $\sigma$ is the complex conjugation. Thus $\Gal(\C / \R) = \{\Id, z \mapsto \bar z \} \cong \Z_2$. 
 \end{example}
 
-It is easy to see that the Galois group of a polynomial naturally leads to a group action on its zeros. The next theorem is inspired by \cite{visual-algebra}. 
+It is easy to see that the Galois group of a polynomial naturally leads to a group action on its roots. The next theorem is inspired by \cite{visual-algebra}. 
 
 
 \begin{theorem} \label{thm:galois-group-acts-on-zeros}
-	Let $L$ be a splitting field of a polynomial $f$ over $K$ and let $G = \Gal(f)$. Let $X$ be the set of zeros of $f$. Then $G$ acts on $X$ by restriction on $X$. 
+	Let $L$ be a splitting field of a polynomial $f$ over $K$ and let $G = \Gal(f)$. Let $X$ be the set of roots of $f$. Then $G$ acts on $X$ by restriction on $X$. 
 \end{theorem}
 
 \begin{proof}
@@ -82,23 +82,23 @@ It is easy to see that the Galois group of a polynomial naturally leads to a gro
 \end{corollary}
 
 \begin{proof}
-	Let $X$ be the set of zeros of $f$. Then $|X| \le n$ and $S_X$ is a subgroup of $S_n$. The homomorphism from $\Gal(f)$ to $S_X$ is also a homomorphism from $\Gal(f)$ to $S_n$. Further, the kernel of the homomorphism is trivial, as if $\sigma \in \Gal(f)$ fixes all elements in $X$, it is the identity map by Theorem \ref{thm:galois-group-determined-by-generator}. Therefore, by Theorem \ref{thm:first-iso}, $\Gal(f)$ is isomorphic to its image in $S_n$, which is a subgroup of $S_n$. 
+	Let $X$ be the set of roots of $f$. Then $|X| \le n$ and $S_X$ is a subgroup of $S_n$. The homomorphism from $\Gal(f)$ to $S_X$ is also a homomorphism from $\Gal(f)$ to $S_n$. Further, the kernel of the homomorphism is trivial, as if $\sigma \in \Gal(f)$ fixes all elements in $X$, it is the identity map by Theorem \ref{thm:galois-group-determined-by-generator}. Therefore, by Theorem \ref{thm:first-iso}, $\Gal(f)$ is isomorphic to its image in $S_n$, which is a subgroup of $S_n$. 
 \end{proof}
 
 Recall Definition \ref{def:transitive-action} for transitive group actions. The next theorem, adapted from \cite{galois-permutation}, states that the irreducibility of a separable polynomial is equivalent to the transitivity of its Galois group action.
 
 \begin{theorem} \label{thm:galois-action-transitive-irreducible}
-	Let $f$ be a separable polynomial over field $K$. Let $X$ be the set of the zeros of $f$. Then $\Gal(f)$ acts transitively on $X$ if and only if $f$ is irreducible. 
+	Let $f$ be a separable polynomial over field $K$. Let $X$ be the set of the roots of $f$. Then $\Gal(f)$ acts transitively on $X$ if and only if $f$ is irreducible. 
 \end{theorem}
 
 \begin{proof}
-	Suppose $f$ is irreducible. Then for any zeros $\alpha, \beta$ of $f$, by Theorem \ref{thm:automorphism-from-zeros}, there exists $\sigma \in \Gal(f)$ such that $\sigma(\alpha) = \beta$. Thus $\Gal(f)$ acts transitively on $X$ by Definition \ref{def:transitive-action}. 
+	Suppose $f$ is irreducible. Then for any roots $\alpha, \beta$ of $f$, by Theorem \ref{thm:automorphism-from-zeros}, there exists $\sigma \in \Gal(f)$ such that $\sigma(\alpha) = \beta$. Thus $\Gal(f)$ acts transitively on $X$ by Definition \ref{def:transitive-action}. 
 	
-	Now suppose $f$ is reducible. Then $f$ is a product of distinct irreducible polynomials, since $f$ is separable. Let $\alpha_1$ and $\alpha_2$ be zeros of two different irreducible factors $p_1$ and $p_2$ of $f$, respectively. Then $p_i$ is the minimal polynomials of $\alpha_i$, for $i = 1, 2$. For any $\sigma \in \Gal(f)$, $\sigma(\alpha_1)$ has the same minimal polynomial as $\alpha_1$ by Theorem \ref{thm:galois-group-permutes-zeros}, which is $p_1$ and is not $p_2$. Thus $\sigma(\alpha_1) \neq \alpha_2$ and thus $\Gal(f)$ does not act transitively on $X$. 
+	Now suppose $f$ is reducible. Then $f$ is a product of distinct irreducible polynomials, since $f$ is separable. Let $\alpha_1$ and $\alpha_2$ be roots of two different irreducible factors $p_1$ and $p_2$ of $f$, respectively. Then $p_i$ is the minimal polynomials of $\alpha_i$, for $i = 1, 2$. For any $\sigma \in \Gal(f)$, $\sigma(\alpha_1)$ has the same minimal polynomial as $\alpha_1$ by Theorem \ref{thm:galois-group-permutes-zeros}, which is $p_1$ and is not $p_2$. Thus $\sigma(\alpha_1) \neq \alpha_2$ and thus $\Gal(f)$ does not act transitively on $X$. 
 \end{proof}
 
 \begin{example} \label{exm:galois-group}
-	Let $f(t) = (t^2 + 1)(t^2 - 2)$ be a polynomial over $\Q$. The set of zeros of $f$ is $X = \{i, -i, \sqrt 2, -\sqrt 2\}$. The splitting field is $\Sigma = \Q(\sqrt 2, i) = \{p+\sqrt 2 q + i r + \sqrt 2 i s : p, q, r, s \in \Q\}$ and $[\Sigma : \Q] = 4$. 
+	Let $f(t) = (t^2 + 1)(t^2 - 2)$ be a polynomial over $\Q$. The set of roots of $f$ is $X = \{i, -i, \sqrt 2, -\sqrt 2\}$. The splitting field is $\Sigma = \Q(\sqrt 2, i) = \{p+\sqrt 2 q + i r + \sqrt 2 i s : p, q, r, s \in \Q\}$ and $[\Sigma : \Q] = 4$. 
 	
 	Let us determine $\Gal(f)$. Let $\sigma \in \Gal(f)$, then $\sigma$ is completely determined by $\sigma(\sqrt 2)$ and $\sigma(i)$. Since $\sigma(\sqrt 2)$ has the same minimal polynomial over $\Q$ as $\sqrt 2$, which is $t^2 - 2$, we see that $\sigma(\sqrt 2) = \pm \sqrt 2$. Similarly, $\sigma(i) = \pm i$. Define $\phi, \psi \in \Gal(f)$ such that 
 	$$
@@ -110,7 +110,7 @@ Recall Definition \ref{def:transitive-action} for transitive group actions. The 
 	Then $\Gal(f) = \{\Id, \phi, \psi, \phi \psi \} \cong \Z_2 \times \Z_2$. If we label $i, -i, \sqrt 2, -\sqrt 2$ as $x_1, x_2, x_3, x_4$, then $\phi$ and $\psi$ correspond to transpositions $(34)$ and $(12)$, respectively, and $\Gal(f) \cong \{\Id, (34), (12), (12)(34)\} \le S_4$. Also, $\Gal(f)$ does not act transitively on $X$, as there is no $\sigma \in \Gal(f)$ such that $\sigma(\sqrt 2) = i$, and clearly $f$ is reducible over $\Q$.
 \end{example}
 
-We now prove that the upper bound for the order of the Galois group of a finite field extension is the degree of the extension, using ideas from  \cite{galois-theory-lectures}.
+We now prove that the upper bound for the order of the Galois group of a finite field extension is the degree of the extension, formalizing ideas from  \cite{galois-theory-lectures}. As we shall see in the next subsection, this upper bound is reached exactly when $L/K$ is a Galois extension. 
 
 \begin{theorem} \label{thm:galois-group-order-upper-bound}
 	Let $L/K$ be a finite field extension and let $G = \Gal(L/K)$, then $|G| \le [L:K]$. 
@@ -121,22 +121,20 @@ We now prove that the upper bound for the order of the Galois group of a finite 
 	$K_i = K(\alpha_1, \dots, \alpha_i)$ for $i = 1, \ldots, r$. In particular, $K_r = L$. 
 	
 	
-	For $i = 1, \ldots, r$, consider the extension $K_i / K_{i-1}$, where $K_i = K_{i-1} (\alpha_i)$. Let $\alpha_i$ be a zero of an irreducible polynomial $f_i$ over $K$ of degree $\partial f_i = [K_i : K_{i-1}]$ by Theorem \ref{thm:degree-theorem}. $f_i$ is over $K$ and hence is fixed under $\phi_i$. We now extend $K$-monomorphism $\phi_{i-1} : K_{i-1} \to X$ to $K$-monomorphism $\phi_i: K_i \to X$, then $\phi_i$ must map $\alpha_i$ to a zero of $f_i$ in $X$ by Theorem \ref{thm:galois-group-permutes-zeros}, and the number of zeros of $f_i$ in $X$ is \textit{at most} $\partial f_i$. Hence there are at most $[K_i : K_{i-1}]$ ways to extend $\phi_{i-1}$ to $\phi_i$. We now see that there are at most $\prod_{i=1} ^r [K_i : K_{i-1}] = [K_r : K_0] = [L : K]$ ways to extend $\phi_0$ to $\phi_r$ by Thorem \ref{thm:tower-theorem}. Since $\phi_r : L \to X$, if we let $X = L$, then $\phi_r \in \Gal(L/K)$. Also, there is only one way to construct $\phi_0$, which is the identity map. Thus each way of extending $\phi_0$ to $\phi_r$ corresponds to an element in $\Gal(L/K)$, and thus $\Gal(L/K) \le [L:K]$. 
+	For $i = 1, \ldots, r$, consider the extension $K_i / K_{i-1}$, where $K_i = K_{i-1} (\alpha_i)$. Let $\alpha_i$ be a root of an irreducible polynomial $f_i$ over $K$ of degree $\partial f_i = [K_i : K_{i-1}]$ by Theorem \ref{thm:degree-theorem}. $f_i$ is over $K$ and hence is fixed under $\phi_i$. We now extend $K$-monomorphism $\phi_{i-1} : K_{i-1} \to X$ to $K$-monomorphism $\phi_i: K_i \to X$, then $\phi_i$ must map $\alpha_i$ to a root of $f_i$ in $X$ by Theorem \ref{thm:galois-group-permutes-zeros}, and the number of roots of $f_i$ in $X$ is \textit{at most} $\partial f_i$. Hence there are at most $[K_i : K_{i-1}]$ ways to extend $\phi_{i-1}$ to $\phi_i$. We now see that there are at most $\prod_{i=1} ^r [K_i : K_{i-1}] = [K_r : K_0] = [L : K]$ ways to extend $\phi_0$ to $\phi_r$ by Thorem \ref{thm:tower-theorem}. Since $\phi_r : L \to X$, if we let $X = L$, then $\phi_r \in \Gal(L/K)$. Also, there is only one way to construct $\phi_0$, which is the identity map. Thus each way of extending $\phi_0$ to $\phi_r$ corresponds to an element in $\Gal(L/K)$, and thus $\Gal(L/K) \le [L:K]$. 
 \end{proof}
 
-As we shall see in the next section, this upper bound is reached exactly when $L/K$ is a Galois extension. 
 
 
-\subsection{Fixed Fields}
- $\Fix(G)$ is the subset of elements in $L$ which remain fixed for all automorphisms in $G$.
+We now turn to the idea of fixed fields.
 \begin{definition}
-    Let $\Aut(L)$ be the group of automorphisms of a field $L$ and let $G \leq \Aut(L)$. Then the fixed field of $G$ is the set $$\Fix(G) = \{ \alpha \in L : \sigma(\alpha) = \alpha \quad \forall \sigma \in G \}. $$ The fixed field is always a field (proof omitted).
+    Let $\Aut(L)$ be the group of automorphisms of a field $L$ and let $G \leq \Aut(L)$. Then the fixed field of $G$ is the set $\Fix(G) = \{ \alpha \in L : \sigma(\alpha) = \alpha \quad \forall \sigma \in G \}. $ The fixed field is always a field (proof omitted) \cite{morandi_field_1996}.
 \end{definition}
 
-In particular, for a finite field extension $L/ K$, the Galois group $G = \Gal(L / K)$ is a subgroup of $\Aut(L)$ such that $$K \subseteq \Fix(G) \subseteq L. $$ We are mainly interested in cases where $K = \Fix(G) = \Fix(\Gal(L/K))$. This is true exactly when $L/K$ is a Galois extension, as we shall see in the next section. To show this is not true in general, we now look at a counterexample. 
+In particular, for a finite field extension $L/ K$, the Galois group $G = \Gal(L / K)$ is a subgroup of $\Aut(L)$ such that $K \subseteq \Fix(G) \subseteq L. $ We are mainly interested in cases where $K = \Fix(G) = \Fix(\Gal(L/K))$. This is true exactly when $L/K$ is a Galois extension, as we shall see in the next subsection. To show this is not true in general, we now look at a counterexample. 
 
 \begin{example}
-    For $G = \Gal(L/K)$, it is not always the case that $K = \Fix(G)$. For example, consider when $K = \Q$ and $L = \Q (\alpha)$ where $\alpha = \sqrt[3]{2}$. If $\sigma \in G$, then $\sigma(\alpha)$ is a zero of the polynomial $t^3 - 2$ by Theorem \ref{thm:galois-group-permutes-zeros}, but the two complex zeros are not contained in $L$. Thus $\sigma(\alpha) = \alpha$ and $G = \{ \Id \}$. We see that $\Fix(G) = L \neq K$. 
+    For $G = \Gal(L/K)$, it is not always the case that $K = \Fix(G)$. For example, consider when $K = \Q$ and $L = \Q (\alpha)$ where $\alpha = \sqrt[3]{2}$. If $\sigma \in G$, then $\sigma(\alpha)$ is a root of the polynomial $t^3 - 2$ by Theorem \ref{thm:galois-group-permutes-zeros}, but the two complex roots are not contained in $L$. Thus $\sigma(\alpha) = \alpha$ and $G = \{ \Id \}$. We see that $\Fix(G) = L \neq K$. 
 \end{example}
 
 
@@ -149,10 +147,10 @@ Before ending our discussion on fixed fields, we prove the next theorem to show 
 
 \begin{proof}
 	
-	Let $f$ be an irreducible polynomial over $K$ with a root $\alpha \in L$. Consider the finite non-empty set $S = \Orb_G(\alpha) = \{ \alpha_1, \ldots, \alpha_n\} \subseteq L$. Let $h(t) = \prod_{i = 1} ^n (t - \alpha_i)$. It is clear that $h$ splits in $L$.
+	Let $f$ be an irreducible polynomial over $K$ with a root $\alpha \in L$. Consider the finite set $S = \Orb_G(\alpha) = \{ \alpha_1, \ldots, \alpha_n\} \subseteq L$. Let $h(t) = \prod_{i = 1} ^n (t - \alpha_i)$, which splits in $L$.
 	
 	Note that each $\sigma \in G$ maps $S$ to itself. Therefore, $h$ is fixed by $G$, and all of its coefficients are in $\Fix(G) = K$. We then claim that $h$ is irreducible over $K$. Suppose that $h$ is reducible over $K$, then $\Gal(h)$ does not act transitively on $S$ by Theorem \ref{thm:galois-action-transitive-irreducible}. Let $\Sigma = K(\alpha_1, \dots, \alpha_n)$ be the splitting field of $h$ contained in $L$.  Any $\sigma \in G$ is a $K$-automorphism of $L$ which permutes $\alpha_i$, and thus for any $\gamma \in \Sigma$, we have $\sigma(\gamma) \in \Sigma$ (using a similar argument as in the proof of Theorem \ref{thm:galois-group-determined-by-generator}). Thus $\sigma | _ \Sigma \in \Gal(h)$. 
-	Since each element in $G$ defines an element in $\Gal(h)$ and $G$ acts transitively on $S$ by construction, we have a contradiction. 
+	Then each element in $G$ defines an element in $\Gal(h)$ and $G$ acts transitively on $S$ by construction, and thus we have a contradiction. 
 	
-	Since $\alpha$ is a zero of $h$ and $h$ is irreducible over $K$, $h$ is the minimal polynomial of $\alpha$ over $K$. Thus $h = f$ and $f$ splits in $L$. Thus the extension $L/K$ is normal. 
+	Since $\alpha$ is a root of $h$ and $h$ is irreducible over $K$, $h$ is the minimal polynomial of $\alpha$ over $K$. Thus $h = f$ and $f$ splits in $L$. Thus the extension $L/K$ is normal. 
 \end{proof}
