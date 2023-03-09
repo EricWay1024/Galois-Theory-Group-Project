@@ -109,7 +109,7 @@ The most important property of Galois extensions is that of Galois correspondenc
     On the other hand, by evaluating the elementary symmetric polynomials at each of the elements in $\Orb_H(a)$, we get that, by the fact they are symmetric, these are just the elements in $\Fix(H)=K$. Therefore, we see that the coefficients in the polynomial: $f(t) := (t-a_1)(t-a_2)...(t-a_m)$ lies in $K$, and we have $f(a)=0$. Then, our minimal polynomial $\mu_a(t)$ divides $f(t)$ and $\partial f \geq \partial \mu_a(t) \implies m \geq n$. Hence we have $m \geq n$ and $n \geq m$, so therefore we have that $m=n$, which tells us $|H|=|G|$ and so $H=G.$
 \end{proof}
 
-We are now ready to present the core result.
+We are now ready to present the core result, the Galois correspondence of Galois extensions. 
 
 \begin{theorem}[The Fundamental Theorem of Galois Theory] \label{thm:fundamental-theorem} Given a Galois extension $L/K$ and its Galois group $G = \Gal(L/K)$, there is a natural bijection between subgroups $H\leq G$ and the intermediate fields $M$ such that $K \subseteq M \subseteq L$. Define
  $\alpha:M \mapsto \Gal(L/M) \leq G$ and
@@ -154,7 +154,7 @@ The next theorem is another important property of Galois extensions. Its proof c
 %\end{example}
 
 
-\begin{example}
+\begin{example} \label{exm:correspondence}
 	
 	Let $f(t) = t^3 - 2$ be a separable polynomial over $\Q$ with the set of roots $X = \{ \sq, \zeta \sq, \zeta^2 \sq \}$, where $\zeta = e^{2\pi i / 3}$. 
 	

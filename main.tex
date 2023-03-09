@@ -39,6 +39,13 @@
 \bibliographystyle{unsrt}
 \usepackage[none]{hyphenat}
 \usepackage{fdsymbol}
+\usepackage{caption}
+\DeclareCaptionLabelSeparator{custom}{: }
+\captionsetup
+{
+	labelsep=custom
+}
+\usepackage[symbol]{footmisc}
 
 \newcommand{\Gal}{\operatorname{Gal}}
 \newcommand{\Aut}{\operatorname{Aut}}
@@ -67,7 +74,7 @@
 
 \begin{document}
 \begin{abstract}
-    We define field extensions, $L/K$ and their Galois groups $\Gal(L/K)$ in terms of all $K$-automorphisms of $L$. We introduce a map between fields and their Galois groups in order to make solving problems easier. We apply this to polynomials and study their Galois groups and determine the solvability of both the polynomial and Galois group, and yield key results about the insolvable nature of polynomials of degree five and above.
+    Working on fields with characteristic $0$, we define field extensions $L/K$ and their Galois groups $\Gal(L/K)$ in terms of all $K$-automorphisms of $L$. We then define Galois field extensions and prove their properties, including that of Galois correspondence, which is a bijective map between the intermediate fields of the extension and the subfields of its Galois group. We apply this to polynomials and study their Galois groups and determine the solvability of both the polynomial and Galois group, and yield key results about the insolvable nature of polynomials of degree five and above. We also apply results in Galois Theory to ruler-and-compass construction problems to study constructable numbers and produce impossibility proofs. 
 \end{abstract}
 
 \maketitle

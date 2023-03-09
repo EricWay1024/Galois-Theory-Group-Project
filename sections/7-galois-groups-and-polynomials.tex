@@ -179,12 +179,29 @@ Using the fact that abelian groups are solvable, the following theorem implies t
 
 The next theorem allows us to pass the solvability of the Galois group along a tower of simple radical extensions. 
 
+%\begin{wrapfigure}{l}{0.25\textwidth}
+%	\centering
+%	\begin{tikzpicture}
+%		\node(K) {$K$};
+%		\node(L) [below=1cm of K] {$L$}; 
+%		\node(M) [right=1.3cm of K] {$M$};
+%		\node(N) [below=1cm of M] {$N$}; 
+%		
+%		\draw[->] (K) --  node[above] {$t^p - c$} (M);
+%		\draw[->] (L) --  node[below] {$t^p - c$} (N);
+%		\draw[->] (K) --  node[left] {$f(t)$} (L);
+%		\draw[->] (M) --  node[right] {$f(t)$} (N);
+%	\end{tikzpicture}
+%\end{wrapfigure}
+
 \begin{theorem} \label{thm:solvable:chain}
 	Let $f$ be a polynomial over a subfield $K$ of $\C$. Let $K' = K(\alpha)$, where $\alpha^p = c \in K$ for some prime $p$. Let $L$ be the splitting field of $f$ over $K$, then $\Gal(L/K)$ is solvable if and only if $\Gal(L / K')$ is solvable. 
 \end{theorem}
 
+
+
 \begin{proof}
-	Let $N$ be the spitting field of the polynomial $f(t)(t^p - c)$ over $K$ and let $M$ be the splitting field of $t^p -c $ over $K$. Then $M$ and $L$ are both contained in $N$, and $N/K$, $L/K$ and $M/K$ are all Galois extensions. By Theorem \ref{thm:correspondence-quotient}, we have that 
+	Let $N$ be the spitting field of the polynomial $f(t)(t^p - c)$ over $K$ and let $M$ be the splitting field of $t^p -c $ over $K$ (see Figure \ref{fig:solvable-chain}). Then $M$ and $L$ are both contained in $N$, and $N/K$, $L/K$ and $M/K$ are all Galois extensions. By Theorem \ref{thm:correspondence-quotient}, we have that 
 	$$ \Gal(L / K) \cong \frac{\Gal(N / K)}{\Gal(N / L)} \text{ and } \Gal(M / K) \cong \frac{\Gal(N / K)}{\Gal(N / M)}.$$
 	Now $M$ and $N$ are the splitting fields for $t^p - c$ over $K$ and $L$ respectively, so by Theorem \ref{thm:radical-simple-solvable}, $\Gal(M/K)$ and $\Gal(N / L)$ are solvable. Then by Theorem \ref{thm:soluble-main}, $\Gal(L/K)$ is solvable iff $\Gal(N/K)$ is solvable, and $\Gal(N / K)$ is solvable iff $\Gal(N/M)$ is solvable. Thus we have that $\Gal(L/K)$ is solvable iff $\Gal(N/M)$ is solvable. 
 	
@@ -199,7 +216,7 @@ Now, we propose our main theorem of this section, which is (one direction of) Ga
 
 \begin{proof}
 %	``$\implies $''. 
-	Assume that $f$ over $K$ can be solved by radicals. Then we have a sequence of intermediate field extensions such that $K = L_0 \subset L_1 \subset L_2 \subset ... \subset L_n :=F$, where $f$ splits in $F$ and for each $i = 1, \dots, m$ we have that  $L_i = L_{i-1} (\alpha_i)$ for $\alpha_i ^ {p_i} \in L_{i-1}$ with $p_i$ prime. By construction we can let $F$ be the splitting field of $f$.
+	Assume that $f$ over $K$ can be solved by radicals. Then we have a sequence of intermediate field extensions such that $K = L_0 \subset L_1 \subset L_2 \subset ... \subset L_n :=F$, where $f$ splits in $F$ and for each $i = 1, \dots, m$ we have that  $L_i = L_{i-1} (\alpha_i)$ for $\alpha_i ^ {p_i} \in L_{i-1}$ with $p_i$ prime. We can assume $F$ to be the splitting field of $f$ over $K$ \footnote[2]{This assumption is made by \cite{introduction-to-galois-theory} without explicit justification. In the absence of a proof or counterexample, we present an alternative proof in Appendix \ref{sec:radical-alter}, which only relies on the fact that the splitting field of $f$ over $K$ is a \textit{subfield} of the radical extension $F$.}.
 %	Here we assume that $F$ is the splitting field of $f$ over $K$ \footnote{This assumption is made by \cite{introduction-to-galois-theory} but unjustified.  
 %%		but might not be true, as in general the splitting field $F'$ of $f$ over $K$ is \textit{contained} in $F$. The reader is referred to \cite{Stewart} (\TODO or appendix?) for the complete proof. 
 %	}. 
@@ -231,12 +248,14 @@ Now we demonstrate an example where the Galois group of a polynomial over $\math
 \end{proof}
 
 \begin{example}
-	The polynomial $x^5 + 10 x^4 - 2$ over $\mathbb Q$ is not solvable by radicals.
+	The polynomial $t^5 + 10 t^4 - 2$ over $\mathbb Q$ is not solvable by radicals.
 \end{example}
 
 \begin{proof}
 	$f(t) = t^5 + 10 t^4 - 2$ is irreducible by Theorem \ref{thm:eisenstein} with $q = 2$. The degree of $f$ is $5$, which is prime. Calculus shows that $f$ has three real roots. Thus the Galois group of $f$ is isomorphic to $S_5$ by Theorem \ref{thm:galois-iso-symmetric}. But $S_5$ is not solvable by Theorem \ref{thm:symmetric-not-soluble-appendix}. Thus by Theorem \ref{thm:galois-theorem}, $f$ is not solvable by radicals.
 \end{proof}
+
+We now can see that \textit{not} all elements in $\mathbb A = \overline \Q$ are expressible by radicals (see Figure \ref{fig:hasse}). 
 
 The Abel-Ruffini theorem, posed and proved (incompletely) by Paolo Ruffini and completed by Niels Henrik Abel, shows that the generic polynomial of order five and above is not solvable by radicals. Here we give a brief introduction to this theorem. Our method is based on what we have obtained from Galois theory and thus is different from the original proof. 
 %For this section, we assume that all fields that we mention have characteristic 0.
@@ -294,6 +313,7 @@ If $P_n$ were solvable by radicals for any given $n$, we would be able to solve 
 \begin{proof}
 	By Lemma \ref{lemma:galois-symmetric}, we know that $P_n$ has a Galois group isomorphic to $S_n$. Then by Theorem \ref{thm:symmetric-not-soluble-appendix} we can see that for $n \geq 5$, $S_n$ is not solvable, which by Theorem \ref{thm:galois-theorem} implies that $P_n$ with $n \ge 5$ is not solvable.
 \end{proof}
+
 
 %
 %\subsection{Solubility by Radicals}
