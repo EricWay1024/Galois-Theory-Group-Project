@@ -1,14 +1,13 @@
 
 
 \section{Polynomials}
-In this section we first give some basic definitions involving polynomials. Then we look at theorems that deal with the irreducibility of polynomials over $\Z$ and $\Q$ before briefly recalling the Fundamental Theorem of Algebra for polynomials over $\C$. This section is based on \cite{Stewart}. 
-\subsection{Basics of Polynomials}
+In this section we first give some basic definitions involving polynomials. Then we look at theorems that deal with the irreducibility of polynomials over $\Z$ and $\Q$ before briefly recalling the Fundamental Theorem of Algebra for polynomials over $\C$. These theorems will come in very useful over the rest of this report. This section is based on Stewart's Galois Theory. \cite{Stewart}. 
 
 \begin{definition}
     Let $R$ be an integral domain and $t$ be an indeterminate. A \textit{polynomial} $f$ over $R$ (in the indeterminate $t$) is of the form $f(t) = r_n t^n + r_{n-1} t^{n-1} + ... + r_1 t + r_0$, where the \textit{coefficients} $r_i \in R$. 
 \end{definition}
 
-We will be mainly working with polynomials over a field (recall that any field is an integral domain) but also polynomials over $\Z$. It is easy to check directly from the definitions above that the set of all polynomials over an integral $R$ obeys all the normal algebraic laws (including addition, multiplication, and division with remainder). We denoted the set by $R[t]$ and call it the ring of polynomials over $R$ (in the indeterminate $t$). 
+We will be mainly working with polynomials over a field (recall that any field is an integral domain) but also polynomials over $\Z$. It is easy to see that, by the definition above, the set of all polynomials over an integral domain $R$ conform to  the normal laws of algebra (including addition, multiplication, and division with remainder). We denote the set by $R[t]$ and call it the ring of polynomials over $R$ (in the indeterminate $t$). 
 
 \begin{definition}
 	Let $R$ be an integral domain. Let $\alpha \in R$ and $f \in R[t]$. If $f(\alpha) = 0$, we say that $\alpha$ is a \textit{root} or a \textit{zero} of $f$. 
@@ -21,35 +20,12 @@ We will be mainly working with polynomials over a field (recall that any field i
 
 
 \begin{definition}
-	Let $R$ be an integral domain. If $f \in R[t]$ and $f \neq 0$, then the \textit{degree} of $f$ is the highest power of $t$ occurring in $f$ with a non-zero coefficient, denoted as $\partial f$. If $f$ has degree $n$, then $a_n$ is the leading coefficient of $f$; if $a_n = 1$, we say that $f$ is monic. A polynomial with degree $0, 1, 2, 3, 4, 5$ is called constant, linear, quadratic, cubic, quartic, and quintic respectively.
-%	When $f = 0$, we define $\partial f = - \infty$, where $-\infty < n, (-\infty) + (- \infty) = -\infty, -\infty + n = \infty$ for all $n \in \Z$. 
+    Let $R$ be an integral domain and if $f \in R[t]$ and $f \neq 0$, then the \textit{degree} of $f$ is said to be the highest power of $t$ occurring in $f$ where it has a non-zero coefficient. The \textit{degree} of $f$ is denoted as $\partial f$. If $f$ has degree $n$, then the leading coefficient of $f$ is $a_n$. If $a_n = 1$ then $f$ is said to be monic. When $f = 0$, we define $\partial f = - \infty$.
 \end{definition}
 
 
-
-%Polynomials with degree $n$ will often be written in descending order $r_n t^n + r_{n-1} t^{n+1} + ... + r_1 t + r_0$.
-
-%\begin{theorem}
-%    Two polynomials $f,g$ over $K$ define the same function if and only if they are equal polynomials, so they have the same coefficients.
-%\end{theorem}
-%
-%\begin{proof}
-%    This is a basic proof to an obvious theorem. By taking the difference of the two polynomials, we must prove that if $f(t)$ is a polynomial over $K$ and $f(t) = 0$ for all $t$, then the coefficients of $f$ are all 0. Let $P(n)$ be the statement: If a polynomial $f(t)$ over $K$ has degree $n$, and $f(t) = 0$ for all $t$, then $f=0$. We prove $P(n)$ for all $n$ by induction on $n$. 
-%    
-%    Both $P(0)$ and $P(1)$ are obvious. Suppose that $P(n-1)$ is true. With $f(t) = a_n t^n +...+ a_0$. In particular, $f(0) = 0$, so $a_0 = 0$ and,
-%    $$
-%    f(t) = a_n t^n +...+ a_1 t= t(a_n t^{n-1} +...+ a_1) = tg(t),
-%    $$
-%    where $g(t) = a_n t^{n-1} +...+ a_1$ has degree $n-1$. Now $g(t)$ vanishes for all $t$ except $t=0$. However is $g(0) = a_1 \neq 0$ then $g(t) \neq 0$ for sufficiently small $t$. Therefore $g(t)$ vanishes for all $t$. By induction, $g=0$. Therefore $f=0$ so $P(n)$ is true and the induction is complete.
-%\end{proof}
-
-%Two polynomials are defined to be equal if and only if all corresponding co-efficients are equal.
-
-%If $r = \sum (r_i t^i)$ and $s = \sum (s_i t^i)$ then $r+s = \sum (r_i + s_i)t^i$, and $rs = \sum (q_j t^j)$ where $q_j = \sum_{h+i=j} r_h s_i$.
-
-
 \begin{definition}
-     A non-constant polynomial $f$ over an integral domain $R$ is \textit{reducible} if it is a product of two polynomials $g$ and $h$ over $R$ of smaller degree, in which case $g$ and $h$ are \textit{factors} of $f$. Otherwise $f$ is \textit{irreducible}. 
+     A non-constant polynomial $f$ over an integral domain $R$ is \textit{reducible} if it is a product of two polynomials $g$ and $h$ over $R$ of smaller degree than f, in which case $g$ and $h$ are \textit{factors} of $f$. Otherwise $f$ is \textit{irreducible}. 
 \end{definition}
 
 \begin{theorem}
@@ -57,25 +33,21 @@ We will be mainly working with polynomials over a field (recall that any field i
 \end{theorem}
 
 \begin{proof}
-    Let $g$ be any non-zero polynomial over $R$. We proceed by in introduction on the degree of $g$. If $\partial g = 0$ or 1 then $g$ is automatically irreducible. If $\partial g > 1$, then either $g$ is irreducible or $g = hk$ where $\partial h$, $\partial k < \partial g$. By induction, $h$ and $k$ are products of irreducible polynomials, where $g$ is such a product. The theorem then follows by induction.
+    Let $f$ be a non-zero polynomial over an integral domain $R$. We now prove the above inductively based on the degree of $f$. In the trivial cases, where $\partial f =0$ or $\partial f = 1$, then $f$ is clearly irreducible. If $\partial f > 1$, then $f$ itself is either irreducible, or we have $f=gh$, where we have $\partial g < \partial f$ and $\partial h < \partial f$. Then, by induction, we have that $g$ and $h$ must either be irreducible or the product of irreducible polynomials. Then, since $f=gh$, we can rewrite $g$ and $h$ if they are reducible, into their irreducible factors, and write $f$ as the product of irreducible factors. The theorem then follows by induction. 
+    
 \end{proof}
 
 \begin{example}
-    We can use the above theorem to prove irreducibilty for some cases, working very well for cubic polynomials over $\Z$. Consider polynomial $f(t) = t^3 -5 t + 1$ over $\Z$. If it was not irreducible then it must have a linear factor $t - \alpha$ over $\Z$ and then $\alpha \in \Z$ and $f(\alpha) = 0$. There also must exist $\beta, \lambda \in \Z$ such that,
-    $$
-    f(t) = (t-\alpha)(t^2 + \beta t + \lambda) = t^3 + (\beta - \alpha)t^2 + (\lambda - \alpha \beta)t - \alpha \lambda,
-    $$
-    so $\alpha \lambda = -1$. Therefore, $\alpha = \pm 1$. But $f(1) = -3 \neq 0$ and $f(-1) = 5 \neq 0$. This shows that no linear factor over $\Z$ of $f$ exists and hence $f$ is irreducible over $\Z$.
+    We now use the above theorem to prove irreducibility in a cubic polynomial over $\Z$. Consider the polynomial $f(t)=t^3-5t+1$ over $\Z$. Let us assume $f$ is not irreducible, then it must have a linear factor, say $t-\alpha$ over $\Z$, where $f(\alpha)=0$ for $\alpha \in \Z$. Then, for $\beta, \gamma \in \Z$, since $f$ is irreducible we can write it in the following form:
+    $$f=(t-\alpha)(t^2+\beta t + \gamma) = t^3 + (\beta - \alpha)t^2 + (\gamma - \alpha \beta)t - \alpha \gamma$$
+    By comparing coefficients we see that $\alpha \gamma = -1$, thus $\alpha = \pm 1$. But $f(1) = -3 \neq 0$ and $f(-1) = 5 \neq 0$, and we require $f(\alpha)=0$. Therefore, there is no linear factor of $f$ over $\Z$, and therefore is irreducible over $\Z$.
 \end{example}
 
-
-
-
-In an analogous way, we also define a polynomial $f$ over an integral domain $R$ in $n$ indeterminates $t_1, t_2, \dots, t_n$ as the form 
+We also define a polynomial $f$ over an integral domain $R$ in $n$ indeterminates $t_1, t_2, \dots, t_n$ as the form 
 $$
 f(t_1, \dots, t_n) = \sum _{ r_{\alpha_1, \dots, \alpha_n} \in R}  r_{\alpha_1, \dots, \alpha_n} t_1^{\alpha_1} \dots t_n ^{\alpha_n},
 $$
-where $\alpha_i$ are non-negative integers and only finitely many $r_{\alpha_1, \dots, \alpha_n}$ are non-zero. Such polynomials form the ring $R[t_1, \dots, t_n]$.
+where $\alpha_i$ are non-negative integers and only finitely many $r_{\alpha_1, \dots, \alpha_n}$ are non-zero. These polynomials form the ring $R[t_1, \dots, t_n]$.
 
 \begin{definition}
 	Let $R$ be an integral domain and let $f(t_1, \dots, t_n) \in R[t_1, \dots, t_n]$. We say that $f$ is
@@ -99,70 +71,68 @@ where $\alpha_i$ are non-negative integers and only finitely many $r_{\alpha_1, 
     For example, in the case where $n=4$, we can see the following are elementary symmetric polynomials: $e_1(t_1,t_2,t_3,t_4) = t_1 + t_2 + t_3 + t_4$, $e_2(t_1, t_2, t_3, t_4) = t_1t_2 + t_1t_3 + t_1t_4 + t_2t_3 + t_2t_4 + t_3t_4$,  $e_3(t_1,t_2,t_3,t_4) = t_1t_2t_3+t_1t_2t_4+t_1t_3t_4+t_2t_3t_4$, and $e_4(t_1, t_2, t_3, t_4) = t_1 t_2 t_3 t_4$. 
 \end{example}
 
+From here, we now look at polynomials over $\Z, \Q$ and $\C$, and the irreducibility of polynomials over certain fields.
 
-\subsection{Polynomials over $\Z$, $\Q$ and $\C$} 
-We now give some theorems related to the irreducibility of polynomials over $\Z$ and $\Q$.
+If we take an irreducible polynomial over $\Z$, i.e, $f \in \Z[x]$, and consider if it is irreducible over $\Q$, we may think that there could be a factor over $\Q$. However, Gauss proved that this is not the case, and the following Lemma shows this.
 
 \begin{lemma}[Gauss' Lemma]
-     Let $f$ be a polynomial over $\Z$ that is irreducible over $\Z$. Then $f$, considered as a polynomial over $\Q$, is also irreducible over $\Q$.
+     Let $f \in \Z[x]$ be a polynomial such that $f$ is irreducible over $\Z$. Then by considering $f$ over $\Q$, we have that $f$ is irreducible over $\Q$.
+    
 \end{lemma}
 
 \begin{proof}
-This lemma is useful because when we extend the subring of coefficients from $\Z$ to $\Q$ then there are new polynomials which may be factors of $f$. However, we now show that they are not. Starting with a contradiction, suppose that $f$ is irreducible over $\Z$ but reducible over $\Q$ so that $f = g h$ where $g$,$h$ are both polynomials over $\Q$, of a smaller degree. Multiplying through by the product of the denominators of the coefficients of $g$ and $h$ means we can rewrite this as $n f = g' h'$, where $n \in \Z$ and $g'$ and $h'$ are polynomials over $\Z$. We can now show that we can cancel out the prime factors of $n$ one by one, without going outside $\Z[t]$.
 
-Suppose that $p$ is a prime factor of $n$. We now claim that if $g' = g_0 + g_1 t +...+ g_r t^r$, $h' = h_0 + h_1 t +...+ h_s t^s$ then either $p$ divides all the coefficients of $g_i$, or $p$ divides all the coefficients $h_j$.
-If not then there must be smallest values $i$, $j$ such that $p \nmid g_i$ and $p \nmid h_j$. However, $p$ divides the coefficient of $t^{i+j}$ in $g' h'$, which is
+First, you assume a contradiction that $f$ is reducible over $\Q$ but irreducible over $\Z$. This means that $f=gh$ where $g,h \in \Q[x]$ and $\partial g < \partial f$, $\partial h < \partial f$. Then let $n$ be the lowest common multiple of all the denominators of the coefficients in our polynomials $g$ and $h$. Then, consider the polynomial $nf = g' h'$. Thus, we have $n \in \Z$ and $g', h' \in \Z[x]$
+
+Now suppose that $p$ is a prime factor of $n$, and write $g' := g_0 + g_1 t +\dots+ g_r t^r$, $h' := h_0 + h_1 t +\dots+ h_s t^s$. Then we have that either $p$ divides all coefficients $g_i$, for $0\leq i\leq r$, or all the coefficients $h_j$, for $0\leq j \leq s$. If not then there must be smallest values $i_0$, $j_0$ such that $p \nmid g_{i_0}$ and $p \nmid h_{j_0}$. However, $p$ divides the coefficient of $t^{i_0+j_0}$ in $g' h'$, which is
 $$
-h_0 g_{i+j} + h_1 g_{i+j-1} +...+ h_j g_i +...+ h_{i+j} g_0
+h_0 g_{i_0+j_0} + h_1 g_{i_0+j_0-1} +...+ h_{j_0} g_{i_0} +...+ h_{i_0+j_0} g_0
 $$
-and by the choice of $i$ and $j$, the prime $p$ divides every term of this expression except $h_j g_i$. $p$ divides the whole expression, so $p | h_j g_i$. However $p \nmid g_i$ and $p \nmid h_j$, a contradiction.
+since $nf$ is divisible by $p$ over $\Z$, which means that $p |g_{i_0} h_{j_0}$. However $p \nmid g_i$ and $p \nmid h_j$, which is a contradiction.
 \end{proof}
 
 \begin{theorem}[Eisenstein's Criterion] \label{thm:eisenstein}
-     Let
+    Let
     $f(t) = a_0 + a_1 t + ... + a_n t^n$
-    be a polynomial over $\Z$. Suppose there is a prime $q$ such that
-    (1) $q \nmid a_n$, 
-    (2) $q \mid a_i$ for $i = {0, 1,..., n-1}$, and 
-    (3) $q^2 \nmid a_0$. 
+    be a polynomial over $\Z$. 
+    If there exists a prime $p$ such that the following conditions hold:
+    \begin{enumerate}
+        \item $p \nmid a_n$
+        \item $p \mid a_i$ for $i = {0, 1,..., n-1}$
+        \item $p^2 \nmid a_0$. 
+    \end{enumerate}
     Then $f$ is irreducible over $\Q$. 
 \end{theorem}
 
 \begin{proof}
-By Gauss' Lemma it is sufficient to show that $f$ is irreducible over $\Z$. Suppose for a contradiction that $f = gh$, where
+If we can show that $f$ is irreducible over $\Z$, then (by Gauss' Lemma) we can say that $f$ is also irreducible over $\Q$.
+
+Let us suppose towards a contradiction that $f=g \cdot h$, where $g,h$ are polynomials over $\Z$. So let $g(t)=g_0+g_1 t+ ... +g_r t^r,$ and $h(t)=h_0+h_1t+ ... +h_st^s$ where $1 \leq r, s < n$. Then we have that $r+s=n$. Then we have $g_0 h_0 = a_0$ so by the second criterion, $p|g_0$ or $p|c_0$. By the third criterion, $p$ can not divide both $g_0$ and $h_0$, so without loss of generality assume that $p | g_0$ and $p \nmid h_0$. If all $g_j$ are divisible by $p$, then $a_n$ is divisible by $p$, contrary to the first criterion. Let $g_{j_0}$ be the first coefficient of $g$ not divisible by $p$. Then
 $
-g(t)=b_0+b_1 t+ ... +b_r t^r,
+a_{j_0} = g_{j_0} h_0 + ...+ g_0 h_{j_0}
 $
-and
-$
-h(t)=c_0+c_1 t+ ... +c_s t^s
-$
-are polynomials of smaller degree over $\Z$. Then $r \ge 1, s \ge 1$ and $r+s = n$. Now $b_0 c_0 = a_0$ so by (2), $q | b_0$ or $q|c_0$. By (3), $q$ cannot divide both $b_0$ and $c_0$, so without
-loss of generality we can assume $q | b_0$ and $q \nmid c_0$. If all $b_j$ are divisible by $q$, then $a_n$ is divisible by $q$, contrary to (1). Let $b_j$ be the first coefficient of $g$ not divisible by $q$. Then
-$
-a_j = b_j c_0 + ...+ b_0 c_j
-$
-where $j < n$. This implies that $q$ divides $c_0$, since $q$ divides $a_j, b_0,..., b_{j-1}$, but not $b_j$. This is a contradiction. Hence $f$ is irreducible.
+where $j_0 < n$. This implies that $p$ divides $h_0$, since $p$ divides $a_{j_0}, g_0,..., g_{j_0-1}$, but not $g_{j_0}$. This leads to a contradiction and thus $f$ is irreducible over $\Z$ which by Gauss' Lemma implies that $f$ is irreducible over $\Q$.
 \end{proof}
+
+A theorem exists for a more general version of Eisenstein's Criterion, for polynomials over an integral domain. We do not go through it in this report as we only require the above criterion for the Galois Theory we introduce. The proof would then be slightly different in the general case but it would use similar ideas.
 
 \begin{example}
 Consider$
-f(t) = \frac{2}{9} t^5 + \frac{5}{3} t^4 + t^3 
-$ over $\Q$. This is irreducible over $\Q$ if and only if $
-9f(t) = 2t^5 + 15t^4 + 9t^3
-$
-is irreducible over $\Q$. Eisenstein's criterion now applies with $q = 3$, showing that $f$ is irreducible.
+f(t) = \frac{2}{9} t^5 + \frac{5}{3} t^4 + t^3 + \frac{1}{3}$ over $\Q$. By Gauss' Lemma, we can show that $f$ is irreducible over $\Q$ if $
+9f(t) = 2t^5 + 15t^4 + 9t^3 + 3
+$ is irreducible over $\Z$. By applying Eisenstein's criterion with $q = 3$, we have that $3 \nmid 2, 3|15, 3|9 $ and $3|3$ but $q^2 = 9 \nmid 3$. Hence all of Eisenstein's criterion hold, and thus $9f(t)$ is irreducible over $\Z$ which means that $f(t)$ is irreducible over $\Q$
+
 \end{example}
 
-\begin{theorem}
+\begin{lemma}
 If $p$ is prime, the binomial coefficient $\binom{p}{r}$ is divisible by $p$ if $1 \le r \le p-1$.
-\end{theorem}
+\end{lemma}
 
 \begin{proof}
-The binomial coefficient is an integer and $\binom{p}{r} = \frac{p!}{r!(p-r)!}$. The factor $p$ in the numerator cannot cancel with any factor in the denominator unless $r=0$ or $r=p$.
+By definition we have $\binom{p}{r} = \frac{p!}{r!(p-r)!} \in \Z$. We can see that the numerator has $p$ as a factor, which would not be cancelled by any factor in the denominator unless $r=p$ or $r=0$.
 \end{proof}
 
-\begin{theorem}\label{thm:irreducible-prime-polynomial}
+\begin{theorem}[Irreducible Prime Polynomial Theorem]\label{thm:irreducible-prime-polynomial}
     If $p$ is a prime then the polynomial
     $
     f(t) = 1 + t + ... + t^{p-1}
@@ -171,23 +141,23 @@ The binomial coefficient is an integer and $\binom{p}{r} = \frac{p!}{r!(p-r)!}$.
 \end{theorem}
 
 \begin{proof}
-First, $f(t) = \frac{t^p - 1}{t - 1}$. Put $t = 1 + u$ where $u$ is a new indeterminate. Then $f(t)$ is irreducible over $\Q$ if and only if $f(1+u)$ is irreducible. But
-$$
-f(1+u) = \frac{(1+u)^p - 1}{u}  = u^{p-1} + ph(u),
-$$
-where $h$ is a polynomial in $u$ over $\Z$ with constant term 1, by the above theorem. By Eisenstein's Criterion, $f(1+u)$ is irreducible over $\Q$.
+Firstly, set $f(t) = \frac{t^p - 1}{t - 1}$. 
+Now define $t =1+x$, so that we have a new indeterminate $x$. Then we can show that if $f(1+x)$ is irreducible over $\Q$, then $f(t)$ is also irreducible over $\Q$.
+
+Then we can write $$f(1+x)=\frac{(1+x)^p - 1}{x}  = x^{p-1} + pg(x)$$, whereby $g(x)\in \Z[x]$ with constant $1$ by the Lemma above. Then, by Eisenstein's Criterion, $f(1+x)$ is irreducible over $\Q$ and thus $f(t)$ is irreducible over $\Q$ also.
+
 \end{proof}
 
-%After discovering that equations can be solved over $\C$, then there is a question of why stop at $\C$. Why not try and find an equation with no solutions over $\C$? The answer is that no such polynomial equations exist as 
 
-The next theorem, taken from \cite{complex-functions-uon} without proof, states that every polynomial over $\C$ has a root over $\C$. We can further show that any polynomial over $\C$ can be written as a product of linear factors over $\C$. 
+
+The next theorem, taken from Vishik's lectures of 'Complex Functions' \cite{complex-functions-uon} and is stated without proof (and proved later on with Galois Theory), states that every polynomial over $\C$ has a root over $\C$. We can further show that any polynomial over $\C$ can be written as a product of linear factors over $\C$. 
 
 
 \begin{theorem}[Fundamental Theorem of Algebra] \label{thm:fundamental-algebra}
-	If $f(t)$ is a non-constant polynomial over $\mathbb{C}$, then there exists $z_0 \in \mathbb{C}$ such that $f\left(z_0\right)=0$.
+    If $f(t)$ is a non-constant polynomial over $\mathbb{C}$, then there exists $z_0 \in \mathbb{C}$ such that $f\left(z_0\right)=0$.
 \end{theorem}
 
-This is a special case where it only works over $\C$. Such a number $z_0$ is called a root of  $f(t)$. For example, $i$ is a root of the polynomial $t^2+1$. Polynomials may have more than one root; indeed, $t^2+1$ has at least one other root, $-i$ but others will have more roots. We do the following proof by starting out with a contradiction.
+This is a special case where it only works over $\C$. Such a number $z_0$ is called a \textit{root} of $f(t)$. 
 
 \begin{theorem} \label{thm:fundamental-algebra-2}
 	Let $f(t) \in \mathbb{C}[t]$ with $\partial f=n \geq 1$. Then there exist $\alpha_1, \ldots, \alpha_n \in \mathbb{C}$, and $0 \neq k \in \mathbb{C}$, such that
@@ -197,9 +167,9 @@ This is a special case where it only works over $\C$. Such a number $z_0$ is cal
 \end{theorem}
 
 \begin{proof}
-	Use induction on $n$. When $n = 1$ then it is obvious that this proposition follows. If $n > 1$ then we know by Theorem \ref{thm:fundamental-algebra}, that $f(t)$ has at least one root $\alpha_n$. By Theorem \ref{thm:remainder}, there exists $q(t) \in \C[t]$ such that,
-		$f(t) = (t-\alpha_n) q(t)$. 
-	Then $\partial q = n - 1$, so by induction,
+	We use proof by induction on $n$. For the trivial case $n = 1$, then clearly the proposition follows. If $n > 1$ then we know by Theorem \ref{thm:fundamental-algebra}, that $f(t)$ has at least one root $\alpha_n$. By Theorem \ref{thm:remainder}, there exists $g(t) \in \C[t]$ such that,
+		$f(t) = (t-\alpha_n)\cdot g(t)$. 
+	Then $\partial q = n - 1$, so by induction, we will be able to write
 		$q(t) = k(t-\alpha_a)...(t-\alpha_{n-1})$. 
-	For suitable complex numbers $k,\alpha_1,...,\alpha_{n-1}$. Substitute $q(t)$ into $f(t)$ and the induction step is complete.
+	For complex constant and roots $k,\alpha_1,...,\alpha_{n-1}$. Then, by substituting $q(t)$ into $f(t)$, the induction step is complete.
 \end{proof}

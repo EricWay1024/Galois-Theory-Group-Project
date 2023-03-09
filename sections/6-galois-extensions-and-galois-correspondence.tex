@@ -15,13 +15,17 @@ We now give some further properties for Galois extensions in general fields. The
 
 \begin{theorem} \label{thm:fixed}
 	Let $L/K$ be a finite field extension, and let $G = \Gal(L/K)$. Then the following statements are equivalent:
-	\begin{enumerate}[label=(\roman*)]
-		\item $L/K$ is a Galois extension;
-		\item $[L:K] = |G|$;
-		\item $K = \Fix(G)$;
-		\item $L$ is a splitting field of a separable polynomial over $K$;
-		%        \item There is a natural bijection between the intermediate fields $M$ such that $K \subseteq M \subseteq L$ and the subgroups $H \le G$, where $\alpha$ and $\beta$ defined by $\alpha(M) =  \Gal (L/M)$ and $\beta(H) =  \Fix(H)$ are inverses of each other.
-	\end{enumerate}
+ 	(i) $L/K$ is a Galois extension;
+	  (ii) $[L:K] = |G|$;
+	  (iii) $K = \Fix(G)$;
+	  (iv) $L$ is a splitting field of a separable polynomial over $K$.
+	% \begin{enumerate}[label=(\roman*)]
+	% 	\item $L/K$ is a Galois extension;
+	% 	\item $[L:K] = |G|$;
+	% 	\item $K = \Fix(G)$;
+	% 	\item $L$ is a splitting field of a separable polynomial over $K$;
+	% 	%        \item There is a natural bijection between the intermediate fields $M$ such that $K \subseteq M \subseteq L$ and the subgroups $H \le G$, where $\alpha$ and $\beta$ defined by $\alpha(M) =  \Gal (L/M)$ and $\beta(H) =  \Fix(H)$ are inverses of each other.
+	% \end{enumerate}
 	% Given a finite Galois extension $L/K$ and its Galois group $G=\Gal(L/K)$, we have $K = \Fix(G)$.
 \end{theorem}
 
@@ -94,15 +98,15 @@ The most important property of Galois extensions is that of Galois correspondenc
 
 
 \begin{theorem}\label{thm:equal-subgroup-fixed-points}
-    Let $L/F$ be a finite Galois extension, with $G=\Gal(L/F)$, then if we have a subgroup $H\leq G$ with $\Fix(H)=F$ then $H=G$.
+    Let $L/K$ be a finite Galois extension, with $G=\Gal(L/K)$, then if we have a subgroup $H\leq G$ with $\Fix(H)=K$ then $H=G$.
 \end{theorem}
 
 \begin{proof}
-    Suppose $H\leq G$ with $\Fix(H)=F$. Then, let $L = F(a)$, then $\Orb_H(a)$ denotes the orbit under the group action of $H$ in $L$, and we can assume that $\Orb_H(a) = \{a_1,...,a_m\}.$ From this we can see that $|\Orb_H(a)| = m$, and let $[L:F]=n$.
-    Then we know that the $m$ cannot be larger than the size of $H$, and since $H\leq G \implies |H|\leq|G|$, we get $|\Orb_H(a)| = m \leq |H| \leq |G| = [L:F] = n$.
+    Suppose $H\leq G$ with $\Fix(H)=K$. Then, let $L = K(a)$, then $\Orb_H(a)$ denotes the orbit under the group action of $H$ in $L$, and we can assume that $\Orb_H(a) = \{a_1,...,a_m\}.$ From this we can see that $|\Orb_H(a)| = m$, and let $[L:K]=n$.
+    Then we know that the $m$ cannot be larger than the size of $H$, and since $H\leq G \implies |H|\leq|G|$, we get $|\Orb_H(a)| = m \leq |H| \leq |G| = [L:K] = n$.
     
    
-    On the other hand, by evaluating the elementary symmetric polynomials at each of the elements in $\Orb_H(a)$, we get that, by the fact they are symmetric, these are just the elements in $\Fix(H)=F$. Therefore, we see that the coefficients in the polynomial: $f(t) := (t-a_1)(t-a_2)...(t-a_m)$ lies in $F$, and we have $f(a)=0$. Then, our minimal polynomial $\mu_a(t)$ divides $f(t)$ and $\partial f \geq \partial \mu_a(t) \implies m \geq n$. Hence we have $m \geq n$ and $n \geq m$, so therefore we have that $m=n$, which tells us $|H|=|G|$ and so $H=G.$
+    On the other hand, by evaluating the elementary symmetric polynomials at each of the elements in $\Orb_H(a)$, we get that, by the fact they are symmetric, these are just the elements in $\Fix(H)=K$. Therefore, we see that the coefficients in the polynomial: $f(t) := (t-a_1)(t-a_2)...(t-a_m)$ lies in $K$, and we have $f(a)=0$. Then, our minimal polynomial $\mu_a(t)$ divides $f(t)$ and $\partial f \geq \partial \mu_a(t) \implies m \geq n$. Hence we have $m \geq n$ and $n \geq m$, so therefore we have that $m=n$, which tells us $|H|=|G|$ and so $H=G.$
 \end{proof}
 
 We are now ready to present the core result.
@@ -154,15 +158,37 @@ The next theorem is another important property of Galois extensions. Its proof c
 	
 	Let $f(t) = t^3 - 2$ be a separable polynomial over $\Q$ with the set of roots $X = \{ \sq, \zeta \sq, \zeta^2 \sq \}$, where $\zeta = e^{2\pi i / 3}$. 
 	
-	The splitting field is $\Sigma = \Q(\sq, \zeta)$. The minimal polynomial of $\sq$ over $\Q$ is $f$ with degree $3$, and the minimal polynomial of $\zeta$ over $\Q(\sq)$ is $t^2 + t + 1$ with degree $2$. Thus $[\Sigma : \Q] = [\Sigma : \Q(\sq)] [\Q(\sq) : \Q] = 2 \times 3 = 6$. 
+	The splitting field is $F = \Q(\sq, \zeta)$. The minimal polynomial of $\sq$ over $\Q$ is $f$ with degree $3$, and the minimal polynomial of $\zeta$ over $\Q(\sq)$ is $t^2 + t + 1$ with degree $2$. Thus $[F : \Q] = [F : \Q(\sq)] [\Q(\sq) : \Q] = 2 \times 3 = 6$. 
 	
-	$\Sigma / \Q$ is a Galois extension, thus $|G| = [\Sigma : \Q] = 6$, where $G = \Gal(\Sigma / \Q)$. We know that $G \le S_3$, but $|S_3| = 6$, and thus $G \cong S_3 \cong D_3 = \langle t, r : t^3 = 1, r^2 = 1, tr = rt^{-1} \rangle$. Define $\tau, \rho \in G$ such that 
+	$F / \Q$ is a Galois extension, thus $|G| = [F : \Q] = 6$, where $G = \Gal(F / \Q)$. We know that $G \le S_3$, but $|S_3| = 6$, and thus $G \cong S_3 \cong D_3 = \langle t, r : t^3 = 1, r^2 = 1, tr = rt^{-1} \rangle$. Define $\tau, \rho \in G$ such that 
 	$
 		\tau(\sq) = \zeta \sq, \, \tau(\zeta) = \zeta; \, \rho(\sq) = \sq, \,  \rho(\zeta) = \zeta ^ 2,
 	$
 	then it can be verified that $\tau, \rho$ correspond to $t, r \in D_3$ respectively. How $\tau$ and $\rho$ acts on the elements of $X$ can be seen in Figure \ref{fig:example-action}.
 	
-	We now illustrate the correspondence between the intermediate fields of $\Sigma / \Q$ and the subgroups of $G$. For example, we have $\Gal(\Sigma / \Q(\zeta)) = \langle \tau \rangle \cong \Z_3 \text{ and } \Fix(\langle \tau \rangle) = \Q(\zeta). $ The full picture can be seen in Figures \ref{fig:example-intermidate-fields} and \ref{fig:example-subgroups}, where corresponding intermediate fields of $\Sigma / \Q$ and subgroups of $G$ are drawn in the same color. This example and its figures are adapted from \cite{visual-algebra}. 
+	We now illustrate the correspondence between the intermediate fields of $F / \Q$ and the subgroups of $G$. For example, we have $\Gal(F / \Q(\zeta)) = \langle \tau \rangle \cong \Z_3 \text{ and } \Fix(\langle \tau \rangle) = \Q(\zeta). $ The full picture can be seen in Figures \ref{fig:example-intermidate-fields} and \ref{fig:example-subgroups}, where corresponding intermediate fields of $F / \Q$ and subgroups of $G$ are drawn in the same color. This example and its figures are adapted from \cite{visual-algebra}. 
 	
 \end{example}
 
+We now finish this section with a proof of the Fundamental Theorem of Algebra with the help of Galois Theory. Before we begin the proof we recall two important lemmas.
+
+\begin{lemma}\label{lemma:ood-degree-real-root}
+    A polynomial of odd degree has a root in the reals.
+\end{lemma}
+
+\begin{lemma}\label{lemma:quadratic-extension-in-C}
+    Quadratic polynomials with coefficients in $\C$ have roots in $\C$.
+\end{lemma}
+
+The above lemma is equivalent to saying that there are no quadratic extensions of $\C$.
+
+Now we have all the tools to prove the Fundamental Theorem of Algebra. The proof that follows has been adapted from CITE FOOT.
+
+\begin{theorem}
+    Fundamental Theorem of Algebra, Theorem \ref{thm:fundamental-algebra}.
+\end{theorem}
+
+
+\begin{proof}
+    We show that $\C$ is algebraically closed, which is sufficient to show the Fundamental Theorem of Algebra. Let $f \in \R[x]$ with $\partial f = n$, and take $F$ to be a splitting field over $\R$. Then we have that $F(i)$ is a Galois extension over the real numbers. So, define $G:=\Gal(\R/F(i))$ and let $H$ be a $2$-Sylow subgroup of $G$. Then we have the fixed field of $H$ is an extension of $\R$ which is of an odd degree, and hence by Lemma \ref{lemma:ood-degree-real-root} this is trivial. Thus we can then show that $\Gal(F(i)/\C)$ is a $p$-group with $p=2$, which has a subgroup of any possible order. However, if $\Gal(F(i)/\C)$ is not trivial, this means that there is a quadratic extension of $\C$, which contradicts Lemma \ref{lemma:quadratic-extension-in-C}. Thus we have that $\C$ must be algebraically closed.
+\end{proof}

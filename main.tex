@@ -11,7 +11,6 @@
 \usepackage{hyperref}
 \usepackage{mathtools}
 \usepackage{tikz}
-\usepackage{tikz}
 \usetikzlibrary{matrix,arrows}
 \usetikzlibrary{positioning,arrows.meta,decorations.markings}
 \tikzset{>={Latex[width=2mm,length=2mm]}}
@@ -67,17 +66,21 @@
 
 
 \begin{document}
+\begin{abstract}
+    We define field extensions, $L/K$ and their Galois groups $\Gal(L/K)$ in terms of all $K$-automorphisms of $L$. We introduce a map between fields and their Galois groups in order to make solving problems easier. We apply this to polynomials and study their Galois groups and determine the solvability of both the polynomial and Galois group, and yield key results about the insolvable nature of polynomials of degree five and above.
+\end{abstract}
 
 \maketitle
 
+
+
+\newpage 
+% \section*{Abstract}
+
+% \newpage
+
 \tableofcontents
 
-\newpage
-
-\input{sections/0-to-do-list.tex}
-\newpage 
-\section*{Abstract}
-In this paper we introduce the basics of Field Theory which lead up to field extensions and Galois Groups. We use these to look at the solvablity of polynomials over different fields, and give conditions to classify whether certain polynomials are solvable. We use this to look at constructable numbers and shapes.
 
 
 \newpage
@@ -90,7 +93,7 @@ In this paper we introduce the basics of Field Theory which lead up to field ext
 \input{sections/6-galois-extensions-and-galois-correspondence.tex}
 \input{sections/7-galois-groups-and-polynomials.tex}
 \input{sections/8-applications.tex}
-
+\input{sections/9-conclusion}
 
 \newpage
 \appendix

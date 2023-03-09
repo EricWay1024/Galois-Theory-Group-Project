@@ -1,16 +1,15 @@
 \section{Galois Groups and Galois Extensions}
-Given a field $L$, we now look at subgroups of the automorphism group $\Aut(L)$ and the elements in $L$ such a subgroup fixes. We investigate the matter with two approaches. On the one hand, we might choose a subfield $K$ of $L$ and define $G$ to be the group of all $K$-automorphisms of $L$, so that $G$ is guaranteed to fix any element in $K$, and we say $G$ is the \textit{Galois group} of the field extension $L/K$, denoted as $G = \Gal(L/K)$. We also define the Galois group of a polynomial $f$ over $K$ with splitting field $\Sigma$ as the Galois group of $\Sigma / K$. This group acts on the roots of $f$ in a natural way, as we shall see. On the other, we might choose any $G$, and define $K$ to be all elements fixed by $G$, denoted as $K = \Fix(G)$, in which case $K$ is always a field and is called the \textit{fixed field} of $G$. In general, the two approaches are not inverses of each other, i.e. $\Fix(\Gal(L/K)) \neq K$. In fact, the condition for the Galois correspondence $\Fix(\Gal(L/K)) = K$ is when $L/K$ is a finite ``Galois'' extension (defined as both normal and separable), as we shall prove. 
 
+Given a field $L$, we now look at subgroups of the automorphism group $\Aut(L)$ and the elements in $L$ such a subgroup fixes. We investigate the matter with two approaches. On the one hand, we might choose a subfield $K$ of $L$ and define $G$ to be the group of all $K$-automorphisms of $L$, so that $G$ is guaranteed to fix any element in $K$, and we say $G$ is the \textit{Galois group} of the field extension $L/K$, denoted as $G = \Gal(L/K)$. We also define the Galois group of a polynomial $f$ over $K$ with splitting field $F$ as the Galois group of $F / K$. This group acts on the roots of $f$ in a natural way, as we shall see. On the other, we might choose any $G$, and define $K$ to be all elements fixed by $G$, denoted as $K = \Fix(G)$, in which case $K$ is always a field and is called the \textit{fixed field} of $G$. In general, the two approaches are not inverses of each other, i.e. $\Fix(\Gal(L/K)) \neq K$. In fact, the condition for the Galois correspondence $\Fix(\Gal(L/K)) = K$ is when $L/K$ is a finite ``Galois'' extension (defined as both normal and separable), as we will prove. 
 
 
 \subsection{Galois Groups and Fixed Fields}
-
 %For a field extension $L/K$, we now focus on all $K$-automorphisms of $L$ (see Definition \ref{def:automorphism}), which form the Galois group of the extension:
 
 We now define the Galois group of a field extension and a polynomial, respectively.
 \begin{definition}
     Let $L/K$ be a field extension. Then all $K$-automorphisms of $L$ form a group under map composition, and this group is called the \textit{Galois group} of $L$, written as \(\Gal(L/K)\).
-	Let $f$ be a polynomial over $K$ and let $\Sigma$ be a splitting field of $f$, then $\Gal(\Sigma/K)$ is the \textit{Galois group} of $f$, written as \(\Gal(f)\).
+	Let $f$ be a polynomial over $K$ and let $F$ be a splitting field of $f$, then $\Gal(F/K)$ is the \textit{Galois group} of $f$, written as \(\Gal(f)\).
 	
 %		 In the case that \(F\) is a splitting field of a polynomial \(f\) over $K$, \(G\) is called the Galois group of \(f\),
 \end{definition}
@@ -69,7 +68,7 @@ It is easy to see that the Galois group of a polynomial naturally leads to a gro
 
 
 \begin{theorem} \label{thm:galois-group-acts-on-zeros}
-	Let $L$ be a splitting field of a polynomial $f$ over $K$ and let $G = \Gal(f)$. Let $X$ be the set of roots of $f$. Then $G$ acts on $X$ by restriction on $X$. 
+	Let $F$ be a splitting field of a polynomial $f$ over $K$ and let $G = \Gal(f)$. Let $X$ be the set of roots of $f$. Then $G$ acts on $X$ by restriction on $X$. 
 \end{theorem}
 
 \begin{proof}
@@ -98,7 +97,7 @@ Recall Definition \ref{def:transitive-action} for transitive group actions. The 
 \end{proof}
 
 \begin{example} \label{exm:galois-group}
-	Let $f(t) = (t^2 + 1)(t^2 - 2)$ be a polynomial over $\Q$. The set of roots of $f$ is $X = \{i, -i, \sqrt 2, -\sqrt 2\}$. The splitting field is $\Sigma = \Q(\sqrt 2, i) = \{p+\sqrt 2 q + i r + \sqrt 2 i s : p, q, r, s \in \Q\}$ and $[\Sigma : \Q] = 4$. 
+	Let $f(t) = (t^2 + 1)(t^2 - 2)$ be a polynomial over $\Q$. The set of roots of $f$ is $X = \{i, -i, \sqrt 2, -\sqrt 2\}$. The splitting field is $/F = \Q(\sqrt 2, i) = \{p+\sqrt 2 q + i r + \sqrt 2 i s : p, q, r, s \in \Q\}$ and $[F : \Q] = 4$. 
 	
 	Let us determine $\Gal(f)$. Let $\sigma \in \Gal(f)$, then $\sigma$ is completely determined by $\sigma(\sqrt 2)$ and $\sigma(i)$. Since $\sigma(\sqrt 2)$ has the same minimal polynomial over $\Q$ as $\sqrt 2$, which is $t^2 - 2$, we see that $\sigma(\sqrt 2) = \pm \sqrt 2$. Similarly, $\sigma(i) = \pm i$. Define $\phi, \psi \in \Gal(f)$ such that 
 	$$
@@ -139,18 +138,4 @@ In particular, for a finite field extension $L/ K$, the Galois group $G = \Gal(L
 
 
 
-Before ending our discussion on fixed fields, we prove the next theorem to show that fix fields naturally lead to a normal field extension. This proof is original.
-
-\begin{theorem} \label{thm:fix-extension-normal}
-	Let $L$ be a field and let $G \le \Aut(L)$ be finite. Let $K = \Fix(G)$. Then $L/K$ is a normal extension.
-\end{theorem}
-
-\begin{proof}
-	
-	Let $f$ be an irreducible polynomial over $K$ with a root $\alpha \in L$. Consider the finite set $S = \Orb_G(\alpha) = \{ \alpha_1, \ldots, \alpha_n\} \subseteq L$. Let $h(t) = \prod_{i = 1} ^n (t - \alpha_i)$, which splits in $L$.
-	
-	Note that each $\sigma \in G$ maps $S$ to itself. Therefore, $h$ is fixed by $G$, and all of its coefficients are in $\Fix(G) = K$. We then claim that $h$ is irreducible over $K$. Suppose that $h$ is reducible over $K$, then $\Gal(h)$ does not act transitively on $S$ by Theorem \ref{thm:galois-action-transitive-irreducible}. Let $\Sigma = K(\alpha_1, \dots, \alpha_n)$ be the splitting field of $h$ contained in $L$.  Any $\sigma \in G$ is a $K$-automorphism of $L$ which permutes $\alpha_i$, and thus for any $\gamma \in \Sigma$, we have $\sigma(\gamma) \in \Sigma$ (using a similar argument as in the proof of Theorem \ref{thm:galois-group-determined-by-generator}). Thus $\sigma | _ \Sigma \in \Gal(h)$. 
-	Then each element in $G$ defines an element in $\Gal(h)$ and $G$ acts transitively on $S$ by construction, and thus we have a contradiction. 
-	
-	Since $\alpha$ is a root of $h$ and $h$ is irreducible over $K$, $h$ is the minimal polynomial of $\alpha$ over $K$. Thus $h = f$ and $f$ splits in $L$. Thus the extension $L/K$ is normal. 
-\end{proof}
+% Before ending our discussion on fixed fields, we prove the next theorem to show that fix fields naturally lead to a normal field extension. This proof is original.

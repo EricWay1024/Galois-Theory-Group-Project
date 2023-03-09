@@ -122,10 +122,9 @@ Therefore, $P(k+1)$ holds, and thus $\mathcal{P}_n \subseteq \Q^{py}$.
 
 ``$\impliedby$'' Now we show that for any $z \in Q^{py}, \exists n \in \N$ such that $z \in \mathcal{P}_n$
 
-So let $z \in \Q^{py}$, and by the definition of $\Q^{py}$ we see that there must be a sequence of points, \textcolor{blue}{show this:} $\{0,1,z_1,z_2,...,z_k=z\}$ such that $z_{i+1} \in \Q(0,1,...,z_i,\alpha)$ for $\alpha^2 \in \Q(0,1,...,z_i)$. Then we have that $z_i$ is constructable, thus $z_{i+1}$ must also be constructable. So all points in this sequence are constructable, thus $z$ is constructable and thus for $z \in \Q^{py}$ we have that $z \in \mathcal{P}_n$ for some $n \in \N$.
+So let $z \in \Q^{py}$, and by the definition of $\Q^{py}$ we know that  $z\in \Q^{py}$ if and only if $z \in K_n$, the highest field in our tower. Thus, there must be a sequence of points, $0,1,z_0,z_1,...,z_k=z$, where $z_i \in K_i$ for $0\leq i \leq n$, such that $z_{i+1} \in \Q(0,1,...,z_i,\alpha)$ for $\alpha^2 \in \Q(0,1,...,z_i)$. This follows from the definition of $\Q^{py}$ as it is the union of subfields which contain the $z_i$. Then we have that $z_i$ is constructable, thus $z_{i+1}$ must also be constructable. So all points in this sequence are constructable, thus $z$ is constructable and therefore for $z \in \Q^{py}$ we have that $z \in \mathcal{P}_n$ for some $n \in \N$.
 
-Thus we have shown that $z$ is construcable if and only if $z\in \Q^{py}.$
-
+Thus we have shown that $z$ is constructable if and only if $z\in \Q^{py}.$
 \end{proof}
 
 
@@ -155,7 +154,7 @@ We now look at a proof of a theorem which looks at doubling the volume of a cube
     So let us assume towards a contradiction that $\sqrt[3]{2} \in \Q^{py}$ with $\mu$ being its minimal polynomial over $\Q$. Then, by Theorem \ref{thm:power-of-two-construction}, we have that the degree of $\mu = 2^k$ for some $k\in \N \cup \{0\}$.
 \noindent
 \newline
-    Then clearly $z^3=2$, so $z^3-2=0$ we must have that $\mu$ divides $z^3-2$, which is irreducible over $\Q$, thus the field extension $\Q(\sqrt[3]{2}):\Q$ has order 3, which is not a power of two, which contradicts Theorem \ref{thm:power-of-two-construction}, and thus $z = \sqrt[3]{2} \notin \Q^{py}$.
+    Then clearly $z^3=2$, so $z^3-2=0$ we must have that $\mu$ divides $z^3-2$, which is irreducible over $\Q$, thus the field extension $\Q(\sqrt[3]{2}):\Q$ has order $3$, which is not a power of two, which contradicts Theorem \ref{thm:power-of-two-construction}, and thus $z = \sqrt[3]{2} \notin \Q^{py}$.
 \end{proof}
 
 
