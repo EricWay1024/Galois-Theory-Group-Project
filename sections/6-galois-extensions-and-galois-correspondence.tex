@@ -182,12 +182,11 @@ We now finish this section with a proof of the Fundamental Theorem of Algebra wi
 
 The above lemma is equivalent to saying that there are no quadratic extensions of $\C$.
 
-Now we have all the tools to prove the Fundamental Theorem of Algebra. The proof that follows has been adapted from CITE FOOT.
+Now we have all the tools to prove the Fundamental Theorem of Algebra. The proof that follows has been adapted from Dummit and Foote \cite{foote-algebra}.
 
-\begin{theorem}
-    Fundamental Theorem of Algebra, Theorem \ref{thm:fundamental-algebra}.
+\begin{theorem}[Fundamental Theorem of Algebra]
+    If $f(t)$ is a non-constant polynomial over $\mathbb{C}$, then there exists $z_0 \in \mathbb{C}$ such that $f\left(z_0\right)=0$.
 \end{theorem}
-
 
 \begin{proof}
     We show that $\C$ is algebraically closed, which is sufficient to show the Fundamental Theorem of Algebra. Let $f \in \R[x]$ with $\partial f = n$, and take $F$ to be a splitting field over $\R$. Then we have that $F(i)$ is a Galois extension over the real numbers. So, define $G:=\Gal(\R/F(i))$ and let $H$ be a $2$-Sylow subgroup of $G$. Then we have the fixed field of $H$ is an extension of $\R$ which is of an odd degree, and hence by Lemma \ref{lemma:ood-degree-real-root} this is trivial. Thus we can then show that $\Gal(F(i)/\C)$ is a $p$-group with $p=2$, which has a subgroup of any possible order. However, if $\Gal(F(i)/\C)$ is not trivial, this means that there is a quadratic extension of $\C$, which contradicts Lemma \ref{lemma:quadratic-extension-in-C}. Thus we have that $\C$ must be algebraically closed.

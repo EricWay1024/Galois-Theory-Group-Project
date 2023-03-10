@@ -1,7 +1,7 @@
 
 
 \section{Polynomials}
-In this section we first give some basic definitions involving polynomials. Then we look at theorems that deal with the irreducibility of polynomials over $\Z$ and $\Q$ before briefly recalling the Fundamental Theorem of Algebra for polynomials over $\C$. These theorems will come in very useful over the rest of this report. This section is based on Stewart's Galois Theory. \cite{Stewart}. 
+In this section we first give some basic definitions involving polynomials. Then we look at theorems that deal with the irreducibility of polynomials over $\Z$ and $\Q$ before briefly recalling the Fundamental Theorem of Algebra for polynomials over $\C$. These theorems will come in very useful over the rest of this report. This section is based on Stewart \cite[Chapters~2-3]{Stewart}. 
 
 \begin{definition}
     Let $R$ be an integral domain and $t$ be an indeterminate. A \textit{polynomial} $f$ over $R$ (in the indeterminate $t$) is of the form $f(t) = r_n t^n + r_{n-1} t^{n-1} + ... + r_1 t + r_0$, where the \textit{coefficients} $r_i \in R$. 
@@ -124,7 +124,7 @@ $ is irreducible over $\Z$. By applying Eisenstein's criterion with $q = 3$, we 
 
 \end{example}
 
-\begin{lemma}
+\begin{lemma} \label{lemma:binom-prime}
 If $p$ is prime, the binomial coefficient $\binom{p}{r}$ is divisible by $p$ if $1 \le r \le p-1$.
 \end{lemma}
 
@@ -144,13 +144,13 @@ By definition we have $\binom{p}{r} = \frac{p!}{r!(p-r)!} \in \Z$. We can see th
 Firstly, set $f(t) = \frac{t^p - 1}{t - 1}$. 
 Now define $t =1+x$, so that we have a new indeterminate $x$. Then we can show that if $f(1+x)$ is irreducible over $\Q$, then $f(t)$ is also irreducible over $\Q$.
 
-Then we can write $$f(1+x)=\frac{(1+x)^p - 1}{x}  = x^{p-1} + pg(x)$$, whereby $g(x)\in \Z[x]$ with constant $1$ by the Lemma above. Then, by Eisenstein's Criterion, $f(1+x)$ is irreducible over $\Q$ and thus $f(t)$ is irreducible over $\Q$ also.
+Then we can write $$f(1+x)=\frac{(1+x)^p - 1}{x}  = x^{p-1} + pg(x),$$ whereby $g(x)\in \Z[x]$ with constant $1$ by Lemma \ref{lemma:binom-prime}. Then, by Eisenstein's Criterion, $f(1+x)$ is irreducible over $\Q$ and thus $f(t)$ is irreducible over $\Q$ also.
 
 \end{proof}
 
 
 
-The next theorem, taken from Vishik's lectures of 'Complex Functions' \cite{complex-functions-uon} and is stated without proof (and proved later on with Galois Theory), states that every polynomial over $\C$ has a root over $\C$. We can further show that any polynomial over $\C$ can be written as a product of linear factors over $\C$. 
+The next theorem, taken from Vishik \cite{complex-functions-uon} and is stated without proof (and proved later on with Galois Theory), states that every polynomial over $\C$ has a root over $\C$. We can further show that any polynomial over $\C$ can be written as a product of linear factors over $\C$. 
 
 
 \begin{theorem}[Fundamental Theorem of Algebra] \label{thm:fundamental-algebra}

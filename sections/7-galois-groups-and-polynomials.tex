@@ -208,7 +208,7 @@ The next theorem allows us to pass the solvability of the Galois group along a t
 	Meanwhile, we see that $M$ is also the splitting field of $t^p - c$ over $K' = K(\alpha)$, since $\alpha$ is a root of $t^p - c$. Also, $N$ and $L$ are also the splitting fields of $f(t) (t^p - c)$ and $f$ over $K'$. Then the above argument can be applied with $K$ replaced with $K'$ and we have that $\Gal(L/K')$ is solvable iff $\Gal(N/M)$ is solvable. We then deduce that $\Gal(L/K)$ is solvable iff $\Gal(L/K')$ is solvable. 
 \end{proof}
 
-Now, we propose our main theorem of this section, which is (one direction of) Galois' Theorem. The converse is also true, but we omit the proof here \cite{introduction-to-galois-theory}. 
+Now, we propose our main theorem of this section, which is (one direction of) Galois' Theorem. The converse is also true, but we omit the proof here \cite[p.~76]{introduction-to-galois-theory}. 
 
 \begin{theorem}[Galois' Theorem]\label{thm:galois-theorem}
 	A polynomial $f$ over a subfield $K$ of $\C$ is solvable by radicals only if its Galois group is solvable.
@@ -216,7 +216,7 @@ Now, we propose our main theorem of this section, which is (one direction of) Ga
 
 \begin{proof}
 %	``$\implies $''. 
-	Assume that $f$ over $K$ can be solved by radicals. Then we have a sequence of intermediate field extensions such that $K = L_0 \subset L_1 \subset L_2 \subset ... \subset L_n :=F$, where $f$ splits in $F$ and for each $i = 1, \dots, m$ we have that  $L_i = L_{i-1} (\alpha_i)$ for $\alpha_i ^ {p_i} \in L_{i-1}$ with $p_i$ prime. We can assume $F$ to be the splitting field of $f$ over $K$ \footnote[2]{This assumption is made by \cite{introduction-to-galois-theory} without explicit justification. In the absence of a proof or counterexample, we present an alternative proof in Appendix \ref{sec:radical-alter}, which only relies on the fact that the splitting field of $f$ over $K$ is a \textit{subfield} of the radical extension $F$.}.
+	Assume that $f$ over $K$ can be solved by radicals. Then we have a sequence of intermediate field extensions such that $K = L_0 \subset L_1 \subset L_2 \subset ... \subset L_n :=F$, where $f$ splits in $F$ and for each $i = 1, \dots, m$ we have that  $L_i = L_{i-1} (\alpha_i)$ for $\alpha_i ^ {p_i} \in L_{i-1}$ with $p_i$ prime. We can assume $F$ to be the splitting field of $f$ over $K$ \footnote[2]{This assumption is made by \cite[p.~75]{introduction-to-galois-theory} without explicit justification. In the absence of a proof or counterexample, we present an alternative proof in Appendix \ref{sec:radical-alter}, which only assumes that for a polynomial $f$ over $K$ solvable by radicals, the splitting field of $f$ over $K$ is a \textit{subfield} of a radical extension.}.
 %	Here we assume that $F$ is the splitting field of $f$ over $K$ \footnote{This assumption is made by \cite{introduction-to-galois-theory} but unjustified.  
 %%		but might not be true, as in general the splitting field $F'$ of $f$ over $K$ is \textit{contained} in $F$. The reader is referred to \cite{Stewart} (\TODO or appendix?) for the complete proof. 
 %	}. 
