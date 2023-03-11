@@ -1,7 +1,7 @@
-\section{Group Theory}
+\section{Group Theory Prerequisites}
 Here we list some group theory definitions and theorems used in the text. They are all attributed to \cite{group-theory-uon, armstrong_groups_1988} unless stated otherwise.
 
-\subsection{Basic Definitions}
+% \subsection{Basic Definitions}
 %\begin{definition}
 %	A \textit{group} $G$ is a non-empty set with a binary operation $*$, such that
 %	\begin{itemize}
@@ -31,14 +31,31 @@ Here we list some group theory definitions and theorems used in the text. They a
 \end{definition}
 
 \begin{definition}
-	Given groups $G$ and $H$, a group homomorphism $\phi: G \to H$ is a function such that $\phi(xy) = \phi(x) \phi(y)$ for any $x, y \in G$. It can be shown that $\phi(e) = e$ and $\phi(x^{-1}) = \phi(x) ^ {-1}$. The \textit{image} of $\phi$ is $\Img(\phi) = \{\phi(x) : x\in G\}$ and the \textit{kernel} of $\phi$ is $\Ker(\phi) = \{x \in G : \phi(x) = e\}$. It can be shown that $\Img(\phi) \le H$ and $\Ker(\phi) \trianglelefteq G$.  
+	Given groups $G$ and $H$, a group \textit{homomorphism} $\phi: G \to H$ is a function such that $\phi(xy) = \phi(x) \phi(y)$ for any $x, y \in G$. It can be shown that $\phi(e) = e$ and $\phi(x^{-1}) = \phi(x) ^ {-1}$. The \textit{image} of $\phi$ is $\Img(\phi) = \{\phi(x) : x\in G\}$ and the \textit{kernel} of $\phi$ is $\Ker(\phi) = \{x \in G : \phi(x) = e\}$. It can be shown that $\Img(\phi) \le H$ and $\Ker(\phi) \trianglelefteq G$.  
 \end{definition}
 
 \begin{definition} \label{def:p-group}
 	Let $p$ be a prime. A \textit{$p$-group} is any group with order $p^k$ for $k \in \N$. Let $G$ be a group with order $p^k m$ and $\gcd\{p, m\} = 1$. Then any subgroup of order $p^k$ of $G$ is called a \textit{$p$-Sylow subgroup} of $G$. 
 \end{definition}
 
-\subsection{Symmetric Groups}
+\begin{theorem}[First Isomorphism Theorem] \label{thm:first-iso}
+	Suppose $\phi: G \to H$ is a group homomorphism. Then its kernel $\operatorname{Ker}(\phi)$ is a normal subgroup in $G$, its image $\operatorname{Im}(\phi)$ is a subgroup in $H$, and 
+	$$
+	G / \operatorname{Ker}(\phi) \cong \operatorname{Im}(\phi).
+	$$
+\end{theorem}
+
+\begin{theorem}[Second Isomorphism Theorem] \label{thm:second-iso}
+	Suppose $H \le G$ and $J \trianglelefteq G$. Then $HJ \le G$, $H \cap J \triangleleft H$ and $$
+	(HJ) / J \cong H / (H \cap J). 
+	$$
+\end{theorem}
+\begin{theorem}[Third Isomorphism Theorem] \label{thm:third-iso}
+	Suppose $H, J \trianglelefteq G$ and $H \le J$. Then $J/H \trianglelefteq G/H$ and $$
+	(G/H)/(J/H) \cong G / J.    $$
+\end{theorem}
+
+% \subsection{Symmetric Groups}
 \begin{definition}  \label{def:permutation}
 	Given a set $X$, a \textit{permutation} of $X$ is a bijection from $X$ to $X$. All the permutations of $X$ form a group under composition, which is the \textit{permutation group} of $X$, denoted by $S_X$. In particular, when $X = \{1, \dots, n\}$, we denote $S_X$ as $S_n$ and call it a \textit{symmetric group}. $S_n$ has order $n!$. 
 \end{definition}
@@ -86,28 +103,9 @@ The next two theorems are from \cite{generating-sets}.
 	Relabel the numbers so that the $p$-cycle turns into $(12 \dots p)$. Suppose the transposition turns into $(ab)$, where $1 \le a < b \le n$. Since $p$ is prime and $1 \le b - a < p$, we have $(b - a, p) = 1$. The result thus follows from Theorem \ref{thm:symmetric-ab-12n}.
 \end{proof}
 
-\subsection{Isomorphism Theorems}
-
-\begin{theorem}[First Isomorphism Theorem] \label{thm:first-iso}
-	Suppose $\phi: G \to H$ is a group homomorphism. Then its kernel $\operatorname{Ker}(\phi)$ is a normal subgroup in $G$, its image $\operatorname{Im}(\phi)$ is a subgroup in $H$, and 
-	$$
-	G / \operatorname{Ker}(\phi) \cong \operatorname{Im}(\phi).
-	$$
-\end{theorem}
-
-\begin{theorem}[Second Isomorphism Theorem] \label{thm:second-iso}
-	Suppose $H \le G$ and $J \trianglelefteq G$. Then $HJ \le G$, $H \cap J \triangleleft H$ and $$
-	(HJ) / J \cong H / (H \cap J). 
-	$$
-\end{theorem}
-\begin{theorem}[Third Isomorphism Theorem] \label{thm:third-iso}
-	Suppose $H, J \trianglelefteq G$ and $H \le J$. Then $J/H \trianglelefteq G/H$ and $$
-	(G/H)/(J/H) \cong G / J.    $$
-\end{theorem}
 
 
-
-\subsection{Group Actions}
+% \subsection{Group Actions}
 
 
 
@@ -137,7 +135,7 @@ The next two theorems are from \cite{generating-sets}.
 	Let $p$ be a prime number. Let $G$ be a finite group such that $p$ divides the order of $G$. Then $G$ contains an element of order $p$. 
 \end{theorem}
 
-\subsection{Solvable Groups}
+% \subsection{Solvable Groups}
 
 The following is a restatement and proof of Theorem \ref{thm:soluble-main}, based on \cite[Chapter~14]{Stewart}.
 
@@ -184,7 +182,8 @@ The following is a restatement and proof of Theorem \ref{thm:soluble-main}, base
 \end{proof}
 in Example \ref{exm:correspondence}
 
-\section{Solvability by Radicals} \label{sec:radical-alter}
+\section{Further Proofs} 
+\subsection{Solvability by Radicals} \label{sec:radical-alter}
 
 We now establish (one direction of) the Galois' Theorem using an alternative method based on \cite[Chapter~15]{Stewart}. This proof addresses the potential problem in the proof of Theorem \ref{thm:galois-theorem} that the radical extension might not be exactly the splitting field but contains it.  
 
@@ -268,7 +267,7 @@ The proof for the following theorem is original.
 \end{proof}
 
 
-\section{Ruler-and-Compass Constructions} \label{sec:construction}
+\subsection{Ruler-and-Compass Constructions} \label{sec:construction}
 We first prove a lemma to help us show that $\pi$ cannot be rational.
 
 \begin{lemma}\label{lemma:pre-pi-irrational-lemma}
@@ -403,21 +402,21 @@ We first prove a lemma to help us show that $\pi$ cannot be rational.
 	\centering
 	\begin{tikzpicture}
 		\node(Q) {$\Q$}; 
-		\node(A) [above=1.4cm of Q] {$\mathbb A$}; 
-		\node(C) [above=1.2cm of A] {$\mathbb C$}; 
+		\node(A) [above=1.6cm of Q] {$\mathbb A$}; 
+		\node(C) [above=1.0cm of A] {$\mathbb C$}; 
 		
 		
-		\node(Rad) [above left=0.7cm and 1cm of Q] {numbers expressible by radicals}; 
+		\node(Rad) [above left=0.7cm and 2cm of Q] {numbers expressible by radicals}; 
 		
 		\draw (Q) -- node[left]{radical extensions} (Rad);
 		\draw (Rad) --  node[above] {$\subsetneqq$}(A); 
 		\draw (Q) -- node{algebraic closure} (A); 
 		\draw (A) -- (C); 
 		
-		\node(R) [above right=0.2 and 4cm of A] {$\R$}; 
-		\draw(A) -- node {transcendental numbers} (R); 
-		\draw(R) -- node[above] {algebraic closure} (C); 
-		\draw(Q) -- node[right] {irrational numbers} (R); 
+		\node(R) [right=3cm of A] {$\R$}; 
+		% \draw(A) -- node {transcendental numbers} (R); 
+		\draw(R) -- node[right] {algebraic closure} (C); 
+		\draw(Q) -- node[right] {(completion)} (R); 
 	\end{tikzpicture}
 	\caption{Hasse diagram for $\Q, \mathbb A, \R, \C$ and numbers expressible by radicals (inspired by \cite{visual-algebra}). }
 	\label{fig:hasse}

@@ -82,16 +82,13 @@
 
 
 \newpage 
-% \section*{Abstract}
-
-% \newpage
-
+\pagenumbering{gobble}
 \tableofcontents
 
 
 
 \newpage
-\setcounter{page}{1}
+\pagenumbering{arabic}
 \input{sections/1-introduction.tex}
 \input{sections/2-polynomials.tex}
 \input{sections/3-field-extensions.tex}
@@ -103,11 +100,11 @@
 \input{sections/9-conclusion}
 
 \newpage
+\pagenumbering{roman}
 \appendix
 
 \input{sections/appendix.tex}
 
 \newpage
-% \bibliographystyle{abbrv}
-\bibliography{bibliography}
+\bibliography{bibliography} 
 \end{document}
