@@ -1,6 +1,6 @@
 \section{Galois Groups and Galois Extensions} \label{sec:galois-extensions}
 
-Given a field $L$, we now look at subgroups of the automorphism group $\Aut(L)$ and the elements in $L$ such a subgroup fixes. We investigate the matter with two approaches. On the one hand, we might choose a subfield $K$ of $L$ and define $G$ to be the group of all $K$-automorphisms of $L$, so that $G$ is guaranteed to fix any element in $K$, and we say $G$ is the \textit{Galois group} of the field extension $L/K$, denoted as $G = \Gal(L/K)$. We also define the Galois group of a polynomial $f$ over $K$ with splitting field $F$ as the Galois group of $F / K$. This group acts on the roots of $f$ in a natural way, as we shall see. On the other, we might choose any $G$, and define $K$ to be all elements fixed by $G$, denoted as $K = \Fix(G)$, in which case $K$ is always a field and is called the \textit{fixed field} of $G$. In general, the two approaches are not inverses of each other, i.e. $\Fix(\Gal(L/K)) \neq K$. In fact, the condition for the Galois correspondence $\Fix(\Gal(L/K)) = K$ is when $L/K$ is a finite ``Galois'' extension (defined as both normal and separable), as we will prove. 
+Given a field $L$, we now look at subgroups of the automorphism group $\Aut(L)$ and the elements in $L$ such a subgroup fixes. We investigate the matter with two approaches. On the one hand, we might choose a subfield $K$ of $L$ and define $G$ to be the group of all $K$-automorphisms of $L$, so that $G$ is guaranteed to fix any element in $K$, and we say $G$ is the \textit{Galois group} of the field extension $L/K$, denoted as $G = \Gal(L/K)$. We also define the Galois group of a polynomial $f$ over $K$ with splitting field $F$ as the Galois group of $F / K$. This group acts on the roots of $f$ in a natural way, as we shall see. On the other, we might choose any $G$, and define $K$ to be all elements fixed by $G$, denoted as $K = \Fix(G)$, in which case $K$ is always a field and is called the \textit{fixed field} of $G$. In general, the two approaches are not inverses of each other, i.e. $\Fix(\Gal(L/K)) \neq K$. In fact, the condition for the Galois correspondence $\Fix(\Gal(L/K)) = K$ is when $L/K$ is a finite `Galois' extension (defined as both normal and separable), as we will prove. 
 
 
 \subsection{Galois Groups and Fixed Fields}
@@ -14,7 +14,7 @@ We now define the Galois group of a field extension and a polynomial, respective
 %		 In the case that \(F\) is a splitting field of a polynomial \(f\) over $K$, \(G\) is called the Galois group of \(f\),
 \end{definition}
 
-The next theorem shows that an element in the Galois group of a finitely generated field extension is completely determined by how it maps each element in the generating set \cite{morandi_field_1996}. 
+The next theorem shows that an element in the Galois group of a finitely generated field extension is completely determined by how it maps each element in the generating set \cite[p.~16]{morandi_field_1996}. 
 
 \begin{theorem} \label{thm:galois-group-determined-by-generator}
 	Let $L/K$ be a field extension and $L = K(\alpha_1, \ldots, \alpha_n)$. Then if $\sigma, \tau \in \Gal(L/K)$ and $\sigma(\alpha_i) = \tau(\alpha_i)$ for all $i = 1, \dots, n$, then $\sigma = \tau$. 
@@ -41,7 +41,7 @@ Thus $\sigma = \tau$.
 
 %The Galois group becomes increasingly useful, especially when dealing with polynomials, as we will see with the following theorem.
 
-We now show that a $K$-monomorphism always maps a root of a polynomial over $K$ to another, in a more general setting than that of a Galois group which consists of $K$-automorphisms of a larger field $L$ \cite{morandi_field_1996}. 
+We now show that a $K$-monomorphism always maps a root of a polynomial over $K$ to another, in a more general setting than that of a Galois group which consists of $K$-automorphisms of a larger field $L$ \citep[p.~16]{morandi_field_1996}. 
 
 \begin{theorem} \label{thm:galois-group-permutes-zeros}
 Given fields $K \subseteq M \subseteq L$. Let $f$ be a polynomial over $K$ and let $\alpha \in M$ such that $f(\alpha) = 0$. Let $\sigma : M \to L$ be a $K$-monomorphism. Then $f(\sigma(\alpha)) = 0$. Further, $\sigma(\alpha)$ has the same minimal polynomial as $\alpha$ over $K$. 
@@ -64,7 +64,7 @@ For a polynomial $f$ over a field $K$, Theorem \ref{thm:galois-group-determined-
 	Let $\sigma \in \Gal(\C/\R)$. Since $\C= \R(i)$, by Theorem \ref{thm:galois-group-determined-by-generator}, $\sigma$ is determined by $\sigma(i)$. But $i$ has minimal polynomial $t^2 + 1$ over $\R$, and $\sigma(i)$ has the same minimal polynomial over $\R$ by Theorem \ref{thm:galois-group-permutes-zeros}. Hence $\sigma(i) = \pm i$. When $\sigma(i) = i$, we have $\sigma = \Id$; when $\sigma(i) = -i$, $\sigma$ is the complex conjugation. Thus $\Gal(\C / \R) = \{\Id, z \mapsto \bar z \} \cong \Z_2$. 
 \end{example}
 
-It is easy to see that the Galois group of a polynomial naturally leads to a group action on its roots. The next theorem is inspired by \cite{visual-algebra}. 
+It is easy to see that the Galois group of a polynomial naturally leads to a group action on its roots. The next theorem is inspired by Macauley \cite{visual-algebra}. 
 
 
 \begin{theorem} \label{thm:galois-group-acts-on-zeros}
@@ -84,7 +84,7 @@ It is easy to see that the Galois group of a polynomial naturally leads to a gro
 	Let $X$ be the set of roots of $f$. Then $|X| \le n$ and $S_X$ is a subgroup of $S_n$. The homomorphism from $\Gal(f)$ to $S_X$ is also a homomorphism from $\Gal(f)$ to $S_n$. Further, the kernel of the homomorphism is trivial, as if $\sigma \in \Gal(f)$ fixes all elements in $X$, it is the identity map by Theorem \ref{thm:galois-group-determined-by-generator}. Therefore, by Theorem \ref{thm:first-iso}, $\Gal(f)$ is isomorphic to its image in $S_n$, which is a subgroup of $S_n$. 
 \end{proof}
 
-Recall Definition \ref{def:transitive-action} for transitive group actions. The next theorem, adapted from \cite{galois-permutation}, states that the irreducibility of a separable polynomial is equivalent to the transitivity of its Galois group action.
+Recall Definition \ref{def:transitive-action} for transitive group actions. The next theorem, adapted from Conrad \cite{galois-permutation}, states that the irreducibility of a separable polynomial is equivalent to the transitivity of its Galois group action.
 
 \begin{theorem} \label{thm:galois-action-transitive-irreducible}
 	Let $f$ be a separable polynomial over field $K$. Let $X$ be the set of the roots of $f$. Then $\Gal(f)$ acts transitively on $X$ if and only if $f$ is irreducible. 
@@ -109,7 +109,7 @@ Recall Definition \ref{def:transitive-action} for transitive group actions. The 
 	Then $\Gal(f) = \{\Id, \phi, \psi, \phi \psi \} \cong \Z_2 \times \Z_2$. If we label $i, -i, \sqrt 2, -\sqrt 2$ as $x_1, x_2, x_3, x_4$, then $\phi$ and $\psi$ correspond to transpositions $(34)$ and $(12)$, respectively, and $\Gal(f) \cong \{\Id, (34), (12), (12)(34)\} \le S_4$. Also, $\Gal(f)$ does not act transitively on $X$, as there is no $\sigma \in \Gal(f)$ such that $\sigma(\sqrt 2) = i$, and clearly $f$ is reducible over $\Q$.
 \end{example}
 
-We now prove that the upper bound for the order of the Galois group of a finite field extension is the degree of the extension, formalizing ideas from  \cite{galois-theory-lectures}. As we shall see in the next subsection, this upper bound is reached exactly when $L/K$ is a Galois extension. 
+We now prove that the upper bound for the order of the Galois group of a finite field extension is the degree of the extension, formalising ideas from  \cite[Lecture~8]{galois-theory-lectures}. As we shall see in the next subsection, this upper bound is reached exactly when $L/K$ is a Galois extension. 
 
 \begin{theorem} \label{thm:galois-group-order-upper-bound}
 	Let $L/K$ be a finite field extension and let $G = \Gal(L/K)$, then $|G| \le [L:K]$. 
@@ -127,8 +127,10 @@ We now prove that the upper bound for the order of the Galois group of a finite 
 
 We now turn to the idea of fixed fields.
 \begin{definition}
-    Let $\Aut(L)$ be the group of automorphisms of a field $L$ and let $G \leq \Aut(L)$. Then the fixed field of $G$ is the set $\Fix(G) = \{ \alpha \in L : \sigma(\alpha) = \alpha \quad \forall \sigma \in G \}. $ The fixed field is always a field (proof omitted) \cite{morandi_field_1996}.
+    Let $\Aut(L)$ be the group of automorphisms of a field $L$ and let $G \leq \Aut(L)$. Then the fixed field of $G$ is the set $\Fix(G) = \{ \alpha \in L : \sigma(\alpha) = \alpha \quad \forall \sigma \in G \}. $
 \end{definition}
+
+In the definition above, the fixed field is always a subfield of $L$ \cite[p.~18]{morandi_field_1996}. 
 
 In particular, for a finite field extension $L/ K$, the Galois group $G = \Gal(L / K)$ is a subgroup of $\Aut(L)$ such that $K \subseteq \Fix(G) \subseteq L. $ We are mainly interested in cases where $K = \Fix(G) = \Fix(\Gal(L/K))$. This is true exactly when $L/K$ is a Galois extension, as we shall see in the next subsection. To show this is not true in general, we now look at a counterexample. 
 

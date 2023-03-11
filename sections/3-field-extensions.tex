@@ -1,5 +1,5 @@
-\section{Field Extensions}
-We assume that all fields in this report has characteristic $0$.  This section is based on books and reports by Stewart \cite{Stewart}, Moy \cite{Moy} and Morandi \cite{ morandi_field_1996}. 
+\section{Field Extensions} \label{sec:ext}
+We assume that all fields in this report has characteristic $0$.  This section is based on books and reports by Stewart \cite[Chapters~4-5]{Stewart}, Moy \cite{Moy} and Morandi \cite[Chapter~1]{ morandi_field_1996}. 
 
 In order to look at field extensions we must first define some useful terms. 
 \begin{definition}
@@ -13,9 +13,8 @@ A field \(F\) is called a \textit{prime field} of \(K\) if it has no proper (str
 	When a monomorphism is also surjective, it is called a \textit{field isomorphism}. An \textit{automorphism} of a field $F$, is an isomorphism from $F$ to itself.
 \end{definition}
 
-An important insight that can be made here is that it can be shown that a field homomorphism is always injective, and hence a field homomorphism is always a field monomorphism \cite{morandi_field_1996}.
-
-From Stewart \cite{Stewart}, we can also find that all automorphisms of a field $F$ form a group $\Aut(F)$, the automorphism group of $F$, under composition.
+An important insight that can be made here is that it can be shown that a field homomorphism is always injective, and hence a field homomorphism is always a field monomorphism.
+We can also find that all automorphisms of a field $F$ form a group $\Aut(F)$, the automorphism group of $F$, under composition \cite[p.~15]{morandi_field_1996}.
 
 \begin{definition} \label{def:automorphism}
 	Let $K \subseteq M \subseteq L$ be fields. A $K$-automorphism $\phi$ of $L$ is an automorphism of $L$ such that $\phi(a) = a$ for all $a \in K$. 
@@ -117,7 +116,7 @@ The following theorem further indicates that $K[t] / \langle m \rangle$ is a fie
 The field $K[t] / \langle m \rangle$ contains all constant polynomials over $K$ and hence contains $K$, and thus $\left(K[t] / \langle m \rangle \right) / K$ is a field extension. The next theorem indicates that this extension has the same structure as a simple field extension.
 
 \begin{theorem}
- Let $K(\alpha) / K$ be a simple algebraic extension, and let \(m\) be the minimal polynomial of \(\alpha\) over \(K\). Thus we have that $K(\alpha)$ is isomorphic to $K[t] /\langle m\rangle$. We can choose the isomorphism $K[t] /\langle m\rangle \rightarrow K(\alpha)$ to map $t$ to $\alpha$ and to be the identity on $K$ \cite{Stewart}.
+ Let $K(\alpha) / K$ be a simple algebraic extension, and let \(m\) be the minimal polynomial of \(\alpha\) over \(K\). Thus we have that $K(\alpha)$ is isomorphic to $K[t] /\langle m\rangle$. We can choose the isomorphism $K[t] /\langle m\rangle \rightarrow K(\alpha)$ to map $t$ to $\alpha$ and to be the identity on $K$.
 \end{theorem}
 
 \begin{proof}

@@ -1,6 +1,6 @@
-\section{Splitting Fields and Normal Extensions}
+\section{Splitting Fields and Normal Extensions} \label{sec:normal}
 
-Given a field $K$, we are now mostly interested in field extensions $L/K$ that arise from adjoining some roots of a polynomial $f$ over $K$. As we have seen, such an extension is algebraic and finite, but further questions could be asked. In particular, does $L$ contain \textit{all} roots of $f$, instead of only a proper subset of them? If,  for any irreducible polynomial $f$ over $K$ that has at least one root in $L$, the answer is ``yes'', then we say $L/K$ is a \textit{normal} extension. 
+Given a field $K$, we are now mostly interested in field extensions $L/K$ that arise from adjoining some roots of a polynomial $f$ over $K$. As we have seen, such an extension is algebraic and finite, but further questions could be asked. In particular, does $L$ contain \textit{all} roots of $f$, instead of only a proper subset of them? If,  for any irreducible polynomial $f$ over $K$ that has at least one root in $L$, the answer is `yes', then we say $L/K$ is a \textit{normal} extension. 
 A natural way to construct a normal extension would then be adjoining all roots of some chosen polynomial $f$ over $K$. Indeed, as we shall see, this gives rise to the idea of splitting fields and being the splitting field of some $f$ is in fact an equivalent condition for an extension to be normal. 
 
 In this section, we first introduce splitting fields, with a particular focus on how they can help construct field automorphisms. Then we move on to algebraic closures, which can be considered as the splitting field of \textit{all} polynomials over a field. We then present normality and separability of field extensions. 
@@ -11,7 +11,7 @@ In this section, we first introduce splitting fields, with a particular focus on
 % \TODO maybe place the definitions somewhere else?
 \subsection{Splitting Fields and Algebraic Closures}
 
-The following discussions on splitting fields are adapted from Stewart \cite{Stewart}. 
+The following discussions on splitting fields are adapted from Stewart \cite[Chapter~9]{Stewart}. 
 \begin{definition}
     Let $K$ be a field. A polynomial $f$ over $K$ \textit{splits} in $K$ if it decomposes into linear factors $
     f(t) = k \prod _{i=1} ^n (t - \alpha_i),
@@ -64,7 +64,7 @@ The splitting fields of a polynomial over two isomorphic fields are isomorphic, 
 
 
 
-Theorem \ref{thm:splitting-field-unique} provides a convenient way to ``extend'' a field isomorphism using splitting fields. In other words, given a ``smaller'' isomorphism $\iota: K \to K'$, we end up with a ``larger'' one $j: F \to F'$, where $K \subseteq F$ and $K' \subseteq F'$, and further $j$ preserves $\iota$ on $K$. Notably, when $F  = F'$, $j$ is an automorphism of $F$. The next theorem captures the ideas and enables us to ``extend" a $K$-monomorphism $M \to F$ to a $K$-automorphism of $F$, where $K \subseteq M \subseteq F$. 
+Theorem \ref{thm:splitting-field-unique} provides a convenient way to `extend' a field isomorphism using splitting fields. In other words, given a `smaller' isomorphism $\iota: K \to K'$, we end up with a `larger' one $j: F \to F'$, where $K \subseteq F$ and $K' \subseteq F'$, and further $j$ preserves $\iota$ on $K$. Notably, when $F  = F'$, $j$ is an automorphism of $F$. The next theorem captures the ideas and enables us to `extend a $K$-monomorphism $M \to F$ to a $K$-automorphism of $F$, where $K \subseteq M \subseteq F$. 
 
 \begin{theorem} \label{thm:monomorphism-extend-automorphism}
 	Let $f$ be a polynomial over $K$ with splitting field $F$. Let $M$ be an intermediate field such that $K \subseteq M \subseteq F$. Let $\tau$ be a $K$-monomorphism $M \to F$. Then there exists a $K$-automorphism $\sigma$ of $F$ such that $\sigma | _M = \tau$.  
@@ -86,20 +86,20 @@ When $f$ is irreducible, we can then construct an $K$-automorphism of $F$ that s
 	$K(\alpha)/K$ and $K(\beta)/K$ are isomorphic extensions by Corollary \ref{thm:minimal-polynomial-roots-isomorphic}. The isomorphism from $K(\alpha)$ to $K(\beta)$ is also a $K$-monomorphism from $K(\alpha)$ to $F$ and thus can be extended to a $K$-automorphism $\sigma$ of $F$ by Theorem \ref{thm:monomorphism-extend-automorphism}, where $\sigma(\alpha) = \beta$.
 \end{proof}
 
-The following discussions on algebraic closures combine ideas from \cite{galois-theory-lectures, rotman_galois_1998}. 
+The following discussions on algebraic closures combine ideas from Borcherds \cite[Lecture~4]{galois-theory-lectures} and Rotman \cite[p.~89]{rotman_galois_1998}. 
 
 \begin{definition}
 	A field $K$ is \textit{algebraically closed} if every non-constant polynomial over $K$ has a root in $K$. 
 \end{definition}
 
-Clearly $\C$ is algebraically closed by Theorem \ref{thm:fundamental-algebra}. It can be shown that we can extend any field to an algebraically closed one \cite{rotman_galois_1998}. 
+Clearly $\C$ is algebraically closed by Theorem \ref{thm:fundamental-algebra}. It can be shown that we can extend any field to an algebraically closed one. 
 
 \begin{definition}
 	The smallest algebraically closed extension of a field $K$ is its \textit{algebraic closure}, denoted as $\overline K$.
 \end{definition}
 
 \begin{example}
-	$\overline \R  =  \C$. That is, $\C$ is the smallest field that contains a root of any non-constant polynomial over $\R$ \cite{rotman_galois_1998}.
+	$\overline \R  =  \C$. That is, $\C$ is the smallest field that contains a root of any non-constant polynomial over $\R$.
 \end{example}
 
 
@@ -127,7 +127,7 @@ Let us define $\mathbb A = \overline \Q$, the field of algebraic numbers. Clearl
 
 \subsection{Normal and Separable Extensions}
 
-We now state the definition of a normal extension $L/K$, which says that an irreducible polynomial over $K$ has ``none or all'' of its roots in $L$. 
+We now state the definition of a normal extension $L/K$, which says that an irreducible polynomial over $K$ has `none or all' of its roots in $L$. 
 
 \begin{definition}
     An algebraic field extension $L/ K$ is \textit{normal} if every irreducible polynomial over $K$ which has a root in $L$ splits in $L$. 
@@ -142,7 +142,7 @@ We now state the definition of a normal extension $L/K$, which says that an irre
     Let $K = \Q(\sqrt[3]{2})$. Then $K / \Q$ is not normal. The polynomial $f(t) = t^3 - 2$ over $\Q$ is irreducible and has a root $\sqrt[3]{2}$ in $K$, but $K \subseteq \R$ does not contain the two non-real roots of $f$. Hence $f$ does not split in $K$.
 \end{example}
 
-We now establish some equivalent statements as a finite extension being normal. The next theorem formalizes ideas from \cite{galois-theory-lectures}. (We have limited our discussion on \textit{finite} extensions, while \cite{galois-theory-lectures} does not have this assumption.)
+We now establish some equivalent statements as a finite extension being normal. The next theorem formalizes ideas from \cite[Lecture~6]{galois-theory-lectures}. (We have limited our discussion on \textit{finite} extensions, while \cite{galois-theory-lectures} does not have this assumption.)
 
 \begin{theorem} \label{thm:normal-equiv-def}
     Let $L/K$ be an finite field extension. Then the following three statements are equivalent: (i) $L/K$ is normal; 
@@ -180,7 +180,7 @@ As discussed earlier, the normality of a field extension is naturally linked to 
 
 
 
-Galois did not specifically acknowledge the idea of separability, as he solely worked with subfields of $\C$, where separability is inherently present, as we will discover. Following the approach in \cite{Stewart}, we shall introduce the separability of a field extension in a ``recursive'' manner: we will introduce separable \textit{polynomials} over a field, separable \textit{elements} in a field and separable \textit{field extensions}, one after another. 
+Galois did not specifically acknowledge the idea of separability, as he solely worked with subfields of $\C$, where separability is inherently present, as we will discover. Following the approach in \cite[p.~128-129]{Stewart}, we shall introduce the separability of a field extension in a `recursive' manner: we will introduce separable \textit{polynomials} over a field, separable \textit{elements} in a field and separable \textit{field extensions}, one after another. 
 
 \begin{definition}
     Let $f$ be an irreducible polynomial over field $K$. Then $f$ is \textit{separable} over $K$ if $f$ takes the form 
@@ -192,7 +192,7 @@ Galois did not specifically acknowledge the idea of separability, as he solely w
     A field extension $L / K$ is \textit{separable} if every $\alpha \in L$ is separable.
 \end{definition}
 
-The following theorem of a computational nature is useful to determine whether a polynomial is separable and is given without proof \cite{Stewart}. 
+The following theorem of a computational nature is useful to determine whether a polynomial is separable and is given without proof \cite[p.~128]{Stewart}. 
 
 \begin{theorem} \label{thm:separable-derivative}
     A polynomial $f$ over a subfield $K$ of  $\C$ is separable if and only if it is coprime with $Df$ over $K$, where $Df$ is its derivative. 

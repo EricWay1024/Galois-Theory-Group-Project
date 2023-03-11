@@ -1,6 +1,6 @@
 \section{Ruler-and-Compass Constructions} \label{sec:applications}
 
-The following section is adapted from \cite{Stewart, shape-constructions}. When constructing shapes, the Greeks, specifically Plato, looked at ``perfect'' geometric figures - those which can be constructed with only straight lines and a compass. This is to see if certain shapes and figures can be drawn without approximations. Euclid set out five main axioms to drawing these figures:
+The following section is adapted from \cite{Stewart, shape-constructions}. When constructing shapes, the Greeks, specifically Plato, looked at `perfect' geometric figures - those which can be constructed with only straight lines and a compass. This is to see if certain shapes and figures can be drawn without approximations. Euclid set out five main axioms to drawing these figures:
 
 \begin{enumerate}
     \item You can draw a straight line segment between any two points.
@@ -55,14 +55,14 @@ Let points be denoted by $z_1,z_2 \in \C$ and we let $0\leq r \in \R$.
 \end{theorem}
 
 \begin{proof}  
-    $``\implies"$ Let $z \in \C$ be a constructable point, then by Definition \ref{def:constructable-point}, it is clear that $z=z_k\in \mathcal{P}_k$.
-    $``\impliedby"$ On the other hand, if $z \in \mathcal{P}_k$, then we can find a sequence $z_j \in \mathcal{P}_j$ for $0\leq j \leq k$ which satisfies Definition \ref{def:constructable-point}.
+    `$\implies$'. Let $z \in \C$ be a constructable point, then by Definition \ref{def:constructable-point}, it is clear that $z=z_k\in \mathcal{P}_k$.
+    `$\impliedby$'. On the other hand, if $z \in \mathcal{P}_k$, then we can find a sequence $z_j \in \mathcal{P}_j$ for $0\leq j \leq k$ which satisfies Definition \ref{def:constructable-point}.
 \end{proof}
 
-We now define the ``Pythagorean Closure'' which will help us create a link between construction and Galois Theory.
+We now define the `Pythagorean Closure' which will help us create a link between construction and Galois Theory.
 
 \begin{definition}[Pythagorean Closure]
-    $\Q^{py}$ is called the ``Pythagorean Closure'' of $\Q$, which is the union of all subfields, denoted $K$ where:
+    $\Q^{py}$ is called the `Pythagorean Closure' of $\Q$, which is the union of all subfields, denoted $K$ where:
     $\Q = K_0 \subseteq K_1 \subseteq ... \subseteq K_n=K$ such that $[K_{j+1}:K_j]\leq 2$.
 \end{definition}
 
@@ -106,7 +106,7 @@ Now we have the key results to help us prove the following theorem, where the pr
 \end{theorem}
 
 \begin{proof}
-    ``$\implies$'' Let $P(n)$ be the statement $\mathcal{P}_n \subseteq \Q^{py}$.
+    `$\implies$'. Let $P(n)$ be the statement $\mathcal{P}_n \subseteq \Q^{py}$.
 
     $P(0):$ We have that $\mathcal{P}_0 = \{0,1\}$, which clearly $\{0,1\}\subseteq\Q^{py}$, so $P(0)$ holds true.
 
@@ -120,7 +120,7 @@ Now we have the key results to help us prove the following theorem, where the pr
     \end{itemize}
 Therefore, $P(k+1)$ holds, and thus $\mathcal{P}_n \subseteq \Q^{py}$. 
 
-``$\impliedby$'' Now we show that for any $z \in Q^{py}, \exists n \in \N$ such that $z \in \mathcal{P}_n$
+`$\impliedby$'. Now we show that for any $z \in Q^{py}, \exists n \in \N$ such that $z \in \mathcal{P}_n$
 
 So let $z \in \Q^{py}$, and by the definition of $\Q^{py}$ we know that  $z\in \Q^{py}$ if and only if $z \in K_n$, the highest field in our tower. Thus, there must be a sequence of points, $0,1,z_0,z_1,...,z_k=z$, where $z_i \in K_i$ for $0\leq i \leq n$, such that $z_{i+1} \in \Q(0,1,...,z_i,\alpha)$ for $\alpha^2 \in \Q(0,1,...,z_i)$. This follows from the definition of $\Q^{py}$ as it is the union of subfields which contain the $z_i$. Then we have that $z_i$ is constructable, thus $z_{i+1}$ must also be constructable. So all points in this sequence are constructable, thus $z$ is constructable and therefore for $z \in \Q^{py}$ we have that $z \in \mathcal{P}_n$ for some $n \in \N$.
 
@@ -158,7 +158,7 @@ We now look at a proof of a theorem which looks at doubling the volume of a cube
 \end{proof}
 
 
-``Squaring the circle'' is a problem posed by the Greeks which asked if it was possible to construct a square with the same area as a circle, using only a compass and a straight edge. The following theorem shows the solution to the posed problem.
+`Squaring the circle' is a problem posed by the Greeks which asked if it was possible to construct a square with the same area as a circle, using only a compass and a straight edge. The following theorem shows the solution to the posed problem.
 
 \begin{theorem}
     The circle cannot be squared using a ruler-and-compass construction.
