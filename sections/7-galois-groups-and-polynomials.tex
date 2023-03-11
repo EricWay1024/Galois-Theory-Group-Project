@@ -1,7 +1,9 @@
 \section{Galois Groups and Polynomials} \label{sec:galois-groups-and-polynomials}
-If we think of a general quadratic polynomial of the form $at^2+bt+c$, and try to find its roots, we know that there is a formula to find the roots $\alpha$ of the general quadratic, which is $\alpha = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$. A similar formula can be found to find the roots of a general cubic and quartic polynomial. However, there is no such general formula for polynomial of degree $5$ an higher, as we shall see. 
+If we think of a general quadratic polynomial of the form $at^2+bt+c$, and try to find its roots, we know that there is a formula to find the roots $\alpha$ of the general quadratic, which is $\alpha = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$. A similar formula can be found to find the roots of a general cubic and quartic polynomial. However, there is no such general formula for polynomial of degree $5$ an higher.
 
-In this section, we first briefly introduce the concept of solvable and simple groups from group theory. Then we concentrate on proving the Galois' Theorem, which establishes that a polynomial being solvable by radicals is equivalent to its Galois group being solvable. We also exemplify the theorem with a non-solvable quintic polynomial. Finally, we look at the Abel-Ruffini Theorem, which states the non-solvability of generic polynomials of order $n \ge 5$. 
+In this section, we first briefly introduce the concept of solvable and simple groups from group theory. Then we concentrate on proving the Galois' Theorem, which establishes that a polynomial being solvable by radicals is equivalent to its Galois group being solvable. We also exemplify the theorem with a non-solvable quintic polynomial. Finally, we look at the Abel-Ruffini Theorem, which states the non-solvability of generic polynomials of degree $n \ge 5$.  
+
+From now on, we assume that all fields has characteristic $0$.  
 \subsection{Solvable Groups and Simple Groups}
 This subsection, based on \cite[Chapter~14]{Stewart}, gives a brief overview of solvable groups and simple groups. 
 \begin{definition} \label{def:soluble}
@@ -41,7 +43,7 @@ For that we introduce simple groups and show that the alternating groups are sim
 	$
 	\{ e \}=G_0 \triangleleft G_1 \triangleleft \ldots \triangleleft G_n=G,
 	$
-	with abelian quotients, and without loss of generality we assume $G_{i+1} \neq G_i$. Since $G$ is simple, $G_{n-1}$, which is a proper normal subgroup of $G_n = G$, must be $\{ e \}$. Solvability of $G$ gives that $G_n / G_{n -1 }$ is abelian, but $G_n / G_{n - 1} = G$, and thus $G$ is abelian. Thus for any element $g \in G$, the cyclic group $\langle g\rangle$ is a normal subgroup in $G$. Hence  $G = \langle g\rangle$ for any $g \neq e$. Hence $G$ is cyclic of prime order.
+	with abelian quotients, and without loss of generality we assume $G_{i+1} \neq G_i$. Since $G$ is simple, $G_{n-1}$, which is a proper normal subgroup of $G_n = G$, must be $\{ e \}$. Solvability of $G$ implies that $G_n / G_{n -1 }$ is abelian, but $G_n / G_{n - 1} = G$, and thus $G$ is abelian. Thus for any element $g \in G$, the cyclic group $\langle g\rangle$ is a normal subgroup in $G$. Hence  $G = \langle g\rangle$ for any $g \neq e$. Hence $G$ is cyclic of prime order.
 	The converse is trivial.
 \end{proof}
 
@@ -77,13 +79,13 @@ For that we introduce simple groups and show that the alternating groups are sim
 
 
 \subsection{Solvability by Radicals}
-This subsection, based on \cite[Chapter~15]{Stewart}, \cite[p.~71-75]{  rotman_galois_1998}, \cite[Section~9]{introduction-to-galois-theory} and \cite{cambridge-galois-lecture-polynomials}, focuses on establishing the Galois' Theorem. We first formalize the idea of a number in $\C$ being expressible by radicals; such a number can be constructed within finitely many steps of addition, subtraction, multiplication, division and taking the $n$-th root on rational numbers. We give a general definition as below. 
+This subsection, based on \cite[Chapter~15]{Stewart}, \cite[p.~71-75]{  rotman_galois_1998}, \cite[Section~9]{introduction-to-galois-theory} and \cite{cambridge-galois-lecture-polynomials}, focuses on establishing the Galois' Theorem. We first formalise the idea of a number in $\C$ being expressible by radicals; such a number can be constructed within finitely many steps of addition, subtraction, multiplication, division and taking the $n$-th root on rational numbers. We give a general definition as below. 
 \begin{definition} \label{def:radical-extension}
 	A field extension $L / K$ in $\C$ is \textit{radical} if $L=K\left(\alpha_1, \ldots, \alpha_m\right)$, where for each $i=1, \ldots, m$ there exists $n_i$ such that
 	$
 	\alpha_i^{n_i} \in K\left(\alpha_1, \ldots, \alpha_{i-1}\right).
 	$
-	The elements $\alpha_i$ form a radical sequence for $L / K$, and the radical degree of $\alpha_i$ is $n_i$.
+	The elements $\alpha_i$ form a radical sequence for $L / K$, and the radical degree of $\alpha_i$ is $n_i$. A number $\beta$ in $\C$ is \textit{expressible by radicals} if there exists a radical extension $L / \Q$ such that $\beta \in L$. 
 \end{definition}
 
 \begin{definition}
@@ -91,18 +93,12 @@ This subsection, based on \cite[Chapter~15]{Stewart}, \cite[p.~71-75]{  rotman_g
 \end{definition}
 
 \begin{theorem} \label{thm:radical-single-prime}
-	Let $K$ be a subfield of $\C$. If $\alpha ^ n \in K$ for a positive integer $n$ and  $L = K (\alpha)$, then there exists a radical sequence $\beta_i$ for $L / K$ such that the radical degree for each $\beta_i$ is prime.
+	Let $L / K$ be a radical extension in $\C$. Then there exists a radical sequence $\beta_j$ for $L / K$ where $j=1, \dots, r$ such that the radical degree of each $\beta_j$ is prime.
 \end{theorem}
 
 \begin{proof}
-	Let $n = \prod_{k=1}^{s} p_{k}$ where $p_{k}$ are prime numbers (not necessarily distinct). Let $\beta_{i} = \alpha^ {p_{i + 1} \dots  p_{s}}$ for $i = 0, \dots s$. Write $L = K(\beta_1,  \dots, \beta_s = \alpha)$, and then $\beta_0 = \alpha^n \in K$ and  $\beta_i ^ {p_i} = \beta_{i-1} \in K(\beta_1, \dots, \beta_{i - 1})$ for each $i  = 1, \dots, s$. 
+	Without loss of generality, assume that $L/K$ is simple, i.e.  $L = K (\alpha)$ and $\alpha ^ n \in K$ for a positive integer $n$ (for if $L/K$ is not simple, we can always write it as a tower of simple extensions). Let $n = \prod_{k=1}^{s} p_{k}$ where $p_{k}$ are prime numbers (not necessarily distinct). Let $\beta_{i} = \alpha^ {p_{i + 1} \dots  p_{s}}$ for $i = 0, \dots s$. Write $L = K(\beta_1,  \dots, \beta_s = \alpha)$, and then $\beta_0 = \alpha^n \in K$ and  $\beta_i ^ {p_i} = \beta_{i-1} \in K(\beta_1, \dots, \beta_{i - 1})$ for each $i  = 1, \dots, s$. 
 \end{proof}
-
-
-
-\begin{corollary} \label{thm:radical-all-prime}
-	Let $L / K$ be a radical extension. Then there exists a radical sequence $\beta_j$ for $L / K$ where $j=1, \dots, r$ such that the radical degree of each $\beta_j$ is prime.
-\end{corollary}
 
 \begin{example} \label{exm:radical-sequence-prime}
 	Consider $K  = \mathbb Q$ and $\alpha = \sqrt[20]{2}$, where $\alpha ^ {20} \in \mathbb Q$. Write $n = 20 =  2 \times 2 \times 5 $. Then we can take the radical sequence as $\beta_1 = \sqrt 2, \beta_2 = \sqrt[4]{2}, \beta_3 = \sqrt[20]{2}$. Then $\mathbb Q(\sqrt[20]{2}) $ $= \mathbb Q(\sqrt{2}, \sqrt[4]{2}, \sqrt[20]{2})$ and 
@@ -116,7 +112,7 @@ This subsection, based on \cite[Chapter~15]{Stewart}, \cite[p.~71-75]{  rotman_g
 %\end{proof}
 
 %See also Example \ref{exm:radical-sequence-prime}. 
-Hence from now on, we can always assume, without loss of generality, that a radical extension has all prime radical degrees. We now introduce the roots of unity in $\C$, useful for further theorems. 
+Hence from now on, we can always assume without loss of generality that a radical extension has all prime radical degrees. We now introduce the roots of unity in $\C$, useful for further theorems. 
 
 
 \begin{definition}
@@ -124,7 +120,7 @@ Hence from now on, we can always assume, without loss of generality, that a radi
 \end{definition}
 
 
-Let $n$ be a positive integer. All $n$-th roots of unity form a cyclic group under multiplication, the group is generated by any primitive $n$-th root of unity. For a prime number $p$, let $\omega$ be a $p$-th root of unity and let $\omega \neq 1$. Then $\omega$ is a primitive $p$-th root of unity and generates the multiplicative group of all $p$-th roots of unity. We also see that since the polynomial $t^n - 1$ over a subfield $K$ of $\C$ has no repeated roots by Theorem \ref{thm:separable-derivative}, if $\omega$ is a primitive $n$-th root of unity, $K(\omega)$ is the splitting field of $t^n - 1$ over $K$. The following two theorems indicate how the roots of unity can give rise to abelian Galois groups of field extensions. 
+Let $n$ be a positive integer. All $n$-th roots of unity form a cyclic group under multiplication, the group is generated by any primitive $n$-th root of unity. For a prime number $p$, let $\omega$ be a $p$-th root of unity and let $\omega \neq 1$. Then $\omega$ is a primitive $p$-th root of unity and generates the multiplicative group of all $p$-th roots of unity. We also see that since the polynomial $t^n - 1$ over a subfield $K$ of $\C$ has no repeated roots by Theorem \ref{thm:separable-derivative}, if $\omega$ is a primitive $n$-th root of unity, $K(\omega)$ is the splitting field of $t^n - 1$ over $K$. The following two lemmas indicate how the roots of unity can give rise to abelian Galois groups of field extensions. 
 
 
 %\begin{theorem} \label{thm:unity-1}
@@ -145,9 +141,9 @@ Let $n$ be a positive integer. All $n$-th roots of unity form a cyclic group und
 
 
 
-\begin{theorem} \label{thm:radical-1}
+\begin{lemma} \label{thm:radical-1}
 	Let $p$ be a prime and let $\omega$ be a primitive $p$-th root of unity. Let $K$ be a subfield of $\mathbb C$. Then $\Gal(K(\omega) / K)$ is abelian.
-\end{theorem}
+\end{lemma}
 \begin{proof}
 	Let $L = K(\omega)$.  Let $\alpha \in \Gal(L / K)$. Then $\alpha$ is uniquely determined by $\alpha(\omega)$ and $\alpha$ is a permutation of the multiplicative group generated by $\omega$. Thus $\alpha$ has the form
 	$
@@ -156,9 +152,9 @@ Let $n$ be a positive integer. All $n$-th roots of unity form a cyclic group und
 	where $j=1,\dots,p-1$. Then $\alpha_i \alpha_j (\omega) = \alpha_j \alpha_i (\omega) = \omega^{i j}$, so $ \Gal(L / K)$ is abelian.	
 \end{proof}
 
-\begin{theorem} \label{thm:radical-2}
+\begin{lemma} \label{thm:radical-2}
 	Let $K$ be a subfield of $\mathbb{C}$ which contains an $n$-th primitive root of unity. Let $\beta^n = c \in K $ where $n$ is a positive integer. Then $\Gal(K(\beta) / K)$ is abelian.
-\end{theorem}
+\end{lemma}
 
 \begin{proof}
 	Clearly $K$ contains all $n$-th roots of unity. Let $L = K(\beta)$, and $\beta$ is a root of $t^n-c$ in $L$. Any root of $t^n-c$ in $L$ can be represented by $\omega \beta$, where $\omega$ is some $n$-th root of unity in $K$. Thus $t^n - c$ splits in $L$.  Let $\phi \in \Gal(L / K)$, then $\phi$ is uniquely determined by $\phi(\beta)$ and $\phi$ is a permutation of the roots of $t^n - c$. Let $\phi_1, \phi_2 \in \Gal(L / K)$, and let $\phi_1(\beta) = \omega_1\beta$, $\phi_2(\beta) = \omega_2\beta$, where $\omega_1, \omega_2$ are $n$-th roots of unity in $K$. Then
@@ -174,7 +170,7 @@ Using the fact that abelian groups are solvable, the following theorem implies t
 \begin{proof}
 	Let $M$ be the splitting field of $f$ over $K$, then $\Gal(f) = \Gal(M / K)$. 
 	When $c = 0$, the case is trivial with $M = K$. Suppose $c \neq 0$. By Theorem \ref{thm:separable-derivative}, $f$ is separable over $K$, and thus its roots are all distinct. Take any two different roots $\alpha, \beta$ of $f$, we see that $\alpha / \beta \neq 1$ is a (primitive) $p$-th root of unity. Therefore, $M = K(\alpha, \omega)$, where $\alpha$ is a root of $f$ and $\omega$ is a primitive $p$-th root of unity. $K(\omega)$ is the splitting field for $t^p - 1$ over $K$ and thus $K(\omega) / K$ is Galois by Theorems \ref{thm:normal-equiv-def} and \ref{thm:separable-extension-in-C}.  Since $M / K$ is also a Galois extension, applying Theorem \ref{thm:correspondence-quotient} to obtain $\Gal(M / K) / \Gal(M / K(\omega)) \cong \Gal(K(\omega) / K). $
-	Since $\Gal(K(\omega)/K)$ is abelian by Theorem \ref{thm:radical-1} and $\Gal(M / K(\omega))$ is abelian by Theorem \ref{thm:radical-2}, by Theorem \ref{thm:soluble-main} $\Gal(M/K)$ is solvable as desired. 
+	Since $\Gal(K(\omega)/K)$ is abelian by Lemma \ref{thm:radical-1} and $\Gal(M / K(\omega))$ is abelian by Lemma \ref{thm:radical-2}, by Theorem \ref{thm:soluble-main} $\Gal(M/K)$ is solvable as desired. 
 \end{proof}
 
 The next theorem allows us to pass the solvability of the Galois group along a tower of simple radical extensions. 

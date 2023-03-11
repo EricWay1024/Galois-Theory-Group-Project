@@ -3,9 +3,9 @@
 The following section is adapted from \cite{Stewart, shape-constructions}. When constructing shapes, the Greeks, specifically Plato, looked at `perfect' geometric figures - those which can be constructed with only straight lines and a compass. This is to see if certain shapes and figures can be drawn without approximations. Euclid set out five main axioms to drawing these figures:
 
 \begin{enumerate}
-    \item You can draw a straight line segment between any two points.
-    \item You can extend any line segment infinitely.
-    \item Given a point and a distance $r$, you can construct a circle centered at that point, with radius $r$.
+    \item One can draw a straight line segment between any two points.
+    \item One can extend any line segment infinitely.
+    \item Given a point and a distance $r$, one can construct a circle centered at that point, with radius $r$.
     \item Any two right angles are congruent.
     \item Given a line $L$ and a point $P$, one can construct a line through $P$ that is parallel to $L$. 
 \end{enumerate}
@@ -28,21 +28,21 @@ Let points be denoted by $z_1,z_2 \in \C$ and we let $0\leq r \in \R$.
 \end{definition}
 
 \begin{definition}\label{def:constructable-point}
-    A point, $z \in \C$ is called constructable if there is a finite sequence of points:
+    A point $z \in \C$ is called \textit{constructable} if there is a finite sequence of points:
     $z_0=0,z_1=1,z_2,z_3,...,z_k=z$, where $z_{j+1}$ lies in one of the following:
     \begin{itemize}
-        \item On the intersection of two straight lines constructed between two sets of two points, i.e:
+        \item On the intersection of two straight lines constructed between two sets of two points, i.e.
         $z_{j+1}\in L(z_{j_1},z_{j_2})\cap L(z_{j_3},z_{j_4})$;
-        \item On the intersection of a circle and a line, i.e:
+        \item On the intersection of a circle and a line, i.e.
         $z_{j+1}\in L(z_{j_1},z_{j_2})\cap C(z_{j_3},|z_{j_4}-z_{j_5})|$;
-        \item On the intersection of two circles, i.e:
+        \item On the intersection of two circles, i.e.
         $z_{j+1}\in C(z_{j_1},|z_{j_2}-z_{j_3})|\cap C(z_{j_4},|z_{j_5}-z_{j_6})|$;
     \end{itemize}
     where $j_i\in \N$.
 \end{definition}
 
 \begin{lemma}\label{thm:point-subset}
-    $\forall n \in \N$ we have that:
+    For any $n \in \N$, 
     $\mathcal{P}_n \subseteq \mathcal{P}_{n+1}$. 
 \end{lemma}
 
@@ -55,20 +55,21 @@ Let points be denoted by $z_1,z_2 \in \C$ and we let $0\leq r \in \R$.
 \end{theorem}
 
 \begin{proof}  
-    `$\implies$'. Let $z \in \C$ be a constructable point, then by Definition \ref{def:constructable-point}, it is clear that $z=z_k\in \mathcal{P}_k$.
-    `$\impliedby$'. On the other hand, if $z \in \mathcal{P}_k$, then we can find a sequence $z_j \in \mathcal{P}_j$ for $0\leq j \leq k$ which satisfies Definition \ref{def:constructable-point}.
+    `$\Longrightarrow$'. Let $z \in \C$ be a constructable point, then by Definition \ref{def:constructable-point}, it is clear that $z=z_k\in \mathcal{P}_k$.
+    
+    `$\Longleftarrow$'. On the other hand, if $z \in \mathcal{P}_k$, then we can find a sequence $z_j \in \mathcal{P}_j$ for $0\leq j \leq k$ which satisfies Definition \ref{def:constructable-point}.
 \end{proof}
 
 We now define the `Pythagorean Closure' which will help us create a link between construction and Galois Theory.
 
 \begin{definition}[Pythagorean Closure]
-    $\Q^{py}$ is called the `Pythagorean Closure' of $\Q$, which is the union of all subfields, denoted $K$ where:
+    $\Q^{py}$ is called the `Pythagorean Closure' of $\Q$, which is the union of all subfields, denoted $K$ where
     $\Q = K_0 \subseteq K_1 \subseteq ... \subseteq K_n=K$ such that $[K_{j+1}:K_j]\leq 2$.
 \end{definition}
 
 Here we can see a tower of field extensions, which gives us a hint that we may be able to use fields and extensions to solve construction problems.
 
-The next Lemma will help us to prove a Theorem which will show the link between the two.
+The next lemma will help us to prove a theorem which will show the link between the two.
 
 \begin{lemma}\label{lemma:conjugate-in-Pn}
     Let $z \in \mathcal{P}_n$, then its complex conjugate $\overline{z} \in \mathcal{P}_{n+1}$.
@@ -79,8 +80,8 @@ The next Lemma will help us to prove a Theorem which will show the link between 
     
     Let us show that we can construct the complex conjugate using the points $0, 1, z\in \mathcal{P}_{n+1}$.
     We start with the trivial case where either $z=1$ or $\overline{z}=1$. Here the point has already been constructed, and since $\overline{z}=1\in \mathcal{P}_0$ this implies $\overline{z}=1\in \mathcal{P}_n$ by Lemma \ref{thm:point-subset}.
-\newline
-\noindent
+
+
     Now, let us say $z\in \mathcal{P}_n$ with $z\neq1$. Then we consider the circle $C(z,|z-1|)$, and the line $L(0,1)$. We have two cases here, either the circle meets the line at exactly one point, $1$, or the circle meets the line in exactly two points, $1$ and $s$.
 
     \textbf{Case One:} If $C(z,|z-1|)$ and $L(0,1)$ meet at exactly one point, then the line $L(1,z)$ must be perpendicular to $L(0,1)$. Then by drawing the circle $C(1,|z-1|)$, we see that it meets the line $L(1,z)$ at two points, one is $z$ and the other is $\overline{z}$.
@@ -95,7 +96,7 @@ The next Lemma will help us to prove a Theorem which will show the link between 
 \end{theorem}
 
 \begin{proof}  
-   Consider we already have a set of constructable points $X_k = \{0,1,z_1,...,z_k\}$ (where $X_0=\{0,1\}$), and we have another point, $z=z_{k+1}$ which can be constructed through the intersections of lines and circles with regards to these points. Then, algebraically, we have a linear or quadratic equation, where $z_{k+1}$ is a solution. This is due to the fact that a line has the equation $y=mx+c$ and a circle has equation $(x-a)^2+(y-b)^2=r^2$, where $z=x+iy$ and $r=x^2+y^2$. Thus, the new point extends the field by order one (if linear) or at most two (if quadratic), so $[\Q(z_{k+1}):\Q(X_k)] \in \{1,2\} \forall k \in \N$. Thus, by the tower theorem, we see that $[\Q(z):\Q] = \prod_{i=0}^k [\Q(z_{i+1}):\Q(X_i)]$ and therefore, since each $[\Q(z_{k+1}):\Q(X_k)] \in \{1,2\}$, we have that $[\Q(z):\Q] = 2^k$ for some $k \in \N$.
+   Consider we already have a set of constructable points $X_k = \{0,1,z_1,...,z_k\}$ (where $X_0=\{0,1\}$), and we have another point, $z=z_{k+1}$ which can be constructed through the intersections of lines and circles with regards to these points. Then, algebraically, we have a linear or quadratic equation, where $z_{k+1}$ is a solution. This is due to the fact that a line has the equation $y=mx+c$ and a circle has equation $(x-a)^2+(y-b)^2=r^2$, where $z=x+iy$ and $r=x^2+y^2$. Thus, the new point extends the field by order one (if linear) or at most two (if quadratic), so $[\Q(z_{k+1}):\Q(X_k)] \in \{1,2\} \forall k \in \N$. Thus, by Theorem \ref{thm:tower-theorem}, we see that $[\Q(z):\Q] = \prod_{i=0}^k [\Q(z_{i+1}):\Q(X_i)]$ and therefore, since each $[\Q(z_{k+1}):\Q(X_k)] \in \{1,2\}$, we have that $[\Q(z):\Q] = 2^k$ for some $k \in \N$.
 \end{proof}
 
 
@@ -106,10 +107,8 @@ Now we have the key results to help us prove the following theorem, where the pr
 \end{theorem}
 
 \begin{proof}
-    `$\implies$'. Let $P(n)$ be the statement $\mathcal{P}_n \subseteq \Q^{py}$.
-
-    $P(0):$ We have that $\mathcal{P}_0 = \{0,1\}$, which clearly $\{0,1\}\subseteq\Q^{py}$, so $P(0)$ holds true.
-
+    `$\Longrightarrow$'. Let $P(n)$ be the statement $\mathcal{P}_n \subseteq \Q^{py}$.
+     We have that $\mathcal{P}_0 = \{0,1\}$, which clearly $\{0,1\}\subseteq\Q^{py}$, so $P(0)$ holds true.
     Now assume that $P(k)$ holds true, and now consider $P(k+1)$. So we let $z \in \mathcal{P}_{k+1}$. Then we have three cases:
     \begin{itemize}
         \item \textbf{Case One:} Intersection of lines. If we have $z$ is the intersection of lines from points $z_1, z_2, z_3, z_4 \in \mathcal{P}_{k+1}$, then we can form 2 simultaneous equations:
@@ -120,8 +119,7 @@ Now we have the key results to help us prove the following theorem, where the pr
     \end{itemize}
 Therefore, $P(k+1)$ holds, and thus $\mathcal{P}_n \subseteq \Q^{py}$. 
 
-`$\impliedby$'. Now we show that for any $z \in Q^{py}, \exists n \in \N$ such that $z \in \mathcal{P}_n$
-
+`$\Longleftarrow$'. Now we show that for any $z \in Q^{py}, \exists n \in \N$ such that $z \in \mathcal{P}_n$.
 So let $z \in \Q^{py}$, and by the definition of $\Q^{py}$ we know that  $z\in \Q^{py}$ if and only if $z \in K_n$, the highest field in our tower. Thus, there must be a sequence of points, $0,1,z_0,z_1,...,z_k=z$, where $z_i \in K_i$ for $0\leq i \leq n$, such that $z_{i+1} \in \Q(0,1,...,z_i,\alpha)$ for $\alpha^2 \in \Q(0,1,...,z_i)$. This follows from the definition of $\Q^{py}$ as it is the union of subfields which contain the $z_i$. Then we have that $z_i$ is constructable, thus $z_{i+1}$ must also be constructable. So all points in this sequence are constructable, thus $z$ is constructable and therefore for $z \in \Q^{py}$ we have that $z \in \mathcal{P}_n$ for some $n \in \N$.
 
 Thus we have shown that $z$ is constructable if and only if $z\in \Q^{py}.$
@@ -141,7 +139,7 @@ There are many shapes and objects that are not possible to construct using just 
     If the regular heptagon were to be constructable, then this means the point $z=e^{2i\pi/7} \in \Q^{py}$. This is one of our complex roots of unity, and this means that $z^7+z^6+z^5+...+z=0$. Since $z$ is a root of unity, $z^7=1 \implies z^7 - 1 = 0$. We can factorise this as $z^7-1=(z-1)(z^6+z^5+...+z+1)$. Then by Theorem \ref{thm:irreducible-prime-polynomial}, we know that since 7 is prime, $z^6+z^5+...+z+1$ is irreducible over $\Q$ and thus $[\Q(z):\Q]$ has degree 6. We know that six is not a power of two, which means this contradicts Theorem \ref{thm:power-of-two-construction}, therefore a heptagon is not constructable.
 \end{proof}
 
-We now look at a proof of a theorem which looks at doubling the volume of a cube using only a compass and a straight edge.
+We now prove the impossibility of doubling the volume of a cube using only a compass and a straight edge.
 
 \begin{theorem}
     The cube cannot be doubled by ruler-and-compass construction.
@@ -149,11 +147,8 @@ We now look at a proof of a theorem which looks at doubling the volume of a cube
 
 \begin{proof}  
     We can first see that to double the volume of a cube, we would need to increase the edge length by a scale factor of $\sqrt[3]{2}$. Thus we can formulate this problem to see if constructing $\sqrt[3]{2}$ is possible, that is to say $z = \sqrt[3]{2} \in \Q^{py}$.
-\noindent
-\newline
+
     So let us assume towards a contradiction that $\sqrt[3]{2} \in \Q^{py}$ with $\mu$ being its minimal polynomial over $\Q$. Then, by Theorem \ref{thm:power-of-two-construction}, we have that the degree of $\mu = 2^k$ for some $k\in \N \cup \{0\}$.
-\noindent
-\newline
     Then clearly $z^3=2$, so $z^3-2=0$ we must have that $\mu$ divides $z^3-2$, which is irreducible over $\Q$, thus the field extension $\Q(\sqrt[3]{2}):\Q$ has order $3$, which is not a power of two, which contradicts Theorem \ref{thm:power-of-two-construction}, and thus $z = \sqrt[3]{2} \notin \Q^{py}$.
 \end{proof}
 
@@ -166,5 +161,5 @@ We now look at a proof of a theorem which looks at doubling the volume of a cube
 
 \begin{proof}  
     
-    It is sufficient to show that $\sqrt{\pi}\in \C$ is constructable from our initial set of points $\mathcal{P}_0$. From this we could construct $\pi$. Thus, we would have that $[\Q(\pi):\Q]$ is a power of 2, which would imply that $\pi$ is algebraic over $\Q$. However, as seen by Lindemann's proof (which we include in the Appendix), $\pi$ is not algebraic over $\Q$ and thus it is impossible to construct a square with the same area as a circle, using nothing but a compass and a straight edge.
+    It is sufficient to show that $\sqrt{\pi}\in \C$ is constructable from our initial set of points $\mathcal{P}_0$. From this we could construct $\pi$. Thus, we would have that $[\Q(\pi):\Q]$ is a power of 2, which would imply that $\pi$ is algebraic over $\Q$. However, as seen by Lindemann's proof (which we include in Appendix \ref{sec:construction}), $\pi$ is not algebraic over $\Q$ and thus it is impossible to construct a square with the same area as a circle, using nothing but a compass and a straight edge.
 \end{proof}

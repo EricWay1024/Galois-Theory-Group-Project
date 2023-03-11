@@ -9,7 +9,7 @@ We are now ready to present a special kind of field extension:
     A finite field extension is \textit{Galois} if it is both normal and separable. 
 \end{definition}
 
-By Theorem \ref{thm:separable-extension-in-C}, for a finite field extension in $\C$, being ``Galois'' is a synonym of being ``normal'', as its separability is automatic. 
+By Theorem \ref{thm:separable-extension-in-C}, for a finite field extension in $\C$, being `Galois' is a synonym of being `normal', as its separability is automatic. 
 We now give some further properties for Galois extensions in general fields. The statements in the following theorem (which formalises ideas in \cite[Lecture~8]{galois-theory-lectures}) should not seem surprising, as we have mentioned (ii) and (iii) in the previous section and (iv) is apparently based on the definitions of normal and separable extensions. 
 
 
@@ -37,7 +37,7 @@ We now give some further properties for Galois extensions in general fields. The
 	%	We now prove the equivalence of the first four statements. We will work on the fifth statement separately shortly afterwards.
 	
 	
-	(i) $\Rightarrow$ (ii). Consider a $K$-monomorphism $\phi: K \to \overline{K}$. We now extend $\phi$ to a $K$-monomorphism $\phi':L \to \overline{K}$ in the same pattern as in the proof of Theorem \ref{thm:galois-group-order-upper-bound}. However, at each step, we claim that the number of ways to extend is equal to $[K_i : K_{i-1}]$. Indeed, $\alpha_i$ is separable and hence $f_i$ has exactly $[K_i : K_{i-1}]$ distinct roots, and $\overline K$ contains all these roots. Therefore, combining all the steps gives us in total $[L:K]$ ways to extend $\phi$ to $\phi'$. Also, since $L/K$ is normal, by Theorem \ref{thm:normal-equiv-def}, each $K$-monomorphism $\phi': L \to \overline{K}$ is a $K$-automorphism of $L$, and thus each $\phi'$ corresponds to an element in $\Gal(L/K)$. Hence $[L:K] = \Gal(L/K)$. 
+	(i) $\Rightarrow$ (ii). Consider a $K$-monomorphism $\phi: K \to \overline{K}$. We now extend $\phi$ to a $K$-monomorphism $\phi':L \to \overline{K}$ in the same pattern as in the proof of Lemma \ref{thm:galois-group-order-upper-bound}. However, at each step, we claim that the number of ways to extend is equal to $[K_i : K_{i-1}]$. Indeed, $\alpha_i$ is separable and hence $f_i$ has exactly $[K_i : K_{i-1}]$ distinct roots, and $\overline K$ contains all these roots. Therefore, combining all the steps gives us in total $[L:K]$ ways to extend $\phi$ to $\phi'$. Also, since $L/K$ is normal, by Theorem \ref{thm:normal-equiv-def}, each $K$-monomorphism $\phi': L \to \overline{K}$ is a $K$-automorphism of $L$, and thus each $\phi'$ corresponds to an element in $\Gal(L/K)$. Hence $[L:K] = \Gal(L/K)$. 
 	
 	(ii) $\Rightarrow$ (iii). Define $F:= \Fix(G)$. We have $K \subseteq F \subseteq G$. Then by assumption, we have $[L:K] = |G|$; each $K$-automorphism of $L$ in $G$ is also a $F$-automorphism of $L$ in $\Gal(L/F)$, and thus $G \subseteq \Gal(L / F)$ and $|G| \le |\Gal(L / F)|$; by Theorem \ref{thm:galois-group-order-upper-bound}, $|\Gal(L/F)| \le [L:F]$; by Theorem \ref{thm:tower-theorem}, we see that $ [L:F] \le [L:F][F:K] = [L:K]$. Combining them gives $
 	[L:K] = |G| \le |\Gal(L/F)| \le  [L:F] \le [L:K],
@@ -106,10 +106,10 @@ The most important property of Galois extensions is that of Galois correspondenc
     Then we know that the $m$ cannot be larger than the size of $H$, and since $H\leq G \implies |H|\leq|G|$, we get $|\Orb_H(a)| = m \leq |H| \leq |G| = [L:K] = n$.
     
    
-    On the other hand, by evaluating the elementary symmetric polynomials at each of the elements in $\Orb_H(a)$, we get that, by the fact they are symmetric, these are just the elements in $\Fix(H)=K$. Therefore, we see that the coefficients in the polynomial: $f(t) := (t-a_1)(t-a_2)...(t-a_m)$ lies in $K$, and we have $f(a)=0$. Then, our minimal polynomial $\mu_a(t)$ divides $f(t)$ and $\partial f \geq \partial \mu_a(t) \implies m \geq n$. Hence we have $m \geq n$ and $n \geq m$, so therefore we have that $m=n$, which tells us $|H|=|G|$ and so $H=G.$
+    On the other hand, by evaluating the elementary symmetric polynomials at each of the elements in $\Orb_H(a)$, we get that, by the fact they are symmetric, these are just the elements in $\Fix(H)=K$. Therefore, we see that the coefficients in the polynomial: $f(t) := (t-a_1)(t-a_2)...(t-a_m)$ lies in $K$, and we have $f(a)=0$. Then, our minimal polynomial $\mu_a(t)$ divides $f(t)$ and $\partial f \geq \partial \mu_a(t)$ and hence $m \geq n$. Hence we have $m \geq n$ and $n \geq m$, so therefore we have that $m=n$, which tells us $|H|=|G|$ and so $H=G.$
 \end{proof}
 
-We are now ready to present the core result, the Galois correspondence of Galois extensions. 
+We are now ready to present the core result, the Galois correspondence of Galois extensions, which is a bijection between its intermediate fields and the subgroups of its Galois groups. 
 
 \begin{theorem}[The Fundamental Theorem of Galois Theory] \label{thm:fundamental-theorem} Given a Galois extension $L/K$ and its Galois group $G = \Gal(L/K)$, there is a natural bijection between subgroups $H\leq G$ and the intermediate fields $M$ such that $K \subseteq M \subseteq L$. Define
  $\alpha:M \mapsto \Gal(L/M) \leq G$ and
@@ -189,5 +189,5 @@ Now we have all the tools to prove the Fundamental Theorem of Algebra. The proof
 \end{theorem}
 
 \begin{proof}
-    We show that $\C$ is algebraically closed, which is sufficient to show the Fundamental Theorem of Algebra. Let $f \in \R[x]$ with $\partial f = n$, and take $F$ to be a splitting field over $\R$. Then we have that $F(i)$ is a Galois extension over the real numbers. So, define $G:=\Gal(\R/F(i))$ and let $H$ be a $2$-Sylow subgroup of $G$. Then we have the fixed field of $H$ is an extension of $\R$ which is of an odd degree, and hence by Lemma \ref{lemma:ood-degree-real-root} this is trivial. Thus we can then show that $\Gal(F(i)/\C)$ is a $p$-group with $p=2$, which has a subgroup of any possible order. However, if $\Gal(F(i)/\C)$ is not trivial, this means that there is a quadratic extension of $\C$, which contradicts Lemma \ref{lemma:quadratic-extension-in-C}. Thus we have that $\C$ must be algebraically closed.
+    We show that $\C$ is algebraically closed, which is sufficient to show the Fundamental Theorem of Algebra. Let $f \in \R[x]$ with $\partial f = n$, and take $F$ to be a splitting field over $\R$. Then we have that $F(i)$ is a Galois extension over the real numbers. So, define $G:=\Gal(\R/F(i))$ and let $H$ be a $2$-Sylow subgroup of $G$ (see Definition \ref{def:p-group}). Then we have the fixed field of $H$ is an extension of $\R$ which is of an odd degree, and hence by Lemma \ref{lemma:ood-degree-real-root} this is trivial. Thus we can then show that $\Gal(F(i)/\C)$ is a $p$-group with $p=2$, which has a subgroup of any possible order. However, if $\Gal(F(i)/\C)$ is not trivial, this means that there is a quadratic extension of $\C$, which contradicts Lemma \ref{lemma:quadratic-extension-in-C}. Thus we have that $\C$ must be algebraically closed.
 \end{proof}

@@ -20,7 +20,7 @@ We will be mainly working with polynomials over a field (recall that any field i
 
 
 \begin{definition}
-    Let $R$ be an integral domain and if $f \in R[t]$ and $f \neq 0$, then the \textit{degree} of $f$ is said to be the highest power of $t$ occurring in $f$ where it has a non-zero coefficient. The \textit{degree} of $f$ is denoted as $\partial f$. If $f$ has degree $n$, then the leading coefficient of $f$ is $a_n$. If $a_n = 1$ then $f$ is said to be monic. When $f = 0$, we define $\partial f = - \infty$.
+    Let $R$ be an integral domain and if $f \in R[t]$ and $f \neq 0$, then the \textit{degree} of $f$ is said to be the highest power of $t$ occurring in $f$ where it has a non-zero coefficient. The \textit{degree} of $f$ is denoted as $\partial f$. If $f$ has degree $n$, then the \textit{leading coefficient} of $f$ is $a_n$. If $a_n = 1$ then $f$ is said to be \textit{monic}. When $f = 0$, we define $\partial f = - \infty$.
 \end{definition}
 
 
@@ -28,17 +28,16 @@ We will be mainly working with polynomials over a field (recall that any field i
      A non-constant polynomial $f$ over an integral domain $R$ is \textit{reducible} if it is a product of two polynomials $g$ and $h$ over $R$ of smaller degree than f, in which case $g$ and $h$ are \textit{factors} of $f$. Otherwise $f$ is \textit{irreducible}. 
 \end{definition}
 
-\begin{theorem}
+\begin{theorem} \label{thm:product-irreducible}
     Any non-zero polynomial over an integral domain $R$ is a product of irreducible polynomials over $R$.
 \end{theorem}
 
 \begin{proof}
     Let $f$ be a non-zero polynomial over an integral domain $R$. We now prove the above inductively based on the degree of $f$. In the trivial cases, where $\partial f =0$ or $\partial f = 1$, then $f$ is clearly irreducible. If $\partial f > 1$, then $f$ itself is either irreducible, or we have $f=gh$, where we have $\partial g < \partial f$ and $\partial h < \partial f$. Then, by induction, we have that $g$ and $h$ must either be irreducible or the product of irreducible polynomials. Then, since $f=gh$, we can rewrite $g$ and $h$ if they are reducible, into their irreducible factors, and write $f$ as the product of irreducible factors. The theorem then follows by induction. 
-    
 \end{proof}
 
 \begin{example}
-    We now use the above theorem to prove irreducibility in a cubic polynomial over $\Z$. Consider the polynomial $f(t)=t^3-5t+1$ over $\Z$. Let us assume $f$ is not irreducible, then it must have a linear factor, say $t-\alpha$ over $\Z$, where $f(\alpha)=0$ for $\alpha \in \Z$. Then, for $\beta, \gamma \in \Z$, since $f$ is irreducible we can write it in the following form:
+    We now use Theorem \ref{thm:product-irreducible} to prove irreducibility in a cubic polynomial over $\Z$. Consider the polynomial $f(t)=t^3-5t+1$ over $\Z$. Let us assume $f$ is not irreducible, then it must have a linear factor, say $t-\alpha$ over $\Z$, where $f(\alpha)=0$ for $\alpha \in \Z$ by Theorem \ref{thm:remainder}. Then, for $\beta, \gamma \in \Z$, since $f$ is irreducible we can write it in the following form:
     $$f=(t-\alpha)(t^2+\beta t + \gamma) = t^3 + (\beta - \alpha)t^2 + (\gamma - \alpha \beta)t - \alpha \gamma$$
     By comparing coefficients we see that $\alpha \gamma = -1$, thus $\alpha = \pm 1$. But $f(1) = -3 \neq 0$ and $f(-1) = 5 \neq 0$, and we require $f(\alpha)=0$. Therefore, there is no linear factor of $f$ over $\Z$, and therefore is irreducible over $\Z$.
 \end{example}
@@ -73,22 +72,22 @@ where $\alpha_i$ are non-negative integers and only finitely many $r_{\alpha_1, 
 
 From here, we now look at polynomials over $\Z, \Q$ and $\C$, and the irreducibility of polynomials over certain fields.
 
-If we take an irreducible polynomial over $\Z$, i.e, $f \in \Z[x]$, and consider if it is irreducible over $\Q$, we may think that there could be a factor over $\Q$. However, Gauss proved that this is not the case, and the following Lemma shows this.
+If we take an irreducible polynomial over $\Z$, i.e, $f \in \Z[t]$, and consider if it is irreducible over $\Q$, we may think that there could be a factor over $\Q$. However, Gauss proved that this is not the case, and the following lemma shows this.
 
-\begin{lemma}[Gauss' Lemma]
-     Let $f \in \Z[x]$ be a polynomial such that $f$ is irreducible over $\Z$. Then by considering $f$ over $\Q$, we have that $f$ is irreducible over $\Q$.
+\begin{lemma}[Gauss' Lemma] \label{lemma:gauss}
+     Let $f \in \Z[t]$ be a polynomial such that $f$ is irreducible over $\Z$. Then by considering $f$ over $\Q$, we have that $f$ is irreducible over $\Q$.
     
 \end{lemma}
 
 \begin{proof}
 
-First, you assume a contradiction that $f$ is reducible over $\Q$ but irreducible over $\Z$. This means that $f=gh$ where $g,h \in \Q[x]$ and $\partial g < \partial f$, $\partial h < \partial f$. Then let $n$ be the lowest common multiple of all the denominators of the coefficients in our polynomials $g$ and $h$. Then, consider the polynomial $nf = g' h'$. Thus, we have $n \in \Z$ and $g', h' \in \Z[x]$
+First, we assume for sake of contradiction that $f$ is reducible over $\Q$ but irreducible over $\Z$. This means that $f=gh$ where $g,h \in \Q[t]$ and $\partial g < \partial f$, $\partial h < \partial f$. Then let $n$ be the lowest common multiple of all the denominators of the coefficients in our polynomials $g$ and $h$. Then, consider the polynomial $nf = g' h'$. Thus, we have $n \in \Z$ and $g', h' \in \Z[t]$. 
 
 Now suppose that $p$ is a prime factor of $n$, and write $g' := g_0 + g_1 t +\dots+ g_r t^r$, $h' := h_0 + h_1 t +\dots+ h_s t^s$. Then we have that either $p$ divides all coefficients $g_i$, for $0\leq i\leq r$, or all the coefficients $h_j$, for $0\leq j \leq s$. If not then there must be smallest values $i_0$, $j_0$ such that $p \nmid g_{i_0}$ and $p \nmid h_{j_0}$. However, $p$ divides the coefficient of $t^{i_0+j_0}$ in $g' h'$, which is
 $$
-h_0 g_{i_0+j_0} + h_1 g_{i_0+j_0-1} +...+ h_{j_0} g_{i_0} +...+ h_{i_0+j_0} g_0
+h_0 g_{i_0+j_0} + h_1 g_{i_0+j_0-1} +...+ h_{j_0} g_{i_0} +...+ h_{i_0+j_0} g_0.
 $$
-since $nf$ is divisible by $p$ over $\Z$, which means that $p |g_{i_0} h_{j_0}$. However $p \nmid g_i$ and $p \nmid h_j$, which is a contradiction.
+Since $nf$ is divisible by $p$ over $\Z$, which means that $p |g_{i_0} h_{j_0}$. However $p \nmid g_i$ and $p \nmid h_j$, which is a contradiction.
 \end{proof}
 
 \begin{theorem}[Eisenstein's Criterion] \label{thm:eisenstein}
@@ -96,31 +95,31 @@ since $nf$ is divisible by $p$ over $\Z$, which means that $p |g_{i_0} h_{j_0}$.
     $f(t) = a_0 + a_1 t + ... + a_n t^n$
     be a polynomial over $\Z$. 
     If there exists a prime $p$ such that the following conditions hold:
-    \begin{enumerate}
-        \item $p \nmid a_n$
-        \item $p \mid a_i$ for $i = {0, 1,..., n-1}$
+    \begin{enumerate}[label=(\roman*)]
+        \item $p \nmid a_n$;
+        \item $p \mid a_i$ for $i = {0, 1,..., n-1}$;
         \item $p^2 \nmid a_0$. 
     \end{enumerate}
     Then $f$ is irreducible over $\Q$. 
 \end{theorem}
 
 \begin{proof}
-If we can show that $f$ is irreducible over $\Z$, then (by Gauss' Lemma) we can say that $f$ is also irreducible over $\Q$.
+If we can show that $f$ is irreducible over $\Z$, then by Lemma \ref{lemma:gauss} we can say that $f$ is also irreducible over $\Q$.
 
 Let us suppose towards a contradiction that $f=g \cdot h$, where $g,h$ are polynomials over $\Z$. So let $g(t)=g_0+g_1 t+ ... +g_r t^r,$ and $h(t)=h_0+h_1t+ ... +h_st^s$ where $1 \leq r, s < n$. Then we have that $r+s=n$. Then we have $g_0 h_0 = a_0$ so by the second criterion, $p|g_0$ or $p|c_0$. By the third criterion, $p$ can not divide both $g_0$ and $h_0$, so without loss of generality assume that $p | g_0$ and $p \nmid h_0$. If all $g_j$ are divisible by $p$, then $a_n$ is divisible by $p$, contrary to the first criterion. Let $g_{j_0}$ be the first coefficient of $g$ not divisible by $p$. Then
 $
 a_{j_0} = g_{j_0} h_0 + ...+ g_0 h_{j_0}
 $
-where $j_0 < n$. This implies that $p$ divides $h_0$, since $p$ divides $a_{j_0}, g_0,..., g_{j_0-1}$, but not $g_{j_0}$. This leads to a contradiction and thus $f$ is irreducible over $\Z$ which by Gauss' Lemma implies that $f$ is irreducible over $\Q$.
+where $j_0 < n$. This implies that $p$ divides $h_0$, since $p$ divides $a_{j_0}, g_0,..., g_{j_0-1}$, but not $g_{j_0}$. This leads to a contradiction and thus $f$ is irreducible over $\Z$ which by Lemma \ref{lemma:gauss} implies that $f$ is irreducible over $\Q$.
 \end{proof}
 
 A theorem exists for a more general version of Eisenstein's Criterion, for polynomials over an integral domain. We do not go through it in this report as we only require the above criterion for the Galois Theory we introduce. The proof would then be slightly different in the general case but it would use similar ideas.
 
 \begin{example}
 Consider$
-f(t) = \frac{2}{9} t^5 + \frac{5}{3} t^4 + t^3 + \frac{1}{3}$ over $\Q$. By Gauss' Lemma, we can show that $f$ is irreducible over $\Q$ if $
+f(t) = \frac{2}{9} t^5 + \frac{5}{3} t^4 + t^3 + \frac{1}{3}$ over $\Q$. By Lemma \ref{lemma:gauss}, we can show that $f$ is irreducible over $\Q$ if $
 9f(t) = 2t^5 + 15t^4 + 9t^3 + 3
-$ is irreducible over $\Z$. By applying Eisenstein's criterion with $q = 3$, we have that $3 \nmid 2, 3|15, 3|9 $ and $3|3$ but $q^2 = 9 \nmid 3$. Hence all of Eisenstein's criterion hold, and thus $9f(t)$ is irreducible over $\Z$ which means that $f(t)$ is irreducible over $\Q$
+$ is irreducible over $\Z$. By applying Theorem \ref{thm:eisenstein} with $q = 3$, we have that $3 \nmid 2, 3|15, 3|9 $ and $3|3$ but $q^2 = 9 \nmid 3$. Hence all of Theorem \ref{thm:eisenstein} hold, and thus $9f(t)$ is irreducible over $\Z$ which means that $f(t)$ is irreducible over $\Q$
 
 \end{example}
 
@@ -129,7 +128,7 @@ If $p$ is prime, the binomial coefficient $\binom{p}{r}$ is divisible by $p$ if 
 \end{lemma}
 
 \begin{proof}
-By definition we have $\binom{p}{r} = \frac{p!}{r!(p-r)!} \in \Z$. We can see that the numerator has $p$ as a factor, which would not be cancelled by any factor in the denominator unless $r=p$ or $r=0$.
+By definition $\binom{p}{r} = \frac{p!}{r!(p-r)!} \in \Z$. The numerator has $p$ as a factor, which would not be cancelled by any factor in the denominator unless $r=p$ or $r=0$.
 \end{proof}
 
 \begin{theorem}[Irreducible Prime Polynomial Theorem]\label{thm:irreducible-prime-polynomial}
@@ -144,8 +143,7 @@ By definition we have $\binom{p}{r} = \frac{p!}{r!(p-r)!} \in \Z$. We can see th
 Firstly, set $f(t) = \frac{t^p - 1}{t - 1}$. 
 Now define $t =1+x$, so that we have a new indeterminate $x$. Then we can show that if $f(1+x)$ is irreducible over $\Q$, then $f(t)$ is also irreducible over $\Q$.
 
-Then we can write $$f(1+x)=\frac{(1+x)^p - 1}{x}  = x^{p-1} + pg(x),$$ whereby $g(x)\in \Z[x]$ with constant $1$ by Lemma \ref{lemma:binom-prime}. Then, by Eisenstein's Criterion, $f(1+x)$ is irreducible over $\Q$ and thus $f(t)$ is irreducible over $\Q$ also.
-
+Then we can write $$f(1+x)=\frac{(1+x)^p - 1}{x}  = x^{p-1} + pg(x),$$ whereby $g(x)\in \Z[x]$ with constant $1$ by Lemma \ref{lemma:binom-prime}. Then, by Theorem \ref{thm:eisenstein}, $f(1+x)$ is irreducible over $\Q$ and thus $f(t)$ is also irreducible over $\Q$.
 \end{proof}
 
 
@@ -157,7 +155,8 @@ The next theorem, taken from Vishik \cite{complex-functions-uon} and is stated w
     If $f(t)$ is a non-constant polynomial over $\mathbb{C}$, then there exists $z_0 \in \mathbb{C}$ such that $f\left(z_0\right)=0$.
 \end{theorem}
 
-This is a special case where it only works over $\C$. Such a number $z_0$ is called a \textit{root} of $f(t)$. 
+%This is a special case where it only works over $\C$. 
+%Such a number $z_0$ is called a \textit{root} of $f(t)$. 
 
 \begin{theorem} \label{thm:fundamental-algebra-2}
 	Let $f(t) \in \mathbb{C}[t]$ with $\partial f=n \geq 1$. Then there exist $\alpha_1, \ldots, \alpha_n \in \mathbb{C}$, and $0 \neq k \in \mathbb{C}$, such that

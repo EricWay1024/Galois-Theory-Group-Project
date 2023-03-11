@@ -34,7 +34,7 @@ Here we list some group theory definitions and theorems used in the text. They a
 	Given groups $G$ and $H$, a group homomorphism $\phi: G \to H$ is a function such that $\phi(xy) = \phi(x) \phi(y)$ for any $x, y \in G$. It can be shown that $\phi(e) = e$ and $\phi(x^{-1}) = \phi(x) ^ {-1}$. The \textit{image} of $\phi$ is $\Img(\phi) = \{\phi(x) : x\in G\}$ and the \textit{kernel} of $\phi$ is $\Ker(\phi) = \{x \in G : \phi(x) = e\}$. It can be shown that $\Img(\phi) \le H$ and $\Ker(\phi) \trianglelefteq G$.  
 \end{definition}
 
-\begin{definition}
+\begin{definition} \label{def:p-group}
 	Let $p$ be a prime. A \textit{$p$-group} is any group with order $p^k$ for $k \in \N$. Let $G$ be a group with order $p^k m$ and $\gcd\{p, m\} = 1$. Then any subgroup of order $p^k$ of $G$ is called a \textit{$p$-Sylow subgroup} of $G$. 
 \end{definition}
 
@@ -268,7 +268,7 @@ The proof for the following theorem is original.
 \end{proof}
 
 
-\section{Ruler-and-Compass Constructions}
+\section{Ruler-and-Compass Constructions} \label{sec:construction}
 We first prove a lemma to help us show that $\pi$ cannot be rational.
 
 \begin{lemma}\label{lemma:pre-pi-irrational-lemma}

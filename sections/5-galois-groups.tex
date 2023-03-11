@@ -1,6 +1,6 @@
 \section{Galois Groups and Galois Extensions} \label{sec:galois-extensions}
 
-Given a field $L$, we now look at subgroups of the automorphism group $\Aut(L)$ and the elements in $L$ such a subgroup fixes. We investigate the matter with two approaches. On the one hand, we might choose a subfield $K$ of $L$ and define $G$ to be the group of all $K$-automorphisms of $L$, so that $G$ is guaranteed to fix any element in $K$, and we say $G$ is the \textit{Galois group} of the field extension $L/K$, denoted as $G = \Gal(L/K)$. We also define the Galois group of a polynomial $f$ over $K$ with splitting field $F$ as the Galois group of $F / K$. This group acts on the roots of $f$ in a natural way, as we shall see. On the other, we might choose any $G$, and define $K$ to be all elements fixed by $G$, denoted as $K = \Fix(G)$, in which case $K$ is always a field and is called the \textit{fixed field} of $G$. In general, the two approaches are not inverses of each other, i.e. $\Fix(\Gal(L/K)) \neq K$. In fact, the condition for the Galois correspondence $\Fix(\Gal(L/K)) = K$ is when $L/K$ is a finite `Galois' extension (defined as both normal and separable), as we will prove. 
+Given a field $L$, we now look at subgroups of $\Aut(L)$ and the elements in $L$ such a subgroup fixes. We investigate the matter with two approaches. On the one hand, we might choose a subfield $K$ of $L$ and define $G$ to be the group of all $K$-automorphisms of $L$, so that $G$ is guaranteed to fix any element in $K$, and we say $G$ is the \textit{Galois group} of the field extension $L/K$, denoted as $G = \Gal(L/K)$. We also define the Galois group of a polynomial $f$ over $K$ with splitting field $F$ as the Galois group of $F / K$. This group acts on the roots of $f$ in a natural way. On the other, we might choose any $G \le \Aut(L)$, and define $K$ to be all elements fixed by $G$, denoted as $K = \Fix(G)$, in which case $K$ is always a field and is called the \textit{fixed field} of $G$. In general, the two approaches are not inverses of each other, i.e. $\Fix(\Gal(L/K)) \neq K$. In fact, the condition for the Galois correspondence $\Fix(\Gal(L/K)) = K$ is when $L/K$ is a finite `Galois' extension (defined to be both normal and separable). 
 
 
 \subsection{Galois Groups and Fixed Fields}
@@ -9,8 +9,9 @@ Given a field $L$, we now look at subgroups of the automorphism group $\Aut(L)$ 
 We now define the Galois group of a field extension and a polynomial, respectively.
 \begin{definition}
     Let $L/K$ be a field extension. Then all $K$-automorphisms of $L$ form a group under map composition, and this group is called the \textit{Galois group} of $L$, written as \(\Gal(L/K)\).
+    \end{definition}
+  \begin{definition}
 	Let $f$ be a polynomial over $K$ and let $F$ be a splitting field of $f$, then $\Gal(F/K)$ is the \textit{Galois group} of $f$, written as \(\Gal(f)\).
-	
 %		 In the case that \(F\) is a splitting field of a polynomial \(f\) over $K$, \(G\) is called the Galois group of \(f\),
 \end{definition}
 
@@ -109,18 +110,18 @@ Recall Definition \ref{def:transitive-action} for transitive group actions. The 
 	Then $\Gal(f) = \{\Id, \phi, \psi, \phi \psi \} \cong \Z_2 \times \Z_2$. If we label $i, -i, \sqrt 2, -\sqrt 2$ as $x_1, x_2, x_3, x_4$, then $\phi$ and $\psi$ correspond to transpositions $(34)$ and $(12)$, respectively, and $\Gal(f) \cong \{\Id, (34), (12), (12)(34)\} \le S_4$. Also, $\Gal(f)$ does not act transitively on $X$, as there is no $\sigma \in \Gal(f)$ such that $\sigma(\sqrt 2) = i$, and clearly $f$ is reducible over $\Q$.
 \end{example}
 
-We now prove that the upper bound for the order of the Galois group of a finite field extension is the degree of the extension, formalising ideas from  \cite[Lecture~8]{galois-theory-lectures}. As we shall see in the next subsection, this upper bound is reached exactly when $L/K$ is a Galois extension. 
+We now prove an upper bound for the order of the Galois group of a finite field extension, formalising ideas from  \cite[Lecture~8]{galois-theory-lectures}. As we see in the next subsection, this upper bound is reached exactly when $L/K$ is a Galois extension. 
 
-\begin{theorem} \label{thm:galois-group-order-upper-bound}
+\begin{lemma} \label{thm:galois-group-order-upper-bound}
 	Let $L/K$ be a finite field extension and let $G = \Gal(L/K)$, then $|G| \le [L:K]$. 
-\end{theorem}
+\end{lemma}
 
 \begin{proof}
-	Consider a $K$-monomorphism $\phi_0 : K \to X$ where $K \subseteq X$. Since $L/K$ is finite, by Theorem \ref{thm:finite-equi-def}, we can write $L = K(\alpha_1, \ldots, \alpha_r)$ for $r$ finite and $\alpha_i$ algebraic over $K$. Denote $K_0 = K$ and
+	Since $L/K$ is finite, by Theorem \ref{thm:finite-equi-def}, we can write $L = K(\alpha_1, \ldots, \alpha_r)$ for $r$ finite and $\alpha_i$ algebraic over $K$. Denote $K_0 = K$ and
 	$K_i = K(\alpha_1, \dots, \alpha_i)$ for $i = 1, \ldots, r$. In particular, $K_r = L$. 
 	
 	
-	For $i = 1, \ldots, r$, consider the extension $K_i / K_{i-1}$, where $K_i = K_{i-1} (\alpha_i)$. Let $\alpha_i$ be a root of an irreducible polynomial $f_i$ over $K$ of degree $\partial f_i = [K_i : K_{i-1}]$ by Theorem \ref{thm:degree-theorem}. $f_i$ is over $K$ and hence is fixed under $\phi_i$. We now extend $K$-monomorphism $\phi_{i-1} : K_{i-1} \to X$ to $K$-monomorphism $\phi_i: K_i \to X$, then $\phi_i$ must map $\alpha_i$ to a root of $f_i$ in $X$ by Theorem \ref{thm:galois-group-permutes-zeros}, and the number of roots of $f_i$ in $X$ is \textit{at most} $\partial f_i$. Hence there are at most $[K_i : K_{i-1}]$ ways to extend $\phi_{i-1}$ to $\phi_i$. We now see that there are at most $\prod_{i=1} ^r [K_i : K_{i-1}] = [K_r : K_0] = [L : K]$ ways to extend $\phi_0$ to $\phi_r$ by Thorem \ref{thm:tower-theorem}. Since $\phi_r : L \to X$, if we let $X = L$, then $\phi_r \in \Gal(L/K)$. Also, there is only one way to construct $\phi_0$, which is the identity map. Thus each way of extending $\phi_0$ to $\phi_r$ corresponds to an element in $\Gal(L/K)$, and thus $\Gal(L/K) \le [L:K]$. 
+	For any field $X$ such that $K \subseteq X$, consider a $K$-monomorphism $\phi_0 : K \to X$. For $i = 1, \ldots, r$, consider the extension $K_i / K_{i-1}$, where $K_i = K_{i-1} (\alpha_i)$. Let $\alpha_i$ be a root of an irreducible polynomial $f_i$ over $K$ of degree $\partial f_i = [K_i : K_{i-1}]$ by Theorem \ref{thm:degree-theorem}. $f_i$ is over $K$ and hence is fixed under any $K$-monomorphism. We now extend $K$-monomorphism $\phi_{i-1} : K_{i-1} \to X$ to $K$-monomorphism $\phi_i: K_i \to X$, then $\phi_i$ must map $\alpha_i$ to a root of $f_i$ in $X$ by Theorem \ref{thm:galois-group-permutes-zeros}, and the number of roots of $f_i$ in $X$ is \textit{at most} $\partial f_i$. Hence there are at most $[K_i : K_{i-1}]$ ways to extend $\phi_{i-1}$ to $\phi_i$. There are at most $\prod_{i=1} ^r [K_i : K_{i-1}] = [K_r : K_0] = [L : K]$ ways to extend $\phi_0$ to $\phi_r$ by Thorem \ref{thm:tower-theorem}. Since $\phi_r : L \to X$, if we let $X = L$, then $\phi_r \in \Gal(L/K)$. Also, there is only one way to construct $\phi_0$, which is the identity map. Thus each way of extending $\phi_0$ to $\phi_r$ corresponds to an element in $\Gal(L/K)$, and thus $\Gal(L/K) \le [L:K]$. 
 \end{proof}
 
 
@@ -132,10 +133,10 @@ We now turn to the idea of fixed fields.
 
 In the definition above, the fixed field is always a subfield of $L$ \cite[p.~18]{morandi_field_1996}. 
 
-In particular, for a finite field extension $L/ K$, the Galois group $G = \Gal(L / K)$ is a subgroup of $\Aut(L)$ such that $K \subseteq \Fix(G) \subseteq L. $ We are mainly interested in cases where $K = \Fix(G) = \Fix(\Gal(L/K))$. This is true exactly when $L/K$ is a Galois extension, as we shall see in the next subsection. To show this is not true in general, we now look at a counterexample. 
+In particular, for a finite field extension $L/ K$, the Galois group $G = \Gal(L / K)$ is a subgroup of $\Aut(L)$ such that $K \subseteq \Fix(G) \subseteq L. $ We are mainly interested in cases where $K = \Fix(G) = \Fix(\Gal(L/K))$. This is true exactly when $L/K$ is a Galois extension, as we see in the next subsection. To show this is not true in general, we now look at a counterexample. 
 
 \begin{example}
-    For $G = \Gal(L/K)$, it is not always the case that $K = \Fix(G)$. For example, consider when $K = \Q$ and $L = \Q (\alpha)$ where $\alpha = \sqrt[3]{2}$. If $\sigma \in G$, then $\sigma(\alpha)$ is a root of the polynomial $t^3 - 2$ by Theorem \ref{thm:galois-group-permutes-zeros}, but the two complex roots are not contained in $L$. Thus $\sigma(\alpha) = \alpha$ and $G = \{ \Id \}$. We see that $\Fix(G) = L \neq K$. 
+   Consider when $K = \Q$ and $L = \Q (\alpha)$ where $\alpha = \sqrt[3]{2}$. If $\sigma \in G$, then $\sigma(\alpha)$ is a root of the polynomial $t^3 - 2$ by Theorem \ref{thm:galois-group-permutes-zeros}, but the two complex roots are not contained in $L$. Thus $\sigma(\alpha) = \alpha$ and $G = \{ \Id \}$. We see that $\Fix(G) = L \neq K$. 
 \end{example}
 
 
