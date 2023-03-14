@@ -1,57 +1,63 @@
 \section{Field Extensions} \label{sec:ext}
 This section is based on books and reports by Stewart \cite[Chapters~4-5]{Stewart}, Moy \cite{Moy} and Morandi \cite[Chapter~1]{ morandi_field_1996}. 
 
-In order to look at field extensions we must first define some useful terms. 
+In order to look at field extensions we first define some useful terms. 
 \begin{definition}
-Let $K$ be a field. Let \(F\) be a subset of \(K\) such that $F$ is a field. Then $F$ is a \textit{subfield}
+ A subset $F$ of a field \(K\) such that $F$ is a field is a \textit{subfield}
  of $K$.
-A field \(F\) is called a \textit{prime field} of \(K\) if it has no proper (strictly smaller) subfield.
+% A field \(F\) is called a \textit{prime field} of \(K\) if it has no proper (strictly smaller) subfield.
 \end{definition}
 \begin{definition}
-	A \textit{field homomorphism} from a field $F$ to another field $K$ is a function $\theta: F \to K$ which obeys the following homomorphism properties: $\theta(x + y) = \theta(x) + \theta(y)$, $\theta(x\cdot y) = \theta(x) \cdot \theta(y)$, $\theta(1) = 1$, and $\theta = 0$ for any $x, y \in F$. 
+	A \textit{field homomorphism} from a field $F$ to another field $K$ is a function $\theta: F \to K$ which obeys the following homomorphism properties: $\theta(x + y) = \theta(x) + \theta(y)$ and $\theta(x\cdot y) = \theta(x) \cdot \theta(y)$ for any $x, y \in F$. 
     A \textit{monomorphism} is an injective homomorphism. 
-	When a monomorphism is also surjective, it is called a \textit{field isomorphism}. An \textit{automorphism} of a field $F$, is an isomorphism from $F$ to itself.
+	When a monomorphism is also surjective, it is called a \textit{field isomorphism}. An \textit{automorphism} of a field $F$ is an isomorphism from $F$ to itself.
 \end{definition}
 
 An important insight here is that a field homomorphism is always injective, and hence a field homomorphism is always a field monomorphism.
 We can also find that all automorphisms of a field $F$ form a group $\Aut(F)$, the automorphism group of $F$, under composition \cite[p.~15]{morandi_field_1996}.
 
+\begin{definition}
+A field \(K\) is said to be a \textit{field extension} of \(F\), denoted \(K / F\), if \(F\) is a subfield of \(K\). If $L/K$ is a field extension, we call any field $M$ with $K \subseteq M \subseteq L$ an \textit{intermediate field} of $L/K$. 
+\end{definition}
+
+A field extension is a monomorphism \(\iota: F \to K\). 
+
 \begin{definition} \label{def:automorphism}
-	Let $K \subseteq M \subseteq L$ be fields. A \textit{$K$-automorphism} $\phi$ of $L$ is an automorphism of $L$ which fixes $K$ pointwise, i.e. such that $\phi(a) = a$ for all $a \in K$. 
+	Let $K \subseteq M \subseteq L$ be fields. A \textit{$K$-automorphism} $\phi$ of $L$ is an automorphism of $L$ which fixes $K$ pointwise, that is to say $\phi(a) = a$ for all $a \in K$. 
 	A \textit{$K$-monomorphism} $\phi : M \to L$ is a monomorphism from $M$ to $L$ which fixes $K$ pointwise. 
 \end{definition}
 %\begin{definition}
     %A group \textit{automorphism} is an isomorphism from a group to itself
 %\end{definition}
 
-\begin{definition}
-A field \(K\) is said to be a \textit{field extension} of \(F\), denoted \(K / F\), if \(F\) is a subfield of \(K\). If $L/K$ is a field extension, we call any field $M$ with $K \subseteq M \subseteq L$ an \textit{intermediate field} of $L/K$. 
-\end{definition}
-In other words, a field extension \(K\) of \(F\) contains the field \(F\) and some more elements.  We see that a field extension is a monomorphism \(\iota: F \to K\).  We can start to see how this will be useful for finding roots of polynomials over a field as we can extend the field to include the roots.
+% In other words, a field extension \(K\) of \(F\) contains the field \(F\) and some more elements.  
+ We can start to see how this will be useful for finding roots of polynomials over a field as we can extend the field to include the roots.
 
 \begin{definition}
     Let $K$ be a field. Then $K(\alpha_1, \dots, \alpha_n)$ is defined as the smallest field containing $K$ and $\alpha_1, \dots, \alpha_n$ and is said to be obtained from $K$ \textit{adjoining} $\alpha_1, \dots, \alpha_n$. The extension $K(\alpha_1, \dots, \alpha_n) / K$ is called a \textit{finitely generated extension}, and the set $\{\alpha_1, \dots, \alpha_n\}$ is called the \textit{generating set}. 
 \end{definition}
 
 \begin{example} \label{exm:field-extension}
-The field \(\mathbb{Q}(\sqrt{2})\) is a field extension of \(\mathbb{Q}\), as \(\mathbb{Q}(\sqrt{2}) = \{a + \sqrt{2}b : a,b \in \mathbb{Q}\}\) we can clearly see that when \(b = 0\) this gives us the rational numbers so \(\mathbb{Q}\) $\subseteq$ \(\mathbb{Q}(\sqrt{2})\).
+The field \(\mathbb{Q}(\sqrt{2})\) is a field extension of \(\mathbb{Q}\), as \(\mathbb{Q}(\sqrt{2}) = \{a + \sqrt{2}b : a,b \in \mathbb{Q}\}\). Letting \(b = 0\) gives us the rational numbers so \(\mathbb{Q}\) $\subseteq$ \(\mathbb{Q}(\sqrt{2})\).
 \end{example}
 
 Often, a polynomial over a field $K$ has no roots in $K$. For example, $f(t) = t^2 - 2$ over $\Q$ has no roots in $\Q$. However, we can extend the field so that the roots are included. In this case, the field $\Q(\sqrt 2)$ contains all roots of $f$, which are $\pm \sqrt 2$.
 
 \begin{definition}
-For a field extension $L/K$, if there exists an \(\alpha \in L\) and \(p(\alpha)=0\) for some polynomial \(p\) over \(K\), then we say that \(\alpha\) is \textit{algebraic} over $K$. If \(\alpha\) is not algebraic over $K$, it is called \textit{transcendental} over \(K\). Specifically, if $\alpha \in \C$ is algebraic over $\Q$, then we call $\alpha$ an \textit{algebraic number}. If every $\alpha \in L$ is algebraic over the field $K$, then we can call the field extension $L/K$ \textit{algebraic}.
+For a field extension $L/K$ and \(\alpha \in L\), if there exists a polynomial \(f\) over \(K\) such that \(f(\alpha)=0\), then we say that \(\alpha\) is \textit{algebraic} over $K$; otherwise,  \(\alpha\) is \textit{transcendental} over \(K\). Specifically, if $\alpha \in \C$ is algebraic over $\Q$, then we call $\alpha$ an \textit{algebraic number}. If every $\alpha \in L$ is algebraic over  $K$, then the field extension $L/K$ is \textit{algebraic}.
 
 \end{definition}
 
 
 \begin{definition}
-    $[L:K]$ is defined to be the dimension of the vector space $L$ over the space $K$, and is called the degree of the field extension $L/K$.
+    The \textit{degree} of the field extension $L/K$ is defined to be the dimension of the vector space $L$ over the space $K$, denoted as $[L:K]$.
     A field extension is called \textit{finite} if its degree is finite; otherwise, it is \textit{infinite}. 
 \end{definition}
 
+
+
 \begin{example}
-	Continuing Example \ref{exm:field-extension}, we see that $[\Q(\sqrt 2): \Q] = 2$ and $\Q(\sqrt 2) / \Q$ is an algebraic and finite extension.
+	 By Example \ref{exm:field-extension}, $[\Q(\sqrt 2): \Q] = 2$ and $\Q(\sqrt 2) / \Q$ is an algebraic and finite extension.
 \end{example}
 
 We now show an important theorem involving the degree of a finite field extension. 
@@ -63,22 +69,22 @@ $
 $. 
 \end{theorem}
 \begin{proof}
-By definition, $K \subseteq M \subseteq L$. Suppose that $[L:M]=m$ and $[M:K]=n$. Then since every field is a vector spaces, each field must have a basis. Thus, take $\lambda = \{\lambda_1,\dots,\lambda_m\}$ as a basis for $L/M$, and similarly take $\mu = \{\mu_1,\dots,\mu_n\}$ as a basis for $M/K$. Then $\forall x \in L$, $x = \sum^m_{i=1}x_i\lambda_i$ for some $x_i \in M$, as $\lambda$ is a basis for $L/M$. Now define $b:=\sum^n_{j=1}\mu_j$ and $d_i:=\frac{x_i}{b}$. Then $x=\sum^m_{i=1}\frac{x_i}{b}\cdot b \cdot \lambda_i = \sum^m_{i=1}\sum^n_{j=1}d_i\cdot \mu_j \cdot \lambda_i$. Considering the set $\gamma=\{\lambda_i\mu_j : 1\leq i \leq m, 1\leq j \leq n\}$, we can write any $x \in L$ as a linear combination of elements in $\gamma$. Therefore, $\gamma$ spans $L/K$.
+Suppose that $[L:M]=m$ and $[M:K]=n$. Then since $L$ is a vector space over $M$, $L/M$ has a basis. Thus, take $\lambda = \{\lambda_1,\dots,\lambda_m\}$ as a basis for $L/M$. Similarly take $\mu = \{\mu_1,\dots,\mu_n\}$ as a basis for $M/K$. Then $\forall x \in L$, $x = \sum^m_{i=1}x_i\lambda_i$ for some $x_i \in M$, as $\lambda$ is a basis for $L/M$. Now define $b=\sum^n_{j=1}\mu_j$ and $d_i=\frac{x_i}{b}$. Then $x=\sum^m_{i=1}\frac{x_i}{b}\cdot b \cdot \lambda_i = \sum^m_{i=1}\sum^n_{j=1}d_i\cdot \mu_j \cdot \lambda_i$. Considering the set $\gamma=\{\lambda_i\mu_j : 1\leq i \leq m, 1\leq j \leq n\}$, we can write any $x \in L$ as a linear combination of elements in $\gamma$. Therefore, $\gamma$ spans $L/K$.
 
 Now we show that $\gamma$ is linearly independent, and hence confirm that it is a basis for $L/K$. Suppose that for some $c_{ij} \in K$ we have $\sum^m_{i=1} \sum^n_{j=1} c_{ij}\lambda_i\mu_j = 0 $. Then since $\lambda$ is a linearly independent set, as $\lambda$ is a basis, over $M$, for all $i \in \{1,\dots,m\}$ we have $\sum^n_{j=1} c_{ij}\mu_j = 0 $. $\mu$ is also a linearly independent set over $K$, therefore $\forall i \in \{1,\dots,m\}$ and $\forall j \in \{1,\dots,n\}$ we have $c_{ij} = 0$. Therefore, $\gamma$ is linearly independent and we  know it spans $L/K$, thus it is a basis for $L/K$ and since $|\gamma|=mn$ this implies that $[L:K] = mn = [L:M]\cdot[M:K]$.
 \end{proof}
 
 \subsection{Simple Field Extensions}
 \begin{definition}
-An extension field \(F\) of \(K\) is called \textit{simple} if \(F = K(\alpha)\) for some \(\alpha \in F\).
+A field extension $F/K$ is called \textit{simple} if \(F = K(\alpha)\) for some \(\alpha \in F\).
 \end{definition}
 
 For example, \(\mathbb{Q}(\sqrt{2})\) is a simple field extension over \(\Q\). We can also look at some less obvious extension fields which are simple.
 \begin{example}
-Taking the extension field \(K = \mathbb{Q}(\sqrt{2}, i)\), we prove that this can be rewritten as a simple field extension \(K' := \mathbb{Q}(\sqrt{2} + i)\). We know \(K'\) contains
+Let  \(K = \mathbb{Q}(\sqrt{2}, i)\). We prove that the field extension $K/\Q$ is simple. Let \(K' = \mathbb{Q}(\sqrt{2} + i)\), then $K'/\Q$ is a simple field extension. Clearly $K$ contains $\sqrt 2 + i$ and thus $K' \subseteq K$. On the other hand, \(K'\) contains
 $(\sqrt{2} + i)^2 = 1 + 2i\sqrt{2}$, $(i + \sqrt{2})(1+2i\sqrt{2}) = 5i - \sqrt{2}$, and 
 $(5i - \sqrt{2}) + (i + \sqrt{2}) = 6i$, 
-so we know that \(K'\) contains \(i\). We can also see that \(K'\) contains \(\sqrt{2}\) as \((i+\sqrt{2})-i = \sqrt{2}\). Hence we can see that \(K = K'\), so \(\mathbb{Q}(\sqrt{2},i)\) is a simple field extension.
+so \(K'\) contains \(i\). Also \(K'\) contains \(\sqrt{2}\) as \((i+\sqrt{2})-i = \sqrt{2}\). Thus $K \subseteq K'$ and hence  \(K = K'\), so \( K  /\Q\) is a simple field extension.
 \end{example}
 
 %\begin{definition}
@@ -116,11 +122,11 @@ The following theorem further indicates that $K[t] / \langle m \rangle$ is a fie
 The field $K[t] / \langle m \rangle$ contains all constant polynomials over $K$ and hence contains $K$, and thus $\left(K[t] / \langle m \rangle \right) / K$ is a field extension. The next theorem indicates that this extension has the same structure as a simple algebraic extension.
 
 \begin{theorem}
- Let $K(\alpha) / K$ be a simple algebraic extension, and let \(m\) be the minimal polynomial of \(\alpha\) over \(K\). Thus we have that $K(\alpha)$ is isomorphic to $K[t] /\langle m\rangle$. We can choose the isomorphism $K[t] /\langle m\rangle \rightarrow K(\alpha)$ to map $t$ to $\alpha$ and to be the identity on $K$.
+ Let $K(\alpha) / K$ be a simple algebraic extension, and let \(m\) be the minimal polynomial of \(\alpha\) over \(K\). Thus, $K(\alpha)$ is isomorphic to $K[t] /\langle m\rangle$. We can choose the isomorphism $K[t] /\langle m\rangle \rightarrow K(\alpha)$ to map $t$ to $\alpha$ and to be the identity on $K$.
 \end{theorem}
 
 \begin{proof}
-We define the isomorphism by $[p(t)] \mapsto p(\alpha)$, where $[p(t)]$ represents the equivalence class of $p(t)\mod m$. We can check that this map is well-defined because $p(\alpha)=0$ if and only if $m \mid p$. We can see clearly that this is a monomorphism. This maps \(t\) to \(\alpha\) preserving the identity.
+We define the isomorphism by $[f(t)] \mapsto f(\alpha)$, where $[f(t)]$ represents the equivalence class of $f(t)\mod m$. We can check that this map is well-defined because $f(\alpha)=0$ if and only if $m \mid p$. This is a monomorphism and maps \(t\) to \(\alpha\) preserving the identity.
 \end{proof}
 
 \begin{corollary}
@@ -150,7 +156,7 @@ The next theorem links the degree of a simple algebraic field extension with the
 \end{theorem}
 
 \begin{proof}
-    We first want to show that every polynomial \(f \in K[t]\) is congruent modulo \(m\) to a unique polynomial of degree less that the degree of \(m\). We can divide the polynomial \(f\) by \(m\) and we get \(f = qm + r\) with \(q,r \in K[t]\) and \(\partial r < \partial m\), this implies that \(f - r =qm\) and so we can see that \(f \equiv r (\text{mod } m)\). Suppose that there exists \(s \in K[t]\) with \(r \equiv s(\text{mod }m)\), where \(\partial r, \partial s < \partial m\). Then \((r - s)\) divides \(m\), but \((r-s)\) has a smaller degree than \(m\), so \(r-s=0\), which implies that \(r=s\), which proves uniqueness. We have proved that $\left\{1, \alpha, \ldots, \alpha^{n-1}\right\}$ is a basis for \(K(\alpha)\) as \(n = \partial m\), so any higher powers would be congruent to these powers which are less than \(n\).
+    We first want to show that every polynomial \(f \in K[t]\) is congruent modulo \(m\) to a unique polynomial of degree less that the degree of \(m\). We can divide the polynomial \(f\) by \(m\) and we get \(f = qm + r\) with \(q,r \in K[t]\) and \(\partial r < \partial m\), this implies that \(f - r =qm\) and so \(f \equiv r \mod m\). Suppose that there exists \(s \in K[t]\) with \(r \equiv s \mod m\), where \(\partial r, \partial s < \partial m\). Then \((r - s)\) divides \(m\), but \((r-s)\) has a smaller degree than \(m\), so \(r-s=0\), which implies that \(r=s\), which proves uniqueness. We have proved that $\left\{1, \alpha, \ldots, \alpha^{n-1}\right\}$ is a basis for \(K(\alpha)\) as \(n = \partial m\), so any higher powers would be congruent to these powers which are less than \(n\).
     \end{proof}
 
 %\begin{theorem}
@@ -160,15 +166,17 @@ The next theorem links the degree of a simple algebraic field extension with the
 %\begin{proof}
 %For the transcendental case we know that the elements $1, \alpha, \alpha^2, \ldots$ are linearly independent over $K$. For the algebraic case, we see Lemma \ref{algebraic case}.
 %\end{proof}
-As a consequence, we now show an equivalent condition for a field extension to be finite. 
+Consequently, we now show an equivalent condition for a field extension to be finite. 
 
 \begin{theorem} \label{thm:finite-equi-def}
     A field extension $L/K$ is finite if and only if $L = K(\alpha_1, \dots, \alpha_r)$ for $r$ finite and $\alpha_i$ algebraic over $K$. 
 \end{theorem}
 
 \begin{proof}
-    Denote $K_s = K(\alpha_1, \dots, \alpha_s)$ for $s = 1, \dots, r$ and let $K_0 = K$. If \(\alpha_1, \dots , \alpha_r \in K\) are algebraic we know that for any \(\alpha_s\) with \(1 \leq s \leq r\) \( [K_s: K_{s-1}] = \partial m\), where \(m\) is the minimal polynomial of \(\alpha_s\) over \(K\) by Theorem \ref{thm:degree-theorem}. Then, using theorem \ref{thm:tower-theorem}, we see that \([K_r : K] = [K_r:K_{r-1}]\dots[K_1:K]\) is finite. Conversely, let \(L/K\) be a finite extension. Then there exists a basis \(\{\alpha_1, \dots, \alpha_r\}\) for \(L\) over \(K\). Let \(t \in L\)  and let \(n = [L:K]\). The set \(\{1,t,\dots,t^n\}\) contains \(n+1\) elements, which have to be linearly dependent over \(K\). Hence, \(k_0 + k_1 t + \dots + k_n t^n = 0\) for \(k_0, k_1, \dots, k_n \in K\), and \(t\) is algebraic over \(K\).
+    Denote $K_s = K(\alpha_1, \dots, \alpha_s)$ for $s = 1, \dots, r$ and let $K_0 = K$. If \(\alpha_1, \dots , \alpha_r \in K\) are algebraic, for any \(\alpha_s\) with \(1 \leq s \leq r\) \( [K_s: K_{s-1}] = \partial m\), where \(m\) is the minimal polynomial of \(\alpha_s\) over \(K\) by Theorem \ref{thm:degree-theorem}. Then, by Theorem \ref{thm:tower-theorem}, \([K_r : K] = [K_r:K_{r-1}]\dots[K_1:K]\) is finite. Conversely, let \(L/K\) be a finite extension. Then there exists a basis \(\{\alpha_1, \dots, \alpha_r\}\) for \(L\) over \(K\). Let \(t \in L\)  and let \(n = [L:K]\). The set \(\{1,t,\dots,t^n\}\) contains \(n+1\) elements, which have to be linearly dependent over \(K\). Hence, \(k_0 + k_1 t + \dots + k_n t^n = 0\) for \(k_0, k_1, \dots, k_n \in K\), and \(t\) is algebraic over \(K\).
 \end{proof}
+
+Thus a finite extension is always algebraic. The converse, however, is not true, as shown in the next section. 
 
 % NB the definition of an algebraic extension is used in defining normal extensions
 

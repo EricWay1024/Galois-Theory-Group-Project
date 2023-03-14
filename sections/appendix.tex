@@ -141,14 +141,14 @@ The following is a restatement and proof of Theorem \ref{thm:soluble-main}, base
 
 \begin{theorem} \label{thm:soluble-main-appendix}
 	Let $G$ be a group, $H \le G$ and $N \trianglelefteq G$. Then 
-	\begin{enumerate}
+	\begin{enumerate}[label=(\roman*)]
 		\item If $G$ is solvable, then $H$ is solvable;
 		\item If $G$ is solvable, then $G / N$ is solvable; 
 		\item If $N$ and $G / N$ are solvable, then $G$ is solvable. 
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
-	\begin{enumerate}
+	\begin{enumerate}[label=(\roman*)]
 		\item If $G$ is solvable, then there exists a finite series of subgroups $G_i$ of $G$ for $i = 0, 1, \dots, n$ satisfying Definition \ref{def:soluble}. Let $H_i = G_i \cap H$. Then $H$ has a series of subgroups $H_i$ such that $\{ e \} = H_0 \triangleleft H_1 \triangleleft \dots \triangleleft H_n = H.$
 		For each $i = 0, 1, \dots, n - 1$, 
 		$$
@@ -180,12 +180,12 @@ The following is a restatement and proof of Theorem \ref{thm:soluble-main}, base
 		The quotients are either $N_{i+1} / N_i$  or $G_{i+1} / G_i$ and are all abelian. Therefore $G$ is solvable.
 	\end{enumerate}
 \end{proof}
-in Example \ref{exm:correspondence}
+
 
 \section{Further Proofs} 
 \subsection{Solvability by Radicals} \label{sec:radical-alter}
 
-We now establish (one direction of) the Galois' Theorem using an alternative method based on \cite[Chapter~15]{Stewart}. This proof addresses the potential problem in the proof of Theorem \ref{thm:galois-theorem} that the radical extension might not be exactly the splitting field but contains it.  
+We now establish (one direction of) Galois' Theorem using an alternative method based on \cite[Chapter~15]{Stewart}. This proof addresses the potential problem in the proof of Theorem \ref{thm:galois-theorem} that the radical extension might not be exactly the splitting field but contains it.  
 
 The proof for the following theorem is original. 
 \begin{theorem} \label{thm:fix-extension-normal}
@@ -384,7 +384,7 @@ We first prove a lemma to help us show that $\pi$ cannot be rational.
 	\centering
 	\begin{tikzpicture}
 		\node(K) {$K$};
-		\node(L) [above=1.3cm of K] {$L$}; 
+		\node(L) [above=1.3cm of K] {$F$}; 
 		\node(M) [right=2cm of K] {$M$};
 		\node(N) [above=1.3cm of M] {$N$}; 
 		
@@ -394,7 +394,7 @@ We first prove a lemma to help us show that $\pi$ cannot be rational.
 		\draw[->] (M) --  node[right] {$f(t)$} (N);
 		\draw[->] (K) --  node[above] {$f(t)(t^p - c)$} (N);
 	\end{tikzpicture}
-	\caption{Field extensions in the proof of Theorem \ref{thm:solvable:chain}. For example, an arrow from field $K$ to field $L$ with label $f(t)$ indicates that $L$ is the splitting field of $f(t)$ over $K$. }
+	\caption{Field extensions in the proof of Theorem \ref{thm:solvable:chain}. For example, an arrow from field $K$ to field $F$ with label $f(t)$ indicates that $F$ is the splitting field of $f(t)$ over $K$. }
 	\label{fig:solvable-chain}
 \end{figure}
 
